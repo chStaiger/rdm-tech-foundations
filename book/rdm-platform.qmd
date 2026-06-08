@@ -1,1 +1,91 @@
-# RDM Platform
+# RDM Platform 
+*From Components to a FAIR‑Aligned Infrastructure*
+
+Modern Research Data Management (RDM) is built from many specialised components: repositories, policy engines, metadata services, PID services, and storage systems. Each plays a distinct role, but none of them delivers FAIR on its own. FAIR only emerges when these components are assembled into a coherent platform with shared standards, predictable data flows, and consistent governance.
+
+- **Storage infrastructure** preserves the bitstreams.  
+- **Policy engines and repositories** form and manage digital objects across their lifecycle.  
+- **PID services** anchor those objects in a global, resolvable namespace.  
+- **Metadata portals and harvesters** expose metadata for discovery and aggregation.  
+- **Compute systems** consume digital objects, using identifiers, metadata, and provenance for reproducible analysis.
+
+When these systems interoperate through stable APIs, shared schemas, and coordinated policies, they stop being isolated tools and become a **platform**: an environment where data can move, evolve, and be reused without losing identity, metadata, or provenance.
+
+This is the shift from *components* to *infrastructure design*.  
+Designing a modern RDM platform means taking the FAIR principles seriously—not as guidelines for researchers, but as **requirements on the infrastructure itself**. A FAIR‑aligned platform is therefore not a single system but a coordinated ecosystem that makes data **Findable, Accessible, Interoperable, and Reusable by design**.
+
+## What FAIR Means for Infrastructure
+
+### Findable (F1–F4) 
+To make data findable, infrastructure must support **persistent identifiers** (F1) such as DOIs or Handles, ensuring that datasets remain citable and identifiable even as they move across storage systems. These identifiers must be accompanied by **rich metadata** (F2) that describes the dataset in a structured, machine‑readable way. Metadata must explicitly link back to the dataset it describes (F3), and both data and metadata must be registered in **searchable indexes** (F4) that can be harvested by external services.
+
+In practice, this means PID services, metadata registries, search engines, and APIs that expose metadata for discovery.
+
+### Accessible (A1–A2)  
+Accessibility requires that data and metadata be retrievable through **open, standardised protocols** (A1), such as HTTPS, S3, WebDAV, or OAI‑PMH. These protocols must be free to implement (A1.1) and support authentication and authorisation where needed (A1.2). Even if data becomes restricted or removed, its metadata must remain accessible (A2), ensuring that the scholarly record is preserved.
+
+This translates into federated identity, fine‑grained access control, and stable landing pages for metadata.
+
+### Interoperable (I1–I3)
+Interoperability is achieved when infrastructure supports **formal, shared languages** (I1) such as RDF, JSON‑LD, or XML, enabling machines to understand and combine metadata from different sources. Metadata must rely on **FAIR vocabularies and ontologies** (I2), which include both **generic, cross‑domain vocabularies** such as Dublin Core, SKOS, or schema.org, and **domain‑specific FAIR ontologies** from communities like the OBO Foundry. These vocabularies provide stable identifiers and shared semantics, allowing metadata to be interpreted consistently across systems. Interoperability also requires qualified references (I3) that link datasets to related entities such as software, instruments, or grants.
+
+Together, these elements require APIs, ontology support, and metadata models capable of expressing rich, typed relationships rather than flat fields.
+
+### Reusable (R1–R1.3) 
+Finally, reuse depends on **rich descriptions** (R1) that capture domain‑specific details using community standards such as ISA, MIAPPE, or DDI. Metadata must include a clear **usage license** (R1.1), detailed **provenance** (R1.2), and conform to community expectations (R1.3).
+
+Infrastructure must therefore support schema versioning, provenance capture, workflow integration, and controlled vocabularies for licensing.
+
+## Integration and Policy: The Glue That Makes FAIR Work
+
+A FAIR platform is only FAIR if its components work together. This requires **well‑defined integrations** and a **policy engine** that governs how data and metadata move across the lifecycle. Storage, metadata services, workflow engines, and repositories must interoperate through stable interfaces and shared standards so that data remains coherent as it transitions between systems.
+
+A FAIR‑aligned infrastructure therefore needs:
+
+- Clear integration contracts (APIs, event streams, metadata mappings, PID handling)  
+- Consistent metadata models across all layers  
+- Automated workflows for validation, provenance, versioning, and access control  
+- A central policy engine (e.g., iRODS rules, workflow orchestrators) to coordinate:  
+  - ingest from active storage  
+  - metadata enrichment  
+  - transformations and quality checks  
+  - publication to repositories  
+  - synchronisation across catalogs and indexes  
+
+Without this orchestration layer, the platform becomes a loose collection of tools. With it, the platform becomes a **coherent, predictable, auditable, FAIR‑by‑design ecosystem**.
+
+## Transitions in the RDM Lifecycle: Where FAIR Is Won or Lost
+
+Even with strong components, FAIR breaks down if the **transitions** between them are weak. These transitions—between active storage and policy engines, between FAIRification tools and repositories, between repositories and metadata portals—are the moments where digital objects risk losing their identity, metadata, or provenance.
+
+Two challenges dominate these transitions:
+
+### 1. Preserving the identity of the digital object 
+Every service must recognise the object as the *same* entity. This requires:
+
+- early PID assignment  
+- stable internal identifiers  
+- consistent PID handling across systems  
+- mappings that prevent re‑minting or duplication  
+
+If identifiers diverge, the object fractures into multiple incompatible versions.
+
+### 2. Ensuring metadata travels with the object
+Many systems—storage, workflow engines, transfer tools—are **file‑centric**. They move bytes, not digital objects. Without careful design:
+
+- metadata becomes detached  
+- provenance is lost  
+- FAIRification must be repeated  
+- discovery and reuse collapse  
+
+A FAIR‑aligned platform must therefore ensure that:
+
+- metadata is **bound** to the object through identifiers  
+- metadata is **carried forward** at each transition  
+- file‑centric systems can still reference metadata via PIDs  
+- metadata is enriched, not overwritten  
+- provenance is captured automatically  
+
+This is why FAIRification tools, policy engines, and repositories must share **metadata models, identifier schemes, and exchange formats**.
+
+Strong transitions ensure that digital objects remain **identifiable, described, linked, and traceable** across the entire lifecycle.
