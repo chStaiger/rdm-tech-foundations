@@ -45,9 +45,9 @@ book:
         - data-repositories.qmd
         - metadata-portals.qmd
         - pid-services.qmd
-        - rdm-platform.qmd
-  
-    - infrastructure-design.qmd
+        - aai.qmd
+    - rdm-platform.qmd
+    - infrastructure-examples.qmd
     - summary.qmd
     - references.qmd
   
