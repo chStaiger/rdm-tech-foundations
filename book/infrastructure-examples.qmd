@@ -2,7 +2,7 @@
 
 ## Where the Digital‑Object Layer Breaks Without Orchestration
 
-Even when individual components are well designed, an RDM platform that relies only on APIs—without a shared digital‑object layer and orchestration—cannot guarantee that identity, metadata, and provenance remain intact across transitions. The following examples illustrate how and where the digital object breaks when systems exchange data but do not share lifecycle state.
+Even when individual components are well designed, an RDM platform that relies only on APIs, i.e. without a shared digital-object layer and orchestration, cannot guarantee that identity, metadata, and provenance remain intact across transitions. The following examples illustrate how and where the digital object breaks when systems exchange data but do not share lifecycle state.
 
 ### 1. Policy Engine → Repository: Duplicate Publications and Lost Lifecycle State
 
@@ -17,14 +17,25 @@ This leads to several failure modes:
 
 The root cause is simple:  
 the policy engine and the repository do not share a **digital‑object identity** or a **shared lifecycle model**.  
-The repository treats each API upload as a new object; the policy engine assumes it is handing over the same one.
+The repository treats each API upload as a new object, creating a new identiifer for the same data; the policy engine assumes it is handing over the same one, while not being able to establish taht with the repository.
 
 **Result:**  
 The digital object forks into multiple versions, each with its own identifiers and metadata.
 
-### 2. Synchronisation / Sharing Service → Repository or Policy Engine: Files Disappear, Identity Breaks
+You’re absolutely right, Christine — the current text overstates the instability *of the digital object itself* in the sync‑service scenario.  
+The real issue is more subtle:
 
-Synchronisation and file‑sharing services are designed for **working copies**, not digital objects. They allow:
+- **the digital object in the policy engine or repository *is* stable**,  
+- **but its link to the original working files becomes unreliable**,  
+- **because the sync service cannot guarantee the persistence or identity of those working copies**.
+
+Let me rewrite that section so it is accurate, precise, and aligned with your lifecycle model.
+
+Below is a corrected version you can drop directly into the chapter.
+
+## 2. Synchronisation / Sharing Service → Repository or Policy Engine: Working Copies Drift Away From the Digital Object
+
+Synchronisation and file‑sharing services are designed for **working copies**, not for maintaining the authoritative representation of a digital object. They allow:
 
 - renaming  
 - moving  
@@ -34,31 +45,37 @@ Synchronisation and file‑sharing services are designed for **working copies**,
 - resolving sync conflicts  
 - sometimes even metadata tagging  
 
-All of these are legitimate user actions in a sync environment, but they are **catastrophic** for digital‑object identity if the sync service is treated as a source of truth.
+All of these are legitimate user actions in a sync environment.  
+The problem is not that the digital object in the policy engine or repository becomes unstable,  **it remains stable**, but that its **connection to the original working files becomes unreliable** if the sync service is treated as a source of truth.
 
 When a repository or policy engine ingests files from a sync service via an API:
 
-- files may **disappear** after ingestion  
-- files may be **renamed**, breaking identifier mappings  
-- files may be **overwritten**, destroying provenance  
-- folder structures may change, breaking metadata extraction  
-- sync conflicts may create **duplicate or partial files**  
+- files may **disappear** from the sync service after ingestion  
+- files may be **renamed**, breaking the mapping between working copies and the ingested object  
+- files may be **overwritten**, so the working copy no longer corresponds to the preserved version  
+- folder structures may change, breaking assumptions about context or metadata extraction  
+- sync conflicts may create **duplicate or partial files**, making it unclear which version was ingested  
 
-A sync service cannot guarantee the stability required for digital‑object identity.  
-It is therefore essential that **once a digital object is formed, it becomes the single source of truth**.  
-The sync service may continue to hold working copies, but it must not be the authoritative representation.
+In this scenario:
+
+- **the digital object in the repository or policy engine is stable**,  
+- **but the working copies in the sync service are not**.
+
+This means the digital object **loses its connection to the evolving working environment**, and the sync service cannot be relied upon to reflect the authoritative bitstreams.
+
+It is therefore essential that **once a digital object is formed, the repository or policy engine becomes the single source of truth for the bitstreams**.  
+The sync service may continue to hold working copies, but it must not be treated as the authoritative representation.
 
 **Result:**  
-The digital object becomes unstable because its underlying files are unstable.
-
----
+The digital object remains stable, but its link to the working copies breaks as the sync service cannot guarantee persistence, identity, or provenance for the files it holds.
 
 ### 3. Repository / Policy Engine → Metadata Service: Two Sources of Truth for Metadata
 
 ```{mermaid}
-%%| label: fig-api-only
-%%| fig-cap: Without an orchestration layer, API connections move data but do not preserve digital‑object identity, metadata binding, or provenance. The digital object breaks at each system boundary.
+%%| label: fig-meta-push
+%%| fig-cap: The policy engine and repository export their metadata to the metadata service.
 %%| fig-align: center
+
 %%{init: {
   "look": "handDrawn",
   "flowchart": { "htmlLabels": false }
@@ -66,26 +83,49 @@ The digital object becomes unstable because its underlying files are unstable.
 
 flowchart LR
 
-    %% Components
     PE["Policy Engine"]
     REPO["Repository"]
-    META["Metadata Service"]
 
-    %% API-only connections
-    PE -- "API call" --> REPO
-    REPO -- "API call" --> META
-
-    %% Breaks
-    subgraph BREAKS["Digital Object Layer Breaks"]
-        ID1["Identifier drift"]
-        META1["Metadata forks"]
-        PROV1["Provenance gaps"]
+    subgraph META["Metadata Service"]
+        M1["Metadata"]
     end
 
-    %% Arrows showing failure
-    PE -. "no shared lifecycle state" .-> BREAKS
-    REPO -. "no binding of metadata to object" .-> BREAKS
-    META -. "no authoritative source of truth" .-> BREAKS
+    PE -- "push metadata" --> M1
+    REPO -- "push metadata" --> M1
+
+    %% Style for metadata (light)
+    style M1 fill:#e8e8e8,stroke:#333,stroke-width:1px
+```
+
+```{mermaid}
+%%| label: fig-meta-edit-no-return
+%%| fig-cap: Users edit metadata inside the metadata service, but updates do not flow back to the policy engine or repository.
+%%| fig-align: center
+
+%%{init: {
+  "look": "handDrawn",
+  "flowchart": { "htmlLabels": false }
+}}%%
+
+flowchart RL
+
+    USER["User"]
+    PE["Policy Engine"]
+    REPO["Repository"]
+
+    subgraph META["Metadata Service"]
+        M2["Metadata (edited)"]
+    end
+
+    %% No return path
+    M2 -. "no propagation" .-> PE
+    M2 -. "no propagation" .-> REPO
+
+    %% User edits metadata
+    USER -- "edit metadata" --> M2
+
+    %% Style for edited metadata (highlight)
+    style M2 fill:#ffeb99,stroke:#333,stroke-width:1px
 ```
 
 Metadata services aggregate metadata from repositories, policy engines, and other systems.  
@@ -110,12 +150,12 @@ Once two systems can modify metadata independently, the digital object no longer
 **Result:**  
 The digital object’s metadata diverges, and FAIRness collapses at the semantic level.
 
----
 
 ```{mermaid}
 %%| label: fig-orchestrated
-%%| fig-cap: With an orchestration layer, all components share lifecycle state, identifiers, metadata binding, and provenance. APIs still move data, but the digital object remains coherent across the platform.
+%%| fig-cap: With an orchestration layer acting as the digital-object layer, all services expose changes in digital-object state. User edits in the metadata service are communicated to the orchestration layer, ensuring consistent updates across the platform.
 %%| fig-align: center
+
 %%{init: {
   "look": "handDrawn",
   "flowchart": { "htmlLabels": false }
@@ -123,27 +163,34 @@ The digital object’s metadata diverges, and FAIRness collapses at the semantic
 
 flowchart LR
 
-    %% Components
+    %% User
+    USER["User"]
+
+    %% Services
     PE["Policy Engine"]
     REPO["Repository"]
-    META["Metadata Service"]
 
-    %% Orchestration layer
-    ORCH["Orchestration Layer\n(identity, metadata binding,\nprovenance, lifecycle state)"]
-
-    %% Connections
-    PE --> ORCH
-    REPO --> ORCH
-    META --> ORCH
-
-    %% Stable digital object
-    subgraph DO["Digital Object Preserved"]
-        ID2["Stable identifiers"]
-        META2["Consistent metadata"]
-        PROV2["Complete provenance"]
+    %% Metadata service with internal metadata node
+    subgraph META["Metadata Service"]
+        M["Metadata"]
     end
 
-    ORCH --> DO
+    %% Orchestration layer = Digital-object layer
+    ORCH["Orchestration Layer<br>identity, metadata binding, provenance, lifecycle state"]
+
+    %% All services expose state changes to orchestration
+    PE <--> ORCH
+    REPO <--> ORCH
+    META <--> ORCH
+
+    %% User edits metadata
+    USER -- "edit metadata" --> M
+
+    %% Metadata service communicates edits to orchestration
+    M --> ORCH
+
+    %% Style metadata node
+    style M fill:#e8e8e8,stroke:#333,stroke-width:1px
 ```
 
 ## Why These Failures Occur
@@ -177,26 +224,57 @@ Rather than fitting neatly into a single category, SEEK and FDS combine features
 
 ```{mermaid}
 %%| label: fig-seek-fds-lifecycle
-%%| fig-cap: FAIRDOM‑SEEK and FAIR Data Station sit in the FAIRification and contextualisation layer, bridging active research systems and publication/preservation services.
+%%| fig-cap: FAIRDOM‑SEEK and FAIR Data Station operate in the FAIRification / digital‑object layer. Archiving and metadata aggregation are handled by external services.
 %%| fig-align: center
+
 %%{init: {
   "look": "handDrawn",
+  "themeVariables": { "primaryColor": "#d8b4f8", "edgeLabelBackground":"#ffffff" },
   "flowchart": { "htmlLabels": false }
 }}%%
 
 flowchart TD
 
-    %% Layers
-    A["Active Research Systems\n(sync tools, ELNs, HPC workflows)"]
-    B["FAIRification & Contextualisation Layer\nFAIRDOM‑SEEK / FAIR Data Station\n(ISA structure, semantic metadata, RO‑Crate)"]
-    C["Publication & Preservation\n(Repositories, Archives)\n(DOI minting, curation, OAIS packaging)"]
-    D["Discovery & Aggregation\n(Metadata portals, search services)"]
+    %% Layers (clean labels)
+    A["Active Research Systems"]
+
+    B["FAIRification / Digital‑Object Layer<br>FAIRDOM‑SEEK • FAIR Data Station<br>(internal discovery only)"]
+
+    C["Publication Services"]
+
+    %% New purple nodes
+    ARCH["Archiving Services"]
+    PORTALS["Metadata Portals"]
+    AGG["Aggregation Services"]
+
+    D["Discovery and Aggregation<br>(external)"]
 
     %% Flow
-    A -->|"files, samples, workflows"| B
-    B -->|"FAIR research objects\n(RO‑Crate, JSON‑LD, ISA)"| C
-    C -->|"harvested metadata"| D
+    A -->|"research outputs"| B
+    B -->|"FAIR research objects"| C
+
+    %% Publication → Archiving
+    B --> ARCH
+    C --> ARCH
+
+    %% Publication → Metadata Portals
+    C --> PORTALS
+
+    %% Metadata Portals → Aggregation
+    PORTALS --> D
+
+    %% Aggregation → Discovery
+    B --> AGG
+    C --> AGG
+
+    %% Style purple nodes
+    style ARCH fill:#e5d4ff,stroke:#6b21a8,stroke-width:1px
+    style PORTALS fill:#e5d4ff,stroke:#6b21a8,stroke-width:1px
+    style D fill:#e5d4ff,stroke:#6b21a8,stroke-width:1px
 ```
+
+FAIRDOM‑SEEK and FAIR Data Station operate in the FAIRification and digital‑object layer, where research outputs are enriched, contextualised, and prepared for publication. They provide internal discovery but do not perform long‑term archiving or cross‑platform metadata aggregation. When preservation or large‑scale aggregation is required, SEEK and FDS rely on standard external services such as institutional or domain repositories, archiving platforms, and metadata portals.
+
 
 ### How SEEK and FDS Combine Aspects of Multiple RDM Components
 
@@ -281,16 +359,6 @@ By combining features from repositories, policy engines, and metadata services a
 - reflect the complexity and interconnectedness of life‑science research objects  
 
 They do not replace repositories or policy engines; they **complement** them by ensuring that digital objects are **contextualised, semantically rich, and machine‑actionable** before they enter the publication and preservation layers.
-
-Here is a **polished, integrated summary section** that fits naturally at the end of your chapter.  
-It reinforces your architectural argument, ties back to the failure modes, and adds the point you requested:
-
-> **How does a platform or service interface with other services?**
-
-I’ve kept the tone constructive, design‑oriented, and aligned with the rest of your manuscript.
-
-You can paste this directly after the SEEK/FDS section.
-
 
 ## Summary: Designing for Transitions, Not Silos
 

@@ -149,7 +149,7 @@ With this orchestration layer, the platform becomes a **coherent, predictable, a
 Without it, digital objects lose their identity and provenance in the gaps between services.
 
 
-## Transitions in the RDM Lifecycle: Where FAIR Is Won or Lost**
+## Transitions in the RDM Lifecycle: Where FAIR Is Won or Lost
 
 The importance of orchestration becomes clear when looking at the **transitions** that occur throughout the research data lifecycle. These lifecycle transitions, e.g moving from active data to archived data, from FAIRified metadata to a published dataset, or from a repository to a discovery portal, almost always correspond to **transitions between components** of the RDM platform.
 
@@ -170,7 +170,7 @@ Here is a refined version of the subsection that keeps your meaning **precise bu
 - **Working‑copy / sync environments** do *not* need full digital‑object identity.  
 - **Once a digital object is formed**, identity must be stable and traceable across all subsequent transitions.
 
-### 1. Preserving the identity of the digital object**
+### 1. Preserving the identity of the digital object
 
 Not every system in the research workflow needs to treat files as fully formed digital objects.  
 During early, active phases such as work in synchronisation services or collaborative file shares researchers often work with **working copies**, drafts, and temporary outputs. In these environments, strict digital‑object identity is not required; files may change rapidly, and identifiers may not yet be assigned.
