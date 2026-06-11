@@ -174,6 +174,30 @@ They were built *by and for the life sciences community*, where research objects
 
 Rather than fitting neatly into a single category, SEEK and FDS combine features traditionally associated with **repositories**, **policy engines**, and **metadata services**. Their purpose is not to replace these components, but to **bridge the gap between active research and publication**, ensuring that digital objects become richly contextualised and machine‑actionable before they enter preservation‑oriented systems.
 
+
+```{mermaid}
+%%| label: fig-seek-fds-lifecycle
+%%| fig-cap: FAIRDOM‑SEEK and FAIR Data Station sit in the FAIRification and contextualisation layer, bridging active research systems and publication/preservation services.
+%%| fig-align: center
+%%{init: {
+  "look": "handDrawn",
+  "flowchart": { "htmlLabels": false }
+}}%%
+
+flowchart TD
+
+    %% Layers
+    A["Active Research Systems\n(sync tools, ELNs, HPC workflows)"]
+    B["FAIRification & Contextualisation Layer\nFAIRDOM‑SEEK / FAIR Data Station\n(ISA structure, semantic metadata, RO‑Crate)"]
+    C["Publication & Preservation\n(Repositories, Archives)\n(DOI minting, curation, OAIS packaging)"]
+    D["Discovery & Aggregation\n(Metadata portals, search services)"]
+
+    %% Flow
+    A -->|"files, samples, workflows"| B
+    B -->|"FAIR research objects\n(RO‑Crate, JSON‑LD, ISA)"| C
+    C -->|"harvested metadata"| D
+```
+
 ### How SEEK and FDS Combine Aspects of Multiple RDM Components
 
 #### Repository‑like capabilities
@@ -257,3 +281,100 @@ By combining features from repositories, policy engines, and metadata services a
 - reflect the complexity and interconnectedness of life‑science research objects  
 
 They do not replace repositories or policy engines; they **complement** them by ensuring that digital objects are **contextualised, semantically rich, and machine‑actionable** before they enter the publication and preservation layers.
+
+Here is a **polished, integrated summary section** that fits naturally at the end of your chapter.  
+It reinforces your architectural argument, ties back to the failure modes, and adds the point you requested:
+
+> **How does a platform or service interface with other services?**
+
+I’ve kept the tone constructive, design‑oriented, and aligned with the rest of your manuscript.
+
+You can paste this directly after the SEEK/FDS section.
+
+
+## Summary: Designing for Transitions, Not Silos
+
+A FAIR‑aligned RDM platform succeeds or fails in the **transitions** between components.  
+This chapter showed that when systems exchange data only through APIs—without a shared digital‑object layer—identity, metadata, and provenance can fragment across boundaries. The solution is not to build more isolated services, but to design platforms that **treat transitions as first‑class architectural concerns**.
+
+Three principles follow from this.
+
+### 1. Good platform design matters
+
+RDM infrastructure is not simply a collection of tools.  
+It is an ecosystem in which digital objects must remain **identifiable, contextualised, and traceable** as they move across services.
+
+Designing for this continuity requires:
+
+- stable identifiers  
+- metadata binding  
+- lifecycle‑aware orchestration  
+- predictable, governed transitions  
+- clear contracts for how services interact  
+
+A platform that preserves these elements across transitions behaves as a coherent whole, even if its components are heterogeneous.
+
+### 2. Plan Transitions Carefully to Avoid Creating New Silos
+
+Before introducing a new service, the key architectural question is not:
+
+> *“What features does this tool provide?”*
+
+but rather:
+
+> *“How does this service interface with the rest of the platform or eco system, and how does it participate in the lifecycle of a digital object?”*
+
+A service that cannot preserve identity, metadata, and provenance across boundaries risks becoming another silo—even if it is excellent at what it does internally.
+
+Designing for transitions means:
+
+- understanding upstream and downstream dependencies  
+- ensuring identifiers and metadata remain stable  
+- avoiding duplication of lifecycle state  
+- preventing multiple sources of truth  
+
+This mindset shifts the focus from **tool‑centric design** to **ecosystem‑centric design**.
+
+### 3. Discipline‑specific platforms are valuable, but must expose standards
+
+Systems like **FAIRDOM‑SEEK** and **FAIR Data Station** show how discipline‑specific platforms can provide deep, domain‑appropriate FAIRification.  
+Their strength lies in supporting the complexity of life‑science research objects: samples, assays, workflows, models, and protocols.
+
+But they remain interoperable because they expose:
+
+- **standard identifiers** (DOIs, ORCID, internal stable IDs)  
+- **standard metadata models** (ISA, JSON‑LD, schema.org, Bioschemas)  
+- **standard packaging** (RO‑Crate)  
+- **standard APIs**  
+- **standard provenance structures**  
+
+This ensures that domain‑specific platforms can be **combined with repositories, policy engines, and metadata portals from other disciplines** without losing coherence.
+
+In other words:
+
+> **Discipline‑specific does not mean discipline‑isolated.**  
+> A platform can be tailored to a community while still participating in a broader, interoperable RDM ecosystem.
+
+
+### 4. Always ask: How does this platform or service interface with others?
+
+Every component in an RDM platform should make its interfaces explicit:
+
+- What identifiers does it accept and emit?  
+- How does it expose metadata?  
+- How does it receive lifecycle state, and how does it pass it on?  
+- Does it enrich metadata, or only expose it?  
+- Does it act as a source of truth for files, metadata, or provenance?  
+- How does it ensure that downstream systems can maintain continuity?  
+
+A service that answers these questions clearly can be integrated into a FAIR‑aligned ecosystem.  
+A service that cannot risks breaking the digital‑object layer.
+
+### In short
+
+- **Design is important**: digital objects must remain coherent across transitions.  
+- **Think transitions before building a new silo**: tools must integrate into the lifecycle, not sit beside it.  
+- **Discipline‑specific platforms are valuable**: but only if they expose standards that allow them to interoperate with services from other domains.  
+- **Interfaces matter**: every service must make clear how it participates in the lifecycle of a digital object.
+
+This sets the stage for the next chapter, where we look at **metadata portals and aggregation services**, and how they depend on well‑designed transitions to provide global discovery.
