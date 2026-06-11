@@ -1,0 +1,259 @@
+# Examples
+
+## Where the Digital‑Object Layer Breaks Without Orchestration
+
+Even when individual components are well designed, an RDM platform that relies only on APIs—without a shared digital‑object layer and orchestration—cannot guarantee that identity, metadata, and provenance remain intact across transitions. The following examples illustrate how and where the digital object breaks when systems exchange data but do not share lifecycle state.
+
+### 1. Policy Engine → Repository: Duplicate Publications and Lost Lifecycle State
+
+A policy engine manages active data and often forms digital objects early in the lifecycle. A repository manages publication, curation, and long‑term preservation. When the two are connected only through an API, neither system has visibility into the other’s lifecycle state.
+
+This leads to several failure modes:
+
+- the same dataset can be **published multiple times**  
+- the repository may mint **multiple DOIs** for the same object  
+- the policy engine cannot see whether a dataset is still a draft, under review, or already published  
+- provenance becomes fragmented: the repository sees a “new upload”, not a continuation of the same object  
+
+The root cause is simple:  
+the policy engine and the repository do not share a **digital‑object identity** or a **shared lifecycle model**.  
+The repository treats each API upload as a new object; the policy engine assumes it is handing over the same one.
+
+**Result:**  
+The digital object forks into multiple versions, each with its own identifiers and metadata.
+
+### 2. Synchronisation / Sharing Service → Repository or Policy Engine: Files Disappear, Identity Breaks
+
+Synchronisation and file‑sharing services are designed for **working copies**, not digital objects. They allow:
+
+- renaming  
+- moving  
+- deleting  
+- overwriting  
+- restoring older versions  
+- resolving sync conflicts  
+- sometimes even metadata tagging  
+
+All of these are legitimate user actions in a sync environment, but they are **catastrophic** for digital‑object identity if the sync service is treated as a source of truth.
+
+When a repository or policy engine ingests files from a sync service via an API:
+
+- files may **disappear** after ingestion  
+- files may be **renamed**, breaking identifier mappings  
+- files may be **overwritten**, destroying provenance  
+- folder structures may change, breaking metadata extraction  
+- sync conflicts may create **duplicate or partial files**  
+
+A sync service cannot guarantee the stability required for digital‑object identity.  
+It is therefore essential that **once a digital object is formed, it becomes the single source of truth**.  
+The sync service may continue to hold working copies, but it must not be the authoritative representation.
+
+**Result:**  
+The digital object becomes unstable because its underlying files are unstable.
+
+---
+
+### 3. Repository / Policy Engine → Metadata Service: Two Sources of Truth for Metadata
+
+```{mermaid}
+%%| label: fig-api-only
+%%| fig-cap: Without an orchestration layer, API connections move data but do not preserve digital‑object identity, metadata binding, or provenance. The digital object breaks at each system boundary.
+%%| fig-align: center
+%%{init: {
+  "look": "handDrawn",
+  "flowchart": { "htmlLabels": false }
+}}%%
+
+flowchart LR
+
+    %% Components
+    PE["Policy Engine"]
+    REPO["Repository"]
+    META["Metadata Service"]
+
+    %% API-only connections
+    PE -- "API call" --> REPO
+    REPO -- "API call" --> META
+
+    %% Breaks
+    subgraph BREAKS["Digital Object Layer Breaks"]
+        ID1["Identifier drift"]
+        META1["Metadata forks"]
+        PROV1["Provenance gaps"]
+    end
+
+    %% Arrows showing failure
+    PE -. "no shared lifecycle state" .-> BREAKS
+    REPO -. "no binding of metadata to object" .-> BREAKS
+    META -. "no authoritative source of truth" .-> BREAKS
+```
+
+Metadata services aggregate metadata from repositories, policy engines, and other systems.  
+If they only **expose** metadata, the digital‑object layer remains intact:  
+the repository or policy engine remains the authoritative source.
+
+But if the metadata service is also used to **enrich**, **modify**, or **extend** metadata, the digital object now has **two competing sources of truth**:
+
+- the repository/policy engine holds one version  
+- the metadata service holds another  
+
+This creates several failure modes:
+
+- metadata becomes **out of sync**  
+- updates in one system are **not propagated** to the other  
+- identifiers may be **linked inconsistently**  
+- provenance may be **split across systems**  
+- portals may expose **stale or conflicting metadata**  
+
+Once two systems can modify metadata independently, the digital object no longer has a single, authoritative description.
+
+**Result:**  
+The digital object’s metadata diverges, and FAIRness collapses at the semantic level.
+
+---
+
+```{mermaid}
+%%| label: fig-orchestrated
+%%| fig-cap: With an orchestration layer, all components share lifecycle state, identifiers, metadata binding, and provenance. APIs still move data, but the digital object remains coherent across the platform.
+%%| fig-align: center
+%%{init: {
+  "look": "handDrawn",
+  "flowchart": { "htmlLabels": false }
+}}%%
+
+flowchart LR
+
+    %% Components
+    PE["Policy Engine"]
+    REPO["Repository"]
+    META["Metadata Service"]
+
+    %% Orchestration layer
+    ORCH["Orchestration Layer\n(identity, metadata binding,\nprovenance, lifecycle state)"]
+
+    %% Connections
+    PE --> ORCH
+    REPO --> ORCH
+    META --> ORCH
+
+    %% Stable digital object
+    subgraph DO["Digital Object Preserved"]
+        ID2["Stable identifiers"]
+        META2["Consistent metadata"]
+        PROV2["Complete provenance"]
+    end
+
+    ORCH --> DO
+```
+
+## Why These Failures Occur
+
+All three examples share the same underlying issue:
+
+> **APIs move data, but they do not preserve digital‑object identity, metadata binding, or provenance across systems.**
+
+Without orchestration:
+
+- each component sees only its local view  
+- no system knows the full lifecycle state  
+- identifiers drift  
+- metadata forks  
+- provenance becomes incomplete  
+- the digital object loses coherence  
+
+This is why a FAIR‑aligned platform must treat the digital object as a **shared, governed entity**, not an emergent side effect of API calls.
+
+
+## FAIRDOM‑SEEK and FAIR Data Station in the RDM Architecture
+
+The failure modes above show how easily digital objects can fragment when transitions rely only on APIs.  
+Some research communities — especially the **life sciences** — have responded by developing tools that deliberately span multiple architectural layers to stabilise identity, metadata, and context *before* publication.
+
+**FAIRDOM‑SEEK and FAIR Data Station (FDS) occupy a hybrid space in the RDM ecosystem.**  
+They were built *by and for the life sciences community*, where research objects are complex and interdependent: samples, assays, protocols, models, workflows, and multi‑step experimental designs all need to be linked and contextualised long before formal publication.
+
+Rather than fitting neatly into a single category, SEEK and FDS combine features traditionally associated with **repositories**, **policy engines**, and **metadata services**. Their purpose is not to replace these components, but to **bridge the gap between active research and publication**, ensuring that digital objects become richly contextualised and machine‑actionable before they enter preservation‑oriented systems.
+
+### How SEEK and FDS Combine Aspects of Multiple RDM Components
+
+#### Repository‑like capabilities
+- optional DOI minting  
+- versioning and static URLs  
+- structured landing pages  
+- metadata exposure via Bioschemas, schema.org, RDF  
+
+#### Policy‑engine‑like capabilities
+- structured organisation of files and research assets  
+- project‑level access control  
+- workflow‑aware provenance (via RO‑Crate)  
+- integration with workflow engines  
+
+#### Metadata‑service‑like capabilities
+- creation, validation, and enrichment of metadata  
+- semantic annotation and ontology‑backed fields  
+- ISA‑based structuring of investigations, studies, and assays  
+- machine‑actionable metadata export (JSON‑LD, RDF, RO‑Crate)
+
+Because they combine these capabilities, SEEK and FDS operate in the **FAIRification and contextualisation layer** — the transitional space where raw files become structured, semantically rich **research objects**.
+
+This is the same space where, in the examples above, digital objects break when transitions rely only on APIs. SEEK and FDS help prevent such failures by **binding identity, metadata, and context early in the lifecycle**.
+
+
+## RO‑Crate vs. OAIS‑Style Archival Packaging
+
+A key reason SEEK and FDS sit between categories is their use of **RO‑Crate**, a packaging format optimised for FAIR metadata, semantic relationships, and research‑object context.  
+Repositories and archives, by contrast, rely on **OAIS‑aligned** standards such as METS, PREMIS, and BagIt, which focus on long‑term preservation and fixity.
+
+| **Aspect** | **RO‑Crate (FAIRDOM‑SEEK / FDS)** | **OAIS / METS / PREMIS / BagIt (Repositories / Archives)** |
+|-----------|-----------------------------------|-------------------------------------------------------------|
+| **Purpose** | FAIRification, semantic metadata, workflows | Long‑term preservation, fixity, governance |
+| **Metadata** | JSON‑LD, schema.org, Bioschemas, ISA | XML‑based, PREMIS events, METS structure |
+| **Focus** | Relationships, provenance, context | Integrity, authenticity, retention |
+| **Lifecycle stage** | Active research → FAIRification → pre‑publication | Publication → archival storage → long‑term access |
+| **Identifier model** | Internal IDs, static URLs, optional DOIs | DOIs, Handles, archival identifiers |
+| **Packaging** | Web‑native directory + JSON‑LD | BagIt, AIPs, SIPs, DIPs |
+| **Interoperability** | Workflow engines, policy engines, portals | Preservation systems, institutional archives |
+
+**Interpretation:**  
+RO‑Crate is designed for *rich, contextual, machine‑actionable FAIR metadata*.  
+OAIS packaging is designed for *durable, governed, long‑term preservation*.  
+SEEK and FDS therefore sit naturally between active research systems and repositories.
+
+## Publishing in SEEK vs. Publishing in a Repository
+
+Because SEEK and FDS operate in the FAIRification layer, “publishing” in these systems serves a different purpose than publishing in a repository.
+
+### Publishing in FAIRDOM‑SEEK (RO‑Crate‑centric)
+
+- Focus on **context**, **ISA structure**, **samples**, **models**, **protocols**  
+- Assets interlinked into a **research graph**  
+- Metadata exposed via **Bioschemas, RDF, SPARQL, JSON API**  
+- Optional DOI minting  
+- Not designed for long‑term preservation  
+
+**SEEK publishes *metadata‑rich research objects*, not archival datasets.**
+
+### Publishing in a Repository (OAIS‑aligned)
+
+- Focus on **dataset‑level publication**  
+- DOI mandatory  
+- Long‑term preservation guaranteed  
+- Metadata harvested by global portals  
+- Curation workflows ensure quality  
+- Archival packaging (BagIt, AIP) ensures fixity  
+
+**Repositories publish *archival digital objects* that enter the scholarly record.**
+
+## Why This Hybrid Role Matters for Transitions
+
+By combining features from repositories, policy engines, and metadata services and by being purpose‑built for the life sciences SEEK and FDS:
+
+- support FAIRification early in the lifecycle  
+- provide semantic depth that repositories typically do not create  
+- stabilise metadata before publication  
+- prepare research objects for preservation and discovery  
+- reduce the burden on repositories by delivering structured, validated metadata  
+- integrate smoothly with workflow engines and policy engines  
+- reflect the complexity and interconnectedness of life‑science research objects  
+
+They do not replace repositories or policy engines; they **complement** them by ensuring that digital objects are **contextualised, semantically rich, and machine‑actionable** before they enter the publication and preservation layers.
