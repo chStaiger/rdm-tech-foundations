@@ -17,8 +17,6 @@ You can contribute to the Data Privacy Handbook in the following ways:
 
 ## Pull Requests
 
-Pull request should be marked as drafts until there are ready for review.
-
 We follow the GitHub flow workflow:
 - Create a feature branch on your fork.
 - Commit changes.
@@ -36,3 +34,50 @@ Try to keep changes focused. If you submit many changes at once it will be much 
 _RDM Tech Foundations_ is written almost entirely in Quarto Markdown. You can find some guide [here](https://quarto.org/docs/guide/).
 
 Changes to the book are always made through pull requests. We encourage all contributors to work on their own fork of the repository. Pull requests should be self-contained and as small as possible.
+
+## How to Build or View the Book locally
+
+This book is built using **Quarto**, an open‑source scientific and technical publishing system.  
+To render the book locally, install Quarto and then run the build commands below.
+
+### 1. Install Quarto
+
+You can download Quarto for Windows, macOS, or Linux from the official website:
+
+- [Install Quarto](https://quarto.org/docs/get-started/)
+
+To verify your installation:
+
+```
+quarto check
+```
+
+### 2. Render the Book
+
+From the the `book/` directory run:
+
+```
+quarto render
+```
+
+This generates the book into the `_book/` directory by default.
+
+### 3. Serve the Book Locally
+
+For live preview with automatic rebuild on file changes:
+
+```
+quarto preview
+```
+
+This opens a local web server and refreshes the browser as you edit.
+
+### 4. Project Structure
+
+Quarto automatically detects the project configuration from:
+
+- `book/_quarto.yml`  
+- chapter `.qmd` files  
+- assets such as figures, diagrams, and Mermaid blocks
+
+If you add new chapters, include them in the `chapters:` list in `_quarto.yml`.

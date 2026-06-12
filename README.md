@@ -1,11 +1,12 @@
 [![Read the book](https://img.shields.io/badge/read-the%20book-blue.svg)](https://chstaiger.github.io/rdm-tech-foundations/)
 [![i want to contribute!](https://img.shields.io/badge/i%20want%20to-contribute!-brightgreen)](CONTRIBUTING.md)
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a>
 # RDM Tech Foundations — The Book
 
 ![https://doi.org/10.5281/zenodo.3460552](book/img/DatStewVenn_highres.png)
 *https://doi.org/10.5281/zenodo.3460552*
 
-This repository contains the source files for RDM Tech Foundations, a book that explains the technical foundations of modern Research Data Management (RDM) from the perspective of data stewards.
+This repository contains the source files for RDM Tech Foundations, a book that explains the technical foundations of modern Research Data Management (RDM).
 
 While data stewards work across three domains: policies, research practice, and IT/infrastructure, this book focuses on the infrastructure layer: the systems, standards, workflows, and architectural patterns that enable data stewards to support FAIR‑aligned research throughout the data lifecycle.
 
@@ -37,54 +38,26 @@ Each chapter is self‑contained but designed to build toward a coherent underst
 
 ## Why This Book Exists
 
-Modern RDM ecosystems are composed of specialised services — repositories, PID systems, metadata catalogues, workflow engines, storage layers — but **FAIR only emerges when these services work together**.
+Modern RDM ecosystems are composed of specialised services: repositories, PID systems, metadata catalogues, workflow engines, storage layers, but **FAIR only emerges when these services work together**.
 
 This book explains:
 
 - the **roles** of each component  
 - the **boundaries** between them  
 - the **transitions** where digital objects change state  
-- the **orchestration layer** required to maintain identity, metadata, and provenance across services  
-
-Without this orchestration layer, even well‑designed APIs cannot prevent the loss of trace, provenance, and metadata continuity between components.
+- the **limitations** of current infrastrcuture and services
 
 ## Audience
 
 The book is intended for:
-
-- research software engineers  
+ 
 - data stewards and data managers  
 - infrastructure architects  
-- policy developers  
 - domain specialists building community‑specific RDM tools  
 - anyone designing or maintaining FAIR‑aligned RDM services  
 
 It assumes basic familiarity with research workflows but does not require prior knowledge of RDM standards.
 
-## How to Build or View the Book
-
-If you are using **Quarto**, **Sphinx**, or another documentation engine, include instructions here.  
-For example:
-
-```
-quarto render
-```
-
-or
-
-```
-make html
-```
-
-(Adjust this section to match your actual build system.)
-
 ## Contributing
 
-Contributions are welcome.  
-You can propose improvements via:
-
-- pull requests  
-- issues  
-- suggestions for examples, diagrams, or clarifications  
-
-Please follow the repository’s coding and documentation style guidelines.
+Contributions are welcome. Please find [our guidelines here](CONTRIBUTING.md).
