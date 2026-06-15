@@ -2,7 +2,7 @@ project:
   type: book
 
 execute:
-  freeze: auto
+  enabled: false
 
 book:
   title: "Fundamentals of Research Data Management"
