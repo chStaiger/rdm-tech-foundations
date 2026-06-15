@@ -86,25 +86,18 @@ flowchart TB
     P --> CloudStore
 ```
 
-Policy engines sit between compute and storage, coordinating metadata, rules, and data movement across active research environments. Their core role is to ensure that files become digital objects—with metadata, identifiers, provenance, and policies—at the right moment in the research lifecycle.
+Policy engines sit between the user or compute system and the storage, coordinating metadata, rules, and data movement across active research environments. Their core role is to ensure that files become digital objects—with metadata, identifiers, provenance, and policies—at the right moment in the research lifecycle.
 
-The timing of this digital‑object formation depends on the architectural model:
-
+::: {.callout-tip title="The timing of this digital‑object formation depends on the architectural model"}
 - **Storage‑centric engines** form the digital object immediately at ingest, because all data flows through the engine.  
 - **Observation‑centric engines** form the digital object after a delay, once the engine discovers the file on storage and harvests metadata.
+:::
 
 Despite this difference, both models share a common internal structure: a metadata catalog, a rule engine, and orchestration components that interact with storage systems.
 
-::: {.callout-tip title="Digital-object formation in practice"}
-- In storage‑centric engines, ingest triggers fixity checks, metadata extraction, identifier assignment, and catalog registration.  
-- In observation‑centric engines, these steps occur after the file already exists on storage and is later detected by the engine.  
-:::
-
 This architecture allows the policy engine to act as the **control plane** for active data.  
-In storage‑centric designs, users issue commands to the engine rather than to storage systems directly.  
-In observation‑centric designs, users interact with storage directly, while the engine discovers and governs data after the fact.
 
-The engine applies relevant policies—replication, placement, retention, lineage—and either executes the action itself (storage‑centric) or coordinates it across existing systems (observation‑centric).  
+The engine applies relevant policies like replication, placement, retention, lineage and either executes the action itself (storage‑centric) or coordinates it across existing systems (observation‑centric).  
 
 Rather than controlling every file operation, the policy engine focuses on the important moments in a file’s life: when it appears, changes, moves, or needs to be governed. By capturing and managing these key events, the engine ensures that digital objects remain trackable, discoverable, and governed across the infrastructure.
 
