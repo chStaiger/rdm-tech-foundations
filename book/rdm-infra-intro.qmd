@@ -15,8 +15,8 @@ Just as a digital object consists of three interdependent components, the infras
 
 - **Storage Infrastructure** — the technical substrate that preserves the bitstreams.  
 - **Data Repositories and Policy engines**  — systems that curate, package, publish, and actively manage digital objects across different stages of the lifecycle.
-	- Data repositories focus on stabilised, publishable digital objects.
 	- Policy engines coordinate files, metadata, and storage during active research.
+	- Data repositories focus on stabilised, publishable digital objects.
  
 - **Metadata Portals** — discovery layers that expose metadata for search, indexing, and aggregation.  
 - **PID Services** — the identifier infrastructure that anchors digital objects in a global namespace.  
@@ -92,7 +92,8 @@ Compute interoperability is what makes digital objects *usable* during active re
 Each layer plays a distinct role:
 
 - **Storage** keeps the *bits* safe.  
-- **Repositories** curate and publish *datasets*.  
+- **Policy engines** govern the active part of the data lifecycle: they ensure that data remains compliant and traceable before it ever reaches a repository.
+- **Repositories** curate, preserve, and publish datasets with stable identifiers and long‑term guarantees.
 - **Metadata portals** make digital objects *findable*.  
 - **PID services** make them *identifiable and citable*.  
 - **Compute interoperability** makes them *usable in analysis workflows* without breaking identity or provenance.
