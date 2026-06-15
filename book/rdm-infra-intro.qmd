@@ -1,6 +1,6 @@
 # Research Data Management Infrastructure
 
-Modern research data management relies not only on **digital objects**, i.e. the combination of files, metadata, and persistent identifiers, but also on the **infrastructure** that enables those objects to be created, governed, preserved, discovered, and reused across their entire lifecycle.
+Modern research data management relies not only on **digital objects**, i.e. the combination of files, metadata, and persistent identifiers, but also on the **infrastructure** that enables those objects to be managed across their entire lifecycle.
 
 RDM infrastructure is the **ecosystem of systems** that ensures digital objects remain:
 
