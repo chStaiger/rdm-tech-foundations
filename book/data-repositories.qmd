@@ -73,7 +73,7 @@ Dataverse supports:
 
 It is ideal for institutions that want a **curation‑centric** repository with well‑defined roles and governance.
 
----
+Dataverse aligns with the [OAIS Reference Model](https://dataverse.org/book/oais-reference-model-and-dataverse-software) (see below).
 
 ### Figshare
 
@@ -87,9 +87,9 @@ Figshare focuses on **ease of deposit** and **broad dissemination**. It supports
 - embargoes and controlled access  
 - ORCID integration  
 
-Figshare is ideal when the goal is to make research outputs **easy to publish and easy to find**.
+Figshare focusses on sharing of research output and [provides integrations](https://info.figshare.com/user-guide/list-of-figshare-integrations/) and offers [OAI-PMH](https://info.figshare.com/user-guide/how-to-use-figshares-oai-pmh-service/).
 
----
+Figshare is ideal when the goal is to make research outputs **easy to publish and easy to find**.
 
 ### Invenio / Zenodo
 
@@ -103,7 +103,9 @@ Invenio supports:
 - review and curation workflows  
 - DOI registration  
 - access control  
-- landing pages  
+- landing pages 
+
+Invenio aligns with the [OAIS Reference Model](https://librarytechnology.org/document/21456). 
 
 Zenodo supports:
 
