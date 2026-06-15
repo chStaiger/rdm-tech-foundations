@@ -1,0 +1,390 @@
+# Policy Engines
+
+Most research data is created, transformed, and moved long before it reaches a repository. During this active phase, files are volatile, distributed, and constantly changing. Managing this evolving data requires a different class of system: policy engines.
+
+Policy engines coordinate files, metadata, and storage across active research environments. They treat files as emerging digital objects, enabling governance long before publication. Where repositories focus on curation and dissemination, policy engines focus on orchestration:
+
+- coordinating multiple storage systems  
+- attaching and querying metadata  
+- enforcing rules for placement, replication, and retention  
+- integrating with compute environments  
+- supporting workflows that generate and transform data  
+
+Because they operate on data that is still evolving, policy engines do not enforce rigid standards by default. Instead, they provide flexible mechanisms that can be shaped to different research domains, storage architectures, and workflow patterns. This flexibility also makes them harder to define precisely: they are not repositories, not workflow engines, and not storage systems but they coordinate all three.
+
+::: {.callout-tip title="What is a Policy Engine?"}
+Policy engines form digital objects early in the research lifecycle, long before publication.
+:::
+
+## Two Architectural Patterns of Policy Engines
+
+Policy engines generally follow one of two architectural models. The distinction depends on how tightly they integrate with storage and how digital objects are formed.
+
+### Storage‑centric engines
+
+These engines sit directly in front of storage and become the single interface through which users upload data, add metadata, and trigger workflows. Because all data enters through the engine, it can immediately apply policies for placement, replication, retention, and provenance.
+
+Digital objects are effectively formed at ingest:  
+as soon as a file arrives, the engine computes fixity, attaches metadata, assigns identifiers, and registers the object in its catalog.
+
+iRODS and Rucio both follow this model. They control storage behaviour through their own namespaces, catalogs, and rule systems, ensuring that all data movement and replication is policy‑driven.
+
+::: {.callout-tip title="Immediate digital‑object formation"}
+In storage‑centric engines, the digital object is created the moment the file enters the system.  
+This guarantees that metadata, identifiers, and policies are applied consistently and early.
+:::
+
+### Observation‑centric engines
+
+These engines do not intercept data at upload. Instead, they monitor or periodically scan existing storage systems through agents or connectors, harvest metadata, and build digital objects from what they observe.
+
+Users interact with storage directly for file operations. The policy engine discovers new files later and applies policies once they are detected.
+
+Digital objects are therefore formed with delay:  
+the engine constructs them only after observing the file, extracting metadata, and linking it into its catalog.
+
+Starfish and Globus exemplify this approach.
+
+::: {.callout-tip title="Delayed digital‑object formation"}
+In observation‑centric engines, the digital object is created after the file already exists on storage.  
+The engine discovers the file later and forms the digital object retroactively.
+:::
+
+Both models aim to provide consistent governance across distributed storage, but they differ in how much control they exert over the data path and how digital objects are constructed.
+
+
+## Policy Engine Architecture
+
+```{mermaid}
+%%| label: fig-1
+%%| fig-cap: Policy engines coordinate storage, enabling metadata‑driven automation and consistent digital‑object management across distributed systems.
+%%| fig-align: center
+%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
+
+flowchart TB
+
+    User["User<br/>(commands, queries)"]
+
+    subgraph P["Policy Engine"]
+        Rules["Policy Rules<br/>(placement, replication, retention)"]
+        Catalog["Metadata Catalog<br/>(checksums, replicas, provenance)"]
+        Orchestration["Data Orchestration<br/>(movement, triggers, automation)"]
+    end
+
+    subgraph S["Storage Systems"]
+        POSIX["POSIX File Systems"]
+        Object["Object Stores"]
+        Tape["Tape / Cold Storage"]
+        CloudStore["Cloud Storage"]
+    end
+
+    User --> P
+
+    P --> POSIX
+    P --> Object
+    P --> Tape
+    P --> CloudStore
+```
+
+Policy engines sit between the user or compute system and the storage, coordinating metadata, rules, and data movement across active research environments. Their core role is to ensure that files become digital objects—with metadata, identifiers, provenance, and policies—at the right moment in the research lifecycle.
+
+::: {.callout-tip title="The timing of this digital‑object formation depends on the architectural model"}
+- **Storage‑centric engines** form the digital object immediately at ingest, because all data flows through the engine.  
+- **Observation‑centric engines** form the digital object after a delay, once the engine discovers the file on storage and harvests metadata.
+:::
+
+Despite this difference, both models share a common internal structure: a metadata catalog, a rule engine, and orchestration components that interact with storage systems.
+
+This architecture allows the policy engine to act as the **control plane** for active data.  
+
+The engine applies relevant policies like replication, placement, retention, lineage and either executes the action itself (storage‑centric) or coordinates it across existing systems (observation‑centric).  
+
+Rather than controlling every file operation, the policy engine focuses on the important moments in a file’s life: when it appears, changes, moves, or needs to be governed. By capturing and managing these key events, the engine ensures that digital objects remain trackable, discoverable, and governed across the infrastructure.
+
+::: {.callout-tip title="Mental model"}
+A policy engine is the traffic controller for active research data.  
+It decides where data goes, how it is replicated, how it is described, and how it is governed.
+:::
+
+## Policy Engine Platforms
+
+Several platforms implement these capabilities in different ways. The most widely used are:
+
+### iRODS  
+A storage‑centric engine providing:
+
+- a rule engine  
+- a metadata catalog  
+- a storage abstraction layer  
+- integration with HPC and cloud environments  
+
+It unifies heterogeneous storage, attaches metadata at ingest, triggers workflows, and enforces policies for access, replication, and retention.
+
+### Rucio  
+Also a storage‑centric engine, developed at CERN for large scientific collaborations. It supports:
+
+- geographic replication  
+- storage tiering  
+- quota‑based placement  
+- automated cleanup  
+- provenance tracking  
+
+Its declarative policy model suits petabyte‑ to exabyte‑scale distributed infrastructures where data placement and replication must be centrally orchestrated.
+
+### Globus  
+An observation‑centric platform providing:
+
+- secure, high‑performance data movement  
+- federated identity  
+- automation flows  
+- integration with notebooks, portals, and workflow engines  
+
+It excels at reliable, policy‑driven transfers across distributed systems.
+
+### Starfish  
+Another observation‑centric engine focused on visibility and governance:
+
+- file system analytics  
+- metadata harvesting  
+- policy‑driven actions (tiering, archiving, cleanup)  
+- dashboards for administrators  
+
+It complements workflow‑oriented systems by enabling insight‑driven policy enforcement.
+
+
+## Example Policies
+
+The following examples illustrate how policy engines operate on **digital objects** by coordinating files, metadata, identifiers, and storage systems during active research.
+
+### File Replication
+
+```{mermaid}
+%%| label: fig-2
+%%| fig-cap: A user uploads a file to the policy engine. A replication policy is triggered, causing the policy engine to write the file to multiple storage systems and track both copies in the metadata catalog.
+%%| fig-align: center
+%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
+
+flowchart TB
+
+    User["User"]
+
+    subgraph PE["Policy Engine"]
+        Upload["Receive File"]
+        Policy["Replication Policy<br/>(e.g., 2 replicas)"]
+        Catalog["Metadata Catalog<br/>(checksums, replica state)"]
+    end
+
+    subgraph Storage["Storage Systems"]
+        A["Storage A"]
+        B["Storage B"]
+    end
+
+    %% User uploads file to Policy Engine
+    User -- "upload file" --> Upload
+
+    %% Policy triggers replication
+    Upload -- "replication policy triggers" --> Policy
+
+    %% Policy Engine writes primary and replica
+    Policy --"store file"--> A
+
+    %% Optional visual cue for replication relationship
+    Policy --"store file"--> B
+    
+    
+```
+
+When a file is uploaded, the policy engine applies a replication rule and writes copies to multiple storage systems. As each copy is created, the engine updates the metadata catalog, recording checksums, replica locations, and replica state. This ensures that all copies are linked as part of the same digital object and remain traceable across the infrastructure. By tying replication directly to the metadata catalog, the system maintains a consistent, governed view of the object rather than relying on storage‑level mirroring.
+
+### File Movement to Cold Storage
+
+```{mermaid}
+%%| label: fig-3
+%%| fig-cap: The policy engine monitors file metadata. When a data‑aging policy triggers, the policy engine moves aged data from online storage to cold storage while preserving its logical path.
+%%| fig-align: center
+%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
+
+flowchart TB
+
+    subgraph PE["Policy Engine"]
+        Monitor["Monitor Metadata<br/>(timestamps, access times)"]
+        AgePolicy["Data‑Aging Policy<br/>(move after X days)"]
+        Catalog["Metadata Catalog<br/>(location, timestamps)"]
+    end
+
+    subgraph Storage["Storage Systems"]
+        Hot["Online Storage"]
+        Cold["Cold Storage"]
+    end
+
+    %% Policy Engine monitors metadata
+    Monitor --> Catalog
+
+    %% Aging policy triggers automatically
+    Catalog -- "aging policy triggers" --> AgePolicy
+
+    %% Policy Engine moves data
+    AgePolicy --"send trigger to migrate"--> Storage
+
+    %% Visual cue for migration
+    Hot -. "migrate aged data" .-> Cold
+```
+
+The policy engine monitors metadata such as access and modification times. When a file exceeds the threshold defined by a data‑aging rule, the engine moves it from online storage to a cold tier and updates the catalog.
+This automates tiering as part of the digital‑object lifecycle without requiring user intervention.
+
+### Digital‑Object Promotion on Ingest
+
+```{mermaid}
+%%| label: fig-4
+%%| fig-cap: When a user uploads a file, the policy engine applies an ingest policy that computes fixity, attaches metadata, assigns an identifier, and registers the digital object before writing it to storage.
+%%| fig-align: center
+%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
+flowchart LR
+
+    User["User<br/>(uploads file)"]
+
+    subgraph PE["Policy Engine"]
+        Ingest["Receive File"]
+        Fixity["Fixity Check<br/>(compute checksum)"]
+        Meta["Metadata Extraction<br/>(provenance, tags, timestamps)"]
+        PID["Identifier Assignment<br/>(PID or local ID)"]
+        Catalog["Metadata Catalog<br/>(checksum, PID, metadata)"]
+    end
+
+    subgraph Storage["Storage Systems"]
+        Store["Storage Backend<br/>(POSIX / Object / Tape)"]
+    end
+
+    %% User interacts with Policy Engine, not storage
+    User --> Ingest
+
+    %% Ingest pipeline inside the policy engine
+    Ingest --> Fixity
+    Fixity --> Meta
+    Meta --> PID
+    PID --> Catalog
+
+    %% Only the policy engine writes to storage
+    Ingest --> Store
+```
+
+When a file enters the system, the policy engine applies ingest rules that compute fixity, extract metadata, assign an identifier, and register the object.
+This ensures every incoming file becomes a governed digital object from the moment it arrives.
+
+### Auto‑Link Derived Data
+
+```{mermaid}
+%%| label: fig-5
+%%| fig-cap: Workflow‑generated data is uploaded to the policy engine, which extracts metadata, assigns an identifier, records provenance, and registers the new digital object before storing it.
+%%| fig-align: center
+%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
+flowchart TB
+
+    subgraph Compute["Compute Environment"]
+        WF["Workflow<br/>(input data + output file + parameters)"]
+    end
+
+    subgraph PE["Policy Engine"]
+        NewObj["Create New Digital Object<br/>(output file)"]
+        Extract["Extract metadata from output file<br/>(checksum, timestamps, filetype)"]
+        Catalog["Metadata Catalog<br/>(created from input data, workflow parameters, extracted metadata)"]
+    
+        ID["Assign Identifier<br/>(PID or local ID)"]
+    end
+
+    subgraph Storage["Storage Systems"]
+        Store["Storage Backend<br/>(POSIX / Object / Tape)"]
+    end
+
+    Compute -- "Upload file and metadata" --> PE
+    PE -- "Store file" --> Storage
+    NewObj --> Extract
+    ID --> NewObj
+    Extract --> Catalog
+    
+```
+
+When a workflow produces an output file, it uploads the file together with metadata describing the input data and workflow parameters to the policy engine. The engine creates a new digital object, extracts additional metadata from the file, assigns an identifier, and records provenance linking the output to its inputs. All metadata like workflow parameters, extracted attributes, and input data is consolidated in the metadata catalog. This not only builds a machine‑readable lineage graph showing how data was generated and transformed, but also provides the structured information required for reproducibility, allowing others to understand and re‑execute the workflow under comparable conditions.
+
+## Metadata‑Driven Access to Digital Objects
+
+```{mermaid}
+%%| label: fig-6
+%%| fig-cap: Users or workflows query the metadata catalog, receive location and access information and fetch data through the policy engine without direct access to storage.
+%%| fig-align: center
+%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
+
+flowchart TB
+
+    subgraph Storage["Storage Systems"]
+        S1["Storage Backend 1"]
+        S2["Storage Backend 2"]
+    end
+
+    subgraph PE["Policy Engine"]
+        Catalog["Metadata Catalog<br/>(provenance, tags, arrival time)"]
+    end
+
+    subgraph Compute["Compute Environment"]
+        User["User / Workflow<br/>(query metadata)"]
+        Stream["Workflow A<br/>(stream content)"]
+        Copy["Workflow B<br/>(stage working copy)"]
+    end
+
+    %% User/workflow queries catalog
+    User -- "query metadata" --> Catalog
+
+    %% Catalog returns access info to user/workflow
+    Catalog -- "return location + access info" --> User
+
+    %% User/workflow injects access info into workflows
+    User -- "ingest access info" --> Stream
+    User -- "ingest access info" --> Copy
+
+    %% Workflows fetch data through policy engine
+    Stream -- "request data" --> Catalog
+    Copy -- "request data" --> Catalog
+
+    %% Policy engine fetches from storage
+    Catalog -- "fetch data" --> S1
+
+```
+
+Users or workflows query the metadata catalog to identify files that require processing—for example, newly arrived data or files with specific tags or provenance. The policy engine resolves the storage location, checks access and provides the necessary access handles to the workflow. The workflow then streams the content or stages a working copy through the policy engine, ensuring that storage remains abstracted and consistently governed.
+
+## Comparison with Synchronisation Tools
+
+While policy engines operate directly on emerging **digital objects**, synchronisation tools serve a different purpose. Services such as OneDrive, Dropbox, Google Drive, or Nextcloud‑based platforms like SURFdrive replicate files across devices for convenience, but they do not manage:
+
+- metadata  
+- identifiers  
+- provenance  
+- lineage  
+- policy‑driven placement  
+- multi‑site coordination  
+
+Sync tools solve **convenience and collaboration** problems.  
+Policy engines solve **digital‑object lifecycle** problems.
+
+## Summary
+
+Storage systems keep files safe, but they cannot manage metadata, replicas, identifiers, or the volatile stages where research data is created and transformed. To manage data as digital objects, two complementary systems are needed.
+
+Data repositories (Dataverse, Figshare, Invenio/Zenodo) curate and publish stabilised datasets. They provide structured workflows, metadata templates, DOIs, and governance, but they operate mainly at the dataset level and are not designed for active, changing data.
+
+Policy engines (iRODS, Rucio, Globus, Starfish) coordinate files, metadata, and storage during active research. They support replication, tiering, ingest rules, lineage tracking, and metadata‑driven automation across distributed systems. They treat files as emerging digital objects long before publication, ensuring that key lifecycle events are governed and recorded.
+
+Unlike synchronisation tools, which simply replicate files for convenience, policy engines manage the full digital‑object lifecycle.
+
+::: {.callout-tip title="Policy engines in a nutshell"}
+A policy engine governs active research data by coordinating files, metadata, and storage.
+It applies rules for replication, placement, retention, and lineage, and forms digital objects either at ingest (storage‑centric) or after discovery (observation‑centric).
+Rather than handling every file operation, it governs the key lifecycle events that make data trackable, reproducible, and consistently managed across systems.
+:::
+
+Even with repositories and policy engines enriching and exposing metadata to some extent, metadata still becomes fragmented across institutions and disciplines. Each repository, workflow platform, policy engine manages metadata locally. Without additional infrastructure, this creates isolated pockets of metadata that cannot be searched or linked across systems.
+
+To avoid these silos, research ecosystems rely on metadata services that collect, normalise, and aggregate metadata from many sources. These services enable cross‑repository discovery and make metadata visible beyond the system where it was created.
+
+How they achieve that, we will doscover in the next chapter.
