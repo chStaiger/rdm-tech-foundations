@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The Digital Object – Fundamentals of Research Data Management</title>
+<title>Policy Engines – Fundamentals of Research Data Management</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,8 +33,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./files.html" rel="next">
-<link href="./data-lifecycle.html" rel="prev">
+<link href="./metadata-portals.html" rel="next">
+<link href="./data-repositories.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -92,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./digital-object.html">THE HOLY TRINITY OF RDM</a></li><li class="breadcrumb-item"><a href="./digital-object.html"><span class="chapter-title">The Digital Object</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./rdm-infra-intro.html">COMPONENTS OF RDM INFRASTRUCTURE</a></li><li class="breadcrumb-item"><a href="./policy-engines.html"><span class="chapter-title">Policy Engines</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -160,7 +160,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./digital-object.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">The Digital Object</span></a>
+  <a href="./digital-object.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Digital Object</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -211,7 +211,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./policy-engines.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Policy Engines</span></a>
+  <a href="./policy-engines.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Policy Engines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -257,19 +257,38 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#how-these-components-work-together" id="toc-how-these-components-work-together" class="nav-link active" data-scroll-target="#how-these-components-work-together"><strong>How These Components Work Together</strong></a></li>
-  <li><a href="#why-digital-objects-matter" id="toc-why-digital-objects-matter" class="nav-link" data-scroll-target="#why-digital-objects-matter"><strong>Why Digital Objects Matter</strong></a></li>
-  <li><a href="#in-essence" id="toc-in-essence" class="nav-link" data-scroll-target="#in-essence"><strong>In essence</strong></a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#two-architectural-patterns-of-policy-engines" id="toc-two-architectural-patterns-of-policy-engines" class="nav-link active" data-scroll-target="#two-architectural-patterns-of-policy-engines">Two Architectural Patterns of Policy Engines</a>
+  <ul class="collapse">
+  <li><a href="#storagecentric-engines" id="toc-storagecentric-engines" class="nav-link" data-scroll-target="#storagecentric-engines">Storage‑centric engines</a></li>
+  <li><a href="#observationcentric-engines" id="toc-observationcentric-engines" class="nav-link" data-scroll-target="#observationcentric-engines">Observation‑centric engines</a></li>
+  </ul></li>
+  <li><a href="#policy-engine-architecture" id="toc-policy-engine-architecture" class="nav-link" data-scroll-target="#policy-engine-architecture">Policy Engine Architecture</a></li>
+  <li><a href="#policy-engine-platforms" id="toc-policy-engine-platforms" class="nav-link" data-scroll-target="#policy-engine-platforms">Policy Engine Platforms</a>
+  <ul class="collapse">
+  <li><a href="#irods" id="toc-irods" class="nav-link" data-scroll-target="#irods">iRODS</a></li>
+  <li><a href="#rucio" id="toc-rucio" class="nav-link" data-scroll-target="#rucio">Rucio</a></li>
+  <li><a href="#globus" id="toc-globus" class="nav-link" data-scroll-target="#globus">Globus</a></li>
+  <li><a href="#starfish" id="toc-starfish" class="nav-link" data-scroll-target="#starfish">Starfish</a></li>
+  </ul></li>
+  <li><a href="#example-policies" id="toc-example-policies" class="nav-link" data-scroll-target="#example-policies">Example Policies</a>
+  <ul class="collapse">
+  <li><a href="#file-replication" id="toc-file-replication" class="nav-link" data-scroll-target="#file-replication">File Replication</a></li>
+  <li><a href="#file-movement-to-cold-storage" id="toc-file-movement-to-cold-storage" class="nav-link" data-scroll-target="#file-movement-to-cold-storage">File Movement to Cold Storage</a></li>
+  <li><a href="#digitalobject-promotion-on-ingest" id="toc-digitalobject-promotion-on-ingest" class="nav-link" data-scroll-target="#digitalobject-promotion-on-ingest">Digital‑Object Promotion on Ingest</a></li>
+  <li><a href="#autolink-derived-data" id="toc-autolink-derived-data" class="nav-link" data-scroll-target="#autolink-derived-data">Auto‑Link Derived Data</a></li>
+  </ul></li>
+  <li><a href="#metadatadriven-access-to-digital-objects" id="toc-metadatadriven-access-to-digital-objects" class="nav-link" data-scroll-target="#metadatadriven-access-to-digital-objects">Metadata‑Driven Access to Digital Objects</a></li>
+  <li><a href="#comparison-with-synchronisation-tools" id="toc-comparison-with-synchronisation-tools" class="nav-link" data-scroll-target="#comparison-with-synchronisation-tools">Comparison with Synchronisation Tools</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./digital-object.html">THE HOLY TRINITY OF RDM</a></li><li class="breadcrumb-item"><a href="./digital-object.html"><span class="chapter-title">The Digital Object</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./rdm-infra-intro.html">COMPONENTS OF RDM INFRASTRUCTURE</a></li><li class="breadcrumb-item"><a href="./policy-engines.html"><span class="chapter-title">Policy Engines</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">The Digital Object</span></h1>
+<h1 class="title"><span class="chapter-title">Policy Engines</span></h1>
 </div>
 
 
@@ -286,204 +305,513 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>A <strong>digital (or data) object</strong> is a self‑contained, structured unit of information that exists in electronic form. It is more than just raw bits: it is a combination of <strong>content</strong>, <strong>context</strong>, and <strong>identity</strong> that allows computers and humans to store, interpret, preserve, and reuse information reliably.</p>
-<p>At its core, a digital object consists of <strong>three interdependent components</strong>:</p>
+<p>Most research data is created, transformed, and moved long before it reaches a repository. During this active phase, files are volatile, distributed, and constantly changing. Managing this evolving data requires a different class of system: policy engines.</p>
+<p>Policy engines coordinate files, metadata, and storage across active research environments. They treat files as emerging digital objects, enabling governance long before publication. Where repositories focus on curation and dissemination, policy engines focus on orchestration:</p>
 <ul>
-<li><p><a href="./files.html"><strong>Bitstream(s) or File(s)</strong></a> — the actual digital content, stored as one or more files. These may be documents, images, audio recordings, videos, datasets, software packages, or any other digital material. On their own, files are simply encoded data; they require context to be meaningful.</p></li>
-<li><p><a href="./metadata.html"><strong>Metadata</strong></a> — the descriptive, structural, and technical information that explains how to interpret the files and how the object should be managed. Metadata identifies what the object is, how it is organized, who created it, when it was produced, and how it can be rendered or preserved. It provides the essential context that turns raw bits into understandable content.</p></li>
-<li><p><a href="./pids.html"><strong>Persistent Identifier (PID)</strong></a> — a stable, globally unique reference (such as a DOI, Handle, or ARK) that ensures the object can be identified, found, cited, and linked over time, even if its storage location changes. The PID anchors the object’s identity in a durable way.</p></li>
+<li>coordinating multiple storage systems<br>
+</li>
+<li>attaching and querying metadata<br>
+</li>
+<li>enforcing rules for placement, replication, and retention<br>
+</li>
+<li>integrating with compute environments<br>
+</li>
+<li>supporting workflows that generate and transform data</li>
 </ul>
+<p>Because they operate on data that is still evolving, policy engines do not enforce rigid standards by default. Instead, they provide flexible mechanisms that can be shaped to different research domains, storage architectures, and workflow patterns. This flexibility also makes them harder to define precisely: they are not repositories, not workflow engines, and not storage systems but they coordinate all three.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="What is a Policy Engine?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>What is a Policy Engine?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Policy engines form digital objects early in the research lifecycle, long before publication.</p>
+</div>
+</div>
+<section id="two-architectural-patterns-of-policy-engines" class="level2">
+<h2 class="anchored" data-anchor-id="two-architectural-patterns-of-policy-engines">Two Architectural Patterns of Policy Engines</h2>
+<p>Policy engines generally follow one of two architectural models. The distinction depends on how tightly they integrate with storage and how digital objects are formed.</p>
+<section id="storagecentric-engines" class="level3">
+<h3 class="anchored" data-anchor-id="storagecentric-engines">Storage‑centric engines</h3>
+<p>These engines sit directly in front of storage and become the single interface through which users upload data, add metadata, and trigger workflows. Because all data enters through the engine, it can immediately apply policies for placement, replication, retention, and provenance.</p>
+<p>Digital objects are effectively formed at ingest:<br>
+as soon as a file arrives, the engine computes fixity, attaches metadata, assigns identifiers, and registers the object in its catalog.</p>
+<p>iRODS and Rucio both follow this model. They control storage behaviour through their own namespaces, catalogs, and rule systems, ensuring that all data movement and replication is policy‑driven.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Immediate digital‑object formation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Immediate digital‑object formation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In storage‑centric engines, the digital object is created the moment the file enters the system.<br>
+This guarantees that metadata, identifiers, and policies are applied consistently and early.</p>
+</div>
+</div>
+</section>
+<section id="observationcentric-engines" class="level3">
+<h3 class="anchored" data-anchor-id="observationcentric-engines">Observation‑centric engines</h3>
+<p>These engines do not intercept data at upload. Instead, they monitor or periodically scan existing storage systems through agents or connectors, harvest metadata, and build digital objects from what they observe.</p>
+<p>Users interact with storage directly for file operations. The policy engine discovers new files later and applies policies once they are detected.</p>
+<p>Digital objects are therefore formed with delay:<br>
+the engine constructs them only after observing the file, extracting metadata, and linking it into its catalog.</p>
+<p>Starfish and Globus exemplify this approach.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Delayed digital‑object formation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Delayed digital‑object formation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In observation‑centric engines, the digital object is created after the file already exists on storage.<br>
+The engine discovers the file later and forms the digital object retroactively.</p>
+</div>
+</div>
+<p>Both models aim to provide consistent governance across distributed storage, but they differ in how much control they exert over the data path and how digital objects are constructed.</p>
+</section>
+</section>
+<section id="policy-engine-architecture" class="level2">
+<h2 class="anchored" data-anchor-id="policy-engine-architecture">Policy Engine Architecture</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-1">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
+<pre class="mermaid mermaid-js" data-label="fig-1">%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
 
-flowchart TD
-    A["Digital Object"]
-    B["Files"]
-    C["Metadata"]
-    D["Persistent Identifier"]
+flowchart TB
 
-    A --&gt; B
-    A --&gt; C
-    A --&gt; D
+    User["User&lt;br/&gt;(commands, queries)"]
+
+    subgraph P["Policy Engine"]
+        Rules["Policy Rules&lt;br/&gt;(placement, replication, retention)"]
+        Catalog["Metadata Catalog&lt;br/&gt;(checksums, replicas, provenance)"]
+        Orchestration["Data Orchestration&lt;br/&gt;(movement, triggers, automation)"]
+    end
+
+    subgraph S["Storage Systems"]
+        POSIX["POSIX File Systems"]
+        Object["Object Stores"]
+        Tape["Tape / Cold Storage"]
+        CloudStore["Cloud Storage"]
+    end
+
+    User --&gt; P
+
+    P --&gt; POSIX
+    P --&gt; Object
+    P --&gt; Tape
+    P --&gt; CloudStore
 </pre>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.1: The Digital Object
+Figure&nbsp;12.1: Policy engines coordinate storage, enabling metadata‑driven automation and consistent digital‑object management across distributed systems.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<section id="how-these-components-work-together" class="level3">
-<h3 class="anchored" data-anchor-id="how-these-components-work-together"><strong>How These Components Work Together</strong></h3>
-<p>These three parts form a <strong>single functional entity</strong>:</p>
+<p>Policy engines sit between the user or compute system and the storage, coordinating metadata, rules, and data movement across active research environments. Their core role is to ensure that files become digital objects—with metadata, identifiers, provenance, and policies—at the right moment in the research lifecycle.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="The timing of this digital‑object formation depends on the architectural model">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>The timing of this digital‑object formation depends on the architectural model
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li>The <strong>files</strong> hold the content.<br>
+<li><strong>Storage‑centric engines</strong> form the digital object immediately at ingest, because all data flows through the engine.<br>
 </li>
-<li>The <strong>metadata</strong> explains the content and enables interpretation.<br>
-</li>
-<li>The <strong>persistent identifier</strong> ensures the object can always be located and referenced.</li>
+<li><strong>Observation‑centric engines</strong> form the digital object after a delay, once the engine discovers the file on storage and harvests metadata.</li>
 </ul>
-<p>If any one of these components is missing, the digital object becomes incomplete. Files without metadata are uninterpretable; metadata without files is empty description; and neither files nor metadata are useful if they cannot be reliably identified and located.</p>
-<p>The diagrams below illustrate two common patterns for connecting a PID, the underlying files, and their metadata.</p>
+</div>
+</div>
+<p>Despite this difference, both models share a common internal structure: a metadata catalog, a rule engine, and orchestration components that interact with storage systems.</p>
+<p>This architecture allows the policy engine to act as the <strong>control plane</strong> for active data.</p>
+<p>The engine applies relevant policies like replication, placement, retention, lineage and either executes the action itself (storage‑centric) or coordinates it across existing systems (observation‑centric).</p>
+<p>Rather than controlling every file operation, the policy engine focuses on the important moments in a file’s life: when it appears, changes, moves, or needs to be governed. By capturing and managing these key events, the engine ensures that digital objects remain trackable, discoverable, and governed across the infrastructure.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mental model">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Mental model
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A policy engine is the traffic controller for active research data.<br>
+It decides where data goes, how it is replicated, how it is described, and how it is governed.</p>
+</div>
+</div>
+</section>
+<section id="policy-engine-platforms" class="level2">
+<h2 class="anchored" data-anchor-id="policy-engine-platforms">Policy Engine Platforms</h2>
+<p>Several platforms implement these capabilities in different ways. The most widely used are:</p>
+<section id="irods" class="level3">
+<h3 class="anchored" data-anchor-id="irods">iRODS</h3>
+<p>A storage‑centric engine providing:</p>
+<ul>
+<li>a rule engine<br>
+</li>
+<li>a metadata catalog<br>
+</li>
+<li>a storage abstraction layer<br>
+</li>
+<li>integration with HPC and cloud environments</li>
+</ul>
+<p>It unifies heterogeneous storage, attaches metadata at ingest, triggers workflows, and enforces policies for access, replication, and retention.</p>
+</section>
+<section id="rucio" class="level3">
+<h3 class="anchored" data-anchor-id="rucio">Rucio</h3>
+<p>Also a storage‑centric engine, developed at CERN for large scientific collaborations. It supports:</p>
+<ul>
+<li>geographic replication<br>
+</li>
+<li>storage tiering<br>
+</li>
+<li>quota‑based placement<br>
+</li>
+<li>automated cleanup<br>
+</li>
+<li>provenance tracking</li>
+</ul>
+<p>Its declarative policy model suits petabyte‑ to exabyte‑scale distributed infrastructures where data placement and replication must be centrally orchestrated.</p>
+</section>
+<section id="globus" class="level3">
+<h3 class="anchored" data-anchor-id="globus">Globus</h3>
+<p>An observation‑centric platform providing:</p>
+<ul>
+<li>secure, high‑performance data movement<br>
+</li>
+<li>federated identity<br>
+</li>
+<li>automation flows<br>
+</li>
+<li>integration with notebooks, portals, and workflow engines</li>
+</ul>
+<p>It excels at reliable, policy‑driven transfers across distributed systems.</p>
+</section>
+<section id="starfish" class="level3">
+<h3 class="anchored" data-anchor-id="starfish">Starfish</h3>
+<p>Another observation‑centric engine focused on visibility and governance:</p>
+<ul>
+<li>file system analytics<br>
+</li>
+<li>metadata harvesting<br>
+</li>
+<li>policy‑driven actions (tiering, archiving, cleanup)<br>
+</li>
+<li>dashboards for administrators</li>
+</ul>
+<p>It complements workflow‑oriented systems by enabling insight‑driven policy enforcement.</p>
+</section>
+</section>
+<section id="example-policies" class="level2">
+<h2 class="anchored" data-anchor-id="example-policies">Example Policies</h2>
+<p>The following examples illustrate how policy engines operate on <strong>digital objects</strong> by coordinating files, metadata, identifiers, and storage systems during active research.</p>
+<section id="file-replication" class="level3">
+<h3 class="anchored" data-anchor-id="file-replication">File Replication</h3>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-2">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
+<pre class="mermaid mermaid-js" data-label="fig-2">%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
 
-flowchart LR
+flowchart TB
 
-     F["Files"]
-     M["Metadata"]
+    User["User"]
+
+    subgraph PE["Policy Engine"]
+        Upload["Receive File"]
+        Policy["Replication Policy&lt;br/&gt;(e.g., 2 replicas)"]
+        Catalog["Metadata Catalog&lt;br/&gt;(checksums, replica state)"]
+    end
+
+    subgraph Storage["Storage Systems"]
+        A["Storage A"]
+        B["Storage B"]
+    end
+
+    %% User uploads file to Policy Engine
+    User -- "upload file" --&gt; Upload
+
+    %% Policy triggers replication
+    Upload -- "replication policy triggers" --&gt; Policy
+
+    %% Policy Engine writes primary and replica
+    Policy --"store file"--&gt; A
+
+    %% Optional visual cue for replication relationship
+    Policy --"store file"--&gt; B
     
-    P["Persistent Identifier (PID)"]
-
-    P --&gt; |"points to"| F
-    F --&gt; |"points to"| M
-    M --&gt; |"contains"| P
+    
 </pre>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.2: PID points to a file which contains or points to the metadata.
+Figure&nbsp;12.2: A user uploads a file to the policy engine. A replication policy is triggered, causing the policy engine to write the file to multiple storage systems and track both copies in the metadata catalog.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>In the first pattern, the PID resolves directly to a file, which then contains or links to the relevant metadata.</p>
+<p>When a file is uploaded, the policy engine applies a replication rule and writes copies to multiple storage systems. As each copy is created, the engine updates the metadata catalog, recording checksums, replica locations, and replica state. This ensures that all copies are linked as part of the same digital object and remain traceable across the infrastructure. By tying replication directly to the metadata catalog, the system maintains a consistent, governed view of the object rather than relying on storage‑level mirroring.</p>
+</section>
+<section id="file-movement-to-cold-storage" class="level3">
+<h3 class="anchored" data-anchor-id="file-movement-to-cold-storage">File Movement to Cold Storage</h3>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-3">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
+<pre class="mermaid mermaid-js" data-label="fig-3">%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
 
-flowchart LR
+flowchart TB
 
-    F["Files"]
-    M["Metadata"]
-    P["Persistent Identifier (PID)"]
+    subgraph PE["Policy Engine"]
+        Monitor["Monitor Metadata&lt;br/&gt;(timestamps, access times)"]
+        AgePolicy["Data‑Aging Policy&lt;br/&gt;(move after X days)"]
+        Catalog["Metadata Catalog&lt;br/&gt;(location, timestamps)"]
+    end
 
-    M --&gt; |"contains"| P
-    P --&gt; |"points to"| M
-    M --&gt; |"has access info to"| F
+    subgraph Storage["Storage Systems"]
+        Hot["Online Storage"]
+        Cold["Cold Storage"]
+    end
+
+    %% Policy Engine monitors metadata
+    Monitor --&gt; Catalog
+
+    %% Aging policy triggers automatically
+    Catalog -- "aging policy triggers" --&gt; AgePolicy
+
+    %% Policy Engine moves data
+    AgePolicy --"send trigger to migrate"--&gt; Storage
+
+    %% Visual cue for migration
+    Hot -. "migrate aged data" .-&gt; Cold
 </pre>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.3: PID points to metadata or a landing page that contains information on how to access the file(s).
+Figure&nbsp;12.3: The policy engine monitors file metadata. When a data‑aging policy triggers, the policy engine moves aged data from online storage to cold storage while preserving its logical path.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>In the second pattern, the PID resolves to a metadata record or landing page, which provides the information needed to locate and access the file(s).<br>
-Both approaches are widely used; the choice depends on repository design and access requirements.</p>
+<p>The policy engine monitors metadata such as access and modification times. When a file exceeds the threshold defined by a data‑aging rule, the engine moves it from online storage to a cold tier and updates the catalog. This automates tiering as part of the digital‑object lifecycle without requiring user intervention.</p>
 </section>
-<section id="why-digital-objects-matter" class="level3">
-<h3 class="anchored" data-anchor-id="why-digital-objects-matter"><strong>Why Digital Objects Matter</strong></h3>
-<p>Digital objects are the foundation of modern research data management systems. Their structured nature enables:</p>
-<ul>
-<li><p><strong>Preservation</strong> — keeping knowledge accessible as formats, platforms, and storage systems evolve.<br>
-Files can be migrated, metadata enriched, and storage reorganized without breaking the object’s identity.</p></li>
-<li><p><strong>Interoperability</strong> — ensuring different tools and repositories can exchange and interpret the object consistently.<br>
-Content, metadata, and identifiers travel together, preserving meaning across systems.</p></li>
-<li><p><strong>Reusability and sharing</strong> — supporting research, education, and collaboration.<br>
-Clear metadata, stable identifiers, and standardized structures make digital objects easy to understand and integrate into new workflows.</p></li>
-<li><p><strong>Reliable citation and tracking</strong> — through persistent identifiers that remain valid even as files move or metadata changes.<br>
-PIDs support accurate citation, versioning, provenance tracking, and automated linking.</p></li>
-<li><p><strong>Robust storage strategies</strong> — enabling multiple replicas across diverse storage environments while maintaining a single, consistent identity.<br>
-Replicas of files on different storage systems improve resilience and performance without compromising citation or access.</p></li>
-</ul>
-<p>Additional lifecycle functions include:</p>
-<ul>
-<li><strong>Versioning</strong> — recording updates or corrections while keeping earlier states accessible and citable.<br>
-</li>
-<li><strong>Fixity</strong> — verifying file integrity through checksums or hashes to detect corruption or tampering.<br>
-</li>
-<li><strong>Provenance</strong> — documenting how data came to be, including transformations and dependencies.<br>
-This includes relationships such as <em>raw data → processed data → analysed data</em>, making the object’s history transparent and reproducible.</li>
-</ul>
+<section id="digitalobject-promotion-on-ingest" class="level3">
+<h3 class="anchored" data-anchor-id="digitalobject-promotion-on-ingest">Digital‑Object Promotion on Ingest</h3>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-4">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
+<pre class="mermaid mermaid-js" data-label="fig-4">%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
+flowchart LR
 
-flowchart RL
+    User["User&lt;br/&gt;(uploads file)"]
 
-    subgraph RAW["Raw Data Object"]
-        direction TB
-        R_F["Files"]
-        R_M["Metadata"]
-        R_P["PID"]
+    subgraph PE["Policy Engine"]
+        Ingest["Receive File"]
+        Fixity["Fixity Check&lt;br/&gt;(compute checksum)"]
+        Meta["Metadata Extraction&lt;br/&gt;(provenance, tags, timestamps)"]
+        PID["Identifier Assignment&lt;br/&gt;(PID or local ID)"]
+        Catalog["Metadata Catalog&lt;br/&gt;(checksum, PID, metadata)"]
     end
 
-    subgraph PROC["Processed Data Object"]
-        direction TB
-        P_F["Files"]
-        P_M["Metadata"]
-        P_P["PID"]
-    end
-    
-    subgraph ANAL["Analysed Data Object"]
-        direction TB
-        A_F["Files"]
-        A_M["Metadata"]
-        A_P["PID"]
+    subgraph Storage["Storage Systems"]
+        Store["Storage Backend&lt;br/&gt;(POSIX / Object / Tape)"]
     end
 
-    P_M --&gt; |"created from"| R_P
-    A_M --&gt; |"created from"| P_P
+    %% User interacts with Policy Engine, not storage
+    User --&gt; Ingest
+
+    %% Ingest pipeline inside the policy engine
+    Ingest --&gt; Fixity
+    Fixity --&gt; Meta
+    Meta --&gt; PID
+    PID --&gt; Catalog
+
+    %% Only the policy engine writes to storage
+    Ingest --&gt; Store
 </pre>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.4: Data lineage represented as a chain of Digital Objects (raw → processed → analysed).
+Figure&nbsp;12.4: When a user uploads a file, the policy engine applies an ingest policy that computes fixity, attaches metadata, assigns an identifier, and registers the digital object before writing it to storage.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
+<p>When a file enters the system, the policy engine applies ingest rules that compute fixity, extract metadata, assign an identifier, and register the object. This ensures every incoming file becomes a governed digital object from the moment it arrives.</p>
 </section>
-<section id="in-essence" class="level3">
-<h3 class="anchored" data-anchor-id="in-essence"><strong>In essence</strong></h3>
-<p>A digital object is <strong>content + context + identity</strong>.<br>
-The bitstreams supply the content, the metadata provides the meaning needed to interpret and manage that content, and the persistent identifier anchors a stable, durable identity. Together, these components make digital information portable across systems, understandable over time, and resilient to changes in storage or technology. The chapters that follow examine each of these elements in depth, along with the infrastructure that enables them to function as a coherent whole.</p>
+<section id="autolink-derived-data" class="level3">
+<h3 class="anchored" data-anchor-id="autolink-derived-data">Auto‑Link Derived Data</h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-5">%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
+flowchart TB
+
+    subgraph Compute["Compute Environment"]
+        WF["Workflow&lt;br/&gt;(input data + output file + parameters)"]
+    end
+
+    subgraph PE["Policy Engine"]
+        NewObj["Create New Digital Object&lt;br/&gt;(output file)"]
+        Extract["Extract metadata from output file&lt;br/&gt;(checksum, timestamps, filetype)"]
+        Catalog["Metadata Catalog&lt;br/&gt;(created from input data, workflow parameters, extracted metadata)"]
+    
+        ID["Assign Identifier&lt;br/&gt;(PID or local ID)"]
+    end
+
+    subgraph Storage["Storage Systems"]
+        Store["Storage Backend&lt;br/&gt;(POSIX / Object / Tape)"]
+    end
+
+    Compute -- "Upload file and metadata" --&gt; PE
+    PE -- "Store file" --&gt; Storage
+    NewObj --&gt; Extract
+    ID --&gt; NewObj
+    Extract --&gt; Catalog
+    
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.5: Workflow‑generated data is uploaded to the policy engine, which extracts metadata, assigns an identifier, records provenance, and registers the new digital object before storing it.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>When a workflow produces an output file, it uploads the file together with metadata describing the input data and workflow parameters to the policy engine. The engine creates a new digital object, extracts additional metadata from the file, assigns an identifier, and records provenance linking the output to its inputs. All metadata like workflow parameters, extracted attributes, and input data is consolidated in the metadata catalog. This not only builds a machine‑readable lineage graph showing how data was generated and transformed, but also provides the structured information required for reproducibility, allowing others to understand and re‑execute the workflow under comparable conditions.</p>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
+</section>
+<section id="metadatadriven-access-to-digital-objects" class="level2">
+<h2 class="anchored" data-anchor-id="metadatadriven-access-to-digital-objects">Metadata‑Driven Access to Digital Objects</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-6" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-6">%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
+
+flowchart TB
+
+    subgraph Storage["Storage Systems"]
+        S1["Storage Backend 1"]
+        S2["Storage Backend 2"]
+    end
+
+    subgraph PE["Policy Engine"]
+        Catalog["Metadata Catalog&lt;br/&gt;(provenance, tags, arrival time)"]
+    end
+
+    subgraph Compute["Compute Environment"]
+        User["User / Workflow&lt;br/&gt;(query metadata)"]
+        Stream["Workflow A&lt;br/&gt;(stream content)"]
+        Copy["Workflow B&lt;br/&gt;(stage working copy)"]
+    end
+
+    %% User/workflow queries catalog
+    User -- "query metadata" --&gt; Catalog
+
+    %% Catalog returns access info to user/workflow
+    Catalog -- "return location + access info" --&gt; User
+
+    %% User/workflow injects access info into workflows
+    User -- "ingest access info" --&gt; Stream
+    User -- "ingest access info" --&gt; Copy
+
+    %% Workflows fetch data through policy engine
+    Stream -- "request data" --&gt; Catalog
+    Copy -- "request data" --&gt; Catalog
+
+    %% Policy engine fetches from storage
+    Catalog -- "fetch data" --&gt; S1
+
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.6: Users or workflows query the metadata catalog, receive location and access information and fetch data through the policy engine without direct access to storage.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Users or workflows query the metadata catalog to identify files that require processing—for example, newly arrived data or files with specific tags or provenance. The policy engine resolves the storage location, checks access and provides the necessary access handles to the workflow. The workflow then streams the content or stages a working copy through the policy engine, ensuring that storage remains abstracted and consistently governed.</p>
+</section>
+<section id="comparison-with-synchronisation-tools" class="level2">
+<h2 class="anchored" data-anchor-id="comparison-with-synchronisation-tools">Comparison with Synchronisation Tools</h2>
+<p>While policy engines operate directly on emerging <strong>digital objects</strong>, synchronisation tools serve a different purpose. Services such as OneDrive, Dropbox, Google Drive, or Nextcloud‑based platforms like SURFdrive replicate files across devices for convenience, but they do not manage:</p>
 <ul>
-<li>https://www.lisedunetwork.com/what-is-a-digital-object/?utm_source=copilot.com</li>
-<li>https://wiki.dpconline.org/index.php?title=4.2.1.3.1_Representation_Information_Types&amp;utm_source=copilot.com</li>
-<li>https://archive.rd-alliance.org/sites/default/files/2-kahn-do-talk.pdf?utm_source=copilot.com</li>
-<li>DOI 10.1007/s00799-005-0128-x</li>
+<li>metadata<br>
+</li>
+<li>identifiers<br>
+</li>
+<li>provenance<br>
+</li>
+<li>lineage<br>
+</li>
+<li>policy‑driven placement<br>
+</li>
+<li>multi‑site coordination</li>
 </ul>
+<p>Sync tools solve <strong>convenience and collaboration</strong> problems.<br>
+Policy engines solve <strong>digital‑object lifecycle</strong> problems.</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>Storage systems keep files safe, but they cannot manage metadata, replicas, identifiers, or the volatile stages where research data is created and transformed. To manage data as digital objects, two complementary systems are needed.</p>
+<p>Data repositories (Dataverse, Figshare, Invenio/Zenodo) curate and publish stabilised datasets. They provide structured workflows, metadata templates, DOIs, and governance, but they operate mainly at the dataset level and are not designed for active, changing data.</p>
+<p>Policy engines (iRODS, Rucio, Globus, Starfish) coordinate files, metadata, and storage during active research. They support replication, tiering, ingest rules, lineage tracking, and metadata‑driven automation across distributed systems. They treat files as emerging digital objects long before publication, ensuring that key lifecycle events are governed and recorded.</p>
+<p>Unlike synchronisation tools, which simply replicate files for convenience, policy engines manage the full digital‑object lifecycle.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Policy engines in a nutshell">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Policy engines in a nutshell
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A policy engine governs active research data by coordinating files, metadata, and storage. It applies rules for replication, placement, retention, and lineage, and forms digital objects either at ingest (storage‑centric) or after discovery (observation‑centric). Rather than handling every file operation, it governs the key lifecycle events that make data trackable, reproducible, and consistently managed across systems.</p>
+</div>
+</div>
+<p>Even with repositories and policy engines enriching and exposing metadata to some extent, metadata still becomes fragmented across institutions and disciplines. Each repository, workflow platform, policy engine manages metadata locally. Without additional infrastructure, this creates isolated pockets of metadata that cannot be searched or linked across systems.</p>
+<p>To avoid these silos, research ecosystems rely on metadata services that collect, normalise, and aggregate metadata from many sources. These services enable cross‑repository discovery and make metadata visible beyond the system where it was created.</p>
+<p>How they achieve that, we will doscover in the next chapter.</p>
 
 
 </section>
@@ -891,13 +1219,13 @@ The bitstreams supply the content, the metadata provides the meaning needed to i
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./data-lifecycle.html" class="pagination-link" aria-label="The Research Data Management Life Cycle and FAIR">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">The Research Data Management Life Cycle and FAIR</span></span>
+      <a href="./data-repositories.html" class="pagination-link" aria-label="Data Repositories">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Data Repositories</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./files.html" class="pagination-link" aria-label="Files">
-        <span class="nav-page-text"><span class="chapter-title">Files</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./metadata-portals.html" class="pagination-link" aria-label="Metadata Infrastructure">
+        <span class="nav-page-text"><span class="chapter-title">Metadata Infrastructure</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

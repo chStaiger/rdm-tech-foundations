@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RDM Infrastructure Introduction and Overview – Fundamentals of Research Data Management</title>
+<title>Research Data Management Infrastructure – Fundamentals of Research Data Management</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,7 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./data-repositories.html" rel="next">
+<link href="./digital-object-infrastructure.html" rel="next">
 <link href="./storage-infrastructure.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -41,10 +41,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-65e0ae26c9437c5648622ecaec7cfb22.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9c2e50941a1a4da422292054cb872991.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,6 +72,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<meta name="mermaid-theme" content="forest">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="css_files/callout.css">
@@ -88,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./rdm-infra-intro.html">COMPONENTS OF RDM INFRASTRUCTURE</a></li><li class="breadcrumb-item"><a href="./rdm-infra-intro.html"><span class="chapter-title">RDM Infrastructure Introduction and Overview</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./rdm-infra-intro.html">COMPONENTS OF RDM INFRASTRUCTURE</a></li><li class="breadcrumb-item"><a href="./rdm-infra-intro.html"><span class="chapter-title">Research Data Management Infrastructure</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -192,12 +196,22 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rdm-infra-intro.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">RDM Infrastructure Introduction and Overview</span></a>
+  <a href="./rdm-infra-intro.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Research Data Management Infrastructure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-repositories.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Repositories and Policy Engines</span></a>
+  <a href="./digital-object-infrastructure.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Repositories and Policy Engines</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-repositories.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Repositories</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./policy-engines.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Policy Engines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -238,15 +252,23 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#interoperability-with-compute-systems" id="toc-interoperability-with-compute-systems" class="nav-link active" data-scroll-target="#interoperability-with-compute-systems">Interoperability with Compute Systems</a></li>
+  <li><a href="#how-these-layers-work-together" id="toc-how-these-layers-work-together" class="nav-link" data-scroll-target="#how-these-layers-work-together">How These Layers Work Together</a></li>
+  <li><a href="#why-rdm-infrastructure-matters" id="toc-why-rdm-infrastructure-matters" class="nav-link" data-scroll-target="#why-rdm-infrastructure-matters">Why RDM Infrastructure Matters</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./rdm-infra-intro.html">COMPONENTS OF RDM INFRASTRUCTURE</a></li><li class="breadcrumb-item"><a href="./rdm-infra-intro.html"><span class="chapter-title">RDM Infrastructure Introduction and Overview</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./rdm-infra-intro.html">COMPONENTS OF RDM INFRASTRUCTURE</a></li><li class="breadcrumb-item"><a href="./rdm-infra-intro.html"><span class="chapter-title">Research Data Management Infrastructure</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">RDM Infrastructure Introduction and Overview</span></h1>
+<h1 class="title"><span class="chapter-title">Research Data Management Infrastructure</span></h1>
 </div>
 
 
@@ -263,12 +285,151 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Modern research data management relies not only on <strong>digital objects</strong>, i.e.&nbsp;the combination of files, metadata, and persistent identifiers, but also on the <strong>infrastructure</strong> that enables those objects to be managed across their entire lifecycle.</p>
+<p>RDM infrastructure is the <strong>ecosystem of systems</strong> that ensures digital objects remain:</p>
 <ul>
-<li>highlevel overview over the big RDM infra components</li>
-<li>Explained by e.g.&nbsp;https://www.dona.net/digitalobjectarchitecture</li>
+<li><strong>durable</strong> (stored safely across time and technologies)<br>
+</li>
+<li><strong>discoverable</strong> (indexed and searchable)<br>
+</li>
+<li><strong>identifiable</strong> (anchored by persistent identifiers)<br>
+</li>
+<li><strong>governed</strong> (managed by policies, workflows, and access rules)<br>
+</li>
+<li><strong>usable</strong> (accessible to humans and machines in meaningful ways)<br>
+</li>
+<li><strong>interoperable with compute</strong> (able to move into and out of analysis environments without breaking identity or provenance)</li>
 </ul>
+<p>Just as a digital object consists of three interdependent components, the infrastructure that supports it can be understood through <strong>five complementary layers</strong>:</p>
+<ul>
+<li><strong>Storage Infrastructure</strong> — the technical substrate that preserves the bitstreams.<br>
+</li>
+<li><strong>Data Repositories and Policy engines</strong> — systems that curate, package, publish, and actively manage digital objects across different stages of the lifecycle.
+<ul>
+<li>Policy engines coordinate files, metadata, and storage during active research.</li>
+<li>Data repositories focus on stabilised, publishable digital objects.</li>
+</ul></li>
+<li><strong>Metadata Portals</strong> — discovery layers that expose metadata for search, indexing, and aggregation.<br>
+</li>
+<li><strong>PID Services</strong> — the identifier infrastructure that anchors digital objects in a global namespace.<br>
+</li>
+<li><strong>Compute Interoperability</strong> — the ability of digital objects to flow into and out of compute systems (HPC, cloud, VMs, workflow engines) while preserving identity, metadata, and provenance.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-rdm-layers" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rdm-layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-rdm-layers">%%{init: {
+  "look": "handDrawn",
+  "flowchart": { "htmlLabels": false }
+}}%%
+
+flowchart BT
+
+    %% Top: Digital Objects
+    DO["Digital Objects&lt;br/&gt;(files + metadata + PID)"]
+
+    %% Exposure Layer
+    subgraph Exposure["Exposure and Interoperability Layer"]
+        direction LR
+        M["Metadata Portals"]
+        P["PID Services"]
+    end
+
+    %% Management Layer
+    subgraph Management["Digital Object Formation and Management Layer"]
+        direction LR
+        R["Data Repositories"]
+        PE["Policy Engines"]
+    end
+
+    %% Storage Layer
+    S["Storage Infrastructure"]
+
+    %% Compute Interoperability (side)
+    C["Compute Interoperability"]
+
+    %% Minimal connections
+    S -- "Managed by" --&gt; Management
+    Management -- "Export Metadata" --&gt; Exposure
+    Management -- "Create" --&gt; DO
+    C -- "Discover and use" --&gt; DO
+
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rdm-layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.1: Core RDM infrastructure layers and how they contribute to forming, exposing, and using digital objects.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="interoperability-with-compute-systems" class="level2">
+<h2 class="anchored" data-anchor-id="interoperability-with-compute-systems">Interoperability with Compute Systems</h2>
+<p>In the context of the book we define:</p>
+<blockquote class="blockquote">
+<p><strong>Compute interoperability</strong> is the ability for digital objects to move seamlessly between storage, repositories, and computational environments, such as High Performance Compute (HPC) clusters, cloud platforms, virtual machines, and workflow engines <em>without losing their identity, metadata, provenance, or governance</em>.</p>
+</blockquote>
+<p>This capability represents the ultimate goal of modern Research Data Management: a world in which digital objects can flow effortlessly between systems, remain consistently identifiable, and carry their metadata and provenance with them wherever they go. It is the point where RDM stops being a set of disconnected services and becomes a coherent, end‑to‑end ecosystem.</p>
+<p>However, it is important to be explicit: most current infrastructures and services cannot yet deliver this level of interoperability.<br>
+Today, compute environments, storage systems, repositories, and metadata services often operate in isolation, requiring manual coordination and fragile workarounds. Achieving true compute interoperability remains an active area of development across institutions and research infrastructures.</p>
+<p>In practice, compute interoperability would mean that:</p>
+<ul>
+<li>workflows can <strong>find data by metadata</strong>, not by file paths<br>
+</li>
+<li>compute jobs can <strong>access the correct version</strong> of a digital object<br>
+</li>
+<li>provenance is <strong>captured automatically</strong> when new files are created<br>
+</li>
+<li>policy engines can <strong>promote outputs</strong> into new digital objects<br>
+</li>
+<li>identifiers and metadata remain <strong>consistent across systems</strong></li>
+</ul>
+<p>Compute interoperability is what makes digital objects <em>usable</em> during active research, not just after publication. It is the missing link between data management and data-intensive science and the direction in which RDM infrastructures must evolve.</p>
+</section>
+<section id="how-these-layers-work-together" class="level2">
+<h2 class="anchored" data-anchor-id="how-these-layers-work-together">How These Layers Work Together</h2>
+<p>Each layer plays a distinct role:</p>
+<ul>
+<li><strong>Storage</strong> keeps the <em>bits</em> safe.<br>
+</li>
+<li><strong>Policy engines</strong> govern the active part of the data lifecycle: they ensure that data remains compliant and traceable before it ever reaches a repository.</li>
+<li><strong>Repositories</strong> curate, preserve, and publish datasets with stable identifiers and long‑term guarantees.</li>
+<li><strong>Metadata portals</strong> make digital objects <em>findable</em>.<br>
+</li>
+<li><strong>PID services</strong> make them <em>identifiable and citable</em>.<br>
+</li>
+<li><strong>Compute interoperability</strong> makes them <em>usable in analysis workflows</em> without breaking identity or provenance.</li>
+</ul>
+<p>No single system provides all these functions.<br>
+Digital objects require <strong>coordination across layers</strong>, not just storage or publication in isolation.</p>
+</section>
+<section id="why-rdm-infrastructure-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-rdm-infrastructure-matters">Why RDM Infrastructure Matters</h2>
+<p>A robust RDM infrastructure enables:</p>
+<ul>
+<li><strong>Lifecycle continuity</strong> — from active research to long‑term preservation.<br>
+</li>
+<li><strong>Automation and policy enforcement</strong> — through systems that coordinate files, metadata, and storage.<br>
+</li>
+<li><strong>Discovery and reuse</strong> — via portals and registries that expose metadata to the world.<br>
+</li>
+<li><strong>Global interoperability</strong> — through persistent identifiers and shared metadata standards.<br>
+</li>
+<li><strong>Compute‑ready workflows</strong> — where digital objects can be analysed, transformed, and regenerated without losing their identity.<br>
+</li>
+<li><strong>Institutional resilience</strong> — by distributing responsibilities across specialised systems.</li>
+</ul>
+<p>Without this infrastructure, digital objects cannot be reliably preserved, discovered, analysed, or reused.</p>
+<p>With this conceptual foundation in place, we can now examine the first major component of the infrastructure above storage: the systems that actively manage digital objects during research and prepare them for publication.</p>
+<p>This leads us to the next chapter:</p>
+<p><a href="./data-repositories.html">Data Repositories and Policy Engines</a> which describes the complementary systems that curate, govern, and orchestrate digital objects across different stages of the research lifecycle.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -678,7 +839,7 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./data-repositories.html" class="pagination-link" aria-label="Data Repositories and Policy Engines">
+      <a href="./digital-object-infrastructure.html" class="pagination-link" aria-label="Data Repositories and Policy Engines">
         <span class="nav-page-text"><span class="chapter-title">Data Repositories and Policy Engines</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

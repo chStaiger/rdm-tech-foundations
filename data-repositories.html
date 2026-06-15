@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Repositories and Policy Engines – Fundamentals of Research Data Management</title>
+<title>Data Repositories – Fundamentals of Research Data Management</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,18 +33,18 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./metadata-portals.html" rel="next">
-<link href="./rdm-infra-intro.html" rel="prev">
+<link href="./policy-engines.html" rel="next">
+<link href="./digital-object-infrastructure.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-65e0ae26c9437c5648622ecaec7cfb22.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9c2e50941a1a4da422292054cb872991.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -92,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./rdm-infra-intro.html">COMPONENTS OF RDM INFRASTRUCTURE</a></li><li class="breadcrumb-item"><a href="./data-repositories.html"><span class="chapter-title">Data Repositories and Policy Engines</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./rdm-infra-intro.html">COMPONENTS OF RDM INFRASTRUCTURE</a></li><li class="breadcrumb-item"><a href="./data-repositories.html"><span class="chapter-title">Data Repositories</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -196,12 +196,22 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rdm-infra-intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">RDM Infrastructure Introduction and Overview</span></a>
+  <a href="./rdm-infra-intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Research Data Management Infrastructure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-repositories.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Data Repositories and Policy Engines</span></a>
+  <a href="./digital-object-infrastructure.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Repositories and Policy Engines</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-repositories.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Data Repositories</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./policy-engines.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Policy Engines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -247,37 +257,31 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#data-repositories" id="toc-data-repositories" class="nav-link active" data-scroll-target="#data-repositories">Data Repositories</a></li>
-  <li><a href="#dataverse" id="toc-dataverse" class="nav-link" data-scroll-target="#dataverse">Dataverse</a>
+  <li><a href="#the-repository-workflow" id="toc-the-repository-workflow" class="nav-link active" data-scroll-target="#the-repository-workflow">The Repository Workflow</a></li>
+  <li><a href="#repository-platforms" id="toc-repository-platforms" class="nav-link" data-scroll-target="#repository-platforms">Repository Platforms</a>
   <ul class="collapse">
-  <li><a href="#how-dataverse-supports-the-publication-workflow" id="toc-how-dataverse-supports-the-publication-workflow" class="nav-link" data-scroll-target="#how-dataverse-supports-the-publication-workflow">How Dataverse supports the publication workflow</a></li>
+  <li><a href="#dataverse" id="toc-dataverse" class="nav-link" data-scroll-target="#dataverse">Dataverse</a></li>
+  <li><a href="#figshare" id="toc-figshare" class="nav-link" data-scroll-target="#figshare">Figshare</a></li>
+  <li><a href="#invenio-zenodo" id="toc-invenio-zenodo" class="nav-link" data-scroll-target="#invenio-zenodo">Invenio / Zenodo</a></li>
   </ul></li>
-  <li><a href="#figshare" id="toc-figshare" class="nav-link" data-scroll-target="#figshare">Figshare</a>
+  <li><a href="#archival-packaging-and-preservation-standards" id="toc-archival-packaging-and-preservation-standards" class="nav-link" data-scroll-target="#archival-packaging-and-preservation-standards">Archival Packaging and Preservation Standards</a>
   <ul class="collapse">
-  <li><a href="#how-figshare-supports-the-publication-workflow" id="toc-how-figshare-supports-the-publication-workflow" class="nav-link" data-scroll-target="#how-figshare-supports-the-publication-workflow">How Figshare supports the publication workflow</a></li>
+  <li><a href="#bagit-packaging-files-for-transfer-and-fixity" id="toc-bagit-packaging-files-for-transfer-and-fixity" class="nav-link" data-scroll-target="#bagit-packaging-files-for-transfer-and-fixity">BagIt: Packaging Files for Transfer and Fixity</a></li>
+  <li><a href="#oais-the-conceptual-model-behind-preservation" id="toc-oais-the-conceptual-model-behind-preservation" class="nav-link" data-scroll-target="#oais-the-conceptual-model-behind-preservation">OAIS: The Conceptual Model Behind Preservation</a></li>
+  <li><a href="#premis-preservation-metadata-for-longterm-stewardship" id="toc-premis-preservation-metadata-for-longterm-stewardship" class="nav-link" data-scroll-target="#premis-preservation-metadata-for-longterm-stewardship">PREMIS: Preservation Metadata for Long‑Term Stewardship</a></li>
+  <li><a href="#mets-structuring-complex-digital-objects" id="toc-mets-structuring-complex-digital-objects" class="nav-link" data-scroll-target="#mets-structuring-complex-digital-objects">METS: Structuring Complex Digital Objects</a></li>
+  <li><a href="#rocrate-lightweight-webnative-research-object-packaging" id="toc-rocrate-lightweight-webnative-research-object-packaging" class="nav-link" data-scroll-target="#rocrate-lightweight-webnative-research-object-packaging">RO‑Crate: Lightweight, Web‑Native Research Object Packaging</a></li>
   </ul></li>
-  <li><a href="#invenio-zenodo" id="toc-invenio-zenodo" class="nav-link" data-scroll-target="#invenio-zenodo">Invenio / Zenodo</a>
-  <ul class="collapse">
-  <li><a href="#how-invenio-supports-publication-workflows" id="toc-how-invenio-supports-publication-workflows" class="nav-link" data-scroll-target="#how-invenio-supports-publication-workflows">How Invenio supports publication workflows</a></li>
-  <li><a href="#how-zenodo-supports-publication-workflows" id="toc-how-zenodo-supports-publication-workflows" class="nav-link" data-scroll-target="#how-zenodo-supports-publication-workflows">How Zenodo supports publication workflows</a></li>
-  </ul></li>
-  <li><a href="#policy-engines" id="toc-policy-engines" class="nav-link" data-scroll-target="#policy-engines">Policy Engines</a>
-  <ul class="collapse">
-  <li><a href="#irods" id="toc-irods" class="nav-link" data-scroll-target="#irods"><strong>iRODS</strong></a></li>
-  <li><a href="#rucio" id="toc-rucio" class="nav-link" data-scroll-target="#rucio"><strong>Rucio</strong></a></li>
-  <li><a href="#globus" id="toc-globus" class="nav-link" data-scroll-target="#globus"><strong>Globus</strong></a></li>
-  </ul></li>
-  <li><a href="#comparison-with-synchronisation-tools" id="toc-comparison-with-synchronisation-tools" class="nav-link" data-scroll-target="#comparison-with-synchronisation-tools"><strong>Comparison with Synchronisation Tools</strong></a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><strong>Summary</strong></a></li>
+  <li><a href="#how-these-standards-fit-together" id="toc-how-these-standards-fit-together" class="nav-link" data-scroll-target="#how-these-standards-fit-together">How These Standards Fit Together</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./rdm-infra-intro.html">COMPONENTS OF RDM INFRASTRUCTURE</a></li><li class="breadcrumb-item"><a href="./data-repositories.html"><span class="chapter-title">Data Repositories and Policy Engines</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./rdm-infra-intro.html">COMPONENTS OF RDM INFRASTRUCTURE</a></li><li class="breadcrumb-item"><a href="./data-repositories.html"><span class="chapter-title">Data Repositories</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Data Repositories and Policy Engines</span></h1>
+<h1 class="title"><span class="chapter-title">Data Repositories</span></h1>
 </div>
 
 
@@ -294,51 +298,47 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In the chapter on <a href="./files.html">Files and Storage Infrastructure</a>, we saw that storage alone is not enough to manage research data. Storage systems keep <strong>files</strong> safe, but they do not coordinate:</p>
+<p><strong>Data repositories</strong> support the <strong>archiving</strong>, <strong>curation</strong>, and <strong>publication</strong> of research data. Their core function is to take <strong>stabilised files</strong> and assemble them into a governed <strong>digital object</strong> with structured metadata, a persistent identifier, and controlled access.</p>
+<p>In principle, repository <em>software</em> can support <strong>archiving without full publication</strong>, for example by keeping files dark or access‑restricted. In practice, however, many repository <em>services</em> are designed with <strong>publication as the default outcome</strong>. To soften this, they typically offer:</p>
 <ul>
-<li>the <strong>files</strong> themselves<br>
+<li><strong>embargo periods</strong>, during which files are not yet openly accessible<br>
 </li>
-<li>their <strong>replicas</strong> across different storage systems<br>
-</li>
-<li>their <strong>metadata</strong><br>
-</li>
-<li>their <strong>persistent identifiers</strong></li>
+<li><strong>restricted files</strong>, where access requires approval</li>
 </ul>
-<p>This coordination is needed <strong>throughout the entire data lifecycle</strong>, not only in the archived or published stages. In fact, the <strong>volatile stages</strong> <em>Process</em> and <em>Analyse</em> are where researchers generate, transform, and stabilise files, yet these stages often lack infrastructure capable of treating files as emerging <strong>digital objects</strong>.</p>
-<p>To support digital objects across their full lifecycle, we need systems that operate <em>above</em> storage. These systems fall into two broad categories:</p>
+<p>Even in these cases, the <strong>repository entry (landing page)</strong> and its basic metadata are usually <strong>publicly visible</strong>, while the underlying files may be delayed or restricted.</p>
+<p>Repositories operate primarily at the <strong>dataset level</strong>. They expect researchers to prepare a coherent data package consisting of:</p>
 <ul>
-<li><strong>Data repositories</strong>, which manage publication workflows and curate data for dissemination<br>
+<li>one <strong>metadata record</strong><br>
 </li>
-<li><strong>systems that we refer to in this book as Policy engines</strong>, which coordinate files, metadata, and storage across distributed infrastructures, including during active research</li>
+<li>one <strong>persistent identifier</strong><br>
+</li>
+<li>one <strong>landing page</strong></li>
 </ul>
-<section id="data-repositories" class="level2">
-<h2 class="anchored" data-anchor-id="data-repositories">Data Repositories</h2>
-<p>Data repositories are designed to support the <strong>publication</strong> and <strong>archival packaging</strong> of research data. Their primary role is to take stabilised files and turn them into <strong>publishable digital objects</strong> with metadata, identifiers, and access controls.</p>
-<p>Although repositories are best known for their role in publication, they also provide structure and governance that can support earlier lifecycle stages, especially when stabilised files begin to take shape as digital objects.</p>
+<p>File‑level metadata may be supported, but it is typically <strong>secondary</strong>. Repositories are therefore optimised for <strong>curation, governance, and long‑term retention of stabilised datasets</strong>, not for managing the volatile, rapidly changing files produced during active research.</p>
 <p>Repositories typically provide:</p>
 <ul>
-<li><strong>Publication workflows</strong> — draft → review → published<br>
+<li>structured <strong>publication workflows</strong> (draft → review → publish)<br>
 </li>
-<li><strong>Defined roles</strong> — depositors, curators, administrators<br>
+<li><strong>embargo</strong> and <strong>restricted‑access</strong> options<br>
 </li>
-<li><strong>Access rights aligned with publication</strong> — collaboration, embargo, controlled access<br>
+<li>defined <strong>roles</strong> (depositors, curators, administrators)<br>
 </li>
-<li><strong>Archival packaging</strong> — dataset bundles, BagIt, collection‑level metadata<br>
+<li><strong>access controls</strong> aligned with institutional or funder policies<br>
 </li>
-<li><strong>Limited storage coordination</strong> — usually a single backend, no replication or policy‑driven placement</li>
+<li><strong>archival packaging</strong> (e.g., BagIt, dataset bundles)<br>
+</li>
+<li>limited or single‑backend <strong>storage coordination</strong></li>
 </ul>
-<p>Repositories excel at <strong>curation, metadata, identifiers, and publication</strong>, but they are not designed to orchestrate large‑scale or volatile data.</p>
+<p>In short, repositories excel at turning stabilised files into <strong>citable, discoverable, and preservable digital objects</strong>, but they are not designed to orchestrate large‑scale or frequently changing data during <strong>active research</strong>. That role belongs to <strong>policy engines</strong>, which operate earlier in the lifecycle.</p>
+<section id="the-repository-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="the-repository-workflow">The Repository Workflow</h3>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-1">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-
+<pre class="mermaid mermaid-js" data-label="fig-1">%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
 flowchart TB
 
     subgraph R["Data Repository Workflow"]
@@ -356,197 +356,389 @@ flowchart TB
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.1: Files reside across multiple storage layers, but only repositories and policy engines turn them into digital objects.
+Figure&nbsp;11.1: Data repositories implement a structured publication workflow that transforms a bundle of stabilised files into a single governed digital object. The workflow focuses on dataset‑level metadata, packaging, and persistent identifiers rather than elevating individual files to independent objects.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>A data repository provides a structured environment where researchers can turn files into publishable digital objects. The process begins with a deposit, where files and metadata are assembled. During curation, repository staff or automated checks ensure that metadata is complete, formats are appropriate, and the dataset meets institutional or disciplinary standards.</p>
-<p>Once approved, the repository assigns a persistent identifier, freezes the version, and generates a landing page that exposes metadata for discovery. After publication, the dataset enters a stable but updatable state, where new versions can be created and access can be managed.</p>
-<p>This workflow is the core function of a repository: it transforms files into citable, discoverable, governed digital objects.</p>
+<p>This workflow is implemented differently across repository platforms, but the underlying logic is the same: stabilised files are transformed into a governed dataset with metadata, identifiers, and access controls. The following platforms illustrate how these principles appear in real systems.</p>
 </section>
-<section id="dataverse" class="level2">
-<h2 class="anchored" data-anchor-id="dataverse">Dataverse</h2>
-<p>Dataverse is a repository platform designed around the idea of a <strong>structured dataset</strong>. A dataset in Dataverse is not just a bag of files — it is a curated digital object with:</p>
+<section id="repository-platforms" class="level2">
+<h2 class="anchored" data-anchor-id="repository-platforms">Repository Platforms</h2>
+<section id="dataverse" class="level3">
+<h3 class="anchored" data-anchor-id="dataverse">Dataverse</h3>
+<p>Dataverse is strongly dataset‑centric: the dataset is the primary digital object, and all files are organised within that structure.</p>
 <ul>
-<li>a metadata record based on rich disciplinary templates,<br>
+<li>a metadata record based on disciplinary templates<br>
 </li>
-<li>versioning that tracks changes across drafts and releases,<br>
+<li>versioning across drafts and releases<br>
 </li>
-<li>a clear publication workflow, and<br>
+<li>a clear publication workflow<br>
 </li>
-<li>a stable persistent identifier (usually a DOI).</li>
+<li>a DOI</li>
 </ul>
-<section id="how-dataverse-supports-the-publication-workflow" class="level3">
-<h3 class="anchored" data-anchor-id="how-dataverse-supports-the-publication-workflow">How Dataverse supports the publication workflow</h3>
-<p>Dataverse implements a <strong>draft → review → publish</strong> model:</p>
+<p>Dataverse supports:</p>
 <ul>
-<li>Researchers upload files and fill in metadata while the dataset is in <strong>draft</strong>.<br>
+<li>embargoes<br>
 </li>
-<li>Curators can review, request changes, or enhance metadata.<br>
+<li>restricted files with request workflows<br>
 </li>
-<li>Once approved, the dataset is <strong>published</strong>, assigned a DOI, and becomes immutable.<br>
+<li>file‑level metadata<br>
 </li>
-<li>Any later changes create a <strong>new version</strong>, preserving the scholarly record.</li>
+<li>tabular data ingest (extracting variables, labels, formats)<br>
+</li>
+<li>dataset‑level citations</li>
 </ul>
-<p>Dataverse also supports:</p>
+<p>It is ideal for institutions that want a <strong>curation‑centric</strong> repository with well‑defined roles and governance.</p>
+<p>Dataverse aligns with the <a href="https://dataverse.org/book/oais-reference-model-and-dataverse-software">OAIS Reference Model</a> (see below).</p>
+</section>
+<section id="figshare" class="level3">
+<h3 class="anchored" data-anchor-id="figshare">Figshare</h3>
+<p>Figshare focuses on <strong>ease of deposit</strong> and <strong>broad dissemination</strong>. It supports many output types and provides:</p>
 <ul>
-<li><strong>embargoes</strong>,<br>
+<li>drag‑and‑drop upload<br>
 </li>
-<li><strong>restricted files</strong> with request workflows,<br>
+<li>minimal required metadata<br>
 </li>
-<li><strong>file‑level metadata</strong>,<br>
+<li>private workspaces<br>
 </li>
-<li><strong>tabular data ingest</strong> (extracting variables, labels, and formats),<br>
+<li>clean landing pages<br>
 </li>
-<li>and <strong>dataset‑level citations</strong>.</li>
+<li>metrics dashboards (views, downloads, citations)<br>
+</li>
+<li>embargoes and controlled access<br>
+</li>
+<li>ORCID integration</li>
 </ul>
-<p>It is particularly strong for institutions that want a <strong>curation‑centric</strong> repository with well‑defined roles and governance.</p>
-<hr>
+<p>Figshare focusses on sharing of research output and <a href="https://info.figshare.com/user-guide/list-of-figshare-integrations/">provides integrations</a> and offers <a href="https://info.figshare.com/user-guide/how-to-use-figshares-oai-pmh-service/">OAI-PMH</a>.</p>
+<p>Figshare is ideal when the goal is to make research outputs <strong>easy to publish and easy to find</strong>.</p>
 </section>
-</section>
-<section id="figshare" class="level2">
-<h2 class="anchored" data-anchor-id="figshare">Figshare</h2>
-<p>Figshare is a publication‑oriented platform focused on <strong>ease of deposit</strong>, <strong>visual presentation</strong>, and <strong>broad dissemination</strong>. It is widely used by universities and publishers because it lowers the barrier for researchers to publish research outputs quickly.</p>
-<section id="how-figshare-supports-the-publication-workflow" class="level3">
-<h3 class="anchored" data-anchor-id="how-figshare-supports-the-publication-workflow">How Figshare supports the publication workflow</h3>
-<p>Figshare emphasises a <strong>lightweight, researcher‑friendly workflow</strong>:</p>
+<section id="invenio-zenodo" class="level3">
+<h3 class="anchored" data-anchor-id="invenio-zenodo">Invenio / Zenodo</h3>
+<p><strong>Invenio</strong> is a modular repository framework used to build institutional and disciplinary repositories.<br>
+<strong>Zenodo</strong>, built on Invenio, is a public repository offering free long‑term hosting.</p>
+<p>Invenio supports:</p>
 <ul>
-<li>Researchers drag‑and‑drop files into a private workspace.<br>
+<li>configurable deposit forms<br>
 </li>
-<li>They add minimal metadata (title, authors, categories).<br>
+<li>metadata schemas<br>
 </li>
-<li>They can keep items private, share them with collaborators, or mark them as <strong>ready for review</strong>.<br>
+<li>review and curation workflows<br>
 </li>
-<li>When published, Figshare assigns a DOI and generates a <strong>clean, human‑readable landing page</strong>.</li>
+<li>DOI registration<br>
+</li>
+<li>access control<br>
+</li>
+<li>landing pages</li>
 </ul>
-<p>Figshare’s strengths include:</p>
+<p>Invenio aligns with the <a href="https://librarytechnology.org/document/21456">OAIS Reference Model</a>.</p>
+<p>Zenodo supports:</p>
 <ul>
-<li><strong>support for many output types</strong> (datasets, posters, images, code, videos),<br>
+<li>any file type<br>
 </li>
-<li><strong>institutional branding</strong> for university repositories,<br>
+<li>automatic DOI assignment<br>
 </li>
-<li><strong>metrics dashboards</strong> (views, downloads, citations),<br>
+<li>concept DOIs and version DOIs<br>
 </li>
-<li><strong>embargoes and controlled access</strong>,<br>
+<li>GitHub integration (archiving releases automatically)<br>
 </li>
-<li><strong>integration with ORCID</strong>,<br>
-</li>
-<li>and a strong focus on <strong>public visibility</strong>.</li>
+<li>long‑term preservation</li>
 </ul>
-<p>Figshare is ideal when the goal is to make research outputs <strong>easy to publish and easy to find</strong>, with minimal friction.</p>
-<hr>
+<p>Zenodo is widely used for <strong>software</strong>, <strong>code releases</strong>, and <strong>small to medium‑sized datasets</strong>.</p>
 </section>
 </section>
-<section id="invenio-zenodo" class="level2">
-<h2 class="anchored" data-anchor-id="invenio-zenodo">Invenio / Zenodo</h2>
-<p><strong>Invenio</strong> is a modular repository framework developed by CERN and partners.<br>
-<strong>Zenodo</strong> is a public repository service built on Invenio, offering free, long‑term hosting for research outputs.</p>
-<section id="how-invenio-supports-publication-workflows" class="level3">
-<h3 class="anchored" data-anchor-id="how-invenio-supports-publication-workflows">How Invenio supports publication workflows</h3>
-<p>Invenio provides the building blocks for:</p>
+<section id="archival-packaging-and-preservation-standards" class="level2">
+<h2 class="anchored" data-anchor-id="archival-packaging-and-preservation-standards">Archival Packaging and Preservation Standards</h2>
+<p>Data repositories do more than curate and publish datasets—they also support the <strong>long‑term preservation</strong> of digital objects. To do this reliably, repositories rely on a set of <strong>archival packaging formats</strong>, <strong>metadata standards</strong>, and <strong>preservation models</strong> that ensure data remains interpretable, verifiable, and transferable over decades.</p>
+<p>The most widely used frameworks in this space include <strong>BagIt</strong>, <strong>OAIS</strong>, <strong>PREMIS</strong>, <strong>METS</strong>, and <strong>RO‑Crate</strong>.<br>
+Each addresses a different part of the preservation problem.</p>
 <ul>
-<li>deposit forms,<br>
-</li>
-<li>metadata schemas,<br>
-</li>
-<li>review and curation workflows,<br>
-</li>
-<li>DOI registration,<br>
-</li>
-<li>access control,<br>
-</li>
-<li>and landing pages.</li>
+<li>BagIt — a packaging format for file transfer and fixity</li>
+<li>OAIS — a conceptual model for long‑term preservation</li>
+<li>PREMIS — a metadata standard for preservation events and provenance</li>
+<li>METS — an XML framework for structuring digital objects</li>
+<li>RO‑Crate — a JSON‑LD format for research objects and workflows</li>
 </ul>
-<p>Institutions can configure their own workflows, metadata models, and policies. Invenio is highly extensible and is often used to build <strong>disciplinary repositories</strong> or <strong>institutional repositories</strong> with custom requirements.</p>
-</section>
-<section id="how-zenodo-supports-publication-workflows" class="level3">
-<h3 class="anchored" data-anchor-id="how-zenodo-supports-publication-workflows">How Zenodo supports publication workflows</h3>
-<p>Zenodo implements a <strong>simple but robust publication workflow</strong>:</p>
+<section id="bagit-packaging-files-for-transfer-and-fixity" class="level3">
+<h3 class="anchored" data-anchor-id="bagit-packaging-files-for-transfer-and-fixity">BagIt: Packaging Files for Transfer and Fixity</h3>
+<p><strong>BagIt</strong> is a simple, robust packaging format used to bundle files together with the metadata needed to verify their integrity.</p>
+<p>A BagIt “bag” contains:</p>
 <ul>
-<li>Researchers upload files and fill in metadata.<br>
+<li>a <strong>data/</strong> directory with the files<br>
 </li>
-<li>Zenodo automatically assigns a DOI upon publication.<br>
+<li><strong>manifest files</strong> with checksums (fixity information)<br>
 </li>
-<li>Each upload receives a <strong>concept DOI</strong> (for the whole project) and <strong>version DOIs</strong> (for each release).<br>
-</li>
-<li>Zenodo integrates tightly with GitHub: tagging a release can automatically archive it in Zenodo with a DOI.</li>
+<li>optional <strong>tag files</strong> with descriptive or administrative metadata</li>
 </ul>
-<p>Zenodo is widely used because it:</p>
+<p>A minimal BagIt directory might look like this:</p>
+<pre><code>mydataset-bag/
+├── bagit.txt
+├── bag-info.txt
+├── manifest-sha256.txt
+└── data/
+    ├── results.csv
+    └── readme.txt
+</code></pre>
 <ul>
-<li>supports <strong>any file type</strong>,<br>
-</li>
-<li>provides <strong>long‑term preservation</strong>,<br>
-</li>
-<li>offers <strong>free hosting</strong>,<br>
-</li>
-<li>and is trusted by the global research community.</li>
+<li><p>bagit.txt declares the BagIt version and encoding:</p>
+<pre><code>BagIt-Version: 1.0
+Tag-File-Character-Encoding: UTF-8</code></pre></li>
+<li><p>bag-info.txt conatins high-level metadata about the “bag”</p>
+<pre><code>Bag-Software-Agent: Example BagIt Creator 1.0
+Bagging-Date: 2024-05-01
+Contact-Name: Research Data Team</code></pre></li>
+<li><p>manifest-sha256.txt contains the checksums for all files in <code>/data</code>:</p>
+<pre><code>3a7bd3e2360a3d...  data/results.csv
+b1946ac92492d...  data/readme.txt</code></pre></li>
 </ul>
-<p>It is especially strong for <strong>software</strong>, <strong>code releases</strong>, and <strong>small to medium‑sized datasets</strong>.</p>
-</section>
-</section>
-<section id="policy-engines" class="level2">
-<h2 class="anchored" data-anchor-id="policy-engines">Policy Engines</h2>
-<p>Policy engines operate at a different layer. They coordinate <strong>files, metadata, and storage systems</strong> across distributed infrastructures.</p>
-<p>Policy engines are particularly valuable in the <strong>volatile stages</strong>, where files are created, transformed, and moved across systems. They provide the coordination layer that storage systems lack, helping researchers manage files, metadata, and workflows long before publication is considered.</p>
-<p>Policy engines provide:</p>
+<p>Repositories use BagIt because it:</p>
 <ul>
-<li><strong>Coordination of multiple storage systems</strong> — replication, tiering, geographic distribution<br>
+<li>ensures <strong>fixity</strong> through checksums<br>
 </li>
-<li><strong>Metadata catalogues linked to files</strong> — checksums, replicas, provenance<br>
+<li>supports <strong>validation</strong> after transfer<br>
 </li>
-<li><strong>Flexible workflow or policy engines</strong> — rules for placement, retention, triggers<br>
+<li>is <strong>storage‑agnostic</strong><br>
 </li>
-<li><strong>Integration with compute environments</strong> — HPC, grid, cloud workflows</li>
+<li>works well for <strong>large datasets</strong></li>
 </ul>
-<p>They are ideal for <strong>large‑scale, distributed, policy‑driven data management</strong>, not just for long‑term preservation.</p>
-<section id="irods" class="level3">
-<h3 class="anchored" data-anchor-id="irods"><strong>iRODS</strong></h3>
-<p>A rule‑based data management system with a metadata catalog and storage abstraction layer.</p>
+<p>Many repositories generate BagIt packages for archival export or transfer to preservation systems.</p>
 </section>
-<section id="rucio" class="level3">
-<h3 class="anchored" data-anchor-id="rucio"><strong>Rucio</strong></h3>
-<p>A distributed data management system developed at CERN, designed for petabyte‑scale replication and policy‑driven workflows.</p>
-</section>
-<section id="globus" class="level3">
-<h3 class="anchored" data-anchor-id="globus"><strong>Globus</strong></h3>
-<p>A platform for secure file transfer, identity management, and automation across distributed storage and compute systems.</p>
-<hr>
-</section>
-</section>
-<section id="comparison-with-synchronisation-tools" class="level2">
-<h2 class="anchored" data-anchor-id="comparison-with-synchronisation-tools"><strong>Comparison with Synchronisation Tools</strong></h2>
-<p>Synchronisation services — such as OneDrive, Dropbox, Google Drive, or <strong>Nextcloud‑based platforms like SURFdrive</strong> — are often used during active research because they replicate files across devices and support collaboration. However, they are fundamentally different from both repositories and policy engines.</p>
-<p>Sync tools:</p>
+<section id="oais-the-conceptual-model-behind-preservation" class="level3">
+<h3 class="anchored" data-anchor-id="oais-the-conceptual-model-behind-preservation">OAIS: The Conceptual Model Behind Preservation</h3>
+<p>The <strong>OAIS Reference Model</strong> (Open Archival Information System) is the foundational conceptual framework for digital preservation. It defines six functional entities that together define how a trustworthy digital archive operates.</p>
 <ul>
-<li>replicate files for convenience<br>
-</li>
-<li>do not provide fixity guarantees<br>
-</li>
-<li>do not implement workflows<br>
-</li>
-<li>do not coordinate multiple storage systems<br>
-</li>
-<li>do not integrate with metadata or PID services<br>
-</li>
-<li>are not designed for large files or multi‑terabyte datasets<br>
-</li>
-<li>do not manage the three components of a digital object (files + metadata + PID)</li>
+<li><p>Ingest handles the acceptance of Submission Information Packages (SIPs) from producers. It performs quality checks, prepares Archival Information Packages (AIPs) according to the archive’s standards, creates or gathers descriptive metadata, and coordinates the transfer of AIPs into archival storage.</p></li>
+<li><p>Archival Storage is responsible for the storage, maintenance, and retrieval of AIPs. It adds new AIPs to long‑term storage, manages storage hierarchies, performs fixity checks and media refreshment, supports disaster recovery, and supplies AIPs to the Access function when requested.</p></li>
+<li><p>Data Management maintains the archive’s descriptive metadata and administrative information. It manages database schemas, loads new metadata, executes queries, and produces reports needed for discovery, administration, and audit.</p></li>
+<li><p>Administration oversees the operation and governance of the archive. It negotiates submission agreements, audits incoming SIPs, manages system configuration, monitors performance, maintains policies and standards, and supports users and producers.</p></li>
+<li><p>Preservation Planning monitors the technology environment and the needs of the designated community. It recommends format migrations, updates to AIPs, risk assessments, and preservation strategies. It also designs templates for SIPs and AIPs and develops plans and prototypes to ensure long‑term accessibility.</p></li>
+<li><p>Access provides services that allow consumers to discover, request, and obtain information from the archive. It manages user requests, applies access controls, coordinates the delivery of Dissemination Information Packages (DIPs), and generates query responses and reports.</p></li>
 </ul>
-<p>They are useful for <strong>volatile working data</strong>, but they do not provide the RDM layer needed to support emerging digital objects in the early lifecycle stages.</p>
-<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/oais.png" class="img-fluid figure-img"></p>
+<figcaption>OAIS Model</figcaption>
+</figure>
+</div>
+<p>Most repositories implicitly follow OAIS principles, even if they do not implement the full model.</p>
+<p><em>References</em> - https://ccsds.org/Pubs/650x0m3.pdf, pp.&nbsp;4-1</p>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary"><strong>Summary</strong></h2>
+<section id="premis-preservation-metadata-for-longterm-stewardship" class="level3">
+<h3 class="anchored" data-anchor-id="premis-preservation-metadata-for-longterm-stewardship">PREMIS: Preservation Metadata for Long‑Term Stewardship</h3>
+<p><strong>PREMIS</strong> (Preservation Metadata: Implementation Strategies) is the most widely adopted standard for <strong>preservation metadata</strong>, i.e.&nbsp;information needed to ensure long‑term usability and authenticity.</p>
+<p>PREMIS describes:</p>
 <ul>
-<li><strong>Data repositories</strong> support publication, metadata curation, DOIs, and archival packaging.<br>
+<li><strong>objects</strong> (files, bitstreams, representations)<br>
 </li>
-<li><strong>Policy engines</strong> coordinate files, metadata, and storage across distributed infrastructures, including during active research.<br>
+<li><strong>events</strong> (ingest, fixity checks, migrations)<br>
 </li>
-<li><strong>Synchronisation tools</strong> support convenience and collaboration, but do not provide preservation, metadata integration, or PID‑driven workflows.</li>
+<li><strong>agents</strong> (people, software, systems)<br>
+</li>
+<li><strong>rights</strong> (permissions, licenses)</li>
 </ul>
-<p>Together, repositories and policy engines form the backbone of modern research data management — each addressing different gaps across the <strong>entire</strong> data lifecycle, not only at the end.</p>
+<p>Repositories and preservation systems use PREMIS to document:</p>
+<ul>
+<li>fixity checks<br>
+</li>
+<li>format migrations<br>
+</li>
+<li>provenance events<br>
+</li>
+<li>authenticity and integrity<br>
+</li>
+<li>preservation actions over time</li>
+</ul>
+<p>PREMIS is expressed in XML and often embedded inside METS or other packaging formats.</p>
+</section>
+<section id="mets-structuring-complex-digital-objects" class="level3">
+<h3 class="anchored" data-anchor-id="mets-structuring-complex-digital-objects">METS: Structuring Complex Digital Objects</h3>
+<p><strong>METS</strong> (Metadata Encoding and Transmission Standard) is an XML‑based framework for describing the <strong>structure</strong> of complex digital objects and linking them to metadata.</p>
+<p>A METS document can include:</p>
+<ul>
+<li><strong>structural maps</strong> (how files relate to each other)<br>
+</li>
+<li><strong>administrative metadata</strong> (technical, rights, provenance)<br>
+</li>
+<li><strong>descriptive metadata</strong> (often embedded or referenced)<br>
+</li>
+<li><strong>file inventories</strong></li>
+</ul>
+<p>METS is commonly used in:</p>
+<ul>
+<li>digital libraries<br>
+</li>
+<li>institutional archives<br>
+</li>
+<li>preservation systems that need rich structural description</li>
+</ul>
+<p>Repositories may use METS internally or for archival export.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-1">%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
+
+flowchart LR
+    SIP["Submission Information Package (SIP)"] --&gt;|Ingest| AIP["Archival Information Package (AIP)"]
+    AIP --&gt;|Access| DIP["Dissemination Information Package (DIP)"]
+
+    subgraph AIP_Contents["Inside the AIP"]
+        METS["METS&lt;br/&gt;Structural Map + File Inventory"]
+        PREMIS["PREMIS&lt;br/&gt;Preservation Metadata&lt;br/&gt;(Events, Agents, Rights)"]
+    end
+
+    AIP --&gt; AIP_Contents
+
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.2: How METS and PREMIS Fit into OAIS SIP / AIP / DIP.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="rocrate-lightweight-webnative-research-object-packaging" class="level3">
+<h3 class="anchored" data-anchor-id="rocrate-lightweight-webnative-research-object-packaging">RO‑Crate: Lightweight, Web‑Native Research Object Packaging</h3>
+<p><strong>RO‑Crate</strong> is a modern, web‑native packaging format designed for <strong>research objects</strong>, especially those involving workflows, software, and computational provenance.</p>
+<p>An RO‑Crate consists of:</p>
+<ul>
+<li>a <strong>crate directory</strong><br>
+</li>
+<li>a <strong>JSON‑LD metadata file</strong> describing all files and their relationships<br>
+</li>
+<li>optional workflow, provenance, or software metadata</li>
+</ul>
+<p>Below we illustrate an example:</p>
+<pre><code>my-crate/
+├── ro-crate-metadata.json
+├── ro-crate-preview.html
+├── results.csv
+├── readme.txt
+├── input-data.json
+└── workflow.cwl</code></pre>
+<p>The file <code>ro-crate-metadata.json</code> is a JSON-LD file, a file which uses linked data to describe the relationship between the files in the package:</p>
+<pre class="{xml}"><code>{
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "Example Dataset with Workflow",
+      "description": "A dataset demonstrating RO-Crate with workflow and input/output relationships.",
+      "hasPart": [
+        { "@id": "results.csv" },
+        { "@id": "readme.txt" },
+        { "@id": "input-data.json" },
+        { "@id": "workflow.cwl" }
+      ]
+    },
+
+    {
+      "@id": "results.csv",
+      "@type": "File",
+      "encodingFormat": "text/csv",
+      "name": "Analysis Results",
+      "wasGeneratedBy": { "@id": "workflow.cwl" }
+    },
+
+    {
+      "@id": "input-data.json",
+      "@type": "File",
+      "encodingFormat": "application/json",
+      "name": "Input Data for Workflow",
+      "usedByWorkflow": { "@id": "workflow.cwl" }
+    },
+
+    {
+      "@id": "workflow.cwl",
+      "@type": "SoftwareSourceCode",
+      "name": "Analysis Workflow",
+      "programmingLanguage": "CWL",
+      "url": "workflow.cwl",
+      "input": { "@id": "input-data.json" },
+      "output": { "@id": "results.csv" }
+    },
+
+    {
+      "@id": "readme.txt",
+      "@type": "File",
+      "encodingFormat": "text/plain"
+    }
+  ]
+}</code></pre>
+<p>RO‑Crate is designed for:</p>
+<ul>
+<li>FAIR workflows<br>
+</li>
+<li>reproducible research<br>
+</li>
+<li>machine‑actionable metadata<br>
+</li>
+<li>integration with workflow engines and policy engines</li>
+</ul>
+<p>It complements, rather than replaces, traditional archival formats like BagIt.</p>
+</section>
+</section>
+<section id="how-these-standards-fit-together" class="level2">
+<h2 class="anchored" data-anchor-id="how-these-standards-fit-together">How These Standards Fit Together</h2>
+<p>These standards address different layers of preservation:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Standard</th>
+<th>Purpose</th>
+<th>Typical Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>BagIt</td>
+<td>Package + fixity</td>
+<td>Transfer, export, AIP packaging</td>
+</tr>
+<tr class="even">
+<td>OAIS</td>
+<td>Conceptual model</td>
+<td>Preservation planning, repository design</td>
+</tr>
+<tr class="odd">
+<td>PREMIS</td>
+<td>Preservation metadata</td>
+<td>Fixity checks, migrations, provenance</td>
+</tr>
+<tr class="even">
+<td>METS</td>
+<td>Structural metadata</td>
+<td>AIP structure, digital libraries</td>
+</tr>
+<tr class="odd">
+<td>RO‑Crate</td>
+<td>Research object packaging</td>
+<td>Workflows, software, FAIR pipelines</td>
+</tr>
+</tbody>
+</table>
+<p>Most repositories do not expose these standards directly to end‑users. Instead, they use them internally for archival export, preservation workflows, or integration with institutional archives.</p>
+<p>Repositories may use one or several of these standards depending on their role:</p>
+<ul>
+<li><strong>Publication‑oriented repositories</strong> often use BagIt for export and basic fixity.<br>
+</li>
+<li><strong>Preservation‑oriented repositories</strong> may combine BagIt + METS + PREMIS.<br>
+</li>
+<li><strong>Workflow‑oriented systems</strong> increasingly adopt RO‑Crate for computational provenance.</li>
+</ul>
+<p>Together, these standards form the <strong>technical backbone</strong> that allows repositories to preserve digital objects reliably and integrate with institutional or national preservation infrastructures.</p>
 
 
 </section>
@@ -954,13 +1146,13 @@ Figure&nbsp;10.1: Files reside across multiple storage layers, but only reposito
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./rdm-infra-intro.html" class="pagination-link" aria-label="RDM Infrastructure Introduction and Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">RDM Infrastructure Introduction and Overview</span></span>
+      <a href="./digital-object-infrastructure.html" class="pagination-link" aria-label="Data Repositories and Policy Engines">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Data Repositories and Policy Engines</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./metadata-portals.html" class="pagination-link" aria-label="Metadata Infrastructure">
-        <span class="nav-page-text"><span class="chapter-title">Metadata Infrastructure</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./policy-engines.html" class="pagination-link" aria-label="Policy Engines">
+        <span class="nav-page-text"><span class="chapter-title">Policy Engines</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
