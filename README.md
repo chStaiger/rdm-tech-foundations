@@ -62,3 +62,7 @@ It assumes basic familiarity with research workflows but does not require prior 
 ## Contributing
 
 Contributions are welcome. Please find [our guidelines here](CONTRIBUTING.md).
+
+## AI Usage Disclosure
+
+This book was created with assistance from AI tools for writing and editing. The content has been reviewed and edited by the authors and contributors.
