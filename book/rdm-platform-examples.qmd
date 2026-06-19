@@ -1,7 +1,6 @@
-
 # Classification
 
-## **1. Research Data Repositories (Publication & Preservation)**  
+## 1. Research Data Repositories (Publication & Preservation)  
 These systems store *final*, curated, publishable datasets.
 
 | Technology | Classification | Notes |

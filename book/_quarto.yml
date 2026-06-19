@@ -41,14 +41,15 @@ book:
     
     - part: "COMPONENTS OF RDM INFRASTRUCTURE"
       chapters:
-      - rdm-infra-intro.qmd
-      - digital-object-infrastructure.qmd
-      - data-repositories.qmd
-      - policy-engines.qmd
-      - metadata-portals.qmd
-      - pid-services.qmd
-      - rdm-platform.qmd
-    - infrastructure-design.qmd
+        - rdm-infra-intro.qmd
+        - digital-object-infrastructure.qmd
+        - data-repositories.qmd
+        - policy-engines.qmd
+        - metadata-portals.qmd
+        - pid-services.qmd
+        - aai.qmd
+    - rdm-platform.qmd
+    - do-continuity.qmd
     - summary.qmd
     - references.qmd
   
