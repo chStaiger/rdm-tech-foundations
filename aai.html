@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RDM Infrastructure Design – Fundamentals of Research Data Management</title>
+<title>Authentication and Authorisation – Fundamentals of Research Data Management</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,8 +33,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="next">
-<link href="./rdm-platform.html" rel="prev">
+<link href="./rdm-platform.html" rel="next">
+<link href="./pid-services.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -72,10 +72,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<meta name="mermaid-theme" content="forest">
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="css_files/callout.css">
@@ -92,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./infrastructure-design.html"><span class="chapter-title">RDM Infrastructure Design</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./rdm-infra-intro.html">COMPONENTS OF RDM INFRASTRUCTURE</a></li><li class="breadcrumb-item"><a href="./aai.html"><span class="chapter-title">Authentication and Authorisation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -226,14 +222,19 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rdm-platform.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">RDM Platform</span></a>
+  <a href="./aai.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Authentication and Authorisation</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./infrastructure-design.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">RDM Infrastructure Design</span></a>
+  <a href="./rdm-platform.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">RDM Platform</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./do-continuity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Digital Object Continuity</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -257,32 +258,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-fair-means-for-infrastructure" id="toc-what-fair-means-for-infrastructure" class="nav-link active" data-scroll-target="#what-fair-means-for-infrastructure">What FAIR Means for Infrastructure</a>
-  <ul class="collapse">
-  <li><a href="#findable-f1f4" id="toc-findable-f1f4" class="nav-link" data-scroll-target="#findable-f1f4"><strong>Findable (F1–F4)</strong></a></li>
-  <li><a href="#accessible-a1a2" id="toc-accessible-a1a2" class="nav-link" data-scroll-target="#accessible-a1a2"><strong>Accessible (A1–A2)</strong></a></li>
-  <li><a href="#interoperable-i1i3" id="toc-interoperable-i1i3" class="nav-link" data-scroll-target="#interoperable-i1i3"><strong>Interoperable (I1–I3)</strong></a></li>
-  <li><a href="#reusable-r1r1.3" id="toc-reusable-r1r1.3" class="nav-link" data-scroll-target="#reusable-r1r1.3"><strong>Reusable (R1–R1.3)</strong></a></li>
-  </ul></li>
-  <li><a href="#what-a-fairaligned-rdm-infrastructure-looks-like" id="toc-what-a-fairaligned-rdm-infrastructure-looks-like" class="nav-link" data-scroll-target="#what-a-fairaligned-rdm-infrastructure-looks-like">What a FAIR‑Aligned RDM Infrastructure Looks Like</a>
-  <ul class="collapse">
-  <li><a href="#active-research-collaboration" id="toc-active-research-collaboration" class="nav-link" data-scroll-target="#active-research-collaboration"><strong>Active research &amp; collaboration</strong></a></li>
-  <li><a href="#metadata-creation-fairification" id="toc-metadata-creation-fairification" class="nav-link" data-scroll-target="#metadata-creation-fairification"><strong>Metadata creation &amp; FAIRification</strong></a></li>
-  <li><a href="#storage-orchestration" id="toc-storage-orchestration" class="nav-link" data-scroll-target="#storage-orchestration"><strong>Storage &amp; orchestration</strong></a></li>
-  <li><a href="#publication-discovery" id="toc-publication-discovery" class="nav-link" data-scroll-target="#publication-discovery"><strong>Publication &amp; discovery</strong></a></li>
-  <li><a href="#integration-identity-policy" id="toc-integration-identity-policy" class="nav-link" data-scroll-target="#integration-identity-policy"><strong>Integration, identity &amp; policy</strong></a></li>
-  </ul></li>
-  <li><a href="#a-layered-fair-architecture" id="toc-a-layered-fair-architecture" class="nav-link" data-scroll-target="#a-layered-fair-architecture">A Layered FAIR Architecture</a></li>
-  <li><a href="#integration-and-policy-the-glue-that-makes-fair-work" id="toc-integration-and-policy-the-glue-that-makes-fair-work" class="nav-link" data-scroll-target="#integration-and-policy-the-glue-that-makes-fair-work">Integration and Policy: The Glue That Makes FAIR Work</a></li>
+  <li><a href="#accessible-a1a2" id="toc-accessible-a1a2" class="nav-link active" data-scroll-target="#accessible-a1a2">Accessible (A1–A2)</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./rdm-infra-intro.html">COMPONENTS OF RDM INFRASTRUCTURE</a></li><li class="breadcrumb-item"><a href="./aai.html"><span class="chapter-title">Authentication and Authorisation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">RDM Infrastructure Design</span></h1>
+<h1 class="title"><span class="chapter-title">Authentication and Authorisation</span></h1>
 </div>
 
 
@@ -299,222 +284,17 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Designing a modern Research Data Management (RDM) infrastructure means taking the FAIR principles seriously. FAIR is often described as a set of guidelines for researchers or a description of how the data should look like at the end of its life cycle. However, in practice it places equally strong requirements on the systems that store, move, describe, and publish research outputs. A FAIR‑aligned platform is therefore not a single tool but a coordinated ecosystem of services that together make data <strong>Findable, Accessible, Interoperable, and Reusable</strong>.</p>
-<section id="what-fair-means-for-infrastructure" class="level2">
-<h2 class="anchored" data-anchor-id="what-fair-means-for-infrastructure">What FAIR Means for Infrastructure</h2>
-<section id="findable-f1f4" class="level3">
-<h3 class="anchored" data-anchor-id="findable-f1f4"><strong>Findable (F1–F4)</strong></h3>
-<p>To make data findable, infrastructure must support <strong>persistent identifiers</strong> (F1) such as DOIs or Handles, ensuring that datasets remain citable and identifiable even as they move across storage systems. These identifiers must be accompanied by <strong>rich metadata</strong> (F2) that describes the dataset in a structured, machine‑readable way. Metadata must explicitly link back to the dataset it describes (F3), and both data and metadata must be registered in <strong>searchable indexes</strong> (F4) that can be harvested by external services.</p>
-<p>In practice, this means PID services, metadata registries, search engines, and APIs that expose metadata for discovery.</p>
-</section>
+<p>Referred to in rdm-platform.qmd:</p>
 <section id="accessible-a1a2" class="level3">
-<h3 class="anchored" data-anchor-id="accessible-a1a2"><strong>Accessible (A1–A2)</strong></h3>
-<p>Accessibility requires that data and metadata be retrievable through <strong>open, standardised protocols</strong> (A1), such as HTTPS, S3, WebDAV, or OAI‑PMH. These protocols must be free to implement (A1.1) and support authentication and authorisation where needed (A1.2). Even if data becomes restricted or removed, its metadata must remain accessible (A2), ensuring that the scholarly record is preserved.</p>
-<p>This translates into federated identity, fine‑grained access control, and stable landing pages for metadata.</p>
-</section>
-<section id="interoperable-i1i3" class="level3">
-<h3 class="anchored" data-anchor-id="interoperable-i1i3"><strong>Interoperable (I1–I3)</strong></h3>
-<p>Interoperability is achieved when infrastructure supports <strong>formal, shared languages</strong> (I1) such as RDF, JSON‑LD, or XML, enabling machines to understand and combine metadata from different sources. Metadata must rely on <strong>FAIR vocabularies and ontologies</strong> (I2), which include both <strong>generic, cross‑domain vocabularies</strong> such as Dublin Core, <a href="https://www.w3.org/2004/02/skos/intro">SKOS</a>, or schema.org, and <strong>domain‑specific FAIR ontologies</strong> from communities like the <a href="https://obofoundry.org/">OBO Foundry</a>. These vocabularies provide stable identifiers and shared semantics, allowing metadata to be interpreted consistently across systems. Interoperability also requires qualified references (I3) that link datasets to related entities such as software, instruments, or grants.</p>
-<p>Together, these elements require APIs, ontology support, and metadata models capable of expressing rich, typed relationships rather than flat fields.</p>
-</section>
-<section id="reusable-r1r1.3" class="level3">
-<h3 class="anchored" data-anchor-id="reusable-r1r1.3"><strong>Reusable (R1–R1.3)</strong></h3>
-<p>Finally, reuse depends on <strong>rich descriptions</strong> (R1) that capture domain‑specific details using community standards such as ISA, <a href="https://www.miappe.org/">MIAPPE</a>, or <a href="https://ddialliance.org/">DDI</a>. Metadata must include a clear <strong>usage license</strong> (R1.1), detailed <strong>provenance</strong> (R1.2), and conform to community expectations (R1.3).</p>
-<p>Infrastructure must therefore support schema versioning, provenance capture, workflow integration, and controlled vocabularies for licensing.</p>
-</section>
-</section>
-<section id="what-a-fairaligned-rdm-infrastructure-looks-like" class="level2">
-<h2 class="anchored" data-anchor-id="what-a-fairaligned-rdm-infrastructure-looks-like">What a FAIR‑Aligned RDM Infrastructure Looks Like</h2>
-<p>A FAIR platform is best understood as a <strong>stack of coordinated services</strong>, each addressing a different phase of the research data lifecycle. No single system can satisfy all FAIR requirements. Instead, FAIR emerges from the <strong>interplay</strong> between systems.</p>
-<p>A typical FAIR‑aligned architecture includes:</p>
-<section id="active-research-collaboration" class="level3">
-<h3 class="anchored" data-anchor-id="active-research-collaboration"><strong>Active research &amp; collaboration</strong></h3>
-<p>Where data is created, shared, and iterated on. E.g.:</p>
+<h3 class="anchored" data-anchor-id="accessible-a1a2">Accessible (A1–A2)</h3>
+<p>…</p>
+<p>Authentication and Authorisation Infrastructure (AAI) plays a central role here. AAI ensures that users — whether humans or machines — can access data in a controlled, auditable way. It provides:</p>
 <ul>
-<li>Nextcloud / ResearchDrive for collaborative storage<br>
-</li>
-<li>MetaVox for early, schema‑based metadata</li>
+<li>authentication (confirming who the user is)</li>
+<li>authorisation (determining what they may access)</li>
+<li>federation (allowing users to log in with institutional or community identities)</li>
 </ul>
-</section>
-<section id="metadata-creation-fairification" class="level3">
-<h3 class="anchored" data-anchor-id="metadata-creation-fairification"><strong>Metadata creation &amp; FAIRification</strong></h3>
-<p>Where metadata becomes structured, validated, and machine‑actionable. E.g.:</p>
-<ul>
-<li><a href="https://doi.org/10.1093/gigascience/giad014">FAIR Data Station</a> for domain‑specific metadata (ISA, RDF)<br>
-</li>
-<li><a href="https://ckan.org/">CKAN</a> as a central metadata registry and search portal</li>
-</ul>
-</section>
-<section id="storage-orchestration" class="level3">
-<h3 class="anchored" data-anchor-id="storage-orchestration"><strong>Storage &amp; orchestration</strong></h3>
-<p>Where data is stored, moved, and governed. E.g.:</p>
-<ul>
-<li>Object Store, dCache, HPC filesystems as storage backends<br>
-</li>
-<li>iRODS as the policy engine and metadata layer<br>
-</li>
-<li>Globus for high‑performance transfers</li>
-</ul>
-</section>
-<section id="publication-discovery" class="level3">
-<h3 class="anchored" data-anchor-id="publication-discovery"><strong>Publication &amp; discovery</strong></h3>
-<p>Where curated datasets become part of the scholarly record. E.g.:</p>
-<ul>
-<li>Dataverse (e.g., DANS Data Stations)<br>
-</li>
-<li>Invenio‑based repositories (SURF Data Repository, Zenodo)<br>
-</li>
-<li>4TU.ResearchData (Djehuty)<br>
-</li>
-<li>Discovery portals combining repository search with metadata registries</li>
-</ul>
-</section>
-<section id="integration-identity-policy" class="level3">
-<h3 class="anchored" data-anchor-id="integration-identity-policy"><strong>Integration, identity &amp; policy</strong></h3>
-<p>Where the ecosystem becomes coherent. E.g.:</p>
-<ul>
-<li>SURF Research Data Connector for publishing workflows<br>
-</li>
-<li>Federated identity (SURFconext, SRAM, eduGAIN)<br>
-</li>
-<li>APIs (REST, OAI‑PMH, SPARQL, S3) for machine access</li>
-</ul>
-<p>Together, these layers support all FAIR principles:</p>
-<ul>
-<li><strong>Findable:</strong> PIDs, indexes, registries, APIs<br>
-</li>
-<li><strong>Accessible:</strong> Open protocols, AAI, policy‑based access<br>
-</li>
-<li><strong>Interoperable:</strong> RDF/JSON‑LD, ontologies, typed links<br>
-</li>
-<li><strong>Reusable:</strong> Community schemas, provenance, licensing, versioning</li>
-</ul>
-</section>
-</section>
-<section id="a-layered-fair-architecture" class="level2">
-<h2 class="anchored" data-anchor-id="a-layered-fair-architecture">A Layered FAIR Architecture</h2>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-
-flowchart TD
-
-    %% Users
-    subgraph Users["Users"]
-        R["Researchers"]
-        DS["Data Stewards"]
-        M["Machines / Workflows"]
-    end
-
-    %% Layer 1
-    subgraph L1["Active Research"]
-        NC["Nextcloud / ResearchDrive"]
-        MV["MetaVox"]
-    end
-
-    %% Layer 2
-    subgraph L2["FAIR Metadata"]
-        FDS["FAIR Data Station"]
-        CKAN["CKAN Registry"]
-    end
-
-    %% Layer 3
-    subgraph L3["Storage and Orchestration"]
-        IRODS["iRODS"]
-        OBJ["Object Store"]
-        DC["dCache"]
-        GLOB["Globus"]
-    end
-
-    %% Layer 4
-    subgraph L4["Publication and Discovery"]
-        DV["Dataverse"]
-        INV["Invenio / SDR"]
-        DJE["4TU / Djehuty"]
-        PORTAL["Discovery Portal"]
-    end
-
-    %% Layer 5
-    subgraph L5["AAI and Integration"]
-        RDC["Research Data Connector"]
-        AAI["Federated Identity"]
-        API["APIs"]
-    end
-
-    %% Simplified flows
-    R --&gt; NC
-    R --&gt; FDS
-    NC --&gt; OBJ
-    NC --&gt; DC
-    MV --&gt; CKAN
-    FDS --&gt; CKAN
-    CKAN --&gt; PORTAL
-
-    OBJ --&gt; IRODS
-    DC --&gt; IRODS
-    IRODS --&gt; GLOB
-
-    IRODS --&gt; RDC
-    RDC --&gt; DV
-    RDC --&gt; INV
-    RDC --&gt; DJE
-
-    DV --&gt; API
-    INV --&gt; API
-    DJE --&gt; API
-    API --&gt; PORTAL
-
-    R --&gt; AAI
-    DS --&gt; AAI
-    AAI --&gt; NC
-    AAI --&gt; DV
-    AAI --&gt; IRODS
-
-    %% Highlight key nodes
-    style DV fill:#d8f3dc,stroke:#1b4332,color:#1b4332
-    style FDS fill:#d8f3dc,stroke:#1b4332,color:#1b4332
-    style IRODS fill:#d8f3dc,stroke:#1b4332,color:#1b4332
-    style CKAN fill:#d8f3dc,stroke:#1b4332,color:#1b4332
-    style NC fill:#d8f3dc,stroke:#1b4332,color:#1b4332
-    style PORTAL fill:#d8f3dc,stroke:#1b4332,color:#1b4332
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="integration-and-policy-the-glue-that-makes-fair-work" class="level2">
-<h2 class="anchored" data-anchor-id="integration-and-policy-the-glue-that-makes-fair-work">Integration and Policy: The Glue That Makes FAIR Work</h2>
-<p>A FAIR platform is only FAIR if its components work together. This requires <strong>well‑defined integrations</strong> and a <strong>policy engine</strong> that governs how data and metadata move across the lifecycle. Storage, metadata services, workflow engines, and repositories must interoperate through stable interfaces and shared standards so that data remains coherent as it transitions between systems.</p>
-<p>A FAIR‑aligned infrastructure therefore needs:</p>
-<ul>
-<li><p>Clear integration contracts (APIs, event streams, metadata mappings, PID handling)<br>
-</p></li>
-<li><p>Consistent metadata models across all layers<br>
-</p></li>
-<li><p>Automated workflows for validation, provenance, versioning, and access control<br>
-</p></li>
-<li><p>A central policy engine (e.g., iRODS rules, workflow orchestrators) to coordinate:</p>
-<ul>
-<li>ingest from active storage<br>
-</li>
-<li>metadata enrichment<br>
-</li>
-<li>transformations and quality checks<br>
-</li>
-<li>publication to repositories<br>
-</li>
-<li>synchronisation across catalogs and indexes</li>
-</ul></li>
-</ul>
-<p>Without this orchestration layer, the platform becomes a loose collection of tools. With it, the platform becomes a <strong>coherent, predictable, auditable, FAIR‑by‑design ecosystem</strong>.</p>
+<p>AAI is therefore a core part of FAIR Accessibility, enabling secure access without compromising openness. Inthe chapter <a href="./aai.html">Authentication and Authorisation Infrastructure</a> we provide an introduction.</p>
 
 
 </section>
@@ -922,13 +702,13 @@ flowchart TD
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./rdm-platform.html" class="pagination-link" aria-label="RDM Platform">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">RDM Platform</span></span>
+      <a href="./pid-services.html" class="pagination-link" aria-label="Persistent Identifier Services">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Persistent Identifier Services</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./summary.html" class="pagination-link" aria-label="Summary">
-        <span class="nav-page-text"><span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./rdm-platform.html" class="pagination-link" aria-label="RDM Platform">
+        <span class="nav-page-text"><span class="chapter-title">RDM Platform</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

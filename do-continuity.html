@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Digital Object Continuity – Fundamentals of Research Data Management</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./summary.html" rel="next">
+<link href="./rdm-platform.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9c2e50941a1a4da422292054cb872991.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="mermaid-theme" content="forest">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="css_files/callout.css">
+<link rel="stylesheet" href="css_files/toc.css">
+<link rel="stylesheet" href="css_files/hyperlinks.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./do-continuity.html"><span class="chapter-title">Digital Object Continuity</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Fundamentals of Research Data Management</a> 
+        <div class="sidebar-tools-main">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/chStaiger/rdm-fundamentals">
+            Source code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/chStaiger/rdm-fundamentals/issues">
+            Report an issue
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./definitions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Definitions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-lifecycle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Research Data Management Life Cycle and FAIR</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">THE HOLY TRINITY OF RDM</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./digital-object.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Digital Object</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./files.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Files</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./metadata.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Metadata</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pids.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Persistent Identifiers</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./storage-infrastructure.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Storage Infrastructure</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">COMPONENTS OF RDM INFRASTRUCTURE</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rdm-infra-intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Research Data Management Infrastructure</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./digital-object-infrastructure.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Repositories and Policy Engines</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-repositories.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Repositories</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./policy-engines.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Policy Engines</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./metadata-portals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Metadata Infrastructure</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pid-services.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Persistent Identifier Services</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./aai.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Authentication and Authorisation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rdm-platform.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">RDM Platform</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./do-continuity.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Digital Object Continuity</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Summary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#where-the-digitalobject-layer-breaks-without-orchestration" id="toc-where-the-digitalobject-layer-breaks-without-orchestration" class="nav-link active" data-scroll-target="#where-the-digitalobject-layer-breaks-without-orchestration">Where the Digital‑Object Layer Breaks Without Orchestration</a></li>
+  <li><a href="#failure-modes-in-apionly-transitions" id="toc-failure-modes-in-apionly-transitions" class="nav-link" data-scroll-target="#failure-modes-in-apionly-transitions">Failure Modes in API‑Only Transitions</a>
+  <ul class="collapse">
+  <li><a href="#policy-engine-repository-duplicate-publications-and-lost-lifecycle-state" id="toc-policy-engine-repository-duplicate-publications-and-lost-lifecycle-state" class="nav-link" data-scroll-target="#policy-engine-repository-duplicate-publications-and-lost-lifecycle-state">1. Policy Engine → Repository: Duplicate Publications and Lost Lifecycle State</a></li>
+  <li><a href="#synchronisation-sharing-service-repository-or-policy-engine-working-copies-drift-away-from-the-digital-object" id="toc-synchronisation-sharing-service-repository-or-policy-engine-working-copies-drift-away-from-the-digital-object" class="nav-link" data-scroll-target="#synchronisation-sharing-service-repository-or-policy-engine-working-copies-drift-away-from-the-digital-object">2. Synchronisation / Sharing Service → Repository or Policy Engine: Working Copies Drift Away From the Digital Object</a></li>
+  <li><a href="#repository-policy-engine-metadata-service-two-sources-of-truth-for-metadata" id="toc-repository-policy-engine-metadata-service-two-sources-of-truth-for-metadata" class="nav-link" data-scroll-target="#repository-policy-engine-metadata-service-two-sources-of-truth-for-metadata">3. Repository / Policy Engine → Metadata Service: Two Sources of Truth for Metadata</a></li>
+  </ul></li>
+  <li><a href="#why-these-failures-occur" id="toc-why-these-failures-occur" class="nav-link" data-scroll-target="#why-these-failures-occur">Why These Failures Occur</a></li>
+  <li><a href="#ensuring-continuity-across-the-lifecycle-through-an-orchestration-layer" id="toc-ensuring-continuity-across-the-lifecycle-through-an-orchestration-layer" class="nav-link" data-scroll-target="#ensuring-continuity-across-the-lifecycle-through-an-orchestration-layer">Ensuring Continuity Across the Lifecycle Through an Orchestration Layer</a></li>
+  <li><a href="#the-problem-rdm-systems-without-a-shared-digitalobject-layer" id="toc-the-problem-rdm-systems-without-a-shared-digitalobject-layer" class="nav-link" data-scroll-target="#the-problem-rdm-systems-without-a-shared-digitalobject-layer">The Problem: RDM Systems Without a Shared Digital‑Object Layer</a></li>
+  <li><a href="#the-fdo-vision-digital-objects-as-governed-machineactionable-entities" id="toc-the-fdo-vision-digital-objects-as-governed-machineactionable-entities" class="nav-link" data-scroll-target="#the-fdo-vision-digital-objects-as-governed-machineactionable-entities">The FDO Vision: Digital Objects as Governed, Machine‑Actionable Entities</a></li>
+  <li><a href="#fairdomseek-in-the-rdm-architecture" id="toc-fairdomseek-in-the-rdm-architecture" class="nav-link" data-scroll-target="#fairdomseek-in-the-rdm-architecture">FAIRDOM‑SEEK in the RDM Architecture</a>
+  <ul class="collapse">
+  <li><a href="#how-seek-combines-aspects-of-multiple-rdm-components" id="toc-how-seek-combines-aspects-of-multiple-rdm-components" class="nav-link" data-scroll-target="#how-seek-combines-aspects-of-multiple-rdm-components">How SEEK Combines Aspects of Multiple RDM Components</a></li>
+  <li><a href="#rocrate-vs.-oaisstyle-archival-packaging" id="toc-rocrate-vs.-oaisstyle-archival-packaging" class="nav-link" data-scroll-target="#rocrate-vs.-oaisstyle-archival-packaging">RO‑Crate vs.&nbsp;OAIS‑Style Archival Packaging</a></li>
+  <li><a href="#publishing-in-seek-vs.-publishing-in-a-repository" id="toc-publishing-in-seek-vs.-publishing-in-a-repository" class="nav-link" data-scroll-target="#publishing-in-seek-vs.-publishing-in-a-repository">Publishing in SEEK vs.&nbsp;Publishing in a Repository</a></li>
+  <li><a href="#publishing-in-fairdomseek-rocratecentric" id="toc-publishing-in-fairdomseek-rocratecentric" class="nav-link" data-scroll-target="#publishing-in-fairdomseek-rocratecentric">Publishing in FAIRDOM‑SEEK (RO‑Crate‑centric)</a></li>
+  <li><a href="#publishing-in-a-repository-oaisaligned" id="toc-publishing-in-a-repository-oaisaligned" class="nav-link" data-scroll-target="#publishing-in-a-repository-oaisaligned">Publishing in a Repository (OAIS‑aligned)</a></li>
+  <li><a href="#why-this-hybrid-role-matters-for-transitions" id="toc-why-this-hybrid-role-matters-for-transitions" class="nav-link" data-scroll-target="#why-this-hybrid-role-matters-for-transitions">Why This Hybrid Role Matters for Transitions</a></li>
+  </ul></li>
+  <li><a href="#architectural-principles-for-robust-rdm-transitions" id="toc-architectural-principles-for-robust-rdm-transitions" class="nav-link" data-scroll-target="#architectural-principles-for-robust-rdm-transitions">Architectural Principles for Robust RDM Transitions</a>
+  <ul class="collapse">
+  <li><a href="#good-platform-design-matters" id="toc-good-platform-design-matters" class="nav-link" data-scroll-target="#good-platform-design-matters">1. Good platform design matters</a></li>
+  <li><a href="#plan-transitions-carefully-to-avoid-creating-new-silos" id="toc-plan-transitions-carefully-to-avoid-creating-new-silos" class="nav-link" data-scroll-target="#plan-transitions-carefully-to-avoid-creating-new-silos">2. Plan Transitions Carefully to Avoid Creating New Silos</a></li>
+  <li><a href="#disciplinespecific-platforms-are-valuable-but-must-expose-standards" id="toc-disciplinespecific-platforms-are-valuable-but-must-expose-standards" class="nav-link" data-scroll-target="#disciplinespecific-platforms-are-valuable-but-must-expose-standards">3. Discipline‑specific platforms are valuable, but must expose standards</a></li>
+  <li><a href="#always-ask-how-does-this-platform-or-service-interface-with-others" id="toc-always-ask-how-does-this-platform-or-service-interface-with-others" class="nav-link" data-scroll-target="#always-ask-how-does-this-platform-or-service-interface-with-others">4. Always ask: How does this platform or service interface with others?</a></li>
+  <li><a href="#in-short" id="toc-in-short" class="nav-link" data-scroll-target="#in-short">In short</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Digital Object Continuity</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="where-the-digitalobject-layer-breaks-without-orchestration" class="level2">
+<h2 class="anchored" data-anchor-id="where-the-digitalobject-layer-breaks-without-orchestration">Where the Digital‑Object Layer Breaks Without Orchestration</h2>
+<p>Even when individual components are well designed, an RDM platform that relies only on APIs, i.e.&nbsp;without a shared digital-object layer and orchestration, cannot guarantee that identity, metadata, and provenance remain intact across transitions. The following examples illustrate how and where the digital object breaks when systems exchange data but do not share lifecycle state.</p>
+</section>
+<section id="failure-modes-in-apionly-transitions" class="level2">
+<h2 class="anchored" data-anchor-id="failure-modes-in-apionly-transitions">Failure Modes in API‑Only Transitions</h2>
+<section id="policy-engine-repository-duplicate-publications-and-lost-lifecycle-state" class="level3">
+<h3 class="anchored" data-anchor-id="policy-engine-repository-duplicate-publications-and-lost-lifecycle-state">1. Policy Engine → Repository: Duplicate Publications and Lost Lifecycle State</h3>
+<p>A policy engine manages active data and often forms digital objects early in the lifecycle. A repository manages publication, curation, and long‑term preservation. When the two are connected only through an API, neither system has visibility into the other’s lifecycle state.</p>
+<p>This leads to several failure modes:</p>
+<ul>
+<li>the same dataset can be <strong>published multiple times</strong><br>
+</li>
+<li>the repository may mint <strong>multiple DOIs</strong> for the same object<br>
+</li>
+<li>the policy engine cannot see whether a dataset is still a draft, under review, or already published<br>
+</li>
+<li>provenance becomes fragmented: the repository sees a “new upload”, not a continuation of the same object</li>
+</ul>
+<p>The root cause is simple:<br>
+the policy engine and the repository do not share a <strong>digital‑object identity</strong> or a <strong>shared lifecycle model</strong>.<br>
+The repository treats each API upload as a new object, creating a new identifier for the same data; the policy engine assumes it is handing over the same one, while not being able to establish that with the repository.</p>
+<p><strong>Result:</strong><br>
+The digital object forks into multiple versions, each with its own identifiers and metadata.</p>
+</section>
+<section id="synchronisation-sharing-service-repository-or-policy-engine-working-copies-drift-away-from-the-digital-object" class="level3">
+<h3 class="anchored" data-anchor-id="synchronisation-sharing-service-repository-or-policy-engine-working-copies-drift-away-from-the-digital-object">2. Synchronisation / Sharing Service → Repository or Policy Engine: Working Copies Drift Away From the Digital Object</h3>
+<p>Synchronisation and file‑sharing services are designed for <strong>working copies</strong>, not for maintaining the authoritative representation of a digital object. They allow:</p>
+<ul>
+<li>renaming<br>
+</li>
+<li>moving<br>
+</li>
+<li>deleting<br>
+</li>
+<li>overwriting<br>
+</li>
+<li>restoring older versions<br>
+</li>
+<li>resolving sync conflicts<br>
+</li>
+<li>sometimes even metadata tagging</li>
+</ul>
+<p>All of these are legitimate user actions in a sync environment.<br>
+The problem is not that the digital object in the policy engine or repository becomes unstable, <strong>it remains stable</strong>, but that its <strong>connection to the original working files becomes unreliable</strong> if the sync service is treated as a source of truth.</p>
+<p>When a repository or policy engine ingests files from a sync service via an API:</p>
+<ul>
+<li>files may <strong>disappear</strong> from the sync service after ingestion<br>
+</li>
+<li>files may be <strong>renamed</strong>, breaking the mapping between working copies and the ingested object<br>
+</li>
+<li>files may be <strong>overwritten</strong>, so the working copy no longer corresponds to the preserved version<br>
+</li>
+<li>folder structures may change, breaking assumptions about context or metadata extraction<br>
+</li>
+<li>sync conflicts may create <strong>duplicate or partial files</strong>, making it unclear which version was ingested</li>
+</ul>
+<p>In this scenario:</p>
+<ul>
+<li><strong>the digital object in the repository or policy engine is stable</strong>,<br>
+</li>
+<li><strong>but the working copies in the sync service are not</strong>.</li>
+</ul>
+<p>This means the digital object <strong>loses its connection to the evolving working environment</strong>, and the sync service cannot be relied upon to reflect the authoritative bitstreams.</p>
+<p>It is therefore essential that <strong>once a digital object is formed, the repository or policy engine becomes the single source of truth for the bitstreams</strong>.<br>
+The sync service may continue to hold working copies, but it must not be treated as the authoritative representation.</p>
+<p><strong>Result:</strong><br>
+The digital object remains stable, but its link to the working copies breaks as the sync service cannot guarantee persistence, identity, or provenance for the files it holds.</p>
+</section>
+<section id="repository-policy-engine-metadata-service-two-sources-of-truth-for-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="repository-policy-engine-metadata-service-two-sources-of-truth-for-metadata">3. Repository / Policy Engine → Metadata Service: Two Sources of Truth for Metadata</h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-meta-push" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-meta-push-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-meta-push">%%{init: {
+  "look": "handDrawn",
+  "flowchart": { "htmlLabels": false }
+}}%%
+
+flowchart LR
+
+    PE["Policy Engine"]
+    REPO["Repository"]
+
+    subgraph META["Metadata Service"]
+        M1["Metadata"]
+    end
+
+    PE -- "push metadata" --&gt; M1
+    REPO -- "push metadata" --&gt; M1
+
+    %% Style for metadata (light)
+    style M1 fill:#e8e8e8,stroke:#333,stroke-width:1px
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-meta-push-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17.1: The policy engine and repository export their metadata to the metadata service.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-meta-edit-no-return" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-meta-edit-no-return-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-meta-edit-no-return">%%{init: {
+  "look": "handDrawn",
+  "flowchart": { "htmlLabels": false }
+}}%%
+
+flowchart RL
+
+    USER["User"]
+    PE["Policy Engine"]
+    REPO["Repository"]
+
+    subgraph META["Metadata Service"]
+        M2["Metadata (edited)"]
+    end
+
+    %% No return path
+    M2 -. "no propagation" .-&gt; PE
+    M2 -. "no propagation" .-&gt; REPO
+
+    %% User edits metadata
+    USER -- "edit metadata" --&gt; M2
+
+    %% Style for edited metadata (highlight)
+    style M2 fill:#ffeb99,stroke:#333,stroke-width:1px
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-meta-edit-no-return-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17.2: Users edit metadata inside the metadata service, but updates do not flow back to the policy engine or repository.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Metadata services aggregate metadata from repositories, policy engines, and other systems.<br>
+If they only <strong>expose</strong> metadata, the digital‑object layer remains intact:<br>
+the repository or policy engine remains the authoritative source.</p>
+<p>But if the metadata service is also used to <strong>enrich</strong>, <strong>modify</strong>, or <strong>extend</strong> metadata, the digital object now has <strong>two competing sources of truth</strong>:</p>
+<ul>
+<li>the repository/policy engine holds one version<br>
+</li>
+<li>the metadata service holds another</li>
+</ul>
+<p>This creates several failure modes:</p>
+<ul>
+<li>metadata becomes <strong>out of sync</strong><br>
+</li>
+<li>updates in one system are <strong>not propagated</strong> to the other<br>
+</li>
+<li>identifiers may be <strong>linked inconsistently</strong><br>
+</li>
+<li>provenance may be <strong>split across systems</strong><br>
+</li>
+<li>portals may expose <strong>stale or conflicting metadata</strong></li>
+</ul>
+<p>Once two systems can modify metadata independently, the digital object no longer has a single, authoritative description.</p>
+<p><strong>Result:</strong><br>
+The digital object’s metadata diverges, and FAIRness collapses at the semantic level.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-orchestrated" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-orchestrated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-orchestrated">%%{init: {
+  "look": "handDrawn",
+  "flowchart": { "htmlLabels": false }
+}}%%
+
+flowchart LR
+
+    %% User
+    USER["User"]
+
+    %% Services
+    PE["Policy Engine"]
+    REPO["Repository"]
+
+    %% Metadata service with internal metadata node
+    subgraph META["Metadata Service"]
+        M["Metadata"]
+    end
+
+    %% Orchestration layer = Digital-object layer
+    ORCH["Orchestration Layer&lt;br&gt;identity, metadata binding, provenance, lifecycle state"]
+
+    %% All services expose state changes to orchestration
+    PE &lt;--&gt; ORCH
+    REPO &lt;--&gt; ORCH
+    META &lt;--&gt; ORCH
+
+    %% User edits metadata
+    USER -- "edit metadata" --&gt; M
+
+    %% Metadata service communicates edits to orchestration
+    M --&gt; ORCH
+
+    %% Style metadata node
+    style M fill:#e8e8e8,stroke:#333,stroke-width:1px
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-orchestrated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17.3: With an orchestration layer acting as the digital-object layer, all services expose changes in digital-object state. User edits in the metadata service are communicated to the orchestration layer, ensuring consistent updates across the platform.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="why-these-failures-occur" class="level2">
+<h2 class="anchored" data-anchor-id="why-these-failures-occur">Why These Failures Occur</h2>
+<p>All three examples share the same underlying issue:</p>
+<blockquote class="blockquote">
+<p><strong>APIs move data, but they do not preserve digital‑object identity, metadata binding, or provenance across systems.</strong></p>
+</blockquote>
+<p>Without orchestration:</p>
+<ul>
+<li>each component sees only its local view<br>
+</li>
+<li>no system knows the full lifecycle state<br>
+</li>
+<li>identifiers drift<br>
+</li>
+<li>metadata forks<br>
+</li>
+<li>provenance becomes incomplete<br>
+</li>
+<li>the digital object loses coherence</li>
+</ul>
+<p>This is why a FAIR‑aligned platform must treat the digital object as a <strong>shared, governed entity</strong>, not an emergent side effect of API calls.</p>
+</section>
+<section id="ensuring-continuity-across-the-lifecycle-through-an-orchestration-layer" class="level2">
+<h2 class="anchored" data-anchor-id="ensuring-continuity-across-the-lifecycle-through-an-orchestration-layer">Ensuring Continuity Across the Lifecycle Through an Orchestration Layer</h2>
+<p>The failure modes described in the previous sections duplicate DOIs, unstable working copies, metadata divergence, and fragmented provenance are not isolated accidents. They are symptoms of a deeper architectural problem: <strong>most current RDM infrastructures treat digital objects as local constructs</strong>, defined independently by each service. APIs move files and metadata, but they do not preserve <strong>identity</strong>, <strong>metadata binding</strong>, <strong>provenance</strong>, or <strong>lifecycle state</strong> across system boundaries.</p>
+<p>This is the <strong>current state of the art</strong> in many research environments:<br>
+systems exchange data, but they do not share a digital‑object model.<br>
+As a result, digital objects fracture as they move.</p>
+<p>The international <strong>FAIR Digital Object (FDO)</strong> community has been working to solve exactly this problem. Their work—formalised in the <strong>FDO‑IP (FAIR Digital Object Interoperability Principles)</strong>—provides a conceptual and technical foundation for ensuring that digital objects remain coherent across the entire lifecycle, regardless of how many systems they pass through.</p>
+<p>An <strong>orchestration layer</strong> is the architectural mechanism that implements these principles in practice.</p>
+</section>
+<section id="the-problem-rdm-systems-without-a-shared-digitalobject-layer" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem-rdm-systems-without-a-shared-digitalobject-layer">The Problem: RDM Systems Without a Shared Digital‑Object Layer</h2>
+<p>In today’s typical RDM ecosystem:</p>
+<ul>
+<li>repositories mint new identifiers for objects they receive<br>
+</li>
+<li>policy engines cannot see lifecycle state downstream<br>
+</li>
+<li>metadata services enrich metadata without propagating updates<br>
+</li>
+<li>sync services mutate working copies unpredictably<br>
+</li>
+<li>provenance is trapped in local logs<br>
+</li>
+<li>lifecycle state is implicit, inconsistent, or missing</li>
+</ul>
+<p>Each system sees only its own local view.<br>
+No system knows the full lifecycle.<br>
+No system is responsible for continuity.</p>
+<p>This is precisely the fragmentation that the FDO community set out to address.</p>
+</section>
+<section id="the-fdo-vision-digital-objects-as-governed-machineactionable-entities" class="level2">
+<h2 class="anchored" data-anchor-id="the-fdo-vision-digital-objects-as-governed-machineactionable-entities">The FDO Vision: Digital Objects as Governed, Machine‑Actionable Entities</h2>
+<p>The FAIR Digital Object model proposes a simple but transformative idea:</p>
+<blockquote class="blockquote">
+<p><strong>A digital object should be a governed entity with a persistent identity, typed metadata, lifecycle state, and provenance independent of the system currently holding its files.</strong></p>
+</blockquote>
+<p>An FDO is defined by:</p>
+<ul>
+<li>a <strong>persistent, globally unique identifier</strong><br>
+</li>
+<li>a <strong>typed, machine‑actionable object record</strong><br>
+</li>
+<li><strong>bound metadata</strong> that travels with the object<br>
+</li>
+<li><strong>explicit lifecycle state</strong><br>
+</li>
+<li><strong>cross‑system provenance</strong><br>
+</li>
+<li><strong>standard interfaces</strong> for accessing and updating the object</li>
+</ul>
+<p>The FDO‑IP formalises these requirements into a set of interoperability principles that any system can adopt.</p>
+<p>The orchestration layer is the architectural component that enforces these principles across an RDM platform.</p>
+<p>As this is state-of-the-art research and work we refer the interested reader to the following resources:</p>
+<ul>
+<li><a href="https://fairdo.org/" class="uri">https://fairdo.org/</a></li>
+<li><a href="https://www.go-fair.org/today/fair-digital-framework/" class="uri">https://www.go-fair.org/today/fair-digital-framework/</a></li>
+<li><a href="https://www.dona.net/sites/default/files/2018-11/DOIPv2Spec_1.pdf" class="uri">https://www.dona.net/sites/default/files/2018-11/DOIPv2Spec_1.pdf</a></li>
+<li>DOI: 10.5334/dsj-2020-015</li>
+</ul>
+</section>
+<section id="fairdomseek-in-the-rdm-architecture" class="level2">
+<h2 class="anchored" data-anchor-id="fairdomseek-in-the-rdm-architecture">FAIRDOM‑SEEK in the RDM Architecture</h2>
+<p>The failure modes above show how easily digital objects fragment when transitions rely only on APIs and when each system maintains its own local view of identity, metadata, and lifecycle state.<br>
+In response to these challenges, some research communities, especially the <strong>life sciences</strong>, have taken a different architectural path. Instead of distributing responsibility for identity, metadata, and provenance across multiple loosely connected systems, they developed platforms that <strong>minimise transitions during active research</strong>.</p>
+<p>The FAIRDOM‑SEEK community exemplifies this strategy.</p>
+<blockquote class="blockquote">
+<p><strong>Rather than moving digital objects between many services, SEEK provides a single environment where identity, metadata, context, and provenance are created and maintained together throughout active research.</strong></p>
+</blockquote>
+<p>By reducing the number of handovers, SEEK reduces the opportunities for identity drift, metadata forking, and provenance loss.<br>
+This approach does not eliminate transitions entirely, but it postpones them until the digital object is mature, when the risks are lower and the need for continuous provenance is less critical.</p>
+<p><strong>FAIRDOM‑SEEK therefore occupies a hybrid space in the RDM ecosystem.</strong><br>
+It was built <em>by and for the life sciences community</em>, where research objects are complex and interdependent: samples, assays, protocols, models, workflows, and multi‑step experimental designs all need to be linked and contextualised long before formal publication.</p>
+<p>Because of this complexity, SEEK does not fit neatly into a single RDM category.<br>
+Instead, it combines capabilities traditionally associated with:</p>
+<ul>
+<li><strong>repositories</strong> (stable identifiers, landing pages, versioning)<br>
+</li>
+<li><strong>policy engines</strong> (structured organisation, access control, workflow‑aware provenance)<br>
+</li>
+<li><strong>metadata services</strong> (semantic annotation, ISA structures, machine‑actionable metadata)</li>
+</ul>
+<p>Its purpose is not to replace these components, but to <strong>bridge the gap between active research and publication</strong>, ensuring that digital objects become richly contextualised and machine‑actionable before they enter preservation‑oriented systems.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-seek-lifecycle" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-seek-lifecycle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-seek-lifecycle">%%{init: {
+  "look": "handDrawn",
+  "themeVariables": { "primaryColor": "#d8b4f8", "edgeLabelBackground":"#ffffff" },
+  "flowchart": { "htmlLabels": false }
+}}%%
+
+flowchart TD
+
+    %% Layers (clean labels)
+    A["Active Research Systems"]
+
+    B["FAIRification / Digital‑Object Layer&lt;br&gt;FAIRDOM‑SEEK • FAIR Data Station&lt;br&gt;(internal discovery only)"]
+
+    C["Publication Services"]
+
+    %% New purple nodes
+    ARCH["Archiving Services"]
+    PORTALS["Metadata Portals"]
+    AGG["Aggregation Services"]
+
+    D["Discovery and Aggregation&lt;br&gt;(external)"]
+
+    %% Flow
+    A --&gt;|"research outputs"| B
+    B --&gt;|"FAIR research objects"| C
+
+    %% Publication → Archiving
+    B --&gt; ARCH
+    C --&gt; ARCH
+
+    %% Publication → Metadata Portals
+    C --&gt; PORTALS
+
+    %% Metadata Portals → Aggregation
+    PORTALS --&gt; D
+
+    %% Aggregation → Discovery
+    B --&gt; AGG
+    C --&gt; AGG
+
+    %% Style purple nodes
+    style ARCH fill:#e5d4ff,stroke:#6b21a8,stroke-width:1px
+    style PORTALS fill:#e5d4ff,stroke:#6b21a8,stroke-width:1px
+    style D fill:#e5d4ff,stroke:#6b21a8,stroke-width:1px
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-seek-lifecycle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17.4: FAIRDOM‑SEEK operates in the FAIRification / digital‑object layer. Archiving and metadata aggregation are handled by external services.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>FAIRDOM‑SEEK and FAIR Data Station operate in the FAIRification and digital‑object layer, where research outputs are enriched, contextualised, and prepared for publication. They provide internal discovery but do not perform long‑term archiving or cross‑platform metadata aggregation. When preservation or large‑scale aggregation is required, SEEK relies on standard external services such as institutional or domain repositories, archiving platforms, and metadata portals.</p>
+<section id="how-seek-combines-aspects-of-multiple-rdm-components" class="level3">
+<h3 class="anchored" data-anchor-id="how-seek-combines-aspects-of-multiple-rdm-components">How SEEK Combines Aspects of Multiple RDM Components</h3>
+<section id="repositorylike-capabilities" class="level4">
+<h4 class="anchored" data-anchor-id="repositorylike-capabilities">Repository‑like capabilities</h4>
+<ul>
+<li>optional DOI minting<br>
+</li>
+<li>versioning and static URLs<br>
+</li>
+<li>structured landing pages<br>
+</li>
+<li>metadata exposure via Bioschemas, schema.org, RDF</li>
+</ul>
+</section>
+<section id="policyenginelike-capabilities" class="level4">
+<h4 class="anchored" data-anchor-id="policyenginelike-capabilities">Policy‑engine‑like capabilities</h4>
+<ul>
+<li>structured organisation of files and research assets<br>
+</li>
+<li>project‑level access control<br>
+</li>
+<li>workflow‑aware provenance (via RO‑Crate)<br>
+</li>
+<li>integration with workflow engines</li>
+</ul>
+</section>
+<section id="metadataservicelike-capabilities" class="level4">
+<h4 class="anchored" data-anchor-id="metadataservicelike-capabilities">Metadata‑service‑like capabilities</h4>
+<ul>
+<li>creation, validation, and enrichment of metadata<br>
+</li>
+<li>semantic annotation and ontology‑backed fields<br>
+</li>
+<li>ISA‑based structuring of investigations, studies, and assays<br>
+</li>
+<li>machine‑actionable metadata export (JSON‑LD, RDF, RO‑Crate)</li>
+</ul>
+<p>Because they combine these capabilities, SEEK operates in the <strong>FAIRification and contextualisation layer</strong> — the transitional space where raw files become structured, semantically rich <strong>research objects</strong>.</p>
+<p>This is the same space where, in the examples above, digital objects break when transitions rely only on APIs. SEEK helps prevent such failures by <strong>binding identity, metadata, and context early in the lifecycle</strong>.</p>
+</section>
+</section>
+<section id="rocrate-vs.-oaisstyle-archival-packaging" class="level3">
+<h3 class="anchored" data-anchor-id="rocrate-vs.-oaisstyle-archival-packaging">RO‑Crate vs.&nbsp;OAIS‑Style Archival Packaging</h3>
+<p>A key reason SEEK sits between categories is their use of <strong>RO‑Crate</strong>, a packaging format optimised for FAIR metadata, semantic relationships, and research‑object context.<br>
+Repositories and archives, by contrast, rely on <strong>OAIS‑aligned</strong> standards such as METS, PREMIS, and BagIt, which focus on long‑term preservation and fixity.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 32%">
+<col style="width: 57%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Aspect</strong></th>
+<th><strong>RO‑Crate (FAIRDOM‑SEEK)</strong></th>
+<th><strong>OAIS / METS / PREMIS / BagIt (Repositories / Archives)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Purpose</strong></td>
+<td>FAIRification, semantic metadata, workflows</td>
+<td>Long‑term preservation, fixity, governance</td>
+</tr>
+<tr class="even">
+<td><strong>Metadata</strong></td>
+<td>JSON‑LD, schema.org, Bioschemas, ISA</td>
+<td>XML‑based, PREMIS events, METS structure</td>
+</tr>
+<tr class="odd">
+<td><strong>Focus</strong></td>
+<td>Relationships, provenance, context</td>
+<td>Integrity, authenticity, retention</td>
+</tr>
+<tr class="even">
+<td><strong>Lifecycle stage</strong></td>
+<td>Active research → FAIRification → pre‑publication</td>
+<td>Publication → archival storage → long‑term access</td>
+</tr>
+<tr class="odd">
+<td><strong>Identifier model</strong></td>
+<td>Internal IDs, static URLs, optional DOIs</td>
+<td>DOIs, Handles, archival identifiers</td>
+</tr>
+<tr class="even">
+<td><strong>Packaging</strong></td>
+<td>Web‑native directory + JSON‑LD</td>
+<td>BagIt, AIPs, SIPs, DIPs</td>
+</tr>
+<tr class="odd">
+<td><strong>Interoperability</strong></td>
+<td>Workflow engines, policy engines, portals</td>
+<td>Preservation systems, institutional archives</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interpretation:</strong><br>
+RO‑Crate is designed for <em>rich, contextual, machine‑actionable FAIR metadata</em>.<br>
+OAIS packaging is designed for <em>durable, governed, long‑term preservation</em>.<br>
+SEEK therefore sits naturally between active research systems and repositories.</p>
+</section>
+<section id="publishing-in-seek-vs.-publishing-in-a-repository" class="level3">
+<h3 class="anchored" data-anchor-id="publishing-in-seek-vs.-publishing-in-a-repository">Publishing in SEEK vs.&nbsp;Publishing in a Repository</h3>
+<p>Because SEEK operates in the FAIRification layer, “publishing” in these systems serves a different purpose than publishing in a repository.</p>
+</section>
+<section id="publishing-in-fairdomseek-rocratecentric" class="level3">
+<h3 class="anchored" data-anchor-id="publishing-in-fairdomseek-rocratecentric">Publishing in FAIRDOM‑SEEK (RO‑Crate‑centric)</h3>
+<ul>
+<li>Focus on <strong>context</strong>, <strong>ISA structure</strong>, <strong>samples</strong>, <strong>models</strong>, <strong>protocols</strong><br>
+</li>
+<li>Assets interlinked into a <strong>research graph</strong><br>
+</li>
+<li>Metadata exposed via <strong>Bioschemas, RDF, SPARQL, JSON API</strong><br>
+</li>
+<li>Optional DOI minting<br>
+</li>
+<li>Not designed for long‑term preservation</li>
+</ul>
+<p><strong>SEEK publishes <em>metadata‑rich research objects</em>, not archival datasets.</strong></p>
+</section>
+<section id="publishing-in-a-repository-oaisaligned" class="level3">
+<h3 class="anchored" data-anchor-id="publishing-in-a-repository-oaisaligned">Publishing in a Repository (OAIS‑aligned)</h3>
+<ul>
+<li>Focus on <strong>dataset‑level publication</strong><br>
+</li>
+<li>DOI mandatory<br>
+</li>
+<li>Long‑term preservation guaranteed<br>
+</li>
+<li>Metadata harvested by global portals<br>
+</li>
+<li>Curation workflows ensure quality<br>
+</li>
+<li>Archival packaging (BagIt, AIP) ensures fixity</li>
+</ul>
+<p><strong>Repositories publish <em>archival digital objects</em> that enter the scholarly record.</strong></p>
+</section>
+<section id="why-this-hybrid-role-matters-for-transitions" class="level3">
+<h3 class="anchored" data-anchor-id="why-this-hybrid-role-matters-for-transitions">Why This Hybrid Role Matters for Transitions</h3>
+<p>By combining features from repositories, policy engines, and metadata services and by being purpose‑built for the life sciences SEEK:</p>
+<ul>
+<li>support FAIRification early in the lifecycle<br>
+</li>
+<li>provide semantic depth that repositories typically do not create<br>
+</li>
+<li>stabilise metadata before publication<br>
+</li>
+<li>prepare research objects for preservation and discovery<br>
+</li>
+<li>reduce the burden on repositories by delivering structured, validated metadata<br>
+</li>
+<li>integrate smoothly with workflow engines and policy engines<br>
+</li>
+<li>reflect the complexity and interconnectedness of life‑science research objects</li>
+</ul>
+<p>They do not replace repositories or policy engines; they <strong>complement</strong> them by ensuring that digital objects are <strong>contextualised, semantically rich, and machine‑actionable</strong> before they enter the publication and preservation layers.</p>
+</section>
+</section>
+<section id="architectural-principles-for-robust-rdm-transitions" class="level2">
+<h2 class="anchored" data-anchor-id="architectural-principles-for-robust-rdm-transitions">Architectural Principles for Robust RDM Transitions</h2>
+<p>A FAIR‑aligned RDM platform succeeds or fails in the <strong>transitions</strong> between components.<br>
+This chapter showed that when systems exchange data only through APIs—without a shared digital‑object layer, i.e.&nbsp;identity, metadata, and provenance can fragment across boundaries. The solution is not to build more isolated services, but to design platforms that <strong>treat transitions as first‑class architectural concerns</strong>.</p>
+<p>Three principles follow from this.</p>
+<section id="good-platform-design-matters" class="level3">
+<h3 class="anchored" data-anchor-id="good-platform-design-matters">1. Good platform design matters</h3>
+<p>RDM infrastructure is not simply a collection of tools.<br>
+It is an ecosystem in which digital objects must remain <strong>identifiable, contextualised, and traceable</strong> as they move across services.</p>
+<p>Designing for this continuity requires:</p>
+<ul>
+<li>stable identifiers<br>
+</li>
+<li>metadata binding<br>
+</li>
+<li>lifecycle‑aware orchestration<br>
+</li>
+<li>predictable, governed transitions<br>
+</li>
+<li>clear contracts for how services interact</li>
+</ul>
+<p>A platform that preserves these elements across transitions behaves as a coherent whole, even if its components are heterogeneous.</p>
+</section>
+<section id="plan-transitions-carefully-to-avoid-creating-new-silos" class="level3">
+<h3 class="anchored" data-anchor-id="plan-transitions-carefully-to-avoid-creating-new-silos">2. Plan Transitions Carefully to Avoid Creating New Silos</h3>
+<p>Before introducing a new service, the key architectural question is not:</p>
+<blockquote class="blockquote">
+<p><em>“What features does this tool provide?”</em></p>
+</blockquote>
+<p>but rather:</p>
+<blockquote class="blockquote">
+<p><em>“How does this service interface with the rest of the platform or eco system, and how does it participate in the lifecycle of a digital object?”</em></p>
+</blockquote>
+<p>A service that cannot preserve identity, metadata, and provenance across boundaries risks becoming another silo—even if it is excellent at what it does internally.</p>
+<p>Designing for transitions means:</p>
+<ul>
+<li>understanding upstream and downstream dependencies<br>
+</li>
+<li>ensuring identifiers and metadata remain stable<br>
+</li>
+<li>avoiding duplication of lifecycle state<br>
+</li>
+<li>preventing multiple sources of truth</li>
+</ul>
+<p>This mindset shifts the focus from <strong>tool‑centric design</strong> to <strong>ecosystem‑centric design</strong>.</p>
+</section>
+<section id="disciplinespecific-platforms-are-valuable-but-must-expose-standards" class="level3">
+<h3 class="anchored" data-anchor-id="disciplinespecific-platforms-are-valuable-but-must-expose-standards">3. Discipline‑specific platforms are valuable, but must expose standards</h3>
+<p>Systems like <strong>FAIRDOM‑SEEK</strong> and <strong>FAIR Data Station</strong> show how discipline‑specific platforms can provide deep, domain‑appropriate FAIRification.<br>
+Their strength lies in supporting the complexity of life‑science research objects: samples, assays, workflows, models, and protocols.</p>
+<p>But they remain interoperable because they expose:</p>
+<ul>
+<li><strong>standard identifiers</strong> (DOIs, ORCID, internal stable IDs)<br>
+</li>
+<li><strong>standard metadata models</strong> (ISA, JSON‑LD, schema.org, Bioschemas)<br>
+</li>
+<li><strong>standard packaging</strong> (RO‑Crate)<br>
+</li>
+<li><strong>standard APIs</strong><br>
+</li>
+<li><strong>standard provenance structures</strong></li>
+</ul>
+<p>This ensures that domain‑specific platforms can be <strong>combined with repositories, policy engines, and metadata portals from other disciplines</strong> without losing coherence.</p>
+<p>In other words:</p>
+<blockquote class="blockquote">
+<p><strong>Discipline‑specific does not mean discipline‑isolated.</strong><br>
+A platform can be tailored to a community while still participating in a broader, interoperable RDM ecosystem.</p>
+</blockquote>
+</section>
+<section id="always-ask-how-does-this-platform-or-service-interface-with-others" class="level3">
+<h3 class="anchored" data-anchor-id="always-ask-how-does-this-platform-or-service-interface-with-others">4. Always ask: How does this platform or service interface with others?</h3>
+<p>Every component in an RDM platform should make its interfaces explicit:</p>
+<ul>
+<li>What identifiers does it accept and emit?<br>
+</li>
+<li>How does it expose metadata?<br>
+</li>
+<li>How does it receive lifecycle state, and how does it pass it on?<br>
+</li>
+<li>Does it enrich metadata, or only expose it?<br>
+</li>
+<li>Does it act as a source of truth for files, metadata, or provenance?<br>
+</li>
+<li>How does it ensure that downstream systems can maintain continuity?</li>
+</ul>
+<p>A service that answers these questions clearly can be integrated into a FAIR‑aligned ecosystem.<br>
+A service that cannot risks breaking the digital‑object layer.</p>
+</section>
+<section id="in-short" class="level3">
+<h3 class="anchored" data-anchor-id="in-short">In short</h3>
+<ul>
+<li><strong>Design is important</strong>: digital objects must remain coherent across transitions.<br>
+</li>
+<li><strong>Think transitions before building a new silo</strong>: tools must integrate into the lifecycle, not sit beside it.<br>
+</li>
+<li><strong>Discipline‑specific platforms are valuable</strong>: but only if they expose standards that allow them to interoperate with services from other domains.<br>
+</li>
+<li><strong>Interfaces matter</strong>: every service must make clear how it participates in the lifecycle of a digital object.</li>
+</ul>
+<p>This sets the stage for the next chapter, where we look at <strong>metadata portals and aggregation services</strong>, and how they depend on well‑designed transitions to provide global discovery.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./rdm-platform.html" class="pagination-link" aria-label="RDM Platform">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">RDM Platform</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text"><span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>©️ <a href="https://github.com/chStaiger/rdm-fundamentals/blob/main/LICENSE.md">Creative Commons Attribution 4.0 International</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org/">Quarto</a> &amp; <a href="https://github.com/">GitHub</a><br>Maintained with 🍵 &amp; ☕</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
