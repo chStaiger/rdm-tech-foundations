@@ -1,4 +1,4 @@
-# Why Digital Objects Break Across System Boundaries
+# Digital Object Continuity
 
 ## Where the Digital‑Object Layer Breaks Without Orchestration
 
@@ -24,7 +24,7 @@ The repository treats each API upload as a new object, creating a new identifier
 **Result:**  
 The digital object forks into multiple versions, each with its own identifiers and metadata.
 
-## 2. Synchronisation / Sharing Service → Repository or Policy Engine: Working Copies Drift Away From the Digital Object
+### 2. Synchronisation / Sharing Service → Repository or Policy Engine: Working Copies Drift Away From the Digital Object
 
 Synchronisation and file‑sharing services are designed for **working copies**, not for maintaining the authoritative representation of a digital object. They allow:
 
@@ -203,7 +203,7 @@ This is why a FAIR‑aligned platform must treat the digital object as a **share
 
 ## Ensuring Continuity Across the Lifecycle Through an Orchestration Layer
 
-The failure modes described in the previous sections—duplicate DOIs, unstable working copies, metadata divergence, and fragmented provenance—are not isolated accidents. They are symptoms of a deeper architectural problem: **most current RDM infrastructures treat digital objects as local constructs**, defined independently by each service. APIs move files and metadata, but they do not preserve **identity**, **metadata binding**, **provenance**, or **lifecycle state** across system boundaries.
+The failure modes described in the previous sections duplicate DOIs, unstable working copies, metadata divergence, and fragmented provenance are not isolated accidents. They are symptoms of a deeper architectural problem: **most current RDM infrastructures treat digital objects as local constructs**, defined independently by each service. APIs move files and metadata, but they do not preserve **identity**, **metadata binding**, **provenance**, or **lifecycle state** across system boundaries.
 
 This is the **current state of the art** in many research environments:  
 systems exchange data, but they do not share a digital‑object model.  
@@ -252,9 +252,9 @@ The orchestration layer is the architectural component that enforces these princ
 
 As this is state-of-the-art research and work we refer the interested reader to the following resources:
 
-- https://fairdo.org/
-- https://www.go-fair.org/today/fair-digital-framework/
-- https://www.dona.net/sites/default/files/2018-11/DOIPv2Spec_1.pdf
+- <https://fairdo.org/>
+- <https://www.go-fair.org/today/fair-digital-framework/>
+- <https://www.dona.net/sites/default/files/2018-11/DOIPv2Spec_1.pdf>
 - DOI: 10.5334/dsj-2020-015
 
 ## FAIRDOM‑SEEK in the RDM Architecture
@@ -360,7 +360,7 @@ Because they combine these capabilities, SEEK operates in the **FAIRification an
 This is the same space where, in the examples above, digital objects break when transitions rely only on APIs. SEEK helps prevent such failures by **binding identity, metadata, and context early in the lifecycle**.
 
 
-## RO‑Crate vs. OAIS‑Style Archival Packaging
+### RO‑Crate vs. OAIS‑Style Archival Packaging
 
 A key reason SEEK sits between categories is their use of **RO‑Crate**, a packaging format optimised for FAIR metadata, semantic relationships, and research‑object context.  
 Repositories and archives, by contrast, rely on **OAIS‑aligned** standards such as METS, PREMIS, and BagIt, which focus on long‑term preservation and fixity.
@@ -380,7 +380,7 @@ RO‑Crate is designed for *rich, contextual, machine‑actionable FAIR metadata
 OAIS packaging is designed for *durable, governed, long‑term preservation*.  
 SEEK therefore sits naturally between active research systems and repositories.
 
-## Publishing in SEEK vs. Publishing in a Repository
+### Publishing in SEEK vs. Publishing in a Repository
 
 Because SEEK operates in the FAIRification layer, “publishing” in these systems serves a different purpose than publishing in a repository.
 
@@ -405,7 +405,7 @@ Because SEEK operates in the FAIRification layer, “publishing” in these syst
 
 **Repositories publish *archival digital objects* that enter the scholarly record.**
 
-## Why This Hybrid Role Matters for Transitions
+### Why This Hybrid Role Matters for Transitions
 
 By combining features from repositories, policy engines, and metadata services and by being purpose‑built for the life sciences SEEK:
 

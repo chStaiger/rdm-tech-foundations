@@ -47,7 +47,7 @@ book:
         - pid-services.qmd
         - aai.qmd
     - rdm-platform.qmd
-    - infrastructure-examples.qmd
+    - do-continuity.qmd
     - summary.qmd
     - references.qmd
   
