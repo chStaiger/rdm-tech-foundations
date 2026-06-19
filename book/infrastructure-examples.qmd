@@ -17,7 +17,7 @@ This leads to several failure modes:
 
 The root cause is simple:  
 the policy engine and the repository do not share a **digital‑object identity** or a **shared lifecycle model**.  
-The repository treats each API upload as a new object, creating a new identiifer for the same data; the policy engine assumes it is handing over the same one, while not being able to establish taht with the repository.
+The repository treats each API upload as a new object, creating a new identifier for the same data; the policy engine assumes it is handing over the same one, while not being able to establish that with the repository.
 
 **Result:**  
 The digital object forks into multiple versions, each with its own identifiers and metadata.
