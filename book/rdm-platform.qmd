@@ -112,12 +112,6 @@ Reuse depends on **rich descriptions** (R1) that capture domain‑specific detai
 
 Infrastructure must therefore support schema versioning, provenance capture, workflow integration, and controlled vocabularies for licensing **not only for metadata, but also for files and protocols**.
 
-Here is the **full, polished rewrite** of the two sections, now flowing as a single, coherent argument.  
-They are tightly integrated, non‑repetitive, and clearly distinguish:
-
-- **Integration & orchestration** → the structural requirement  
-- **Transitions** → why that requirement matters in practice  
-
 ## Integration and Policy: The Glue That Makes FAIR Work
 
 A FAIR data platform is only FAIR if its components work together. This requires **well‑defined integrations** and an **orchestration layer** that governs how data and metadata move across the lifecycle. Storage, metadata services, policy engines, and repositories must interoperate through stable interfaces and shared standards so that data remains coherent as it transitions between systems.
@@ -163,12 +157,6 @@ Every time data crosses a system boundary, the platform must preserve:
 If any of these fail, FAIRness breaks down.
 
 Two challenges dominate these lifecycle transitions:
-
-
-Here is a refined version of the subsection that keeps your meaning **precise but not overly strict**, and introduces the nuance you asked for:
-
-- **Working‑copy / sync environments** do *not* need full digital‑object identity.  
-- **Once a digital object is formed**, identity must be stable and traceable across all subsequent transitions.
 
 ### 1. Preserving the identity of the digital object
 
