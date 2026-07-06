@@ -33,60 +33,88 @@ To achieve this, repositories must expose metadata through **standard protocols*
 
 The Figure below shows the architecture to make metadata actionable for researchers and machines. The nodes in light green denote the components that directly interact with users and machines and which you might have already used.
 
-```{mermaid}
-%%| label: fig-metadata-flow
-%%| fig-cap: From Local Metadata to Discovery and Data Access
-%%| fig-align: center
-%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
+```{dot}
+//| label: fig-metadata-flow
+//| fig-cap: From Local Metadata to Discovery and Data Access
+//| fig-align: center
 
-flowchart TD
+digraph metadata_flow {
 
-    %% Consumer at the top
-    subgraph Consumer["Consumer"]
-        USER["Researchers and Machines"]
-    end
+    graph [
+        rankdir=TB,
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=18
+    ];
 
-    %% Repository
-    subgraph Repository["Repository"]
-        DATA["Data Files"]
-        META["Local Metadata<br>(JSON, XML, RDF)"]
-        API["Expose Metadata<br>via OAI-PMH / REST API"]
-        META -->|"offered through"| API
-    end
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=18,
+        color="#528641"
+    ];
 
-    %% Metadata Service
-    subgraph MetadataService["Metadata Service"]
-        HARV["Harvester<br>Collect and Normalise"]
-        INDEX["Indexer<br>Search Index / Knowledge Graph"]
-        PORTAL["Metadata Portal<br>Discovery Interface"]
-        HARV -->|"provide harvested metadata"| INDEX
-        INDEX -->|"serve indexed metadata"| PORTAL
-    end
+    edge [
+        fontname="Helvetica",
+        fontsize=18,
+        color="#528641"
+    ];
 
-    %% --- Anchor the layout ---
-    %% These edges ensure Consumer stays ABOVE the two subgraphs
-    USER --> |"search / explore"| PORTAL
-    USER --> |"access and download"| DATA
+    /* --- Repository --- */
+    subgraph cluster_repository {
+        label="Repository";
+        fontsize=18;
+        style=filled;
+        color="#E4F0D1";   /* very pale background */
 
-    %% Metadata flow (Repository → Metadata Service)
-    API -->|"offer metadata"| HARV
+        REP_ANCHOR [shape=point, width=0, label="", style=invis];
 
+        node [fillcolor="#DAEAB4"];   /* original node colour */
+        DATA [label="Data Files"];
+        META [label="Local Metadata\n(JSON, XML, RDF)"];
+        API  [label="Expose Metadata\nvia OAI-PMH / REST API"];
+        META -> API [label="offered through", fontcolor="#FFA552"];
+    }
 
-    %% Highlight nodes (light green fill, dark green text)
-    style USER fill:#d8f3dc,stroke:#1b4332,color:#1b4332
-    style DATA fill:#d8f3dc,stroke:#1b4332,color:#1b4332
-    style PORTAL fill:#d8f3dc,stroke:#1b4332,color:#1b4332
+    /* --- Metadata Service --- */
+    subgraph cluster_metadata {
+        label="Metadata Service";
+        fontsize=18;
+        style=filled;
+        color="#E4F0D1";   /* very pale background */
 
-    %% Link styles
-    linkStyle 0 labelPosition:0.5, align:top;
-    linkStyle 1 labelPosition:0.5, align:top;
-    linkStyle 2 labelPosition:0.5, align:top;
-    linkStyle 3 labelPosition:0.5, align:top;
-    linkStyle 4 labelPosition:0.5, align:top;
+        META_ANCHOR [shape=point, width=0, label="", style=invis];
 
+        node [fillcolor="#DAEAB4"];   /* original node colour */
+        HARV  [label="Harvester\nCollect & Normalise"];
+        INDEX [label="Indexer\nSearch Index / Knowledge Graph"];
+        PORTAL [label="Metadata Portal\nDiscovery Interface"];
+        HARV  -> INDEX  [label="provide harvested metadata", fontcolor="#FFA552"];
+        INDEX -> PORTAL [label="serve indexed metadata", fontcolor="#FFA552"];
+    }
+
+    /* --- Force horizontal alignment --- */
+    { rank = same; REP_ANCHOR; META_ANCHOR; }
+
+    /* --- Consumer --- */
+    subgraph cluster_consumer {
+        label="Consumer";
+        fontsize=18;
+        style=filled;
+        color="#E4F0D1";   /* very pale background */
+
+        node [fillcolor="#CDE498"];   /* original highlight colour */
+        USER [label="Researchers and Machines"];
+    }
+
+    /* --- Consumer interactions --- */
+    USER -> PORTAL [label="search / explore", fontcolor="#FFA552"];
+    USER -> DATA   [label="access & download", fontcolor="#FFA552"];
+
+    /* --- Metadata flow --- */
+    API -> HARV [label="offer metadata", fontcolor="#FFA552"];
+}
 ```
 
 We will now go through the single aspects of the metadata infrastructure.
