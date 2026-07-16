@@ -1,14 +1,14 @@
 # Metadata Infrastructure
 ### Portals, Harvesters, Indexers, and Serialisation
 
-Metadata becomes truly powerful only when it can be **shared, discovered, aggregated, and reused** across systems. For this to work, research infrastructures rely on a set of services that collect, expose, and standardise metadata at scale. These services form the **metadata infrastructure** that underpins FAIR data ecosystems.
+Metadata becomes truly powerful only when it can be shared, discovered, aggregated, and reused across systems. For this to work, research infrastructures rely on a set of services that collect, expose, and standardise metadata at scale. These services form the metadata infrastructure that underpins FAIR data ecosystems.
 
-This chapter introduces the main components of that infrastructure: **metadata portals**, **metadata harvesters**, **indexing services**, and the **serialisation formats** that allow metadata to move between systems.
+This chapter introduces the main components of that infrastructure: metadata portals, metadata harvesters, indexing services, and the serialisation formats that allow metadata to move between systems.
 
 
 ## Why Local Metadata Alone Is Not Enough
 
-Creating a metadata record inside a repository is essential, but **metadata that stays inside a single system remains effectively invisible to the wider research ecosystem**. A dataset may be perfectly documented, but if its metadata is not exposed in standardised, machine‑readable ways, it cannot be:
+Creating a metadata record inside a repository is essential, but metadata that stays inside a single system remains effectively invisible to the wider research ecosystem. A dataset may be perfectly documented, but if its metadata is not exposed in standardised, machine‑readable ways, it cannot be:
 
 - discovered by search engines  
 - harvested by aggregators  
@@ -17,23 +17,27 @@ Creating a metadata record inside a repository is essential, but **metadata that
 - integrated into knowledge graphs  
 - found by researchers outside the hosting institution  
 
-In other words, **metadata is only as useful as the infrastructure that distributes it**.
+In other words, metadata is only as useful as the infrastructure that distributes it.
 
 Several factors limit the findability of “local‑only” metadata:
 
-- **Siloing** — each repository stores metadata in its own database, often with its own schema  
-- **Lack of standardisation** — metadata may not follow common schemas or vocabularies  
-- **No machine‑readable exposure** — metadata may be visible on a webpage but not accessible via APIs or harvesting protocols  
-- **No cross‑repository search** — users must know the repository exists before they can find the data  
-- **No integration with PID services** — identifiers may not be resolvable or linked to global discovery systems  
+- Siloing — each repository stores metadata in its own database, often with its own schema  
+- Lack of standardisation — metadata may not follow common schemas or vocabularies  
+- No machine‑readable exposure — metadata may be visible on a webpage but not accessible via APIs or harvesting protocols  
+- No cross‑repository search — users must know the repository exists before they can find the data  
+- No integration with PID services — identifiers may not be resolvable or linked to global discovery systems  
 
-This is why FAIR emphasises that metadata must be **findable and accessible**, not merely present.
+This is why FAIR emphasises that metadata must be findable and accessible, not merely present.
 
-To achieve this, repositories must expose metadata through **standard protocols** (e.g., OAI‑PMH, ResourceSync, REST APIs) so that external services can collect and index it.
+To achieve this, repositories must expose metadata through standard protocols (e.g., OAI‑PMH, ResourceSync, REST APIs) so that external services can collect and index it.
 
 The Figure below shows the architecture to make metadata actionable for researchers and machines. The nodes in light green denote the components that directly interact with users and machines and which you might have already used.
 
 ```{dot}
+//| label: fig-metadata-flow
+//| fig-cap: From Local Metadata to Discovery and Data Access
+//| fig-align: center
+
 //| label: fig-metadata-flow
 //| fig-cap: From Local Metadata to Discovery and Data Access
 //| fig-align: center
@@ -44,76 +48,93 @@ digraph metadata_flow {
         rankdir=TB,
         bgcolor="white",
         fontname="Helvetica",
-        fontsize=18
+        fontsize=14
     ];
 
     node [
         shape=box,
         style="rounded,filled",
         fontname="Helvetica",
-        fontsize=18,
-        color="#528641"
+        fontsize=14,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2,
+        sketch=1
     ];
 
     edge [
         fontname="Helvetica",
-        fontsize=18,
-        color="#528641"
+        fontsize=16,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2,
+        sketch=1
     ];
 
-    /* --- Repository --- */
-    subgraph cluster_repository {
-        label="Repository";
-        fontsize=18;
-        style=filled;
-        color="#E4F0D1";   /* very pale background */
-
-        REP_ANCHOR [shape=point, width=0, label="", style=invis];
-
-        node [fillcolor="#DAEAB4"];   /* original node colour */
-        DATA [label="Data Files"];
-        META [label="Local Metadata\n(JSON, XML, RDF)"];
-        API  [label="Expose Metadata\nvia OAI-PMH / REST API"];
-        META -> API [label="offered through", fontcolor="#FFA552"];
-    }
-
-    /* --- Metadata Service --- */
-    subgraph cluster_metadata {
-        label="Metadata Service";
-        fontsize=18;
-        style=filled;
-        color="#E4F0D1";   /* very pale background */
-
-        META_ANCHOR [shape=point, width=0, label="", style=invis];
-
-        node [fillcolor="#DAEAB4"];   /* original node colour */
-        HARV  [label="Harvester\nCollect & Normalise"];
-        INDEX [label="Indexer\nSearch Index / Knowledge Graph"];
-        PORTAL [label="Metadata Portal\nDiscovery Interface"];
-        HARV  -> INDEX  [label="provide harvested metadata", fontcolor="#FFA552"];
-        INDEX -> PORTAL [label="serve indexed metadata", fontcolor="#FFA552"];
-    }
-
-    /* --- Force horizontal alignment --- */
-    { rank = same; REP_ANCHOR; META_ANCHOR; }
-
-    /* --- Consumer --- */
+    /* --- Consumer (top) --- */
     subgraph cluster_consumer {
-        label="Consumer";
-        fontsize=18;
-        style=filled;
-        color="#E4F0D1";   /* very pale background */
 
-        node [fillcolor="#CDE498"];   /* original highlight colour */
+        TOP_ANCHOR [shape=point, width=0, label="", style=invis];
+
+        label="Consumer";
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
+        sketch=1;
+
         USER [label="Researchers and Machines"];
     }
 
-    /* --- Consumer interactions --- */
-    USER -> PORTAL [label="search / explore", fontcolor="#FFA552"];
-    USER -> DATA   [label="access & download", fontcolor="#FFA552"];
+    /* --- Repository (bottom-left) --- */
+    subgraph cluster_repository {
 
-    /* --- Metadata flow --- */
-    API -> HARV [label="offer metadata", fontcolor="#FFA552"];
+        LEFT_ANCHOR [shape=point, width=0, label="", style=invis];
+
+        label="Repository";
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
+        sketch=1;
+
+        DATA [label="Data Files"];
+        META [label="Local Metadata\n(JSON, XML, RDF)"];
+        API  [label="Expose Metadata\nvia OAI-PMH / REST API"];
+        META -> API [label="offered through"];
+    }
+
+    /* --- Metadata Service (bottom-right) --- */
+    subgraph cluster_metadata {
+
+        RIGHT_ANCHOR [shape=point, width=0, label="", style=invis];
+
+        label="Metadata Service";
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
+        sketch=1;
+
+        HARV  [label="Harvester\nCollect & Normalise"];
+        INDEX [label="Indexer\nSearch Index / Knowledge Graph"];
+        PORTAL [label="Metadata Portal\nDiscovery Interface"];
+        HARV  -> INDEX  [label="provide harvested metadata"];
+        INDEX -> PORTAL [label="serve indexed metadata"];
+    }
+
+    /* --- Triangle layout --- */
+
+    /* Top rank: Consumer */
+    { rank = same; TOP_ANCHOR; }
+
+    /* Bottom rank: Repository + Metadata Service */
+    { rank = same; LEFT_ANCHOR; RIGHT_ANCHOR; }
+
+    /* --- Edges --- */
+    USER -> PORTAL [label="search / explore"];
+    USER -> DATA   [label="access & download"];
+    API  -> HARV   [label="offer metadata"];
 }
 ```
 
@@ -121,7 +142,7 @@ We will now go through the single aspects of the metadata infrastructure.
 
 ## Metadata Portals
 
-**Metadata portals** are platforms that provide human‑ and machine‑readable access to metadata records. They act as central entry points for discovering datasets, publications, software, and other research outputs.
+Metadata portals are platforms that provide human‑ and machine‑readable access to metadata records. They act as central entry points for discovering datasets, publications, software, and other research outputs.
 
 Portals typically:
 
@@ -133,17 +154,17 @@ Portals typically:
 
 ### Examples
 
-- [**DataCite Commons**](https://support.datacite.org/docs/datacite-commons) — aggregates metadata for DOIs assigned to datasets, software, and publications  
-- [**OpenAIRE Explore**](https://explore.openaire.eu/) — integrates metadata from repositories across Europe  
-- [**FAIRsharing**](https://fairsharing.org/) — registry of metadata standards, databases, and policies  
-- **Discipline‑specific portals** (e.g., PANGAEA, GBIF, ICPSR)
+- [DataCite Commons](https://support.datacite.org/docs/datacite-commons) — aggregates metadata for DOIs assigned to datasets, software, and publications  
+- [OpenAIRE Explore](https://explore.openaire.eu/) — integrates metadata from repositories across Europe  
+- [FAIRsharing](https://fairsharing.org/) — registry of metadata standards, databases, and policies  
+- Discipline‑specific portals (e.g., PANGAEA, GBIF, ICPSR)
 
 Portals are the *public face* of metadata: they make research outputs discoverable and provide the context needed for reuse.
 
 
 ## Metadata Harvesters
 
-Metadata harvesters solve the visibility problem by **collecting metadata from many repositories** and bringing it together into a unified index. They ensure that metadata created locally becomes part of a broader, interoperable ecosystem.
+Metadata harvesters solve the visibility problem by collecting metadata from many repositories and bringing it together into a unified index. They ensure that metadata created locally becomes part of a broader, interoperable ecosystem.
 
 Harvesters typically:
 
@@ -155,26 +176,26 @@ Harvesters typically:
 
 ### Common harvesting protocols
 
-- **OAI‑PMH (Open Archives Initiative Protocol for Metadata Harvesting)**  
+- OAI‑PMH (Open Archives Initiative Protocol for Metadata Harvesting)  
   Widely used in repositories; supports incremental harvesting and multiple metadata formats.
 
-- **ResourceSync**  
+- ResourceSync  
   A modern protocol for synchronising large collections of metadata and content.
 
-- **REST APIs**  
+- REST APIs  
   Many repositories expose metadata through JSON‑based APIs.
 
 ### Examples of harvesters
 
-- **OpenAIRE Harvester** — collects metadata from thousands of repositories  
-- **DataCite OAI‑PMH service** — exposes DOI metadata for harvesting  
-- **Europeana Harvester** — aggregates cultural heritage metadata    
+- OpenAIRE Harvester — collects metadata from thousands of repositories  
+- DataCite OAI‑PMH service — exposes DOI metadata for harvesting  
+- Europeana Harvester — aggregates cultural heritage metadata    
 
 Harvesters are the *connective tissue* of metadata infrastructure: they ensure that metadata does not remain siloed.
 
 ## What Is a Metadata Indexer?
 
-A **metadata indexer** is a service that takes harvested metadata and organises it into a **searchable, structured index**.
+A metadata indexer is a service that takes harvested metadata and organises it into a searchable, structured index.
 
 Indexers:
 
@@ -186,16 +207,16 @@ Indexers:
 - may generate knowledge graphs or entity‑resolution layers  
 
 In short:  
-**Harvesters collect metadata; indexers make it findable.**
+Harvesters collect metadata; indexers make it findable.
 
 ### Examples
 
-- **OpenAIRE Graph** — a large‑scale scholarly knowledge graph integrating publications, datasets, software, and projects  
-- **DataCite Search Index** — supports DOI discovery and metadata enrichment  
-- **Google Dataset Search** — indexes structured metadata exposed on the web  
-- **Semantic indexes** built on RDF triple stores (e.g., Blazegraph, GraphDB)
+- OpenAIRE Graph — a large‑scale scholarly knowledge graph integrating publications, datasets, software, and projects  
+- DataCite Search Index — supports DOI discovery and metadata enrichment  
+- Google Dataset Search — indexes structured metadata exposed on the web  
+- Semantic indexes built on RDF triple stores (e.g., Blazegraph, GraphDB)
 
-Indexers turn metadata into **actionable information**, enabling discovery, analytics, and automated linking.
+Indexers turn metadata into actionable information, enabling discovery, analytics, and automated linking.
 
 
 
@@ -212,7 +233,7 @@ Indexers turn metadata into **actionable information**, enabling discovery, anal
 
 ## Metadata Serialisation Formats
 
-To move metadata between systems, it must be expressed in **serialisation formats** that machines can read. These formats encode metadata according to schemas, ontologies, and controlled vocabularies.
+To move metadata between systems, it must be expressed in serialisation formats that machines can read. These formats encode metadata according to schemas, ontologies, and controlled vocabularies.
 
 Serialisation formats fall into two broad categories:
 
@@ -229,14 +250,14 @@ These formats are easy to generate and consume, but relationships between entiti
 
 ### 2. Semantic Web and Linked Data Formats
 
-These formats express metadata as **graphs**, enabling interoperability and machine reasoning.
+These formats express metadata as graphs, enabling interoperability and machine reasoning.
 
-- **RDF/XML**  
-- **Turtle (TTL)**  
-- **JSON‑LD**  
-- **N‑Triples / N‑Quads**
+- RDF/XML  
+- Turtle (TTL)  
+- JSON‑LD  
+- N‑Triples / N‑Quads
 
-These formats encode metadata as **subject–predicate–object triples**, using URIs to identify entities. They are used in:
+These formats encode metadata as subject–predicate–object triples, using URIs to identify entities. They are used in:
 
 - knowledge graphs  
 - ontology‑driven metadata  
@@ -252,7 +273,7 @@ Serialisation determines:
 - whether it supports Linked Data  
 - how well it integrates with harvesters and indexers  
 
-In practice, repositories often support **multiple serialisations** to serve different use cases.
+In practice, repositories often support multiple serialisations to serve different use cases.
 
 
 Below we give an example of the same metadata expressed in different formats.
@@ -269,7 +290,7 @@ The metadata fields are:
 - **subject**: Soil Moisture  
 
 
-#### **JSON (Key–Value Metadata)**
+#### JSON (Key–Value Metadata)
 
 ```json
 {
@@ -281,14 +302,14 @@ The metadata fields are:
 }
 ```
 
-**Characteristics:**  
+Characteristics:  
 - Simple, human‑readable  
 - No explicit semantics  
 - Relationships are implicit  
 
 ---
 
-#### **XML (Structured, Schema‑Driven Metadata)**
+#### XML (Structured, Schema‑Driven Metadata)
 
 ```xml
 <resource>
@@ -300,12 +321,12 @@ The metadata fields are:
 </resource>
 ```
 
-**Characteristics:**  
+Characteristics:  
 - Hierarchical structure  
 - Often validated with schemas (e.g., XSD)  
 - Still no explicit semantics unless combined with namespaces  
 
-#### **Turtle (RDF / Linked Data)**
+#### Turtle (RDF / Linked Data)
 
 ```sh
 @prefix dc:     <http://purl.org/dc/elements/1.1/> .
@@ -320,7 +341,7 @@ ex:dataset1
     dc:subject "Soil Moisture" .
 ```
 
-**Characteristics:**  
+Characteristics:  
 - Fully semantic  
 - Uses URIs for identifiers  
 - Machine‑interpretable relationships  
@@ -346,9 +367,9 @@ Different serialisation formats serve different purposes, and the right choice d
 
 **CSV/TSV** is the simplest option for tabular or variable‑level metadata. It is easy to create and edit, especially for researchers working in spreadsheets, but it cannot express hierarchical or semantic relationships.
 
-**RDF serialisations** such as Turtle, JSON‑LD, and RDF/XML are the best choice when metadata needs to be **interoperable, machine‑interpretable, and semantically rich**. They allow metadata to be integrated into knowledge graphs, linked to ontologies, and connected across systems using globally unique identifiers. JSON‑LD is particularly useful for embedding semantic metadata on the web, while Turtle is preferred for human‑readable Linked Data.
+**RDF serialisations** such as Turtle, JSON‑LD, and RDF/XML are the best choice when metadata needs to be interoperable, machine‑interpretable, and semantically rich. They allow metadata to be integrated into knowledge graphs, linked to ontologies, and connected across systems using globally unique identifiers. JSON‑LD is particularly useful for embedding semantic metadata on the web, while Turtle is preferred for human‑readable Linked Data.
 
-In practice, many repositories support **multiple serialisations**: a simple JSON or XML representation for APIs and harvesting, and a semantic RDF representation for Linked Data and FAIR interoperability. The choice depends on whether the priority is ease of use, strict validation, or semantic richness.
+In practice, many repositories support multiple serialisations: a simple JSON or XML representation for APIs and harvesting, and a semantic RDF representation for Linked Data and FAIR interoperability. The choice depends on whether the priority is ease of use, strict validation, or semantic richness.
 
 | Format | Type | Strengths | Limitations | Common Uses |
 |--------|------|-----------|-------------|-------------|
@@ -373,7 +394,7 @@ A typical metadata flow looks like this:
 5. **Indexer** builds a searchable, enriched metadata graph  
 6. **Discovery services** make metadata findable across domains  
 
-Together, these components form the **metadata infrastructure** that enables FAIR, interoperable, and reusable research data.
+Together, these components form the metadata infrastructure that enables FAIR, interoperable, and reusable research data.
 
 ## A Note on Linked Data, Triple Stores, and Combining Knowledge Graphs
 
@@ -381,14 +402,14 @@ Linked Data changes how metadata is shared and connected across research infrast
 
 Repositories can expose RDF in several ways:
 
-- **Static RDF files** (e.g., Turtle or JSON‑LD generated on demand or published as dumps)  
-- **Content negotiation** (e.g., returning RDF when a client requests `text/turtle` or `application/ld+json`)  
-- **API endpoints** that output RDF serialisations  
-- **SPARQL or Linked Data endpoints** when the repository uses a graph‑based backend  
+- Static RDF files (e.g., Turtle or JSON‑LD generated on demand or published as dumps)  
+- Content negotiation (e.g., returning RDF when a client requests `text/turtle` or `application/ld+json`)  
+- API endpoints that output RDF serialisations  
+- SPARQL or Linked Data endpoints when the repository uses a graph‑based backend  
 
 Only the last option requires a triple store; the others simply generate RDF from the repository’s internal metadata model.
 
-A **triple store** is a specialised database designed to store and query RDF triples—statements in the form *subject–predicate–object*. It supports SPARQL queries, reasoning, and graph traversal, and can automatically merge graphs from different sources when they use the same identifiers. If two repositories describe the same dataset, person, or organisation using the same URI, a triple store treats them as the same node. No custom mapping or harmonisation layer is required; the semantics are embedded directly in the data model.
+A triple store is a specialised database designed to store and query RDF triples—statements in the form *subject–predicate–object*. It supports SPARQL queries, reasoning, and graph traversal, and can automatically merge graphs from different sources when they use the same identifiers. If two repositories describe the same dataset, person, or organisation using the same URI, a triple store treats them as the same node. No custom mapping or harmonisation layer is required; the semantics are embedded directly in the data model.
 
 This makes combining knowledge graphs remarkably straightforward. Multiple RDF sources can be loaded into the same triple store, and shared identifiers cause the graphs to interlink automatically. The infrastructure does not need to normalise formats, deduplicate records, or align schemas—the graph model handles this naturally.
 
@@ -396,54 +417,102 @@ Because of this, Linked Data reduces the need for traditional metadata harvester
 
 However, this convenience for infrastructures shifts responsibility upstream. For Linked Data to work well, researchers and data stewards must provide clean identifiers, consistent vocabularies, and well‑structured RDF. Instead of the infrastructure harmonising metadata after the fact, the quality and interoperability of the combined graph depend on the metadata producers themselves.
 
-In short: **triple stores make integration easier for infrastructures, but require more discipline and modelling effort from researchers**. When done well, the result is a metadata ecosystem that is inherently connected, machine‑interpretable, and ready for reuse across systems.
+In short: triple stores make integration easier for infrastructures, but require more discipline and modelling effort from researchers. When done well, the result is a metadata ecosystem that is inherently connected, machine‑interpretable, and ready for reuse across systems.
 
-```{mermaid}
-%%| label: fig-linkeddata-flow
-%%| fig-cap: Linked Data Architecture Without Harvesters
-%%| fig-align: center
-%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
+```{dot}
+//| label: fig-linkeddata-flow
+//| fig-cap: Linked Data Architecture Without Harvesters
+//| fig-align: center
 
-flowchart TD
+digraph linkeddata_flow {
 
-    %% Consumer at the top
-    subgraph Consumer["Consumer"]
-        USER["Researchers and Machines"]
-    end
+    graph [
+        rankdir=TB,
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=14
+    ];
 
-    %% Repository
-    subgraph Repository["Repository"]
-        DATA["Data Files"]
-        RDF["RDF Metadata<br>(Turtle, JSON-LD, RDF/XML)"]
-        ENDPOINT["Expose RDF<br>via Content Negotiation / API"]
-        RDF -->|"published as RDF"| ENDPOINT
-    end
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=14,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2
+    ];
 
-    %% Linked Data Service
-    subgraph LinkedDataService["Linked Data Service"]
-        TRIPLE["Triple Store<br>(GraphDB, Blazegraph, Fuseki)"]
-        SPARQL["SPARQL Endpoint<br>Query Interface"]
-        TRIPLE -->|"query graph"| SPARQL
-    end
+    edge [
+        fontname="Helvetica",
+        fontsize=16,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
 
-    %% Metadata flow (Repository → Triple Store)
-    ENDPOINT -->|"load RDF graphs"| TRIPLE
+    /* --- Consumer (top) --- */
+    subgraph cluster_consumer {
 
-    %% Consumer interactions
-    USER -->|"query / explore"| SPARQL
-    USER -->|"access and download"| DATA
+        TOP_ANCHOR [shape=point, width=0, label="", style=invis];
 
-    %% Highlight nodes (light green fill, dark green text)
-    style USER fill:#d8f3dc,stroke:#1b4332,color:#1b4332
-    style DATA fill:#d8f3dc,stroke:#1b4332,color:#1b4332
-    style SPARQL fill:#d8f3dc,stroke:#1b4332,color:#1b4332
+        label="Consumer";
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
 
-    %% Link styles
-    linkStyle 0 labelPosition:0.5, align:top;
-    linkStyle 1 labelPosition:0.5, align:top;
-    linkStyle 2 labelPosition:0.5, align:top;
-    linkStyle 3 labelPosition:0.5, align:top;
+        USER [label="Researchers and Machines"];
+    }
+
+    /* --- Repository (bottom-left) --- */
+    subgraph cluster_repository {
+
+        LEFT_ANCHOR [shape=point, width=0, label="", style=invis];
+
+        label="Repository";
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
+
+        DATA     [label="Data Files"];
+        RDF      [label="RDF Metadata\n(Turtle, JSON-LD, RDF/XML)"];
+        ENDPOINT [label="Expose RDF\nvia Content Negotiation / API"];
+
+        RDF -> ENDPOINT [label="published as RDF"];
+    }
+
+    /* --- Linked Data Service (bottom-right) --- */
+    subgraph cluster_linkeddata {
+
+        RIGHT_ANCHOR [shape=point, width=0, label="", style=invis];
+
+        label="Linked Data Service";
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
+
+        TRIPLE [label="Triple Store\n(GraphDB, Blazegraph, Fuseki)"];
+        SPARQL [label="SPARQL Endpoint\nQuery Interface"];
+
+        TRIPLE -> SPARQL [label="query graph"];
+    }
+
+    /* --- Triangle layout --- */
+
+    /* Top rank: Consumer */
+    { rank = same; TOP_ANCHOR; }
+
+    /* Bottom rank: Repository + Linked Data Service */
+    { rank = same; LEFT_ANCHOR; RIGHT_ANCHOR; }
+
+    /* --- Metadata flow (Repository → Triple Store) --- */
+    ENDPOINT -> TRIPLE [label="load RDF graphs"];
+
+    /* --- Consumer interactions --- */
+    USER -> SPARQL [label="query / explore"];
+    USER -> DATA   [label="access and download"];
+}
 ```
