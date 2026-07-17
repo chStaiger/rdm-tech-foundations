@@ -66,6 +66,7 @@ format:
       - css_files/callout.css
       - css_files/toc.css
       - css_files/hyperlinks.css
+      - css_files/figure_margins.css
     number-sections: false
     mermaid:
       theme: forest
