@@ -1,8 +1,8 @@
 # The Digital Object
 
-A **digital (or data) object** is a self‑contained, structured unit of information that exists in electronic form. It is more than just raw bits: it is a combination of **content**, **context**, and **identity** that allows computers and humans to store, interpret, preserve, and reuse information reliably.
+A digital (or data) object is a self‑contained, structured unit of information that exists in electronic form. It is more than just raw bits: it is a combination of **content**, **context**, and **identity** that allows computers and humans to store, interpret, preserve, and reuse information reliably.
 
-At its core, a digital object consists of **three interdependent components**:
+At its core, a digital object consists of three interdependent components:
 
 - [**Bitstream(s) or File(s)**](files.qmd) — the actual digital content, stored as one or more files. These may be documents, images, audio recordings, videos, datasets, software packages, or any other digital material. On their own, files are simply encoded data; they require context to be meaningful. 
 
@@ -10,29 +10,61 @@ At its core, a digital object consists of **three interdependent components**:
 
 - [**Persistent Identifier (PID)**](pids.qmd) — a stable, globally unique reference (such as a DOI, Handle, or ARK) that ensures the object can be identified, found, cited, and linked over time, even if its storage location changes. The PID anchors the object’s identity in a durable way.
 
-```{mermaid}
-%%| label: fig-1
-%%| fig-cap: The Digital Object
-%%| fig-align: center
-%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
+```{dot}
+//| label: fig-1
+//| fig-cap: The Digital Object
+//| fig-align: center
+//| fig-width: 6
+//| output: svg
 
-flowchart TD
-    A["Digital Object"]
-    B["Files"]
-    C["Metadata"]
-    D["Persistent Identifier"]
+digraph digital_object {
 
-    A --> B
-    A --> C
-    A --> D
+    graph [
+        rankdir=TB,
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=14,
+        nodesep=0.8,
+        ranksep=1.0
+    ];
+
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=14,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2,
+        sketch=1
+    ];
+
+    edge [
+        fontname="Helvetica",
+        fontsize=16,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
+
+    // Main digital object
+    A [label="Digital Object"];
+
+    // Components
+    B [label="Files"];
+    C [label="Metadata"];
+    D [label="Persistent Identifier"];
+
+    // Relationships
+    A -> B;
+    A -> C;
+    A -> D;
+}
 ```
 
-### **How These Components Work Together**
+### How These Components Work Together
 
-These three parts form a **single functional entity**:
+These three parts form a single functional entity:
 
 - The **files** hold the content.  
 - The **metadata** explains the content and enables interpretation.  
@@ -42,53 +74,98 @@ If any one of these components is missing, the digital object becomes incomplete
 
 The diagrams below illustrate two common patterns for connecting a PID, the underlying files, and their metadata.  
 
-```{mermaid}
-%%| label: fig-2
-%%| fig-cap: PID points to a file which contains or points to the metadata.
-%%| fig-align: center
-%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
+```{dot}
+//| label: fig-do-implementation
+//| fig-cap: Two common PID–File–Metadata relationship patterns.
+//| fig-align: center
+//| fig-width: 8
+//| output: svg
 
-flowchart LR
+digraph combined_relations {
 
-   	 F["Files"]
-     M["Metadata"]
-    
-    P["Persistent Identifier (PID)"]
+    graph [
+        rankdir=TB,
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=14,
+        nodesep=0.8,
+        ranksep=1.6
+    ];
 
-    P --> |"points to"| F
-    F --> |"points to"| M
-    M --> |"contains"| P
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=14,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2,
+        sketch=1
+    ];
+
+    edge [
+        fontname="Helvetica",
+        fontsize=16,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
+
+    // -------------------------------
+    // Pattern 1
+    // -------------------------------
+    subgraph cluster_1 {
+        label="Pattern 1";
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
+
+        { rank = same; P1; M1 }
+
+        F1 [label="Files"];
+        M1 [label="Metadata"];
+        P1 [label="Persistent Identifier (PID)"];
+
+        P1 -> F1 [label="points to"];
+        F1 -> M1 [label="points to"];
+        M1 -> P1 [label="contains", constraint=false];
+    }
+
+    // -------------------------------
+    // Pattern 2
+    // -------------------------------
+    subgraph cluster_2 {
+        label="Pattern 2";
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
+
+        F2 [label="Files"];
+        M2 [label="Metadata"];
+        P2 [label="Persistent Identifier (PID)"];
+
+        // Force horizontal alignment
+        { rank = same; M2; P2 }
+
+        // Force left–right ordering INSIDE the cluster
+        // This works because we remove semantic constraints first
+        M2 -> P2 [style=invis, weight=100];
+
+        // Semantic edges re-added WITHOUT layout influence
+        M2 -> P2 [label="contains", constraint=false];
+        P2 -> M2 [label="points to", constraint=false];
+        M2 -> F2 [label="has access info to"];
+    }
+}
 ```
-
-In the first pattern, the PID resolves directly to a file, which then contains or links to the relevant metadata.  
-
-```{mermaid}
-%%| label: fig-3
-%%| fig-cap: PID points to metadata or a landing page that contains information on how to access the file(s).
-%%| fig-align: center
-%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-
-flowchart LR
-
-    F["Files"]
-    M["Metadata"]
-    P["Persistent Identifier (PID)"]
-
-    M --> |"contains"| P
-    P --> |"points to"| M
-    M --> |"has access info to"| F
-```
+In the first pattern, the PID resolves directly to a file, which then contains or links to the relevant metadata. 
 
 In the second pattern, the PID resolves to a metadata record or landing page, which provides the information needed to locate and access the file(s).  
 Both approaches are widely used; the choice depends on repository design and access requirements.
 
-### **Why Digital Objects Matter**
+### Why Digital Objects Matter
 
 Digital objects are the foundation of modern research data management systems. Their structured nature enables:
 
@@ -114,45 +191,109 @@ Additional lifecycle functions include:
 - **Provenance** — documenting how data came to be, including transformations and dependencies.  
   This includes relationships such as *raw data → processed data → analysed data*, making the object’s history transparent and reproducible.
 
-```{mermaid}
-%%| label: fig-4
-%%| fig-cap: Data lineage represented as a chain of Digital Objects (raw → processed → analysed).
-%%| fig-align: center
-%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
+```{dot}
+//| label: fig-4
+//| fig-cap: Data lineage represented as a chain of Digital Objects (raw → processed → analysed).
+//| fig-align: center
+//| fig-width: 8
+//| output: svg
 
-flowchart RL
+digraph data_lineage {
 
-    subgraph RAW["Raw Data Object"]
-        direction TB
-        R_F["Files"]
-        R_M["Metadata"]
-        R_P["PID"]
-    end
+    graph [
+        rankdir=TD,                 // Right-to-left flow
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=14,
+        nodesep=1.0,
+        ranksep=1.4
+    ];
 
-    subgraph PROC["Processed Data Object"]
-        direction TB
-        P_F["Files"]
-        P_M["Metadata"]
-        P_P["PID"]
-    end
-    
-    subgraph ANAL["Analysed Data Object"]
-        direction TB
-        A_F["Files"]
-        A_M["Metadata"]
-        A_P["PID"]
-    end
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=14,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2,
+        sketch=1
+    ];
 
-    P_M --> |"created from"| R_P
-    A_M --> |"created from"| P_P
+    edge [
+        fontname="Helvetica",
+        fontsize=16,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
+
+    // -------------------------------
+    // Raw Data Object
+    // -------------------------------
+    subgraph cluster_raw {
+        label="Raw Data Object";
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
+
+        R_F [label="Files"];
+        R_M [label="Metadata"];
+        R_P [label="PID"];
+
+        R_F -> R_M [style=invis];
+        R_M -> R_P [style=invis];
+    }
+
+    // -------------------------------
+    // Processed Data Object
+    // -------------------------------
+    subgraph cluster_proc {
+        label="Processed Data Object";
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
+
+        P_F [label="Files"];
+        P_M [label="Metadata"];
+        P_P [label="PID"];
+
+        P_F -> P_M [style=invis];
+        P_M -> P_P [style=invis];
+    }
+
+    // -------------------------------
+    // Analysed Data Object
+    // -------------------------------
+    subgraph cluster_analysis {
+        label="Analysed Data Object";
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
+
+        A_F [label="Files"];
+        A_M [label="Metadata"];
+        A_P [label="PID"];
+
+        A_F -> A_M [style=invis];
+        A_M -> A_P [style=invis];
+    }
+
+    // -------------------------------
+    // Lineage edges
+    // -------------------------------
+    P_M -> R_P [label="created from"];
+    A_M -> P_P [label="created from"];
+}
+
 ```
 
-### **In essence**
+### In essence
 
-A digital object is **content + context + identity**.  
+A digital object is content + context + identity.  
 The bitstreams supply the content, the metadata provides the meaning needed to interpret and manage that content, and the persistent identifier anchors a stable, durable identity.
 Together, these components make digital information portable across systems, understandable over time, and resilient to changes in storage or technology.
 The chapters that follow examine each of these elements in depth, along with the infrastructure that enables them to function as a coherent whole.
