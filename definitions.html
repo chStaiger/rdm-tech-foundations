@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9c2e50941a1a4da422292054cb872991.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f51d66800dd4230279bd6573c4b73a8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -310,7 +310,7 @@ It includes policies, roles, responsibilities, standards, and decision‑making 
 <ul>
 <li>who can access data at each state<br>
 </li>
-<li>how metadata and provenance must be captured<br>
+<li>how metadata and provenance, i.e.&nbsp;transactions which create, process and transform data, must be captured<br>
 </li>
 <li>which data should be preserved or published<br>
 </li>
@@ -336,7 +336,8 @@ It includes policies, roles, responsibilities, standards, and decision‑making 
 </li>
 <li>ensuring FAIR principles are applied appropriately</li>
 </ul>
-<p>Stewardship becomes increasingly important as data moves from <strong>Active</strong> to <strong>Closed</strong>, <strong>Locked</strong>, and <strong>Archived</strong> states.</p>
+<p>In the context of this book, we will use the term Data Steward. However, professionals with the same specialisation and responsibilities may appear under a variety of job titles across institutes and countries. Regardless of naming conventions, the underlying competencies as supporting researchers, translating policy into practice, and enabling FAIR data remain consistent.</p>
+<p>Stewardship becomes increasingly important as data moves from <strong>Active</strong> to <strong>Closed</strong>, <strong>Locked</strong> to <strong>Archived</strong> and <strong>Published</strong> states.</p>
 <p><em>References</em></p>
 <ul>
 <li><a href="https://web.archive.org/web/20220121022346/https://www.simplilearn.com/what-is-data-stewardship-article" class="uri">https://web.archive.org/web/20220121022346/https://www.simplilearn.com/what-is-data-stewardship-article</a></li>
@@ -427,12 +428,10 @@ Their characteristics (volume, velocity, variety, etc.) influence:</p>
 <p><strong>Data Integrity</strong> means that data remains accurate, complete, and consistent throughout its lifecycle.<br>
 It is protected through:</p>
 <ul>
-<li>provenance metadata<br>
-</li>
+<li>metadata describing how data was collected, processed, and transformed</li>
 <li>version control<br>
 </li>
-<li>fixity checks<br>
-</li>
+<li>verifying file integrity through checksums or hashes to detect corruption or tampering</li>
 <li>controlled transitions between data states</li>
 </ul>
 <p>Integrity is essential for both stewardship and reuse.</p>
