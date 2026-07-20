@@ -17,7 +17,7 @@ It includes policies, roles, responsibilities, standards, and decision‑making 
 In the context of the lifecycle, governance determines:
 
 - who can access data at each state  
-- how metadata and provenance must be captured  
+- how metadata and provenance, i.e. transactions which create, process and transform data, must be captured  
 - which data should be preserved or published  
 - how FAIR responsibilities are distributed  
 
@@ -34,9 +34,11 @@ A **Data Steward** supports researchers by:
 - ensuring provenance is captured early  
 - guiding transitions between data states  
 - preparing data for archiving or publication  
-- ensuring FAIR principles are applied appropriately  
+- ensuring FAIR principles are applied appropriately
 
-Stewardship becomes increasingly important as data moves from **Active** to **Closed**, **Locked**, and **Archived** states.
+In the context of this book, we will use the term Data Steward. However, professionals with the same specialisation and responsibilities may appear under a variety of job titles across institutes and countries. Regardless of naming conventions, the underlying competencies as supporting researchers, translating policy into practice, and enabling FAIR data remain consistent.
+
+Stewardship becomes increasingly important as data moves from **Active** to **Closed**, **Locked** to **Archived** and **Published** states.
 
 *References*
 
@@ -117,9 +119,9 @@ Their characteristics (volume, velocity, variety, etc.) influence:
 **Data Integrity** means that data remains accurate, complete, and consistent throughout its lifecycle.  
 It is protected through:
 
-- provenance metadata  
+- metadata describing how data was collected, processed, and transformed
 - version control  
-- fixity checks  
+- verifying file integrity through checksums or hashes to detect corruption or tampering
 - controlled transitions between data states  
 
 Integrity is essential for both stewardship and reuse.

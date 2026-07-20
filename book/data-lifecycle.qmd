@@ -8,7 +8,7 @@ The **Research Data Management (RDM) life cycle** describes how research data de
 In the early phase of a project, data is created, cleaned, and transformed. Files exist as **working copies** on local machines or compute systems. They are volatile, frequently modified, and organised primarily for workflow convenience rather than long‑term stewardship.
 
 ### 2. Analyse 
-As the project progresses, files begin to stabilise. Cleaned datasets, model outputs, calibration files, and canonical scripts emerge. At this point, some files start to gain **scientific identity** and become candidates for long‑term retention.
+As the project progresses, files begin to stabilise. Cleaned datasets, model outputs, calibration files, and cleaned scripts emerge. At this point, some files start to gain **scientific identity** and become candidates for long‑term retention.
 
 ### 3. Archived 
 Once results stabilise, selected files are combined with metadata and persistent identifiers to form **digital objects**. These objects are stored in preservation‑oriented environments and protected through fixity checks, replication, and retention policies. They may remain internal or restricted, depending on the project’s needs.
@@ -163,9 +163,9 @@ The table below summarises how storage, permissions, and metadata evolve as data
 |-----------|------------|------------|----------------------------------|---------------------------|----------------------------|
 | **Storage** | Quick read & write operations | Quick read operations | No immediate read operations | Can offer both: quick read and no immediate access | Data limits per publication and preferred data formats |
 |  | *e.g., scratch on an HPC* | *e.g., Isilon via S3 interface* | *e.g., tape library* | *e.g., local repository* | *e.g., Dataverse* |
-| **Permissions / Responsibility** | Read & write permissions | Read permissions | Read permissions only | Read permissions only | Read permission to all (with possible embargo) |
+| **Permissions (Responsibility)** | Read & write permissions | Read permissions | Read permissions only | Read permissions only | Read permission to all (with possible embargo) |
 |  | Scientist: can grant ad hoc access for peers | Scientist: can grant ad hoc read access | Scientist: can grant ad hoc read access | Data stewards: can grant access to scientists | Embargoes and controlled release |
-| **Metadata** to be captured| Provenance<br> Descriptive | Provenance<br> Descriptive |  Provenance<br> Descriptive |  Collections<br> Limited descriptive |  Publication metadata |
+| **Metadata (Context)** | Provenance<br> Descriptive | Provenance<br> Descriptive |  Provenance<br> Descriptive |  Collections<br> Limited descriptive |  Publication metadata |
 
 These operational differences show why FAIR cannot be applied uniformly; its expression must adapt to the technical and governance realities of each state.
 
@@ -207,7 +207,7 @@ FAIR here is practical and internal: clear naming, shared access points, open fo
 
 **Typical services**: project storage with lifecycle rules, workflow engines, metadata templates.
 
-The emphasis shifts from exploration to **stabilisation**. Cleaned datasets, canonical scripts and derived outputs emerge, and the provenance captured earlier is consolidated into structured forms. Workflow engines help standardise processes and record parameters, software versions, and transformation steps.
+The emphasis shifts from exploration to **stabilisation**. Cleaned datasets, finalised scripts and derived outputs emerge, and the provenance captured earlier is consolidated into structured forms. Workflow engines help standardise processes and record parameters, software versions, and transformation steps.
 
 FAIR now begins to serve both researchers and stewards: files become easier to locate, access is controlled, and formats and vocabularies are standardised in preparation for long‑term retention.
 
