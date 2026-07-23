@@ -400,24 +400,48 @@ Using the Handle System as an example, the process works like this:
 
 When a user enters a Handle such as `21.T11998/0000-001A-3905-F` into a resolver—or clicks a link containing it—the request is sent to the global Handle infrastructure operated by the Corporation for National Research Initiatives (CNRI).
 
-```{mermaid}
-%%| label: fig-4
-%%| fig-cap: The Handle resolution
-%%| fig-align: center
-%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
+```{dot}
+//| label: fig-resolution
+//| fig-cap: The Handle resolution
+//| fig-align: center
+digraph handle_resolution_flow {
 
-flowchart TB
+    graph [
+        rankdir=TB,
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=14
+    ];
 
-    REQ[Browser: Send request<br>10.5281/zenodo.3238330]
-    PREFIX[Lookup prefix 10.5281 at global Handle server]
-    LOCAL[Contact local server<br>which hosts all PIDs for 10.5281]
-    RECORD[Get handle record]
-    REDIR[Redirect to resource in URL field]
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=14,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2
+    ];
 
-    REQ --> PREFIX --> LOCAL --> RECORD --> REDIR
+    edge [
+        fontname="Helvetica",
+        fontsize=14,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
+
+    /* --- Nodes --- */
+    REQ    [label="Browser: Send request\n10.5281/zenodo.3238330"];
+    PREFIX [label="Lookup prefix 10.5281\nat global Handle server"];
+    LOCAL  [label="Contact local server\nwhich hosts all PIDs for 10.5281"];
+    RECORD [label="Get handle record"];
+    REDIR  [label="Redirect to resource\nin URL field"];
+
+    /* --- Flow --- */
+    REQ -> PREFIX -> LOCAL -> RECORD -> REDIR;
+}
+
 
 ```
 
