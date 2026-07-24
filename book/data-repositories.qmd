@@ -1,53 +1,89 @@
 ## Data Repositories
 
-**Data repositories** support the **archiving**, **curation**, and **publication** of research data. Their core function is to take **stabilised files** and assemble them into a governed **digital object** with structured metadata, a persistent identifier, and controlled access.
+Data repositories support the archiving, curation, and publication of research data. Their core function is to take stabilised files and assemble them into a governed digital object with structured metadata, a persistent identifier, and controlled access.
 
-In principle, repository *software* can support **archiving without full publication**, for example by keeping files dark or access‑restricted. In practice, however, many repository *services* are designed with **publication as the default outcome**. To soften this, they typically offer:
+In principle, repository *software* can support archiving without full publication, for example by keeping files dark or access‑restricted. In practice, however, many repository *services* are designed with publication as the default outcome. To soften this, they typically offer:
 
-- **embargo periods**, during which files are not yet openly accessible  
-- **restricted files**, where access requires approval  
+- embargo periods, during which files are not yet openly accessible  
+- restricted files, where access requires approval  
 
-Even in these cases, the **repository entry (landing page)** and its basic metadata are usually **publicly visible**, while the underlying files may be delayed or restricted.
+Even in these cases, the repository entry (landing page) and its basic metadata are usually publicly visible, while the underlying files may be delayed or restricted.
 
-Repositories operate primarily at the **dataset level**. They expect researchers to prepare a coherent data package consisting of:
+Repositories operate primarily at the dataset level. They expect researchers to prepare a coherent data package consisting of:
 
-- one **metadata record**  
-- one **persistent identifier**  
-- one **landing page**  
+- one metadata record  
+- one persistent identifier  
+- one landing page  
 
-File‑level metadata may be supported, but it is typically **secondary**. Repositories are therefore optimised for **curation, governance, and long‑term retention of stabilised datasets**, not for managing the volatile, rapidly changing files produced during active research.
+File‑level metadata may be supported, but it is typically secondary. Repositories are therefore optimised for curation, governance, and long‑term retention of stabilised datasets, not for managing the volatile, rapidly changing files produced during active research.
 
 Repositories typically provide:
 
-- structured **publication workflows** (draft → review → publish)  
-- **embargo** and **restricted‑access** options  
-- defined **roles** (depositors, curators, administrators)  
-- **access controls** aligned with institutional or funder policies  
-- **archival packaging** (e.g., BagIt, dataset bundles)  
-- limited or single‑backend **storage coordination**  
+- structured publication workflows (draft → review → publish)  
+- embargo and restricted‑access options  
+- defined roles (depositors, curators, administrators)  
+- access controls aligned with institutional or funder policies  
+- archival packaging (e.g., BagIt, dataset bundles)  
+- limited or single‑backend storage coordination  
 
-In short, repositories excel at turning stabilised files into **citable, discoverable, and preservable digital objects**, but they are not designed to orchestrate large‑scale or frequently changing data during **active research**. That role belongs to **policy engines**, which operate earlier in the lifecycle.
+In short, repositories excel at turning stabilised files into citable, discoverable, and preservable digital objects, but they are not designed to orchestrate large‑scale or frequently changing data during active research. That role belongs to policy engines, which operate earlier in the lifecycle.
 
 ### The Repository Workflow
 
-```{mermaid}
-%%| label: fig-1
-%%| fig-cap: Data repositories implement a structured publication workflow that transforms a bundle of stabilised files into a single governed digital object. The workflow focuses on dataset‑level metadata, packaging, and persistent identifiers rather than elevating individual files to independent objects.
-%%| fig-align: center
-%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
-flowchart TB
+```{dot}
+//| label: fig-1
+//| fig-cap: Data repositories implement a structured publication workflow that transforms a bundle of stabilised files into a single governed digital object. The workflow focuses on dataset‑level metadata, packaging, and persistent identifiers rather than elevating individual files to independent objects.
+//| fig-align: center
+//| output: svg
+//| fig-width: 9
 
-    subgraph R["Data Repository Workflow"]
-    
-        A["Deposit<br/>(Upload files + enter metadata)"]
-        B["Curation / Review<br/>(Metadata checks, structure, policy compliance)"]
-        C["Approval<br/>(Embargo, access rights, final validation)"]
-        D["Publication<br/>(Assign PID, freeze version, create landing page)"]
-        E["Post‑Publication<br/>(Versioning, access requests, metadata updates)"]
-        
-    end
+digraph data_repo_workflow {
 
-    A --> B --> C --> D --> E
+    graph [
+        rankdir=LR,
+        size="10,6",
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=14,
+        ranksep=1.2,
+        nodesep=0.8
+    ];
+
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=14,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2,
+        sketch=1
+    ];
+
+    edge [
+        fontname="Helvetica",
+        fontsize=16,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
+
+    subgraph cluster_repo {
+        label="Data Repository Workflow";
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
+
+        A [label="Deposit\n(Upload files and\nenter metadata)"];
+        B [label="Curation / Review\n(Metadata checks,\nstructure,\npolicy compliance)"];
+        C [label="Approval\n(Embargo,\naccess rights,\nfinal validation)"];
+        D [label="Publication\n(Assign PID,\nfreeze version,\ncreate landing page)"];
+        E [label="Post‑Publication\n(Versioning,\naccess requests,\nmetadata updates)"];
+
+        A -> B -> C -> D -> E;
+    }
+}
 ```
 
 This workflow is implemented differently across repository platforms, but the underlying logic is the same: stabilised files are transformed into a governed dataset with metadata, identifiers, and access controls. The following platforms illustrate how these principles appear in real systems.
@@ -71,13 +107,13 @@ Dataverse supports:
 - tabular data ingest (extracting variables, labels, formats)  
 - dataset‑level citations  
 
-It is ideal for institutions that want a **curation‑centric** repository with well‑defined roles and governance.
+It is ideal for institutions that want a curation‑centric repository with well‑defined roles and governance.
 
 Dataverse aligns with the [OAIS Reference Model](https://dataverse.org/book/oais-reference-model-and-dataverse-software) (see below).
 
 ### Figshare
 
-Figshare focuses on **ease of deposit** and **broad dissemination**. It supports many output types and provides:
+Figshare focuses on ease of deposit and broad dissemination. It supports many output types and provides:
 
 - drag‑and‑drop upload  
 - minimal required metadata  
@@ -89,12 +125,12 @@ Figshare focuses on **ease of deposit** and **broad dissemination**. It supports
 
 Figshare focusses on sharing of research output and [provides integrations](https://info.figshare.com/user-guide/list-of-figshare-integrations/) and offers [OAI-PMH](https://info.figshare.com/user-guide/how-to-use-figshares-oai-pmh-service/).
 
-Figshare is ideal when the goal is to make research outputs **easy to publish and easy to find**.
+Figshare is ideal when the goal is to make research outputs easy to publish and easy to find.
 
 ### Invenio / Zenodo
 
-**Invenio** is a modular repository framework used to build institutional and disciplinary repositories.  
-**Zenodo**, built on Invenio, is a public repository offering free long‑term hosting.
+Invenio is a modular repository framework used to build institutional and disciplinary repositories.  
+Zenodo, built on Invenio, is a public repository offering free long‑term hosting.
 
 Invenio supports:
 
@@ -115,13 +151,13 @@ Zenodo supports:
 - GitHub integration (archiving releases automatically)  
 - long‑term preservation  
 
-Zenodo is widely used for **software**, **code releases**, and **small to medium‑sized datasets**.
+Zenodo is widely used for software, code releases, and small to medium‑sized datasets.
 
 ## Archival Packaging and Preservation Standards
 
-Data repositories do more than curate and publish datasets—they also support the **long‑term preservation** of digital objects. To do this reliably, repositories rely on a set of **archival packaging formats**, **metadata standards**, and **preservation models** that ensure data remains interpretable, verifiable, and transferable over decades.
+Data repositories do more than curate and publish datasets—they also support the long‑term preservation of digital objects. To do this reliably, repositories rely on a set of archival packaging formats, metadata standards, and preservation models that ensure data remains interpretable, verifiable, and transferable over decades.
 
-The most widely used frameworks in this space include **BagIt**, **OAIS**, **PREMIS**, **METS**, and **RO‑Crate**.  
+The most widely used frameworks in this space include BagIt, OAIS, PREMIS, METS, and RO‑Crate.  
 Each addresses a different part of the preservation problem.
 
 - BagIt — a packaging format for file transfer and fixity
@@ -132,7 +168,7 @@ Each addresses a different part of the preservation problem.
 
 ### BagIt: Packaging Files for Transfer and Fixity
 
-**BagIt** is a simple, robust packaging format used to bundle files together with the metadata needed to verify their integrity.
+BagIt is a simple, robust packaging format used to bundle files together with the metadata needed to verify their integrity.
 
 A BagIt “bag” contains:
 
@@ -174,17 +210,17 @@ mydataset-bag/
 
 Repositories use BagIt because it:
 
-- ensures **fixity** through checksums  
-- supports **validation** after transfer  
-- is **storage‑agnostic**  
-- works well for **large datasets**  
+- ensures fixity through checksums  
+- supports validation after transfer  
+- is storage‑agnostic  
+- works well for large datasets  
 
 Many repositories generate BagIt packages for archival export or transfer to preservation systems.
 
 
 ### OAIS: The Conceptual Model Behind Preservation
 
-The **OAIS Reference Model** (Open Archival Information System) is the foundational conceptual framework for digital preservation. It defines six functional entities that together define how a trustworthy digital archive operates.
+The OAIS Reference Model (Open Archival Information System) is the foundational conceptual framework for digital preservation. It defines six functional entities that together define how a trustworthy digital archive operates.
 
 - Ingest handles the acceptance of Submission Information Packages (SIPs) from producers. It performs quality checks, prepares Archival Information Packages (AIPs) according to the archive’s standards, creates or gathers descriptive metadata, and coordinates the transfer of AIPs into archival storage.
 
@@ -208,7 +244,7 @@ Most repositories implicitly follow OAIS principles, even if they do not impleme
 
 ### PREMIS: Preservation Metadata for Long‑Term Stewardship
 
-**PREMIS** (Preservation Metadata: Implementation Strategies) is the most widely adopted standard for **preservation metadata**, i.e. information needed to ensure long‑term usability and authenticity.
+PREMIS (Preservation Metadata: Implementation Strategies) is the most widely adopted standard for preservation metadata, i.e. information needed to ensure long‑term usability and authenticity.
 
 PREMIS describes:
 
@@ -229,7 +265,7 @@ PREMIS is expressed in XML and often embedded inside METS or other packaging for
 
 ### METS: Structuring Complex Digital Objects
 
-**METS** (Metadata Encoding and Transmission Standard) is an XML‑based framework for describing the **structure** of complex digital objects and linking them to metadata.
+METS (Metadata Encoding and Transmission Standard) is an XML‑based framework for describing the structure of complex digital objects and linking them to metadata.
 
 A METS document can include:
 
@@ -247,28 +283,71 @@ METS is commonly used in:
 Repositories may use METS internally or for archival export.
 
 
-```{mermaid}
-%%| label: fig-1
-%%| fig-cap: How METS and PREMIS Fit into OAIS SIP / AIP / DIP.
-%%| fig-align: center
-%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
+```{dot}
+//| label: fig-2
+//| fig-cap: How METS and PREMIS Fit into OAIS SIP / AIP / DIP.
+//| fig-align: center
+//| fig-width: 9
+//| output: svg
 
-flowchart LR
-    SIP["Submission Information Package (SIP)"] -->|Ingest| AIP["Archival Information Package (AIP)"]
-    AIP -->|Access| DIP["Dissemination Information Package (DIP)"]
+digraph oais_packages {
 
-    subgraph AIP_Contents["Inside the AIP"]
-        METS["METS<br/>Structural Map + File Inventory"]
-        PREMIS["PREMIS<br/>Preservation Metadata<br/>(Events, Agents, Rights)"]
-    end
+    graph [
+        rankdir=LR,
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=14,
+        nodesep=0.8,
+        ranksep=1.2
+    ];
 
-    AIP --> AIP_Contents
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=14,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2,
+        sketch=1
+    ];
 
+    edge [
+        fontname="Helvetica",
+        fontsize=16,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
+
+    // Main OAIS packages
+    SIP [label="Submission Information Package\n(SIP)"];
+    AIP [label="Archival Information Package\n(AIP)"];
+    DIP [label="Dissemination Information Package\n(DIP)"];
+
+    SIP -> AIP [label="Ingest"];
+    AIP -> DIP [label="Access"];
+
+    // AIP contents
+    subgraph cluster_aip {
+        label="Inside the AIP";
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
+
+        METS   [label="METS\nStructural Map + File Inventory"];
+        PREMIS [label="PREMIS\nPreservation Metadata\n(Events, Agents, Rights)"];
+    }
+
+    AIP -> METS;
+    AIP -> PREMIS;
+}
 ```
 
 ### RO‑Crate: Lightweight, Web‑Native Research Object Packaging
 
-**RO‑Crate** is a modern, web‑native packaging format designed for **research objects**, especially those involving workflows, software, and computational provenance.
+RO‑Crate is a modern, web‑native packaging format designed for research objects, especially those involving workflows, software, and computational provenance.
 
 An RO‑Crate consists of:
 
@@ -371,4 +450,4 @@ Repositories may use one or several of these standards depending on their role:
 - **Preservation‑oriented repositories** may combine BagIt + METS + PREMIS.  
 - **Workflow‑oriented systems** increasingly adopt RO‑Crate for computational provenance.
 
-Together, these standards form the **technical backbone** that allows repositories to preserve digital objects reliably and integrate with institutional or national preservation infrastructures.
+Together, these standards form the technical backbone that allows repositories to preserve digital objects reliably and integrate with institutional or national preservation infrastructures.

@@ -2,40 +2,40 @@
 
 ## The Research Data Life Cycle
 
-The **Research Data Management (RDM) life cycle** describes how research data develops from its initial creation to its long‑term preservation and potential reuse. It emphasises that data is not static: it moves through stages of increasing stability, documentation, and governance. Although different models use slightly different terminology, four core stages are widely recognised.
+The Research Data Management (RDM) life cycle describes how research data develops from its initial creation to its long‑term preservation and potential reuse. It emphasises that data is not static: it moves through stages of increasing stability, documentation, and governance. Although different models use slightly different terminology, four core stages are widely recognised.
 
 ### 1. Process
-In the early phase of a project, data is created, cleaned, and transformed. Files exist as **working copies** on local machines or compute systems. They are volatile, frequently modified, and organised primarily for workflow convenience rather than long‑term stewardship.
+In the early phase of a project, data is created, cleaned, and transformed. Files exist as working copies on local machines or compute systems. They are volatile, frequently modified, and organised primarily for workflow convenience rather than long‑term stewardship.
 
 ### 2. Analyse 
-As the project progresses, files begin to stabilise. Cleaned datasets, model outputs, calibration files, and cleaned scripts emerge. At this point, some files start to gain **scientific identity** and become candidates for long‑term retention.
+As the project progresses, files begin to stabilise. Cleaned datasets, model outputs, calibration files, and cleaned scripts emerge. At this point, some files start to gain scientific identity and become candidates for long‑term retention.
 
 ### 3. Archived 
-Once results stabilise, selected files are combined with metadata and persistent identifiers to form **digital objects**. These objects are stored in preservation‑oriented environments and protected through fixity checks, replication, and retention policies. They may remain internal or restricted, depending on the project’s needs.
+Once results stabilise, selected files are combined with metadata and persistent identifiers to form digital objects. These objects are stored in preservation‑oriented environments and protected through fixity checks, replication, and retention policies. They may remain internal or restricted, depending on the project’s needs.
 
 ### 4. Published  
 A subset of digital objects are curated for dissemination. These objects are further enriched with descriptive metadata, assigned globally resolvable identifiers (such as DOIs), and made available for discovery and reuse. This is the point where data becomes part of the scholarly record.
 
-Together, these stages form the **structural backbone** for understanding how data moves from working files to curated, citable digital objects.
+Together, these stages form the structural backbone for understanding how data moves from working files to curated, citable digital objects.
 
 
 ## The FAIR Data Principles
 
-The **FAIR principles** - Findability, Accessibility, Interoperability, and Reusability - provide a framework for ensuring that research data can be discovered, understood, and reused by humans and machines. They are not a standard or a technology, but a set of **guiding principles** for good data stewardship.
+The FAIR principles - Findability, Accessibility, Interoperability, and Reusability - provide a framework for ensuring that research data can be discovered, understood, and reused by humans and machines. They are not a standard or a technology, but a set of guiding principles for good data stewardship.
 
-### **Findable**  
+### Findable  
 Data should be described with rich metadata and assigned a persistent identifier so it can be located by humans and machines.
 
-### **Accessible**  
+### Accessible  
 Data and metadata should be retrievable using standardised protocols. Access may be open, restricted, or controlled, but the conditions must be clear.
 
-### **Interoperable**  
+### Interoperable  
 Data should use well‑defined formats, vocabularies, and standards so it can be integrated with other datasets and tools.
 
-### **Reusable**  
+### Reusable  
 Data should be richly described, licensed, and documented so it can be reused in new contexts. Provenance and quality information are essential.
 
-The FAIR Principles are about **maximising the value and usability of data**, not necessarily making it open. It applies to all data, regardless of access level.
+The FAIR Principles are about maximising the value and usability of data, not necessarily making it open. It applies to all data, regardless of access level.
 
 
 ## How FAIR and the RDM Life Cycle Fit Together
@@ -43,8 +43,8 @@ The FAIR Principles are about **maximising the value and usability of data**, no
 The RDM life cycle describes the processes data goes through.  
 FAIR specifies the requirements for data to be useful to humans and machines.
 
-A key insight is that **the scope of FAIR changes as data moves through the life cycle**.  
-FAIR is not something that “switches on” only at publication. Instead, it applies throughout, but for **different audiences and purposes**.
+A key insight is that the scope of FAIR changes as data moves through the life cycle.  
+FAIR is not something that “switches on” only at publication. Instead, it applies throughout, but for different audiences and purposes.
 
 > **FAIR applies at every stage — the audience and purpose simply changes.**
 
@@ -56,14 +56,14 @@ And how can data infrastructure and services support these shifting interpretati
 
 The RDM life cycle and the FAIR principles each describe essential aspects of data stewardship, but they operate at different levels. The life cycle outlines conceptual stages of research activity, while FAIR defines the qualities that make data valuable and usable. To connect these two perspectives in a way that supports real systems and services, we need an intermediate layer: data states. Data states translate conceptual stages into operational conditions that storage systems, metadata services, and governance workflows can act upon.
 
-As research data moves from creation to long‑term preservation and publication, it passes through **distinct data states**. These states act as the **operational link** between the RDM life cycle and the FAIR principles:  
+As research data moves from creation to long‑term preservation and publication, it passes through distinct data states. These states act as the operational link between the RDM life cycle and the FAIR principles:  
 - the **life cycle** describes how data *changes*,  
 - the **data states** describe how data is *managed*,  
 - and **FAIR** describes the *qualities* data should exhibit within each state.
 
 Understanding these states clarifies which RDM services, storage environments, and governance mechanisms are appropriate at each point.
 
-We can distinguish five operational **data states**:
+We can distinguish five operational data states:
 
 1. **Active** — data is being created and modified; FAIR supports internal organisation and team‑level reuse.  
 2. **Closed** — data stabilises; FAIR begins to support institutional stewardship and future interpretation.  
@@ -73,85 +73,177 @@ We can distinguish five operational **data states**:
 
 Together, these states provide the practical structure that allows the life cycle and FAIR to align in real workflows and infrastructures.
 
-The five states **tie the life cycle and FAIR together**: each life‑cycle stage corresponds to a data state, and each data state demands a different expression of FAIR.
+The five states tie the life cycle and FAIR together: each life‑cycle stage corresponds to a data state, and each data state demands a different expression of FAIR.
 
 Early in the project, FAIR is inward‑facing and pragmatic.  
 In mid‑life, FAIR becomes institutional and stewardship‑oriented.  
 At the end, FAIR becomes outward‑facing, enabling global discovery and reuse.
 
-In this way, the data states form the **conceptual hinge** that connects the evolving nature of data (the life cycle) with the evolving expectations placed on it (FAIR).
+In this way, the data states form the conceptual hinge that connects the evolving nature of data (the life cycle) with the evolving expectations placed on it (FAIR).
 
 
-```{mermaid}
-%%| label: fig-data-states
-%%| fig-cap: FAIR Scopes and data states Across the Life Cycle.
-%%| fig-align: center
-%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
+```{dot}
+//| label: fig-data-states
+//| fig-cap: FAIR Scopes and data states Across the Life Cycle.
+//| fig-align: center
 
-flowchart TB
+digraph data_states {
 
-    %% -------------------------
-    %% RDM LIFE CYCLE (TOP ROW)
-    %% -------------------------
-    subgraph RDM["RDM Life Cycle"]
-        direction LR
-        R1["Process"]
-        R2["Analyse"]
-        R3["Transition"]
-        R4["Archived"]
-        R5["Published"]
-    end
+    graph [
+        rankdir=TB,
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=14,
+        ranksep=1.4,
+        nodesep=0.8
+    ];
 
-    %% -------------------------
-    %% DATA STATES (MIDDLE ROW)
-    %% -------------------------
-    A["Active"]
-    C["Closed"]
-    L["Locked"]
-    R["Archived / Preserved"]
-    P["Published / Preserved"]
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=14,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2,
+        sketch=1
+    ];
 
-    %% Flow of data states
-    A --> C --> L --> R --> P
+    edge [
+        fontname="Helvetica",
+        fontsize=16,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
 
-    %% -------------------------
-    %% FAIR SCOPES (BOTTOM ROW)
-    %% -------------------------
-    subgraph FAIR1["FAIR‑for‑Teams"]
-        direction LR
-        FT1["Active"]
-        FT2["Closed"]
-    end
+    /* -------------------------
+       RDM LIFE CYCLE (TOP ROW)
+       ------------------------- */
+    subgraph cluster_rdm {
+        label="RDM Life Cycle";
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
 
-    subgraph FAIR2["FAIR‑for‑Stewardship"]
-        direction LR
-        FS1["Locked"]
-        FS2["Archived"]
-    end
+        R1 [label="Process"];
+        R2 [label="Analyse"];
+        R3 [label="Transition"];
+        R4 [label="Archived"];
+        R5 [label="Published"];
 
-    subgraph FAIR3["FAIR‑for‑Reuse"]
-        direction LR
-        FR1["Published"]
-    end
+        { rank = same; R1; R2; R3; R4; R5; }
+    }
 
-    %% -------------------------
-    %% ALIGNMENT LINES (no arrows)
-    %% -------------------------
-    R1 --- A
-    R2 --- C
-    R3 --- L
-    R4 --- R
-    R5 --- P
+    /* -------------------------
+       DATA STATES (MIDDLE ROW)
+       ------------------------- */
+    A [label="Active"];
+    C [label="Closed"];
+    L [label="Locked"];
+    R [label="Archived / Preserved"];
+    P [label="Published / Preserved"];
 
-    A --- FT1
-    C --- FT2
-    L --- FS1
-    R --- FS2
-    P --- FR1
+    { rank = same; A; C; L; R; P; }
+
+    /* Flow of data states */
+    A -> C;
+    C -> L;
+    L -> R;
+    R -> P;
+
+    /* -------------------------
+       FAIR SCOPES (BOTTOM ROW)
+       ------------------------- */
+
+    /* FAIR-for-Teams */
+    subgraph cluster_fair1 {
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
+
+        label=<
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+                <TR><TD>FAIR‑for‑Teams</TD></TR>
+            </TABLE>
+        >;
+        labelloc="b";
+        labeljust="c";
+
+        FT1 [label="Active"];
+        FT2 [label="Closed"];
+
+        { rank = same; FT1; FT2; }
+    }
+
+    /* FAIR-for-Stewardship */
+    subgraph cluster_fair2 {
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
+
+        label=<
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+                <TR><TD>FAIR‑for‑Stewardship</TD></TR>
+            </TABLE>
+        >;
+        labelloc="b";
+        labeljust="c";
+
+        FS1 [label="Locked"];
+        FS2 [label="Archived"];
+
+        { rank = same; FS1; FS2; }
+    }
+
+    /* FAIR-for-Reuse */
+    subgraph cluster_fair3 {
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
+
+        label=<
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+                <TR><TD>FAIR‑for‑Reuse</TD></TR>
+            </TABLE>
+        >;
+        labelloc="b";
+        labeljust="c";
+
+        FR1 [label="Published"];
+
+        { rank = same; FR1; }
+    }
+
+    /* -------------------------
+       ALIGNMENT LINES (no arrows)
+       Using ports to avoid crossing labels
+       ------------------------- */
+
+    /* RDM → Data States */
+    R1 -> A [dir=none];
+    R2 -> C [dir=none];
+    R3 -> L [dir=none];
+    R4 -> R [dir=none];
+    R5 -> P [dir=none];
+
+    /* Data States → FAIR Scopes (top ports) */
+    A -> FT1:n [dir=none];
+    C -> FT2:n [dir=none];
+
+    L -> FS1:n [dir=none];
+    R -> FS2:n [dir=none];
+
+    P -> FR1:n [dir=none];
+}
+
 ```
+
+
 
 This visual alignment reinforces how data states serve as the connective tissue between conceptual stages, operational services, and the evolving scope of FAIR.
 
@@ -177,7 +269,7 @@ As data becomes more stable, the supporting services shift from fast‑access en
 |---------------|-------------------|-------------|
 | **Process** | Active | Create, transform, analyse working files |
 | **Analyse** | Active → Closed | Stabilise results, prepare for retention |
-| **Transition** | Closed → **Locked** | Freeze data to prevent accidental change |
+| **Transition** | Closed → Locked | Freeze data to prevent accidental change |
 | **Archived** | Archived / Preserved | Manage digital objects under stewardship |
 | **Published** | Published / Preserved | Disseminate curated digital objects |
 
@@ -195,7 +287,7 @@ The following sections describe how FAIR plays out in each data state and how th
 
 **Typical services**: HPC scratch, project storage, ELNs, version control.
 
-This stage supports rapid iteration and collaborative work. Files change frequently, so the priority is capturing **provenance**, i.e. records of how data was collected, processed, and transformed. At this point, provenance is often the only reliable account of *what happened, when, and why*.
+This stage supports rapid iteration and collaborative work. Files change frequently, so the priority is capturing provenance, i.e. records of how data was collected, processed, and transformed. At this point, provenance is often the only reliable account of *what happened, when, and why*.
 
 FAIR here is practical and internal: clear naming, shared access points, open formats, and well‑maintained notebooks that help the team work reproducibly.
 
@@ -219,7 +311,7 @@ FAIR now begins to serve both researchers and stewards: files become easier to l
 
 **Typical services**: tape libraries, cold storage, retention systems.
 
-The Locked stage acts as a **buffer**. Data is frozen in a read‑only state to prevent accidental modification while decisions about long‑term retention are made. Because the data no longer changes, provenance becomes especially valuable for appraisal and assessment.
+The Locked stage acts as a buffer. Data is frozen in a read‑only state to prevent accidental modification while decisions about long‑term retention are made. Because the data no longer changes, provenance becomes especially valuable for appraisal and assessment.
 
 FAIR here is minimal but essential: stable locations, read‑only access, and preservation‑friendly formats.
 
@@ -231,7 +323,7 @@ FAIR here is minimal but essential: stable locations, read‑only access, and pr
 
 **Typical services**: institutional repositories, preservation systems.
 
-At this stage, data becomes a **managed digital object**. Files are packaged with structured metadata, assigned persistent identifiers, and placed in systems designed for long‑term integrity and accessibility. Provenance gathered earlier provides the context needed for appraisal, authenticity, and future reuse.
+At this stage, data becomes a managed digital object. Files are packaged with structured metadata, assigned persistent identifiers, and placed in systems designed for long‑term integrity and accessibility. Provenance gathered earlier provides the context needed for appraisal, authenticity, and future reuse.
 
 FAIR now operates at the level of institutional governance: persistent identifiers, controlled access, preservation metadata, and versioning.
 
@@ -255,25 +347,25 @@ Here FAIR reaches full scope: discoverability, standardised access, community vo
 
 This chapter began by presenting the life cycle and FAIR as separate frameworks; by following data through its states, we can now see how they converge into a single, coherent model of stewardship.
 
-- The **RDM life cycle** describes how data evolves from volatile working files to curated, citable outputs.  
-- The **states of a digital object** determine which storage, tools, and governance mechanisms apply at each stage.
-- The **FAIR principles** guide how data should behave, their emphasis shifts as data matures: 
-  - **FAIR‑for‑Teams** in the Active and Closed states  
-  - **FAIR‑for‑Stewardship** in the Locked and Archived states  
-  - **FAIR‑for‑Reuse** in the Published state  
+- The RDM life cycle describes how data evolves from volatile working files to curated, citable outputs.  
+- The states of a digital object determine which storage, tools, and governance mechanisms apply at each stage.
+- The FAIR principles guide how data should behave, their emphasis shifts as data matures: 
+  - FAIR‑for‑Teams in the Active and Closed states  
+  - FAIR‑for‑Stewardship in the Locked and Archived states  
+  - FAIR‑for‑Reuse in the Published state  
 
 Together, these elements form a coherent framework for managing data from creation to long‑term reuse.
 
 This alignment sets the stage for the next step: recognising that what moves through these states is not just a collection of files, but a structured digital object.
 
-As data progresses through the life cycle, it becomes increasingly clear that **files alone are not enough**. A file without context is difficult to interpret, impossible to trust, and often unusable. To be managed, preserved, and reused, data needs:
+As data progresses through the life cycle, it becomes increasingly clear that files alone are not enough. A file without context is difficult to interpret, impossible to trust, and often unusable. To be managed, preserved, and reused, data needs:
 
-- **metadata** that describes what it is,  
-- **provenance** that explains how it came to be,  
-- **identifiers** that allow it to be referenced,  
-- **relationships** that connect it to other data, code, and publications.
+- metadata that describes what it is,  
+- provenance that explains how it came to be,  
+- identifiers that allow it to be referenced,  
+- relationships that connect it to other data, code, and publications.
 
-In other words, data must be packaged and understood as a **digital object**, not just a collection of files.  
+In other words, data must be packaged and understood as a digital object, not just a collection of files.  
 This shift is essential for FAIR stewardship and long‑term preservation.
 
 With the life cycle, FAIR, and data states now integrated, the concept of the digital object becomes the natural foundation for modern research data management: the primary entity that infrastructures recognise, preserve, and serve, far beyond the limitations of individual files.
