@@ -221,7 +221,7 @@ Information is expressed as subject–predicate–object triples:
 * Dataset — *hasSubject* → Soil Moisture
 * Soil Moisture — *is a* → Hydrological Variable
 
-Each element is identified by a URI, ensuring global uniqueness.
+Each element is identified by a URI (Uniform Resource Identifier), ensuring global uniqueness through a standard web‑style identifier.
 
 ###### Characteristics
 

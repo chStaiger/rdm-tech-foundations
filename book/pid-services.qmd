@@ -1,8 +1,8 @@
 # Persistent Identifier Services
 
-Persistent Identifier (PID) services are a fundamental component of modern research infrastructures and Research Data Management (RDM) systems. They provide stable, globally unique identifiers for digital and organizational entities within the research ecosystem. These entities include datasets, publications, software, researchers, institutions, research projects, and funding information.
+Persistent Identifier (PID) services are a fundamental component of modern research infrastructures and Research Data Management (RDM) systems. They provide stable, globally unique identifiers for digital and organizational entities within the research ecosystem. These entities include datasets, publications, software, researchers, institutions, research projects, funding information, art work, instruments, dig sites and more.
 
-A persistent identifier ensures that a digital object can be reliably referenced, discovered, and accessed over time, even if its physical location changes. PID services are typically operated by international organizations and integrated into repositories, publishing platforms, and research infrastructure services. By assigning persistent identifiers to digital objects and actors, these systems enable reliable citation, linking between resources, and automated machine processing.
+A persistent identifier ensures that a digital object can be reliably referenced, discovered, and accessed over time, even if its physical location changes. PID services are typically operated by international or national level organizations and integrated into data repositories, publishing platforms, and research infrastructure services. By assigning persistent identifiers to digital objects and actors, these systems enable reliable citation, linking between resources, and automated machine processing.
 
 Persistent identifiers also play a central role in enabling interoperable and FAIR‑compliant research infrastructures.
 
