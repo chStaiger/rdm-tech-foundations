@@ -6,7 +6,7 @@ comments: false
 
 This book discusses the infrastructure behind Research Data Management (RDM): the systems, standards, workflows, and architectural patterns that enable data stewards to support research that is aligned with the FAIR (Findable, Accessible, Interoperable, Reusable) Principles throughout the data lifecycle.
 
-Modern RDM ecosystems are composed of specialised services: repositories, PID systems, metadata catalogues, workflow engines, storage layers - but FAIR only emerges when these services work together. This book discusses the roles of each component, the boundaries between them, the transitions where digital objects change state, as well as the limitations of current infrastrcuture and services.
+Modern RDM ecosystems are composed of specialised services: repositories, PID systems, metadata catalogues, workflow engines, storage layers - but FAIR only emerges when these services work together. This book discusses the roles of each component, the boundaries between them, the transitions where digital objects change state, as well as the limitations of current infrastructure and services.
 
 This book is intended for:
  
@@ -19,12 +19,12 @@ It assumes basic familiarity with research workflows but does not require prior 
 
 ## Authors & Contributors
 
-_Principles of Research Data Management Archiecture_ was authored by:
+_Principles of Research Data Management Architecture_ was authored by:
 
-- Christine Staiger
-- Neha Moopen
+- [Christine Staiger](https://orcid.org/0000-0002-6754-7647)
+- [Neha Moopen](https://orcid.org/0000-0003-1412-4402)
 
-This book was also supported by several contributors, you can find them listed in our GitHub repository under [Contributors](https://github.com/rdm-foundations/rdm-architecture#contributors. 
+This book was also supported by several contributors, you can find them listed in our GitHub repository under [Contributors](https://github.com/rdm-foundations/rdm-architecture#contributors). 
 
 We welcome contributions of all kinds! Our [contributing guidelines](https://github.com/rdm-foundations/rdm-architecture/CONTRIBUTING.md) can help you get started.
 
@@ -34,7 +34,7 @@ This book is licensed under a Creative Commons Attribution 4.0 International Lic
 
 If you re-use or refer to this book, please cite it as:
 
-Staiger, C., & Moopen, N. _Principles of Research Data Management Architecture_. https://github.com/rdm-foundations/rdm-architecture
+Staiger, C., & Moopen, N. _Principles of Research Data Management Architecture_. <https://github.com/rdm-foundations/rdm-architecture>
 
 ## AI Disclosure
 
