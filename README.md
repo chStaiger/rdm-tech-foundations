@@ -29,8 +29,8 @@ You can otherwise reach the authors by emailing c.staiger[at]uu.nl & n.moopen[at
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/fehrhart"><img src="https://avatars.githubusercontent.com/u/11389574?v=4?s=100" width="100px;" alt="Friederike (Freddie) Ehrhart"/><br /><sub><b>Friederike (Freddie) Ehrhart</b></sub></a><br /><a href="#review-fehrhart" title="Reviewed Pull Requests">👀</a> <a href="#ideas-fehrhart" title="Ideas, Planning, & Feedback">🤔</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/nhvanlie"><img src="https://avatars.githubusercontent.com/u/49196902?v=4?s=100" width="100px;" alt="nhvanlie"/><br /><sub><b>nhvanlie</b></sub></a><br /><a href="#review-nhvanlie" title="Reviewed Pull Requests">👀</a> <a href="#content-nhvanlie" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://orcid.org/0000-0002-7770-620X"><img src="https://avatars.githubusercontent.com/u/11389574?v=4?s=100" width="100px;" alt="Friederike (Freddie) Ehrhart"/><br /><sub><b>Friederike (Freddie) Ehrhart</b></sub></a><br /><a href="https://github.com/rdm-foundations/rdm-architecture/pulls?q=is%3Apr+reviewed-by%3Afehrhart" title="Reviewed Pull Requests">👀</a> <a href="#ideas-fehrhart" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://orcid.org/0000-0001-8025-8412"><img src="https://avatars.githubusercontent.com/u/49196902?v=4?s=100" width="100px;" alt="nhvanlie"/><br /><sub><b>nhvanlie</b></sub></a><br /><a href="https://github.com/rdm-foundations/rdm-architecture/pulls?q=is%3Apr+reviewed-by%3Anhvanlie" title="Reviewed Pull Requests">👀</a> <a href="#content-nhvanlie" title="Content">🖋</a></td>
     </tr>
   </tbody>
 </table>
