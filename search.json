@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Principles of Research Data Management Architecture",
     "section": "",
-    "text": "Welcome\nThis book discusses the infrastructure behind Research Data Management (RDM): the systems, standards, workflows, and architectural patterns that enable data stewards to support research that is aligned with the FAIR (Findable, Accessible, Interoperable, Reusable) Principles throughout the data lifecycle.\nModern RDM ecosystems are composed of specialised services: repositories, PID systems, metadata catalogues, workflow engines, storage layers - but FAIR only emerges when these services work together. This book discusses the roles of each component, the boundaries between them, the transitions where digital objects change state, as well as the limitations of current infrastrcuture and services.\nThis book is intended for:\nIt assumes basic familiarity with research workflows but does not require prior knowledge of RDM standards.",
+    "text": "Welcome\nThis book discusses the infrastructure behind Research Data Management (RDM): the systems, standards, workflows, and architectural patterns that enable data stewards to support research that is aligned with the FAIR (Findable, Accessible, Interoperable, Reusable) Principles throughout the data lifecycle.\nModern RDM ecosystems are composed of specialised services: repositories, PID systems, metadata catalogues, workflow engines, storage layers - but FAIR only emerges when these services work together. This book discusses the roles of each component, the boundaries between them, the transitions where digital objects change state, as well as the limitations of current infrastructure and services.\nThis book is intended for:\nIt assumes basic familiarity with research workflows but does not require prior knowledge of RDM standards.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Welcome</span>"
     ]
@@ -14,7 +14,7 @@
     "href": "index.html#authors-contributors",
     "title": "Principles of Research Data Management Architecture",
     "section": "Authors & Contributors",
-    "text": "Authors & Contributors\nPrinciples of Research Data Management Archiecture was authored by:\n\nChristine Staiger\nNeha Moopen\n\nThis book was also supported by several contributors, you can find them listed in our GitHub repository under [Contributors](https://github.com/rdm-foundations/rdm-architecture#contributors.\nWe welcome contributions of all kinds! Our contributing guidelines can help you get started.",
+    "text": "Authors & Contributors\nPrinciples of Research Data Management Architecture was authored by:\n\nChristine Staiger\nNeha Moopen\n\nThis book was also supported by several contributors, you can find them listed in our GitHub repository under Contributors.\nWe welcome contributions of all kinds! Our contributing guidelines can help you get started.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Welcome</span>"
     ]
