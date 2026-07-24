@@ -31,7 +31,3 @@ You can otherwise reach the authors by emailing c.staiger[at]uu.nl & n.moopen[at
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
-
-## AI Usage Disclosure
-
-This book was created with assistance from AI tools for writing and editing. The content has been reviewed and edited by the authors and contributors.

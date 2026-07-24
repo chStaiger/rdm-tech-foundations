@@ -21,12 +21,13 @@ book:
       - icon: github
         menu:
           - text: Source code
-            url:  https://github.com/chStaiger/rdm-fundamentals
+            url:  https://github.com/rdm-foundations/rdm-architecture
           - text: Report an issue
-            url:  https://github.com/chStaiger/rdm-fundamentals/issues
+            url:  https://github.com/rdm-foundations/rdm-architecture/issues
 
   chapters:
     - index.qmd
+    - preface.qmd
     - definitions.qmd
     - data-lifecycle.qmd
   
@@ -48,11 +49,10 @@ book:
         - rdm-platform.qmd
   
     - infrastructure-design.qmd
-    - summary.qmd
     - references.qmd
   
   page-footer:
-    left: "©️ [Creative Commons Attribution 4.0 International](https://github.com/chStaiger/rdm-fundamentals/blob/main/LICENESE.md)<br>[Contributors](https://github.com/rdm-foundations/rdm-architecture#contributors)"
+    left: "©️ [Creative Commons Attribution 4.0 International](https://github.com/rdm-foundations/rdm-architecture/blob/main/LICENESE.md)<br>&ensp;&ensp;&ensp;[Authors & Contributors](https://github.com/rdm-foundations/rdm-architecture#contributors)"
     right: "Built with [Quarto](https://quarto.org/) & [GitHub](https://github.com/)<br>Maintained with 🍵 & ☕"  
 
 bibliography: references.bib
