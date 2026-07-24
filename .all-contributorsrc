@@ -1,4 +1,22 @@
 {
   "projectName": "rdm-architecture",
-  "projectOwner": "rdm-foundations"
+  "projectOwner": "rdm-foundations",
+  "files": [
+    "README.md"
+  ],
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributorsPerLine": 7,
+  "contributors": [
+    {
+      "login": "fehrhart",
+      "name": "Friederike (Freddie) Ehrhart",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11389574?v=4",
+      "profile": "https://github.com/fehrhart",
+      "contributions": [
+        "review",
+        "ideas"
+      ]
+    }
+  ]
 }
