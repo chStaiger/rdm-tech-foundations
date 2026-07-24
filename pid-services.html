@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Persistent Identifier Services – Fundamentals of Research Data Management</title>
+<title>Persistent Identifier Services – Principles of Research Data Management Architecture</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -68,7 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./aai.html" rel="next">
+<link href="./rdm-platform.html" rel="next">
 <link href="./metadata-portals.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-11cafaeb44ee929428d09a09404358f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-cf0050852a9c63670f6fa6682ef45fa9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -139,18 +139,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Fundamentals of Research Data Management</a> 
+      <a href="./">Principles of Research Data Management Architecture</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/chStaiger/rdm-fundamentals">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/rdm-foundations/rdm-architecture">
             Source code
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/chStaiger/rdm-fundamentals/issues">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/rdm-foundations/rdm-architecture/issues">
             Report an issue
             </a>
           </li>
@@ -168,7 +168,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preface</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preface.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">About</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -178,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-lifecycle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Research Data Management Life Cycle and FAIR</span></a>
+  <a href="./data-lifecycle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The RDM Life Cycle and FAIR</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -254,11 +259,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./pid-services.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Persistent Identifier Services</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./aai.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Authentication and Authorisation</span></a>
   </div>
 </li>
       </ul>
@@ -464,25 +464,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 336.8)">
 <title>pid_frameworks</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-336.8 636,-336.8 636,4 -4,4"></polygon>
-<g id="clust1" class="cluster">
-<title>cluster_techinfra</title>
-<path fill="white" stroke="#528641" stroke-width="2" d="M261,-242.4C261,-242.4 423,-242.4 423,-242.4 429,-242.4 435,-248.4 435,-254.4 435,-254.4 435,-312.8 435,-312.8 435,-318.8 429,-324.8 423,-324.8 423,-324.8 261,-324.8 261,-324.8 255,-324.8 249,-318.8 249,-312.8 249,-312.8 249,-254.4 249,-254.4 249,-248.4 255,-242.4 261,-242.4"></path>
-<text text-anchor="middle" x="342" y="-308.2" font-family="Helvetica,sans-Serif" font-size="14.00">Technical Infrastructure</text>
-</g>
-<g id="clust3" class="cluster">
-<title>cluster_epic</title>
-<path fill="white" stroke="#528641" stroke-width="2" d="M326,-125.2C326,-125.2 612,-125.2 612,-125.2 618,-125.2 624,-131.2 624,-137.2 624,-137.2 624,-195.6 624,-195.6 624,-201.6 618,-207.6 612,-207.6 612,-207.6 326,-207.6 326,-207.6 320,-207.6 314,-201.6 314,-195.6 314,-195.6 314,-137.2 314,-137.2 314,-131.2 320,-125.2 326,-125.2"></path>
-<text text-anchor="middle" x="469" y="-191" font-family="Helvetica,sans-Serif" font-size="14.00">EPIC Framework</text>
-</g>
 <g id="clust4" class="cluster">
 <title>cluster_dona</title>
 <path fill="white" stroke="#528641" stroke-width="2" d="M220,-8C220,-8 468,-8 468,-8 474,-8 480,-14 480,-20 480,-20 480,-78.4 480,-78.4 480,-84.4 474,-90.4 468,-90.4 468,-90.4 220,-90.4 220,-90.4 214,-90.4 208,-84.4 208,-78.4 208,-78.4 208,-20 208,-20 208,-14 214,-8 220,-8"></path>
 <text text-anchor="middle" x="344" y="-73.8" font-family="Helvetica,sans-Serif" font-size="14.00">Global Framework</text>
 </g>
+<g id="clust1" class="cluster">
+<title>cluster_techinfra</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M261,-242.4C261,-242.4 423,-242.4 423,-242.4 429,-242.4 435,-248.4 435,-254.4 435,-254.4 435,-312.8 435,-312.8 435,-318.8 429,-324.8 423,-324.8 423,-324.8 261,-324.8 261,-324.8 255,-324.8 249,-318.8 249,-312.8 249,-312.8 249,-254.4 249,-254.4 249,-248.4 255,-242.4 261,-242.4"></path>
+<text text-anchor="middle" x="342" y="-308.2" font-family="Helvetica,sans-Serif" font-size="14.00">Technical Infrastructure</text>
+</g>
 <g id="clust2" class="cluster">
 <title>cluster_doi</title>
 <path fill="white" stroke="#528641" stroke-width="2" d="M20,-125.2C20,-125.2 294,-125.2 294,-125.2 300,-125.2 306,-131.2 306,-137.2 306,-137.2 306,-195.6 306,-195.6 306,-201.6 300,-207.6 294,-207.6 294,-207.6 20,-207.6 20,-207.6 14,-207.6 8,-201.6 8,-195.6 8,-195.6 8,-137.2 8,-137.2 8,-131.2 14,-125.2 20,-125.2"></path>
 <text text-anchor="middle" x="157" y="-191" font-family="Helvetica,sans-Serif" font-size="14.00">DOI Framework</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_epic</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M326,-125.2C326,-125.2 612,-125.2 612,-125.2 618,-125.2 624,-131.2 624,-137.2 624,-137.2 624,-195.6 624,-195.6 624,-201.6 618,-207.6 612,-207.6 612,-207.6 326,-207.6 326,-207.6 320,-207.6 314,-201.6 314,-195.6 314,-195.6 314,-137.2 314,-137.2 314,-131.2 320,-125.2 326,-125.2"></path>
+<text text-anchor="middle" x="469" y="-191" font-family="Helvetica,sans-Serif" font-size="14.00">EPIC Framework</text>
 </g>
 <!-- HANDLE -->
 <g id="node1" class="node">
@@ -545,7 +545,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dona-epic-doi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14.1: The main organisations DONA, EPIC and DOI
+Figure&nbsp;15.1: The main organisations DONA, EPIC and DOI
 </figcaption>
 </figure>
 </div>
@@ -845,7 +845,7 @@ Figure&nbsp;14.1: The main organisations DONA, EPIC and DOI
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-comp-epic-doi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14.2: Comaprison how EPIC and DOI use the Handle system differently.
+Figure&nbsp;15.2: Comaprison how EPIC and DOI use the Handle system differently.
 </figcaption>
 </figure>
 </div>
@@ -959,7 +959,7 @@ Figure&nbsp;14.2: Comaprison how EPIC and DOI use the Handle system differently.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-resolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14.3: The Handle resolution
+Figure&nbsp;15.3: The Handle resolution
 </figcaption>
 </figure>
 </div>
@@ -1525,6 +1525,8 @@ EUDAT maintains large‑scale European research data services, and <code>pyhandl
     }
   });
   </script>
+<script src="https://utteranc.es/client.js" repo="rdm-foundations/rdm-architecture" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./metadata-portals.html" class="pagination-link" aria-label="Metadata Infrastructure">
@@ -1532,8 +1534,8 @@ EUDAT maintains large‑scale European research data services, and <code>pyhandl
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./aai.html" class="pagination-link" aria-label="Authentication and Authorisation">
-        <span class="nav-page-text"><span class="chapter-title">Authentication and Authorisation</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./rdm-platform.html" class="pagination-link" aria-label="RDM Platform">
+        <span class="nav-page-text"><span class="chapter-title">RDM Platform</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1541,7 +1543,7 @@ EUDAT maintains large‑scale European research data services, and <code>pyhandl
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>©️ <a href="https://github.com/chStaiger/rdm-fundamentals/blob/main/LICENSE.md">Creative Commons Attribution 4.0 International</a></p>
+<p>©️ <a href="https://github.com/rdm-foundations/rdm-architecture/blob/main/LICENESE.md">Creative Commons Attribution 4.0 International</a><br>   <a href="https://github.com/rdm-foundations/rdm-architecture#contributors">Authors &amp; Contributors</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

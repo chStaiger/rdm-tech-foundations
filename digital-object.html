@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The Digital Object – Fundamentals of Research Data Management</title>
+<title>The Digital Object – Principles of Research Data Management Architecture</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-11cafaeb44ee929428d09a09404358f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-cf0050852a9c63670f6fa6682ef45fa9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -104,18 +104,18 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Fundamentals of Research Data Management</a> 
+      <a href="./">Principles of Research Data Management Architecture</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/chStaiger/rdm-fundamentals">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/rdm-foundations/rdm-architecture">
             Source code
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/chStaiger/rdm-fundamentals/issues">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/rdm-foundations/rdm-architecture/issues">
             Report an issue
             </a>
           </li>
@@ -133,7 +133,12 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preface</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preface.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">About</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -143,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-lifecycle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Research Data Management Life Cycle and FAIR</span></a>
+  <a href="./data-lifecycle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The RDM Life Cycle and FAIR</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -219,11 +224,6 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./pid-services.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Persistent Identifier Services</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./aai.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Authentication and Authorisation</span></a>
   </div>
 </li>
       </ul>
@@ -352,7 +352,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.1: The Digital Object
+Figure&nbsp;5.1: The Digital Object
 </figcaption>
 </figure>
 </div>
@@ -380,15 +380,15 @@ Figure&nbsp;4.1: The Digital Object
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 268)">
 <title>combined_relations</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-268 822,-268 822,4 -4,4"></polygon>
-<g id="clust3" class="cluster">
-<title>cluster_2</title>
-<path fill="white" stroke="#528641" stroke-width="2" d="M442,-8C442,-8 798,-8 798,-8 804,-8 810,-14 810,-20 810,-20 810,-244 810,-244 810,-250 804,-256 798,-256 798,-256 442,-256 442,-256 436,-256 430,-250 430,-244 430,-244 430,-20 430,-20 430,-14 436,-8 442,-8"></path>
-<text text-anchor="middle" x="620" y="-239.4" font-family="Helvetica,sans-Serif" font-size="14.00">Pattern 2</text>
-</g>
 <g id="clust1" class="cluster">
 <title>cluster_1</title>
 <path fill="white" stroke="#528641" stroke-width="2" d="M20,-8C20,-8 376,-8 376,-8 382,-8 388,-14 388,-20 388,-20 388,-244 388,-244 388,-250 382,-256 376,-256 376,-256 20,-256 20,-256 14,-256 8,-250 8,-244 8,-244 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
 <text text-anchor="middle" x="198" y="-239.4" font-family="Helvetica,sans-Serif" font-size="14.00">Pattern 1</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_2</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M442,-8C442,-8 798,-8 798,-8 804,-8 810,-14 810,-20 810,-20 810,-244 810,-244 810,-250 804,-256 798,-256 798,-256 442,-256 442,-256 436,-256 430,-250 430,-244 430,-244 430,-20 430,-20 430,-14 436,-8 442,-8"></path>
+<text text-anchor="middle" x="620" y="-239.4" font-family="Helvetica,sans-Serif" font-size="14.00">Pattern 2</text>
 </g>
 <!-- P1 -->
 <g id="node1" class="node">
@@ -407,7 +407,7 @@ Figure&nbsp;4.1: The Digital Object
 <title>P1-&gt;F1</title>
 <path fill="none" stroke="#528641" stroke-width="2" d="M283.96,-187.05C266.54,-157.28 230.63,-95.89 210.16,-60.91"></path>
 <polygon fill="#528641" stroke="#528641" stroke-width="2" points="213.14,-59.06 205.06,-52.2 207.09,-62.6 213.14,-59.06"></polygon>
-<text text-anchor="middle" x="278.24" y="-114.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">points to</text>
+<text text-anchor="middle" x="277.24" y="-114.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">points to</text>
 </g>
 <!-- M1 -->
 <g id="node2" class="node">
@@ -427,7 +427,7 @@ Figure&nbsp;4.1: The Digital Object
 <title>F1-&gt;M1</title>
 <path fill="none" stroke="#528641" stroke-width="2" d="M180.56,-52.2C155.34,-82.26 103.15,-144.44 73.95,-179.24"></path>
 <polygon fill="#528641" stroke="#528641" stroke-width="2" points="71.14,-177.14 67.4,-187.05 76.51,-181.64 71.14,-177.14"></polygon>
-<text text-anchor="middle" x="159.24" y="-114.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">points to</text>
+<text text-anchor="middle" x="158.24" y="-114.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">points to</text>
 </g>
 <!-- F2 -->
 <g id="node4" class="node">
@@ -474,7 +474,7 @@ Figure&nbsp;4.1: The Digital Object
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-do-implementation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.2: Two common PID–File–Metadata relationship patterns.
+Figure&nbsp;5.2: Two common PID–File–Metadata relationship patterns.
 </figcaption>
 </figure>
 </div>
@@ -518,11 +518,6 @@ This includes relationships such as <em>raw data → processed data → analysed
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 393)">
 <title>data_lineage</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-393 514,-393 514,4 -4,4"></polygon>
-<g id="clust3" class="cluster">
-<title>cluster_analysis</title>
-<path fill="white" stroke="#528641" stroke-width="2" d="M363,-8C363,-8 490,-8 490,-8 496,-8 502,-14 502,-20 502,-20 502,-369 502,-369 502,-375 496,-381 490,-381 490,-381 363,-381 363,-381 357,-381 351,-375 351,-369 351,-369 351,-20 351,-20 351,-14 357,-8 363,-8"></path>
-<text text-anchor="middle" x="426.5" y="-364.4" font-family="Helvetica,sans-Serif" font-size="14.00">Analysed Data Object</text>
-</g>
 <g id="clust1" class="cluster">
 <title>cluster_raw</title>
 <path fill="white" stroke="#528641" stroke-width="2" d="M20,-8C20,-8 117,-8 117,-8 123,-8 129,-14 129,-20 129,-20 129,-369 129,-369 129,-375 123,-381 117,-381 117,-381 20,-381 20,-381 14,-381 8,-375 8,-369 8,-369 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
@@ -532,6 +527,11 @@ This includes relationships such as <em>raw data → processed data → analysed
 <title>cluster_proc</title>
 <path fill="white" stroke="#528641" stroke-width="2" d="M167,-8C167,-8 302,-8 302,-8 308,-8 314,-14 314,-20 314,-20 314,-369 314,-369 314,-375 308,-381 302,-381 302,-381 167,-381 167,-381 161,-381 155,-375 155,-369 155,-369 155,-20 155,-20 155,-14 161,-8 167,-8"></path>
 <text text-anchor="middle" x="234.5" y="-364.4" font-family="Helvetica,sans-Serif" font-size="14.00">Processed Data Object</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_analysis</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M363,-8C363,-8 490,-8 490,-8 496,-8 502,-14 502,-20 502,-20 502,-369 502,-369 502,-375 496,-381 490,-381 490,-381 363,-381 363,-381 357,-381 351,-375 351,-369 351,-369 351,-20 351,-20 351,-14 357,-8 363,-8"></path>
+<text text-anchor="middle" x="426.5" y="-364.4" font-family="Helvetica,sans-Serif" font-size="14.00">Analysed Data Object</text>
 </g>
 <!-- R_F -->
 <g id="node1" class="node">
@@ -612,7 +612,7 @@ This includes relationships such as <em>raw data → processed data → analysed
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.3: Data lineage represented as a chain of Digital Objects (raw → processed → analysed).
+Figure&nbsp;5.3: Data lineage represented as a chain of Digital Objects (raw → processed → analysed).
 </figcaption>
 </figure>
 </div>
@@ -1037,10 +1037,12 @@ The bitstreams supply the content, the metadata provides the meaning needed to i
     }
   });
   </script>
+<script src="https://utteranc.es/client.js" repo="rdm-foundations/rdm-architecture" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./data-lifecycle.html" class="pagination-link" aria-label="The Research Data Management Life Cycle and FAIR">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">The Research Data Management Life Cycle and FAIR</span></span>
+      <a href="./data-lifecycle.html" class="pagination-link" aria-label="The RDM Life Cycle and FAIR">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">The RDM Life Cycle and FAIR</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1053,7 +1055,7 @@ The bitstreams supply the content, the metadata provides the meaning needed to i
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>©️ <a href="https://github.com/chStaiger/rdm-fundamentals/blob/main/LICENSE.md">Creative Commons Attribution 4.0 International</a></p>
+<p>©️ <a href="https://github.com/rdm-foundations/rdm-architecture/blob/main/LICENESE.md">Creative Commons Attribution 4.0 International</a><br>   <a href="https://github.com/rdm-foundations/rdm-architecture#contributors">Authors &amp; Contributors</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

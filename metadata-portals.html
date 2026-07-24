@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Metadata Infrastructure – Fundamentals of Research Data Management</title>
+<title>Metadata Infrastructure – Principles of Research Data Management Architecture</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-11cafaeb44ee929428d09a09404358f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-cf0050852a9c63670f6fa6682ef45fa9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -139,18 +139,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Fundamentals of Research Data Management</a> 
+      <a href="./">Principles of Research Data Management Architecture</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/chStaiger/rdm-fundamentals">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/rdm-foundations/rdm-architecture">
             Source code
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/chStaiger/rdm-fundamentals/issues">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/rdm-foundations/rdm-architecture/issues">
             Report an issue
             </a>
           </li>
@@ -168,7 +168,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preface</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preface.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">About</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -178,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-lifecycle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Research Data Management Life Cycle and FAIR</span></a>
+  <a href="./data-lifecycle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The RDM Life Cycle and FAIR</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -254,11 +259,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./pid-services.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Persistent Identifier Services</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./aai.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Authentication and Authorisation</span></a>
   </div>
 </li>
       </ul>
@@ -504,7 +504,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-metadata-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;13.1: From Local Metadata to Discovery and Data Access
+Figure&nbsp;14.1: From Local Metadata to Discovery and Data Access
 </figcaption>
 </figure>
 </div>
@@ -950,11 +950,6 @@ The metadata fields are:</p>
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 529.6)">
 <title>linkeddata_flow</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-529.6 457.84,-529.6 457.84,4 -4,4"></polygon>
-<g id="clust3" class="cluster">
-<title>cluster_linkeddata</title>
-<path fill="white" stroke="#528641" stroke-width="2" d="M111,-8C111,-8 315,-8 315,-8 321,-8 327,-14 327,-20 327,-20 327,-175.2 327,-175.2 327,-181.2 321,-187.2 315,-187.2 315,-187.2 111,-187.2 111,-187.2 105,-187.2 99,-181.2 99,-175.2 99,-175.2 99,-20 99,-20 99,-14 105,-8 111,-8"></path>
-<text text-anchor="middle" x="213" y="-170.6" font-family="Helvetica,sans-Serif" font-size="14.00">Linked Data Service</text>
-</g>
 <g id="clust1" class="cluster">
 <title>cluster_consumer</title>
 <path fill="white" stroke="#528641" stroke-width="2" d="M113,-440.8C113,-440.8 291,-440.8 291,-440.8 297,-440.8 303,-446.8 303,-452.8 303,-452.8 303,-505.6 303,-505.6 303,-511.6 297,-517.6 291,-517.6 291,-517.6 113,-517.6 113,-517.6 107,-517.6 101,-511.6 101,-505.6 101,-505.6 101,-452.8 101,-452.8 101,-446.8 107,-440.8 113,-440.8"></path>
@@ -964,6 +959,11 @@ The metadata fields are:</p>
 <title>cluster_repository</title>
 <path fill="white" stroke="#528641" stroke-width="2" d="M20,-224.4C20,-224.4 308,-224.4 308,-224.4 314,-224.4 320,-230.4 320,-236.4 320,-236.4 320,-391.6 320,-391.6 320,-397.6 314,-403.6 308,-403.6 308,-403.6 20,-403.6 20,-403.6 14,-403.6 8,-397.6 8,-391.6 8,-391.6 8,-236.4 8,-236.4 8,-230.4 14,-224.4 20,-224.4"></path>
 <text text-anchor="middle" x="164" y="-387" font-family="Helvetica,sans-Serif" font-size="14.00">Repository</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_linkeddata</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M111,-8C111,-8 315,-8 315,-8 321,-8 327,-14 327,-20 327,-20 327,-175.2 327,-175.2 327,-181.2 321,-187.2 315,-187.2 315,-187.2 111,-187.2 111,-187.2 105,-187.2 99,-181.2 99,-175.2 99,-175.2 99,-20 99,-20 99,-14 105,-8 111,-8"></path>
+<text text-anchor="middle" x="213" y="-170.6" font-family="Helvetica,sans-Serif" font-size="14.00">Linked Data Service</text>
 </g>
 <!-- TOP_ANCHOR -->
 <!-- USER -->
@@ -1048,7 +1048,7 @@ The metadata fields are:</p>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-linkeddata-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;13.2: Linked Data Architecture Without Harvesters
+Figure&nbsp;14.2: Linked Data Architecture Without Harvesters
 </figcaption>
 </figure>
 </div>
@@ -1459,6 +1459,8 @@ Figure&nbsp;13.2: Linked Data Architecture Without Harvesters
     }
   });
   </script>
+<script src="https://utteranc.es/client.js" repo="rdm-foundations/rdm-architecture" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./policy-engines.html" class="pagination-link" aria-label="Policy Engines">
@@ -1475,7 +1477,7 @@ Figure&nbsp;13.2: Linked Data Architecture Without Harvesters
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>©️ <a href="https://github.com/chStaiger/rdm-fundamentals/blob/main/LICENSE.md">Creative Commons Attribution 4.0 International</a></p>
+<p>©️ <a href="https://github.com/rdm-foundations/rdm-architecture/blob/main/LICENESE.md">Creative Commons Attribution 4.0 International</a><br>   <a href="https://github.com/rdm-foundations/rdm-architecture#contributors">Authors &amp; Contributors</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

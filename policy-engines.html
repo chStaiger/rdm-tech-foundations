@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Policy Engines – Fundamentals of Research Data Management</title>
+<title>Policy Engines – Principles of Research Data Management Architecture</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-11cafaeb44ee929428d09a09404358f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-cf0050852a9c63670f6fa6682ef45fa9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -104,18 +104,18 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Fundamentals of Research Data Management</a> 
+      <a href="./">Principles of Research Data Management Architecture</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/chStaiger/rdm-fundamentals">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/rdm-foundations/rdm-architecture">
             Source code
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/chStaiger/rdm-fundamentals/issues">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/rdm-foundations/rdm-architecture/issues">
             Report an issue
             </a>
           </li>
@@ -133,7 +133,12 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preface</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preface.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">About</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -143,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-lifecycle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Research Data Management Life Cycle and FAIR</span></a>
+  <a href="./data-lifecycle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The RDM Life Cycle and FAIR</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -219,11 +224,6 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./pid-services.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Persistent Identifier Services</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./aai.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Authentication and Authorisation</span></a>
   </div>
 </li>
       </ul>
@@ -495,7 +495,7 @@ The engine discovers the file later and forms the digital object retroactively.<
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12.1: Policy engines coordinate storage, enabling metadata‑driven automation and consistent digital‑object management across distributed systems.
+Figure&nbsp;13.1: Policy engines coordinate storage, enabling metadata‑driven automation and consistent digital‑object management across distributed systems.
 </figcaption>
 </figure>
 </div>
@@ -712,7 +712,7 @@ It decides where data goes, how it is replicated, how it is described, and how i
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12.2: A user uploads a file to the policy engine. A replication policy is triggered, causing the policy engine to write the file to multiple storage systems and track both copies in the metadata catalog.
+Figure&nbsp;13.2: A user uploads a file to the policy engine. A replication policy is triggered, causing the policy engine to write the file to multiple storage systems and track both copies in the metadata catalog.
 </figcaption>
 </figure>
 </div>
@@ -732,13 +732,13 @@ Figure&nbsp;12.2: A user uploads a file to the policy engine. A replication poli
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 527.8)">
 <title>data_aging_flow</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-527.8 538,-527.8 538,4 -4,4"></polygon>
-<g id="clust2" class="cluster">
-<title>cluster_storage</title>
-<path fill="white" stroke="#528641" stroke-width="2" d="M312,-15.6C312,-15.6 514,-15.6 514,-15.6 520,-15.6 526,-21.6 526,-27.6 526,-27.6 526,-373.2 526,-373.2 526,-379.2 520,-385.2 514,-385.2 514,-385.2 312,-385.2 312,-385.2 306,-385.2 300,-379.2 300,-373.2 300,-373.2 300,-27.6 300,-27.6 300,-21.6 306,-15.6 312,-15.6"></path>
-</g>
 <g id="clust1" class="cluster">
 <title>cluster_policy_engine</title>
 <path fill="white" stroke="#528641" stroke-width="2" d="M20,-8C20,-8 280,-8 280,-8 286,-8 292,-14 292,-20 292,-20 292,-503.8 292,-503.8 292,-509.8 286,-515.8 280,-515.8 280,-515.8 20,-515.8 20,-515.8 14,-515.8 8,-509.8 8,-503.8 8,-503.8 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_storage</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M312,-15.6C312,-15.6 514,-15.6 514,-15.6 520,-15.6 526,-21.6 526,-27.6 526,-27.6 526,-373.2 526,-373.2 526,-379.2 520,-385.2 514,-385.2 514,-385.2 312,-385.2 312,-385.2 306,-385.2 300,-379.2 300,-373.2 300,-373.2 300,-27.6 300,-27.6 300,-21.6 306,-15.6 312,-15.6"></path>
 </g>
 <!-- PEHeader -->
 <g id="node1" class="node">
@@ -823,7 +823,7 @@ Figure&nbsp;12.2: A user uploads a file to the policy engine. A replication poli
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12.3: The policy engine monitors file metadata. When a data‑aging policy triggers, the policy engine moves aged data from online storage to cold storage while preserving its logical path.
+Figure&nbsp;13.3: The policy engine monitors file metadata. When a data‑aging policy triggers, the policy engine moves aged data from online storage to cold storage while preserving its logical path.
 </figcaption>
 </figure>
 </div>
@@ -959,7 +959,7 @@ Figure&nbsp;12.3: The policy engine monitors file metadata. When a data‑aging 
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12.4: When a user uploads a file, the policy engine applies an ingest policy that computes fixity, attaches metadata, assigns an identifier, and registers the digital object before writing it to storage.
+Figure&nbsp;13.4: When a user uploads a file, the policy engine applies an ingest policy that computes fixity, attaches metadata, assigns an identifier, and registers the digital object before writing it to storage.
 </figcaption>
 </figure>
 </div>
@@ -979,6 +979,10 @@ Figure&nbsp;12.4: When a user uploads a file, the policy engine applies an inges
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 783.6)">
 <title>workflow_generated_data</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-783.6 1222,-783.6 1222,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>cluster_compute</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M20,-581.4C20,-581.4 330,-581.4 330,-581.4 336,-581.4 342,-587.4 342,-593.4 342,-593.4 342,-759.6 342,-759.6 342,-765.6 336,-771.6 330,-771.6 330,-771.6 20,-771.6 20,-771.6 14,-771.6 8,-765.6 8,-759.6 8,-759.6 8,-593.4 8,-593.4 8,-587.4 14,-581.4 20,-581.4"></path>
+</g>
 <g id="clust2" class="cluster">
 <title>cluster_policy_engine</title>
 <path fill="white" stroke="#528641" stroke-width="2" d="M362,-8C362,-8 968,-8 968,-8 974,-8 980,-14 980,-20 980,-20 980,-629 980,-629 980,-635 974,-641 968,-641 968,-641 362,-641 362,-641 356,-641 350,-635 350,-629 350,-629 350,-20 350,-20 350,-14 356,-8 362,-8"></path>
@@ -986,10 +990,6 @@ Figure&nbsp;12.4: When a user uploads a file, the policy engine applies an inges
 <g id="clust3" class="cluster">
 <title>cluster_storage</title>
 <path fill="white" stroke="#528641" stroke-width="2" d="M1000,-284.4C1000,-284.4 1198,-284.4 1198,-284.4 1204,-284.4 1210,-290.4 1210,-296.4 1210,-296.4 1210,-470.2 1210,-470.2 1210,-476.2 1204,-482.2 1198,-482.2 1198,-482.2 1000,-482.2 1000,-482.2 994,-482.2 988,-476.2 988,-470.2 988,-470.2 988,-296.4 988,-296.4 988,-290.4 994,-284.4 1000,-284.4"></path>
-</g>
-<g id="clust1" class="cluster">
-<title>cluster_compute</title>
-<path fill="white" stroke="#528641" stroke-width="2" d="M20,-581.4C20,-581.4 330,-581.4 330,-581.4 336,-581.4 342,-587.4 342,-593.4 342,-593.4 342,-759.6 342,-759.6 342,-765.6 336,-771.6 330,-771.6 330,-771.6 20,-771.6 20,-771.6 14,-771.6 8,-765.6 8,-759.6 8,-759.6 8,-593.4 8,-593.4 8,-587.4 14,-581.4 20,-581.4"></path>
 </g>
 <!-- ComputeHeader -->
 <g id="node1" class="node">
@@ -1103,7 +1103,7 @@ Figure&nbsp;12.4: When a user uploads a file, the policy engine applies an inges
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12.5: Workflow‑generated data is uploaded to the policy engine, which extracts metadata, assigns an identifier, records provenance, and registers the new digital object before storing it.
+Figure&nbsp;13.5: Workflow‑generated data is uploaded to the policy engine, which extracts metadata, assigns an identifier, records provenance, and registers the new digital object before storing it.
 </figcaption>
 </figure>
 </div>
@@ -1256,7 +1256,7 @@ Figure&nbsp;12.5: Workflow‑generated data is uploaded to the policy engine, wh
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12.6: Users or workflows query the metadata catalog, receive location and access information and fetch data through the policy engine without direct access to storage.
+Figure&nbsp;13.6: Users or workflows query the metadata catalog, receive location and access information and fetch data through the policy engine without direct access to storage.
 </figcaption>
 </figure>
 </div>
@@ -1710,6 +1710,8 @@ Policy engines solve <strong>digital‑object lifecycle</strong> problems.</p>
     }
   });
   </script>
+<script src="https://utteranc.es/client.js" repo="rdm-foundations/rdm-architecture" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./data-repositories.html" class="pagination-link" aria-label="Data Repositories">
@@ -1726,7 +1728,7 @@ Policy engines solve <strong>digital‑object lifecycle</strong> problems.</p>
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>©️ <a href="https://github.com/chStaiger/rdm-fundamentals/blob/main/LICENSE.md">Creative Commons Attribution 4.0 International</a></p>
+<p>©️ <a href="https://github.com/rdm-foundations/rdm-architecture/blob/main/LICENESE.md">Creative Commons Attribution 4.0 International</a><br>   <a href="https://github.com/rdm-foundations/rdm-architecture#contributors">Authors &amp; Contributors</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
