@@ -1,0 +1,627 @@
+# Digital Object Continuity
+
+## Where the Digital‑Object Layer Breaks Without Orchestration
+
+Even when individual components are well designed, an RDM platform that relies only on APIs, i.e. without a shared digital-object layer and orchestration, cannot guarantee that identity, metadata, and provenance remain intact across transitions. The following examples illustrate how and where the digital object breaks when systems exchange data but do not share lifecycle state.
+
+## Failure Modes in API‑Only Transitions
+
+### 1. Policy Engine → Repository: Duplicate Publications and Lost Lifecycle State
+
+A policy engine manages active data and often forms digital objects early in the lifecycle. A repository manages publication, curation, and long‑term preservation. When the two are connected only through an API, neither system has visibility into the other’s lifecycle state.
+
+This leads to several failure modes:
+
+- the same dataset can be published multiple times  
+- the repository may mint multiple DOIs for the same object  
+- the policy engine cannot see whether a dataset is still a draft, under review, or already published  
+- provenance becomes fragmented: the repository sees a “new upload”, not a continuation of the same object  
+
+The root cause is simple:  
+the policy engine and the repository do not share a digital‑object identity or a shared lifecycle model.  
+The repository treats each API upload as a new object, creating a new identifier for the same data; the policy engine assumes it is handing over the same one, while not being able to establish that with the repository.
+
+Result:  
+The digital object forks into multiple versions, each with its own identifiers and metadata.
+
+### 2. Synchronisation / Sharing Service → Repository or Policy Engine: Working Copies Drift Away From the Digital Object
+
+Synchronisation and file‑sharing services are designed for working copies, not for maintaining the authoritative representation of a digital object. They allow:
+
+- renaming  
+- moving  
+- deleting  
+- overwriting  
+- restoring older versions  
+- resolving sync conflicts  
+- sometimes even metadata tagging  
+
+All of these are legitimate user actions in a sync environment.  
+The problem is not that the digital object in the policy engine or repository becomes unstable,  it remains stable, but that its connection to the original working files becomes unreliable if the sync service is treated as a source of truth.
+
+When a repository or policy engine ingests files from a sync service via an API:
+
+- files may disappear from the sync service after ingestion  
+- files may be renamed, breaking the mapping between working copies and the ingested object  
+- files may be overwritten, so the working copy no longer corresponds to the preserved version  
+- folder structures may change, breaking assumptions about context or metadata extraction  
+- sync conflicts may create duplicate or partial files, making it unclear which version was ingested  
+
+In this scenario:
+
+- the digital object in the repository or policy engine is stable,  
+- but the working copies in the sync service are not.
+
+This means the digital object loses its connection to the evolving working environment, and the sync service cannot be relied upon to reflect the authoritative bitstreams.
+
+It is therefore essential that once a digital object is formed, the repository or policy engine becomes the single source of truth for the bitstreams.  
+The sync service may continue to hold working copies, but it must not be treated as the authoritative representation.
+
+Result:  
+The digital object remains stable, but its link to the working copies breaks as the sync service cannot guarantee persistence, identity, or provenance for the files it holds.
+
+### 3. Repository / Policy Engine → Metadata Service: Two Sources of Truth for Metadata
+
+```{dot}
+//| label: fig-meta-combined
+//| fig-cap: The policy engine and repository export their metadata to the metadata service. Users edit metadata inside the metadata service, but updates do not flow back to the policy engine or repository. 
+//| fig-align: center
+//| fig-width: 8
+//| output: svg
+
+digraph meta_combined {
+
+    graph [
+        rankdir=TB,
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=14,
+        nodesep=1.0,
+        ranksep=1.8
+    ];
+
+    // Default green style
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=14,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2,
+        sketch=1
+    ];
+
+    edge [
+        fontname="Helvetica",
+        fontsize=16,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
+
+    // ============================================================
+    // 1. Metadata Push 
+    // ============================================================
+    subgraph cluster_push {
+        label="Metadata Push";
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
+
+        PE1   [label="Policy Engine"];
+        REPO1 [label="Repository"];
+
+        subgraph cluster_meta1 {
+            label="Metadata Service";
+            fontsize=14;
+            style="rounded";
+            color="#528641";
+            penwidth=2;
+
+            M1 [label="Metadata",
+                fillcolor="#e8e8e8", color="#333333", penwidth=1];
+        }
+
+        PE1   -> M1 [label="push metadata"];
+        REPO1 -> M1 [label="push metadata"];
+    }
+
+    // ============================================================
+    // 2. Metadata Edit 
+    // ============================================================
+    subgraph cluster_edit {
+        label="Metadata Edit (no return)";
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
+
+        USER2 [label="User"];
+        PE2   [label="Policy Engine"];
+        REPO2 [label="Repository"];
+
+        subgraph cluster_meta2 {
+            label="Metadata Service";
+            fontsize=14;
+            style="rounded";
+            color="#528641";
+            penwidth=2;
+
+            M2 [label="Metadata (edited)",
+                fillcolor="#ffeb99", color="#333333", penwidth=1];
+        }
+
+        USER2 -> M2 [label="edit metadata"];
+
+        // Dashed “no propagation” edges
+        M2 -> PE2   [label="no propagation", style=dashed];
+        M2 -> REPO2 [label="no propagation", style=dashed];
+    }
+}
+
+```
+
+Metadata services aggregate metadata from repositories, policy engines, and other systems.  
+If they only expose metadata, the digital‑object layer remains intact:  
+the repository or policy engine remains the authoritative source.
+
+But if the metadata service is also used to enrich, modify, or extend metadata, the digital object now has two competing sources of truth:
+
+- the repository/policy engine holds one version  
+- the metadata service holds another  
+
+This creates several failure modes:
+
+- metadata becomes out of sync  
+- updates in one system are not propagated to the other  
+- identifiers may be linked inconsistently  
+- provenance may be split across systems  
+- portals may expose stale or conflicting metadata  
+
+Once two systems can modify metadata independently, the digital object no longer has a single, authoritative description.
+
+Result:  
+The digital object’s metadata diverges, and FAIRness collapses at the semantic level.
+
+
+```{dot}
+//| label: fig-orchestrated
+//| fig-cap: With an orchestration layer acting as the digital-object layer, all services expose changes in digital-object state. User edits in the metadata service are communicated to the orchestration layer, ensuring consistent updates across the platform.
+//| fig-align: center
+//| fig-width: 8
+//| output: svg
+
+digraph orchestrated {
+
+    graph [
+        rankdir=LR,
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=14,
+        nodesep=1.0,
+        ranksep=1.4
+    ];
+
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=14,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2,
+        sketch=1
+    ];
+
+    edge [
+        fontname="Helvetica",
+        fontsize=16,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
+
+    // -------------------------------
+    // User
+    // -------------------------------
+    USER [label="User"];
+
+    // -------------------------------
+    // Services
+    // -------------------------------
+    PE   [label="Policy Engine"];
+    REPO [label="Repository"];
+
+    // -------------------------------
+    // Metadata Service (cluster)
+    // -------------------------------
+    subgraph cluster_meta {
+        label="Metadata Service";
+        fontsize=14;
+        style="rounded";
+        color="#528641";
+        penwidth=2;
+
+        M [label="Metadata"];
+    }
+
+    // -------------------------------
+    // Orchestration Layer
+    // -------------------------------
+    ORCH [label="Orchestration Layer\nidentity, metadata binding, provenance, lifecycle state"];
+
+    // -------------------------------
+    // Bidirectional state-change exposure
+    // -------------------------------
+    PE   -> ORCH [dir=both];
+    REPO -> ORCH [dir=both];
+    M    -> ORCH [dir=both];
+
+    // -------------------------------
+    // User edits metadata
+    // -------------------------------
+    USER -> M [label="edit metadata"];
+
+    // -------------------------------
+    // Metadata service communicates edits to orchestration
+    // -------------------------------
+    M -> ORCH;
+}
+
+```
+
+## Why These Failures Occur
+
+All three examples share the same underlying issue:
+
+> **APIs move data, but they do not preserve digital‑object identity, metadata binding, or provenance across systems.**
+
+Without orchestration:
+
+- each component sees only its local view  
+- no system knows the full lifecycle state  
+- identifiers drift  
+- metadata forks  
+- provenance becomes incomplete  
+- the digital object loses coherence  
+
+This is why a FAIR‑aligned platform must treat the digital object as a shared, governed entity, not an emergent side effect of API calls.
+
+## Ensuring Continuity Across the Lifecycle Through an Orchestration Layer
+
+The failure modes described in the previous sections duplicate DOIs, unstable working copies, metadata divergence, and fragmented provenance are not isolated accidents. They are symptoms of a deeper architectural problem: most current RDM infrastructures treat digital objects as local constructs, defined independently by each service. APIs move files and metadata, but they do not preserve identity, metadata binding, provenance, or lifecycle state across system boundaries.
+
+This is the current state of the art in many research environments:  
+systems exchange data, but they do not share a digital‑object model.  
+As a result, digital objects fracture as they move.
+
+The international FAIR Digital Object (FDO) community has been working to solve exactly this problem. Their work formalised in the FDO‑IP (FAIR Digital Object Interoperability Principles) provides a conceptual and technical foundation for ensuring that digital objects remain coherent across the entire lifecycle, regardless of how many systems they pass through.
+
+An orchestration layer is the architectural mechanism that implements these principles in practice.
+
+
+## The Problem: RDM Systems Without a Shared Digital‑Object Layer
+
+In today’s typical RDM ecosystem:
+
+- repositories mint new identifiers for objects they receive  
+- policy engines cannot see lifecycle state downstream  
+- metadata services enrich metadata without propagating updates  
+- sync services mutate working copies unpredictably  
+- provenance is trapped in local logs  
+- lifecycle state is implicit, inconsistent, or missing  
+
+Each system sees only its own local view.  
+No system knows the full lifecycle.  
+No system is responsible for continuity.
+
+This is precisely the fragmentation that the FDO community set out to address.  
+
+## The FDO Vision: Digital Objects as Governed, Machine‑Actionable Entities
+
+The FAIR Digital Object model proposes a simple but transformative idea:
+
+> **A digital object should be a governed entity with a persistent identity, typed metadata, lifecycle state, and provenance independent of the system currently holding its files.**
+
+An FDO is defined by:
+
+- a persistent, globally unique identifier  
+- a typed, machine‑actionable object record  
+- bound metadata that travels with the object  
+- explicit lifecycle state  
+- cross‑system provenance  
+- standard interfaces for accessing and updating the object  
+
+The FDO‑IP formalises these requirements into a set of interoperability principles that any system can adopt.  
+
+The orchestration layer is the architectural component that enforces these principles across an RDM platform.
+
+As this is state-of-the-art research and work we refer the interested reader to the following resources:
+
+- <https://fairdo.org/>
+- <https://www.go-fair.org/today/fair-digital-framework/>
+- <https://www.dona.net/sites/default/files/2018-11/DOIPv2Spec_1.pdf>
+- DOI: 10.5334/dsj-2020-015
+
+## FAIRDOM‑SEEK in the RDM Architecture
+
+The failure modes above show how easily digital objects fragment when transitions rely only on APIs and when each system maintains its own local view of identity, metadata, and lifecycle state.  
+In response to these challenges, some research communities, especially the life sciences, have taken a different architectural path. Instead of distributing responsibility for identity, metadata, and provenance across multiple loosely connected systems, they developed platforms that minimise transitions during active research.
+
+The FAIRDOM‑SEEK community exemplifies this strategy.
+
+> **Rather than moving digital objects between many services, SEEK provides a single environment where identity, metadata, context, and provenance are created and maintained together throughout active research.**
+
+By reducing the number of handovers, SEEK reduces the opportunities for identity drift, metadata forking, and provenance loss.  
+This approach does not eliminate transitions entirely, but it postpones them until the digital object is mature, when the risks are lower and the need for continuous provenance is less critical.
+
+FAIRDOM‑SEEK therefore occupies a hybrid space in the RDM ecosystem.  
+It was built *by and for the life sciences community*, where research objects are complex and interdependent: samples, assays, protocols, models, workflows, and multi‑step experimental designs all need to be linked and contextualised long before formal publication.
+
+Because of this complexity, SEEK does not fit neatly into a single RDM category.  
+Instead, it combines capabilities traditionally associated with:
+
+- **repositories** (stable identifiers, landing pages, versioning)  
+- **policy engines** (structured organisation, access control, workflow‑aware provenance)  
+- **metadata services** (semantic annotation, ISA structures, machine‑actionable metadata)  
+
+Its purpose is not to replace these components, but to bridge the gap between active research and publication, ensuring that digital objects become richly contextualised and machine‑actionable before they enter preservation‑oriented systems.
+
+
+```{dot}
+//| label: fig-seek-lifecycle
+//| fig-cap: FAIRDOM‑SEEK operates in the FAIRification / digital‑object layer. Archiving and metadata aggregation are handled by external services.
+//| fig-align: center
+//| fig-width: 8
+//| output: svg
+
+digraph seek_lifecycle {
+
+    graph [
+        rankdir=TB,
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=14,
+        nodesep=1.0,
+        ranksep=1.4
+    ];
+
+    // Default green Digital‑Object style
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=14,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2,
+        sketch=1
+    ];
+
+    edge [
+        fontname="Helvetica",
+        fontsize=16,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
+
+    // -------------------------------
+    // Layers
+    // -------------------------------
+    A [label="Active Research Systems"];
+
+    B [label="FAIRification / Digital‑Object Layer\nFAIRDOM‑SEEK • FAIR Data Station\n(internal discovery only)"];
+
+    C [label="Publication Services"];
+    
+    AGG     [label="Aggregation Services"];
+
+    // -------------------------------
+    // Purple nodes (override style)
+    // -------------------------------
+    ARCH    [label="Archiving Services",
+             color="#6b21a8", fillcolor="#e5d4ff", penwidth=2];
+
+    PORTALS [label="Metadata Portals",
+             color="#6b21a8", fillcolor="#e5d4ff", penwidth=2];
+
+    D       [label="Discovery and Aggregation\n(external)",
+             color="#6b21a8", fillcolor="#e5d4ff", penwidth=2];
+
+    // -------------------------------
+    // Flow
+    // -------------------------------
+    A -> B [label="research outputs"];
+    B -> C [label="FAIR research objects"];
+
+    // Publication → Archiving
+    B -> ARCH;
+    C -> ARCH;
+
+    // Publication → Metadata Portals
+    C -> PORTALS;
+
+    // Metadata Portals → Aggregation
+    PORTALS -> D;
+
+    // Aggregation → Discovery
+    B -> AGG;
+    C -> AGG;
+}
+```
+
+FAIRDOM‑SEEK and FAIR Data Station operate in the FAIRification and digital‑object layer, where research outputs are enriched, contextualised, and prepared for publication. They provide internal discovery but do not perform long‑term archiving or cross‑platform metadata aggregation. When preservation or large‑scale aggregation is required, SEEK relies on standard external services such as institutional or domain repositories, archiving platforms, and metadata portals.
+
+### How SEEK Combines Aspects of Multiple RDM Components
+
+#### Repository‑like capabilities
+- optional DOI minting  
+- versioning and static URLs  
+- structured landing pages  
+- metadata exposure via Bioschemas, schema.org, RDF  
+
+#### Policy‑engine‑like capabilities
+- structured organisation of files and research assets  
+- project‑level access control  
+- workflow‑aware provenance (via RO‑Crate)  
+- integration with workflow engines  
+
+#### Metadata‑service‑like capabilities
+- creation, validation, and enrichment of metadata  
+- semantic annotation and ontology‑backed fields  
+- ISA‑based structuring of investigations, studies, and assays  
+- machine‑actionable metadata export (JSON‑LD, RDF, RO‑Crate)
+
+Because they combine these capabilities, SEEK operates in the FAIRification and contextualisation layer — the transitional space where raw files become structured, semantically rich research objects.
+
+This is the same space where, in the examples above, digital objects break when transitions rely only on APIs. SEEK helps prevent such failures by binding identity, metadata, and context early in the lifecycle.
+
+
+### RO‑Crate vs. OAIS‑Style Archival Packaging
+
+A key reason SEEK sits between categories is their use of RO‑Crate, a packaging format optimised for FAIR metadata, semantic relationships, and research‑object context.  
+Repositories and archives, by contrast, rely on OAIS‑aligned standards such as METS, PREMIS, and BagIt, which focus on long‑term preservation and fixity.
+
+| **Aspect** | **RO‑Crate (FAIRDOM‑SEEK)** | **OAIS / METS / PREMIS / BagIt (Repositories / Archives)** |
+|-----------|-----------------------------------|-------------------------------------------------------------|
+| **Purpose** | FAIRification, semantic metadata, workflows | Long‑term preservation, fixity, governance |
+| **Metadata** | JSON‑LD, schema.org, Bioschemas, ISA | XML‑based, PREMIS events, METS structure |
+| **Focus** | Relationships, provenance, context | Integrity, authenticity, retention |
+| **Lifecycle stage** | Active research → FAIRification → pre‑publication | Publication → archival storage → long‑term access |
+| **Identifier model** | Internal IDs, static URLs, optional DOIs | DOIs, Handles, archival identifiers |
+| **Packaging** | Web‑native directory + JSON‑LD | BagIt, AIPs, SIPs, DIPs |
+| **Interoperability** | Workflow engines, policy engines, portals | Preservation systems, institutional archives |
+
+**Interpretation:**  
+RO‑Crate is designed for *rich, contextual, machine‑actionable FAIR metadata*.  
+OAIS packaging is designed for *durable, governed, long‑term preservation*.  
+SEEK therefore sits naturally between active research systems and repositories.
+
+### Publishing in SEEK vs. Publishing in a Repository
+
+Because SEEK operates in the FAIRification layer, “publishing” in these systems serves a different purpose than publishing in a repository.
+
+### Publishing in FAIRDOM‑SEEK (RO‑Crate‑centric)
+
+- Focus on context, ISA structure, samples, models, protocols  
+- Assets interlinked into a research graph  
+- Metadata exposed via Bioschemas, RDF, SPARQL, JSON API  
+- Optional DOI minting  
+- Not designed for long‑term preservation  
+
+SEEK publishes *metadata‑rich research objects*, not archival datasets.
+
+### Publishing in a Repository (OAIS‑aligned)
+
+- Focus on dataset‑level publication  
+- DOI mandatory  
+- Long‑term preservation guaranteed  
+- Metadata harvested by global portals  
+- Curation workflows ensure quality  
+- Archival packaging (BagIt, AIP) ensures fixity  
+
+Repositories publish *archival digital objects* that enter the scholarly record.
+
+### Why This Hybrid Role Matters for Transitions
+
+By combining features from repositories, policy engines, and metadata services and by being purpose‑built for the life sciences SEEK:
+
+- support FAIRification early in the lifecycle  
+- provide semantic depth that repositories typically do not create  
+- stabilise metadata before publication  
+- prepare research objects for preservation and discovery  
+- reduce the burden on repositories by delivering structured, validated metadata  
+- integrate smoothly with workflow engines and policy engines  
+- reflect the complexity and interconnectedness of life‑science research objects  
+
+They do not replace repositories or policy engines; they complement them by ensuring that digital objects are contextualised, semantically rich, and machine‑actionable before they enter the publication and preservation layers.
+
+## Architectural Principles for Robust RDM Transitions
+
+A FAIR‑aligned RDM platform succeeds or fails in the transitions between components.  
+This chapter showed that when systems exchange data only through APIs—without a shared digital‑object layer, i.e. identity, metadata, and provenance can fragment across boundaries. The solution is not to build more isolated services, but to design platforms that treat transitions as first‑class architectural concerns.
+
+Three principles follow from this.
+
+### 1. Good platform design matters
+
+RDM infrastructure is not simply a collection of tools.  
+It is an ecosystem in which digital objects must remain identifiable, contextualised, and traceable as they move across services.
+
+Designing for this continuity requires:
+
+- stable identifiers  
+- metadata binding  
+- lifecycle‑aware orchestration  
+- predictable, governed transitions  
+- clear contracts for how services interact  
+
+A platform that preserves these elements across transitions behaves as a coherent whole, even if its components are heterogeneous.
+
+### 2. Plan Transitions Carefully to Avoid Creating New Silos
+
+Before introducing a new service, the key architectural question is not:
+
+> *“What features does this tool provide?”*
+
+but rather:
+
+> *“How does this service interface with the rest of the platform or eco system, and how does it participate in the lifecycle of a digital object?”*
+
+A service that cannot preserve identity, metadata, and provenance across boundaries risks becoming another silo—even if it is excellent at what it does internally.
+
+Designing for transitions means:
+
+- understanding upstream and downstream dependencies  
+- ensuring identifiers and metadata remain stable  
+- avoiding duplication of lifecycle state  
+- preventing multiple sources of truth  
+
+This mindset shifts the focus from tool‑centric design to ecosystem‑centric design.
+
+### 3. Discipline‑specific platforms are valuable, but must expose standards
+
+Systems like FAIRDOM‑SEEK and FAIR Data Station show how discipline‑specific platforms can provide deep, domain‑appropriate FAIRification.  
+Their strength lies in supporting the complexity of life‑science research objects: samples, assays, workflows, models, and protocols.
+
+But they remain interoperable because they expose:
+
+- standard identifiers (DOIs, ORCID, internal stable IDs)  
+- standard metadata models (ISA, JSON‑LD, schema.org, Bioschemas)  
+- standard packaging (RO‑Crate)  
+- standard APIs  
+- standard provenance structures  
+
+This ensures that domain‑specific platforms can be combined with repositories, policy engines, and metadata portals from other disciplines without losing coherence.
+
+In other words:
+
+> **Discipline‑specific does not mean discipline‑isolated.**  
+> A platform can be tailored to a community while still participating in a broader, interoperable RDM ecosystem.
+
+
+### 4. Always ask: How does this platform or service interface with others?
+
+Every component in an RDM platform should make its interfaces explicit:
+
+- What identifiers does it accept and emit?  
+- How does it expose metadata?  
+- How does it receive lifecycle state, and how does it pass it on?  
+- Does it enrich metadata, or only expose it?  
+- Does it act as a source of truth for files, metadata, or provenance?  
+- How does it ensure that downstream systems can maintain continuity?  
+
+A service that answers these questions clearly can be integrated into a FAIR‑aligned ecosystem.  
+A service that cannot risks breaking the digital‑object layer.
+
+### In short
+
+- **Design is important**: digital objects must remain coherent across transitions.  
+- **Think transitions before building a new silo**: tools must integrate into the lifecycle, not sit beside it.  
+- **Discipline‑specific platforms are valuable**: but only if they expose standards that allow them to interoperate with services from other domains.  
+- **Interfaces matter**: every service must make clear how it participates in the lifecycle of a digital object.
+
+This sets the stage for the next chapter, where we look at metadata portals and aggregation services, and how they depend on well‑designed transitions to provide global discovery.

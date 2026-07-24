@@ -1,0 +1,917 @@
+# Policy Engines
+
+Most research data is created, transformed, and moved long before it reaches a repository. During this active phase, files are volatile, distributed, and constantly changing. Managing this evolving data requires a different class of system: policy engines.
+
+Policy engines coordinate files, metadata, and storage across active research environments. They treat files as emerging digital objects, enabling governance long before publication. Where repositories focus on curation and dissemination, policy engines focus on orchestration:
+
+- coordinating multiple storage systems  
+- attaching and querying metadata  
+- enforcing rules for placement, replication, and retention  
+- integrating with compute environments  
+- supporting workflows that generate and transform data  
+
+Because they operate on data that is still evolving, policy engines do not enforce rigid standards by default. Instead, they provide flexible mechanisms that can be shaped to different research domains, storage architectures, and workflow patterns. This flexibility also makes them harder to define precisely: they are not repositories, not workflow engines, and not storage systems but they coordinate all three.
+
+::: {.callout-tip title="What is a Policy Engine?"}
+Policy engines form digital objects early in the research lifecycle, long before publication.
+:::
+
+## Two Architectural Patterns of Policy Engines
+
+Policy engines generally follow one of two architectural models. The distinction depends on how tightly they integrate with storage and how digital objects are formed.
+
+### Storage‑centric engines
+
+These engines sit directly in front of storage and become the single interface through which users upload data, add metadata, and trigger workflows. Because all data enters through the engine, it can immediately apply policies for placement, replication, retention, and provenance.
+
+Digital objects are effectively formed at ingest:  
+as soon as a file arrives, the engine computes fixity, attaches metadata, assigns identifiers, and registers the object in its catalog.
+
+iRODS and Rucio both follow this model. They control storage behaviour through their own namespaces, catalogs, and rule systems, ensuring that all data movement and replication is policy‑driven.
+
+::: {.callout-tip title="Immediate digital‑object formation"}
+In storage‑centric engines, the digital object is created the moment the file enters the system.  
+This guarantees that metadata, identifiers, and policies are applied consistently and early.
+:::
+
+### Observation‑centric engines
+
+These engines do not intercept data at upload. Instead, they monitor or periodically scan existing storage systems through agents or connectors, harvest metadata, and build digital objects from what they observe.
+
+Users interact with storage directly for file operations. The policy engine discovers new files later and applies policies once they are detected.
+
+Digital objects are therefore formed with delay:  
+the engine constructs them only after observing the file, extracting metadata, and linking it into its catalog.
+
+Starfish and Globus exemplify this approach.
+
+::: {.callout-tip title="Delayed digital‑object formation"}
+In observation‑centric engines, the digital object is created after the file already exists on storage.  
+The engine discovers the file later and forms the digital object retroactively.
+:::
+
+Both models aim to provide consistent governance across distributed storage, but they differ in how much control they exert over the data path and how digital objects are constructed.
+
+
+## Policy Engine Architecture
+
+```{dot}
+//| label: fig-1
+//| fig-cap: Policy engines coordinate storage, enabling metadata‑driven automation and consistent digital‑object management across distributed systems.
+//| fig-align: center
+//| fig-width: 10
+
+digraph policy_engines {
+
+    graph [
+        rankdir=LR,
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=18,
+        nodesep=0.8,
+        ranksep=1.2
+    ];
+
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=18,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2
+    ];
+
+    edge [
+        fontname="Helvetica",
+        fontsize=18,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
+
+    // ----------------------------------------------------
+    // User node
+    // ----------------------------------------------------
+    User [label="User\n(commands, queries)"];
+
+    // ----------------------------------------------------
+    // Policy Engine cluster with vertical stacking
+    // ----------------------------------------------------
+    subgraph cluster_policy {
+        label="";
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+
+        // Header node (no fill)
+        PolicyHeader [
+            label="Policy Engine",
+            shape=box,
+            style="rounded",
+            color="#528641",
+            fillcolor="white",
+            penwidth=2,
+            fontsize=20
+        ];
+
+        // Cluster nodes
+        Rules         [label="Policy Rules\n(placement, replication, retention)"];
+        Catalog       [label="Metadata Catalog\n(checksums, replicas, provenance)"];
+        Orchestration [label="Data Orchestration\n(movement, triggers, automation)"];
+
+        PolicyHeader -> Rules         [style=invis, weight=50];
+        PolicyHeader -> Catalog       [style=invis, weight=50];
+        PolicyHeader -> Orchestration [style=invis, weight=50];
+        
+        TopPolicyAnchor [shape=point, width=0, height=0, label="", style=invis];
+		TopPolicyAnchor -> PolicyHeader [style=invis, weight=500];
+
+    }
+
+    // ----------------------------------------------------
+    // Storage Systems cluster with vertical stacking
+    // ----------------------------------------------------
+    subgraph cluster_storage {
+        label="";
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+
+        // Header node (no fill)
+        StorageHeader [
+            label="Storage Systems",
+            shape=box,
+            style="rounded",
+            color="#528641",
+            fillcolor="white",
+            penwidth=2,
+            fontsize=20
+        ];
+
+        // Cluster nodes
+        POSIX      [label="POSIX File Systems"];
+        Object     [label="Object Stores"];
+        Tape       [label="Tape / Cold Storage"];
+        CloudStore [label="Cloud Storage"];
+
+        // ⭐ Invisible vertical chain (forces stacking)
+        StorageHeader -> POSIX      [style=invis, weight=50];
+        StorageHeader -> Object      [style=invis, weight=50];
+       StorageHeader -> Tape        [style=invis, weight=50];
+        StorageHeader -> CloudStore  [style=invis, weight=50];
+        TopStorageAnchor [shape=point, width=0, height=0, label="", style=invis];
+		TopStorageAnchor -> StorageHeader [style=invis, weight=500];
+
+    }
+
+    // ----------------------------------------------------
+    // Edges between clusters via header nodes
+    // ----------------------------------------------------
+    User -> PolicyHeader;
+
+    PolicyHeader -> StorageHeader;
+    TopPolicyAnchor -> TopStorageAnchor [style=invis, weight=1000];
+
+}
+
+```
+
+Policy engines sit between the user or compute system and the storage, coordinating metadata, rules, and data movement across active research environments. Their core role is to ensure that files become digital objects—with metadata, identifiers, provenance, and policies—at the right moment in the research lifecycle.
+
+::: {.callout-tip title="The timing of this digital‑object formation depends on the architectural model"}
+- **Storage‑centric engines** form the digital object immediately at ingest, because all data flows through the engine.  
+- **Observation‑centric engines** form the digital object after a delay, once the engine discovers the file on storage and harvests metadata.
+:::
+
+Despite this difference, both models share a common internal structure: a metadata catalog, a rule engine, and orchestration components that interact with storage systems.
+
+This architecture allows the policy engine to act as the control plane for active data.  
+
+The engine applies relevant policies like replication, placement, retention, lineage and either executes the action itself (storage‑centric) or coordinates it across existing systems (observation‑centric).  
+
+Rather than controlling every file operation, the policy engine focuses on the important moments in a file’s life: when it appears, changes, moves, or needs to be governed. By capturing and managing these key events, the engine ensures that digital objects remain trackable, discoverable, and governed across the infrastructure.
+
+::: {.callout-tip title="Mental model"}
+A policy engine is the traffic controller for active research data.  
+It decides where data goes, how it is replicated, how it is described, and how it is governed.
+:::
+
+## Policy Engine Platforms
+
+Several platforms implement these capabilities in different ways. The most widely used are:
+
+### iRODS  
+A storage‑centric engine providing:
+
+- a rule engine  
+- a metadata catalog  
+- a storage abstraction layer  
+- integration with HPC and cloud environments  
+
+It unifies heterogeneous storage, attaches metadata at ingest, triggers workflows, and enforces policies for access, replication, and retention.
+
+### Rucio  
+Also a storage‑centric engine, developed at CERN for large scientific collaborations. It supports:
+
+- geographic replication  
+- storage tiering  
+- quota‑based placement  
+- automated cleanup  
+- provenance tracking  
+
+Its declarative policy model suits petabyte‑ to exabyte‑scale distributed infrastructures where data placement and replication must be centrally orchestrated.
+
+### Globus  
+An observation‑centric platform providing:
+
+- secure, high‑performance data movement  
+- federated identity  
+- automation flows  
+- integration with notebooks, portals, and workflow engines  
+
+It excels at reliable, policy‑driven transfers across distributed systems.
+
+### Starfish  
+Another observation‑centric engine focused on visibility and governance:
+
+- file system analytics  
+- metadata harvesting  
+- policy‑driven actions (tiering, archiving, cleanup)  
+- dashboards for administrators  
+
+It complements workflow‑oriented systems by enabling insight‑driven policy enforcement.
+
+
+## Example Policies
+
+The following examples illustrate how policy engines operate on digital objects by coordinating files, metadata, identifiers, and storage systems during active research.
+
+### File Replication
+
+```{dot}
+//| label: fig-2
+//| fig-cap: A user uploads a file to the policy engine. A replication policy is triggered, causing the policy engine to write the file to multiple storage systems and track both copies in the metadata catalog.
+//| fig-align: center
+//| fig-width: 9
+digraph replication_flow {
+
+    graph [
+        rankdir=LR,
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=18,
+        nodesep=0.8,
+        ranksep=1.2
+    ];
+
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=18,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2
+    ];
+
+    edge [
+        fontname="Helvetica",
+        fontsize=18,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
+
+    // ----------------------------------------------------
+    // User node
+    // ----------------------------------------------------
+    User [label="User"];
+
+    // ----------------------------------------------------
+    // Policy Engine cluster (vertical stacking)
+    // ----------------------------------------------------
+    subgraph cluster_policy_engine {
+        label="";
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+
+        PEHeader [
+            label="Policy Engine",
+            shape=box,
+            style="rounded",
+            color="#528641",
+            fillcolor="white",
+            penwidth=2,
+            fontsize=20
+        ];
+
+        Upload  [label="Receive File"];
+        Policy  [label="Replication Policy\n(e.g., 2 replicas)"];
+        Catalog [label="Metadata Catalog\n(checksums, replica state)"];
+
+        // Invisible vertical chain
+        PEHeader -> Upload  [style=invis, weight=50];
+        Upload   -> Policy  [style=invis, weight=50];
+        Policy   -> Catalog [style=invis, weight=50];
+    }
+
+    // ----------------------------------------------------
+    // Storage Systems cluster (vertical stacking)
+    // ----------------------------------------------------
+    subgraph cluster_storage {
+        label="";
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+
+        StorageHeader [
+            label="Storage Systems",
+            shape=box,
+            style="rounded",
+            color="#528641",
+            fillcolor="white",
+            penwidth=2,
+            fontsize=20
+        ];
+
+        A [label="Storage A"];
+        B [label="Storage B"];
+
+        // Invisible vertical chain
+        StorageHeader -> A [style=invis, weight=50];
+        A             -> B [style=invis, weight=50];
+    }
+
+    // ----------------------------------------------------
+    // Align clusters vertically (TB mode)
+    // ----------------------------------------------------
+    PEHeader -> StorageHeader [style=invis, weight=200];
+
+    // ----------------------------------------------------
+    // Visible edges (actual flow)
+    // ----------------------------------------------------
+    User   -> Upload  [label="upload file"];
+    Upload -> Policy  [label="replication policy triggers"];
+    Policy -> A       [label="store file"];
+    Policy -> B       [label="store file"];
+}
+    
+    
+```
+
+When a file is uploaded, the policy engine applies a replication rule and writes copies to multiple storage systems. As each copy is created, the engine updates the metadata catalog, recording checksums, replica locations, and replica state. This ensures that all copies are linked as part of the same digital object and remain traceable across the infrastructure. By tying replication directly to the metadata catalog, the system maintains a consistent, governed view of the object rather than relying on storage‑level mirroring.
+
+### File Movement to Cold Storage
+
+```{dot}
+//| label: fig-3
+//| fig-cap: The policy engine monitors file metadata. When a data‑aging policy triggers, the policy engine moves aged data from online storage to cold storage while preserving its logical path.
+//| fig-align: center
+//| fig-width: 9
+
+digraph data_aging_flow {
+
+    graph [
+        rankdir=TB,
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=18,
+        nodesep=0.8,
+        ranksep=1.2
+    ];
+
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=18,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2
+    ];
+
+    edge [
+        fontname="Helvetica",
+        fontsize=18,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
+
+    // ----------------------------------------------------
+    // Policy Engine cluster (vertical stacking)
+    // ----------------------------------------------------
+    subgraph cluster_policy_engine {
+        label="";
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+
+        PEHeader [
+            label="Policy Engine",
+            shape=box,
+            style="rounded",
+            color="#528641",
+            fillcolor="white",
+            penwidth=2,
+            fontsize=20
+        ];
+
+        Monitor   [label="Monitor Metadata\n(timestamps, access times)"];
+        AgePolicy [label="Data-Aging Policy\n(move after X days)"];
+        Catalog   [label="Metadata Catalog\n(location, timestamps)"];
+
+        // Invisible vertical chain
+        PEHeader  -> Monitor   [style=invis, weight=50];
+        Monitor   -> AgePolicy [style=invis, weight=50];
+        AgePolicy -> Catalog   [style=invis, weight=50];
+    }
+
+    // ----------------------------------------------------
+    // Storage Systems cluster (vertical stacking)
+    // ----------------------------------------------------
+    subgraph cluster_storage {
+        label="";
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+
+        StorageHeader [
+            label="Storage Systems",
+            shape=box,
+            style="rounded",
+            color="#528641",
+            fillcolor="white",
+            penwidth=2,
+            fontsize=20
+        ];
+
+        Hot  [label="Online Storage"];
+        Cold [label="Cold Storage"];
+
+        // Invisible vertical chain
+        StorageHeader -> Hot  [style=invis, weight=50];
+        Hot           -> Cold [style=invis, weight=50];
+    }
+
+    // ----------------------------------------------------
+    // Align clusters vertically (TB mode)
+    // ----------------------------------------------------
+    PEHeader -> StorageHeader [style=invis, weight=200];
+
+    // ----------------------------------------------------
+    // Visible edges (actual flow)
+    // ----------------------------------------------------
+    Monitor   -> Catalog;
+    Catalog   -> AgePolicy [label="aging policy triggers"];
+    AgePolicy -> StorageHeader [label="send trigger to migrate"];
+
+    // Migration cue (dotted)
+    Hot -> Cold [style=dotted, label="migrate aged data"];
+}
+
+```
+
+The policy engine monitors metadata such as access and modification times. When a file exceeds the threshold defined by a data‑aging rule, the engine moves it from online storage to a cold tier and updates the catalog.
+This automates tiering as part of the digital‑object lifecycle without requiring user intervention.
+
+### Digital‑Object Promotion on Ingest
+
+```{dot}
+//| label: fig-4
+//| fig-cap: When a user uploads a file, the policy engine applies an ingest policy that computes fixity, attaches metadata, assigns an identifier, and registers the digital object before writing it to storage.
+//| fig-align: center
+//| fig-width: 9
+digraph ingest_flow {
+
+    graph [
+        rankdir=TB,
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=18,
+        nodesep=0.8,
+        ranksep=1.2
+    ];
+
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=18,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2
+    ];
+
+    edge [
+        fontname="Helvetica",
+        fontsize=18,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
+
+    // ----------------------------------------------------
+    // User node
+    // ----------------------------------------------------
+    User [label="User\n(uploads file)"];
+
+    // ----------------------------------------------------
+    // Policy Engine cluster (vertical stacking)
+    // ----------------------------------------------------
+    subgraph cluster_policy_engine {
+        label="";
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+
+        PEHeader [
+            label="Policy Engine",
+            shape=box,
+            style="rounded",
+            color="#528641",
+            fillcolor="white",
+            penwidth=2,
+            fontsize=20
+        ];
+
+        Ingest [label="Receive File"];
+        Fixity [label="Fixity Check\n(compute checksum)"];
+        Meta   [label="Metadata Extraction\n(provenance, tags, timestamps)"];
+        PID    [label="Identifier Assignment\n(PID or local ID)"];
+        Catalog [label="Metadata Catalog\n(checksum, PID, metadata)"];
+
+        // Invisible vertical chain
+        PEHeader -> Ingest  [style=invis, weight=50];
+        Ingest   -> Fixity  [style=invis, weight=50];
+        Fixity   -> Meta    [style=invis, weight=50];
+        Meta     -> PID     [style=invis, weight=50];
+        PID      -> Catalog [style=invis, weight=50];
+    }
+
+    // ----------------------------------------------------
+    // Storage Systems cluster (vertical stacking)
+    // ----------------------------------------------------
+    subgraph cluster_storage {
+        label="";
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+
+        StorageHeader [
+            label="Storage Systems",
+            shape=box,
+            style="rounded",
+            color="#528641",
+            fillcolor="white",
+            penwidth=2,
+            fontsize=20
+        ];
+
+        Store [label="Storage Backend\n(POSIX / Object / Tape)"];
+
+        // Invisible vertical chain
+        StorageHeader -> Store [style=invis, weight=50];
+    }
+
+    // ----------------------------------------------------
+    // Align clusters horizontally (LR mode)
+    // ----------------------------------------------------
+    PEHeader -> StorageHeader [style=invis, weight=200];
+
+    // ----------------------------------------------------
+    // Visible edges (actual ingest flow)
+    // ----------------------------------------------------
+    User   -> Ingest;
+
+    Ingest -> Fixity;
+    Fixity -> Meta;
+    Meta   -> PID;
+    PID    -> Catalog;
+
+    // Only policy engine writes to storage
+    Ingest -> Store;
+}
+```
+
+When a file enters the system, the policy engine applies ingest rules that compute fixity, extract metadata, assign an identifier, and register the object.
+This ensures every incoming file becomes a governed digital object from the moment it arrives.
+
+### Auto‑Link Derived Data
+
+```{dot}
+//| label: fig-5
+//| fig-cap: Workflow‑generated data is uploaded to the policy engine, which extracts metadata, assigns an identifier, records provenance, and registers the new digital object before storing it.
+//| fig-align: center
+//| fig-width: 9
+digraph workflow_generated_data {
+
+    graph [
+        rankdir=TB,
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=18,
+        nodesep=0.8,
+        ranksep=1.2
+    ];
+
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=18,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2
+    ];
+
+    edge [
+        fontname="Helvetica",
+        fontsize=18,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
+
+    // ----------------------------------------------------
+    // Compute Environment cluster
+    // ----------------------------------------------------
+    subgraph cluster_compute {
+        label="";
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+
+        ComputeHeader [
+            label="Compute Environment",
+            shape=box,
+            style="rounded",
+            color="#528641",
+            fillcolor="white",
+            penwidth=2,
+            fontsize=20
+        ];
+
+        WF [label="Workflow\n(input data + output file + parameters)"];
+
+        // Vertical stacking
+        ComputeHeader -> WF [style=invis, weight=50];
+    }
+
+    // ----------------------------------------------------
+    // Policy Engine cluster
+    // ----------------------------------------------------
+    subgraph cluster_policy_engine {
+        label="";
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+
+        PEHeader [
+            label="Policy Engine",
+            shape=box,
+            style="rounded",
+            color="#528641",
+            fillcolor="white",
+            penwidth=2,
+            fontsize=20
+        ];
+
+        NewObj  [label="Create New Digital Object\n(output file)"];
+        Extract [label="Extract metadata from output file\n(checksum, timestamps, filetype)"];
+        Catalog [label="Metadata Catalog\n(created from input data, workflow parameters, extracted metadata)"];
+        ID      [label="Assign Identifier\n(PID or local ID)"];
+
+        // Vertical stacking
+        PEHeader -> NewObj  [style=invis, weight=50];
+        NewObj   -> Extract [style=invis, weight=50];
+        Extract  -> Catalog [style=invis, weight=50];
+        Catalog  -> ID      [style=invis, weight=50];
+    }
+
+    // ----------------------------------------------------
+    // Storage Systems cluster
+    // ----------------------------------------------------
+    subgraph cluster_storage {
+        label="";
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+
+        StorageHeader [
+            label="Storage Systems",
+            shape=box,
+            style="rounded",
+            color="#528641",
+            fillcolor="white",
+            penwidth=2,
+            fontsize=20
+        ];
+
+        Store [label="Storage Backend\n(POSIX / Object / Tape)"];
+
+        // Vertical stacking
+        StorageHeader -> Store [style=invis, weight=50];
+    }
+
+    // ----------------------------------------------------
+    // Align clusters horizontally (TB mode)
+    // ----------------------------------------------------
+    ComputeHeader -> PEHeader     [style=invis, weight=200];
+    PEHeader      -> StorageHeader [style=invis, weight=200];
+
+    // ----------------------------------------------------
+    // Visible edges (actual workflow)
+    // ----------------------------------------------------
+    WF      -> PEHeader [label="Upload file and metadata"];
+    PEHeader -> StorageHeader [label="Store file"];
+
+    PEHeader -> NewObj [label="Triggers workflow"];
+    NewObj  -> Extract;
+    ID      -> NewObj;
+    Extract -> Catalog;
+}    
+```
+
+When a workflow produces an output file, it uploads the file together with metadata describing the input data and workflow parameters to the policy engine. The engine creates a new digital object, extracts additional metadata from the file, assigns an identifier, and records provenance linking the output to its inputs. All metadata like workflow parameters, extracted attributes, and input data is consolidated in the metadata catalog. This not only builds a machine‑readable lineage graph showing how data was generated and transformed, but also provides the structured information required for reproducibility, allowing others to understand and re‑execute the workflow under comparable conditions.
+
+## Metadata‑Driven Access to Digital Objects
+
+```{dot}
+//| label: fig-6
+//| fig-cap: Users or workflows query the metadata catalog, receive location and access information and fetch data through the policy engine without direct access to storage.
+//| fig-align: center
+//| fig-width: 9
+digraph metadata_query_flow {
+
+    graph [
+        rankdir=LR,
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=18,
+        nodesep=0.8,
+        ranksep=1.2
+    ];
+
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=18,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2
+    ];
+
+    edge [
+        fontname="Helvetica",
+        fontsize=18,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
+
+    // ----------------------------------------------------
+    // Storage Systems cluster
+    // ----------------------------------------------------
+    subgraph cluster_storage {
+        label="";
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+
+        StorageHeader [
+            label="Storage Systems",
+            shape=box,
+            style="rounded",
+            color="#528641",
+            fillcolor="white",
+            penwidth=2,
+            fontsize=20
+        ];
+
+        S1 [label="Storage Backend 1"];
+        S2 [label="Storage Backend 2"];
+
+        // Vertical stacking
+        StorageHeader -> S1 [style=invis, weight=50];
+        S1           -> S2 [style=invis, weight=50];
+    }
+
+    // ----------------------------------------------------
+    // Policy Engine cluster
+    // ----------------------------------------------------
+    subgraph cluster_policy_engine {
+        label="";
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+
+        PEHeader [
+            label="Policy Engine",
+            shape=box,
+            style="rounded",
+            color="#528641",
+            fillcolor="white",
+            penwidth=2,
+            fontsize=20
+        ];
+
+        Catalog [label="Metadata Catalog\n(provenance, tags, arrival time)"];
+
+        // Vertical stacking
+        PEHeader -> Catalog [style=invis, weight=50];
+    }
+
+    // ----------------------------------------------------
+    // Compute Environment cluster
+    // ----------------------------------------------------
+    subgraph cluster_compute {
+        label="";
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+
+        ComputeHeader [
+            label="Compute Environment",
+            shape=box,
+            style="rounded",
+            color="#528641",
+            fillcolor="white",
+            penwidth=2,
+            fontsize=20
+        ];
+
+        User   [label="User / Workflow\n(query metadata)"];
+        Stream [label="Workflow A\n(stream content)"];
+        Copy   [label="Workflow B\n(stage working copy)"];
+
+        // Vertical stacking
+        ComputeHeader -> User   [style=invis, weight=50];
+        User          -> Stream [style=invis, weight=50];
+        Stream        -> Copy   [style=invis, weight=50];
+    }
+
+    // ----------------------------------------------------
+    // Align clusters horizontally (TB mode)
+    // ----------------------------------------------------
+    ComputeHeader -> PEHeader      [style=invis, weight=200];
+    PEHeader      -> StorageHeader [style=invis, weight=200];
+
+    // ----------------------------------------------------
+    // Visible edges (actual interactions)
+    // ----------------------------------------------------
+    User   -> Catalog [label="query metadata"];
+    Catalog -> User   [label="return location + access info"];
+
+    User   -> Stream  [label="ingest access info"];
+    User   -> Copy    [label="ingest access info"];
+
+    Stream -> Catalog [label="request data"];
+    Copy   -> Catalog [label="request data"];
+
+    Catalog -> S1     [label="fetch data"];
+}
+
+
+```
+
+Users or workflows query the metadata catalog to identify files that require processing—for example, newly arrived data or files with specific tags or provenance. The policy engine resolves the storage location, checks access and provides the necessary access handles to the workflow. The workflow then streams the content or stages a working copy through the policy engine, ensuring that storage remains abstracted and consistently governed.
+
+## Comparison with Synchronisation Tools
+
+While policy engines operate directly on emerging **digital objects**, synchronisation tools serve a different purpose. Services such as OneDrive, Dropbox, Google Drive, or Nextcloud‑based platforms like SURFdrive replicate files across devices for convenience, but they do not manage:
+
+- metadata  
+- identifiers  
+- provenance  
+- lineage  
+- policy‑driven placement  
+- multi‑site coordination  
+
+Sync tools solve **convenience and collaboration** problems.  
+Policy engines solve **digital‑object lifecycle** problems.
+
+## Summary
+
+Storage systems keep files safe, but they cannot manage metadata, replicas, identifiers, or the volatile stages where research data is created and transformed. To manage data as digital objects, two complementary systems are needed.
+
+Data repositories (Dataverse, Figshare, Invenio/Zenodo) curate and publish stabilised datasets. They provide structured workflows, metadata templates, DOIs, and governance, but they operate mainly at the dataset level and are not designed for active, changing data.
+
+Policy engines (iRODS, Rucio, Globus, Starfish) coordinate files, metadata, and storage during active research. They support replication, tiering, ingest rules, lineage tracking, and metadata‑driven automation across distributed systems. They treat files as emerging digital objects long before publication, ensuring that key lifecycle events are governed and recorded.
+
+Unlike synchronisation tools, which simply replicate files for convenience, policy engines manage the full digital‑object lifecycle.
+
+::: {.callout-tip title="Policy engines in a nutshell"}
+A policy engine governs active research data by coordinating files, metadata, and storage.
+It applies rules for replication, placement, retention, and lineage, and forms digital objects either at ingest (storage‑centric) or after discovery (observation‑centric).
+Rather than handling every file operation, it governs the key lifecycle events that make data trackable, reproducible, and consistently managed across systems.
+:::
+
+Even with repositories and policy engines enriching and exposing metadata to some extent, metadata still becomes fragmented across institutions and disciplines. Each repository, workflow platform, policy engine manages metadata locally. Without additional infrastructure, this creates isolated pockets of metadata that cannot be searched or linked across systems.
+
+To avoid these silos, research ecosystems rely on metadata services that collect, normalise, and aggregate metadata from many sources. These services enable cross‑repository discovery and make metadata visible beyond the system where it was created.
+
+How they achieve that, we will doscover in the next chapter.

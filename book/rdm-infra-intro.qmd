@@ -1,4 +1,202 @@
-# RDM Infrastructure Introduction and Overview
+# Research Data Management Infrastructure
 
-- highlevel overview over the big RDM infra components
-- Explained by e.g. https://www.dona.net/digitalobjectarchitecture
+Modern research data management relies not only on digital objects, i.e. the combination of files, metadata, and persistent identifiers, but also on the infrastructure that enables those objects to be managed across their entire lifecycle.
+
+RDM infrastructure is the ecosystem of systems that ensures digital objects remain:
+
+- durable (stored safely across time and technologies)  
+- discoverable (indexed and searchable)  
+- identifiable (anchored by persistent identifiers)  
+- governed (managed by policies, workflows, and access rules)  
+- usable (accessible to humans and machines in meaningful ways)  
+- interoperable with compute (able to move into and out of analysis environments without breaking identity or provenance)
+
+Just as a digital object consists of three interdependent components, the infrastructure that supports it can be understood through five complementary layers:
+
+- Storage Infrastructure — the technical substrate that preserves the bitstreams.  
+- Data Repositories and Policy engines  — systems that curate, package, publish, and actively manage digital objects across different stages of the lifecycle.
+	- Policy engines coordinate files, metadata, and storage during active research.
+	- Data repositories focus on stabilised, publishable digital objects.
+ 
+- Metadata Portals — discovery layers that expose metadata for search, indexing, and aggregation.  
+- PID Services — the identifier infrastructure that anchors digital objects in a global namespace.  
+- Compute Interoperability — the ability of digital objects to flow into and out of compute systems (HPC, cloud, VMs, workflow engines) while preserving identity, metadata, and provenance.
+
+```{dot}
+//| label: fig-rdm-layers
+//| fig-cap: Core RDM infrastructure layers and how they contribute to forming, exposing, and using digital objects.
+//| fig-align: center
+//| fig-width: 9
+digraph rdm_layers {
+
+    graph [
+        rankdir=LR,
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=18,
+        nodesep=0.8,
+        ranksep=1.4
+    ];
+
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=18,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2
+    ];
+
+    edge [
+        fontname="Helvetica",
+        fontsize=18,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
+
+    // ----------------------------------------------------
+    // Top: Digital Objects
+    // ----------------------------------------------------
+    DO [label="Digital Objects\n(files + metadata + PID)"];
+
+    // ----------------------------------------------------
+    // Exposure Layer
+    // ----------------------------------------------------
+    subgraph cluster_exposure {
+        label="";
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+
+        ExposureHeader [
+            label="Exposure and Interoperability Layer",
+            shape=box,
+            style="rounded",
+            color="#528641",
+            fillcolor="white",
+            penwidth=2,
+            fontsize=20
+        ];
+
+        M [label="Metadata Portals"];
+        P [label="PID Services"];
+
+        // Vertical stacking
+        ExposureHeader -> M [style=invis, weight=50];
+        ExposureHeader -> P [style=invis, weight=50];
+    }
+
+    // ----------------------------------------------------
+    // Management Layer
+    // ----------------------------------------------------
+    subgraph cluster_management {
+        label="";
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+
+        ManagementHeader [
+            label="Digital Object Formation and Management Layer",
+            shape=box,
+            style="rounded",
+            color="#528641",
+            fillcolor="white",
+            penwidth=2,
+            fontsize=20
+        ];
+
+        R  [label="Data Repositories"];
+        PE [label="Policy Engines"];
+
+        // Vertical stacking
+        ManagementHeader -> R  [style=invis, weight=50];
+        ManagementHeader -> PE [style=invis, weight=50];
+    }
+
+    // ----------------------------------------------------
+    // Storage Layer
+    // ----------------------------------------------------
+    S [label="Storage Infrastructure"];
+
+    // ----------------------------------------------------
+    // Compute Interoperability (side)
+    // ----------------------------------------------------
+    C [label="Compute Interoperability"];
+
+    // ----------------------------------------------------
+    // Align clusters horizontally (BT mode)
+    // ----------------------------------------------------
+    ExposureHeader   -> ManagementHeader [style=invis, weight=200];
+
+    // ----------------------------------------------------
+    // Visible edges
+    // ----------------------------------------------------
+    S          -> PE [label="Managed by"];
+    S          -> R [label="Managed by"];
+    ManagementHeader -> ExposureHeader [label="Export Metadata"];
+    ManagementHeader -> DO             [label="Create"];
+    C          -> DO                   [label="Discover and use"];
+}
+
+
+```
+
+## Interoperability with Compute Systems
+
+In the context of the book we define:
+
+> **Compute interoperability** is the ability for digital objects to move seamlessly between storage, repositories, and computational environments, such as High Performance Compute (HPC) clusters, cloud platforms, virtual machines, and workflow engines *without losing their identity, metadata, provenance, or governance*.
+
+This capability represents the ultimate goal of modern Research Data Management: a world in which digital objects can flow effortlessly between systems, remain consistently identifiable, and carry their metadata and provenance with them wherever they go.
+It is the point where RDM stops being a set of disconnected services and becomes a coherent, end‑to‑end ecosystem.
+
+However, it is important to be explicit:
+most current infrastructures and services cannot yet deliver this level of interoperability.  
+Today, compute environments, storage systems, repositories, and metadata services often operate in isolation, requiring manual coordination and fragile workarounds. Achieving true compute interoperability remains an active area of development across institutions and research infrastructures.
+
+In practice, compute interoperability would mean that:
+
+- workflows can find data by metadata, not by file paths  
+- compute jobs can access the correct version of a digital object  
+- provenance is captured automatically when new files are created  
+- policy engines can promote outputs into new digital objects  
+- identifiers and metadata remain consistent across systems
+
+Compute interoperability is what makes digital objects *usable* during active research, not just after publication. It is the missing link between data management and data-intensive science and the direction in which RDM infrastructures must evolve.
+
+## How These Layers Work Together
+
+Each layer plays a distinct role:
+
+- **Storage** keeps the *bits* safe.  
+- **Policy engines** govern the active part of the data lifecycle: they ensure that data remains compliant and traceable before it ever reaches a repository.
+- **Repositories** curate, preserve, and publish datasets with stable identifiers and long‑term guarantees.
+- **Metadata portals** make digital objects *findable*.  
+- **PID services** make them *identifiable and citable*.  
+- **Compute interoperability** makes them *usable in analysis workflows* without breaking identity or provenance.
+
+No single system provides all these functions.  
+Digital objects require coordination across layers, not just storage or publication in isolation.
+
+## Why RDM Infrastructure Matters
+
+A robust RDM infrastructure enables:
+
+- Lifecycle continuity — from active research to long‑term preservation.  
+- Automation and policy enforcement — through systems that coordinate files, metadata, and storage.  
+- Discovery and reuse — via portals and registries that expose metadata to the world.  
+- Global interoperability — through persistent identifiers and shared metadata standards.  
+- Compute‑ready workflows — where digital objects can be analysed, transformed, and regenerated without losing their identity.  
+- Institutional resilience — by distributing responsibilities across specialised systems.
+
+Without this infrastructure, digital objects cannot be reliably preserved, discovered, analysed, or reused.
+
+With this conceptual foundation in place, we can now examine the first major component of the infrastructure above storage:
+the systems that actively manage digital objects during research and prepare them for publication.
+
+This leads us to the next chapter:
+
+[Data Repositories and Policy Engines](data-repositories.qmd) which describes the complementary systems that curate, govern, and orchestrate digital objects across different stages of the research lifecycle.
+
