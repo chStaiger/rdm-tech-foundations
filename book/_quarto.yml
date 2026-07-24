@@ -5,7 +5,7 @@ execute:
     enabled: false
 
 book:
-  title: "Fundamentals of Research Data Management"
+  title: "Principles of Research Data Management Architecture"
   author:
     - name: Christine Staiger
       orcid: 0000-0002-6754-7647
@@ -21,12 +21,13 @@ book:
       - icon: github
         menu:
           - text: Source code
-            url:  https://github.com/chStaiger/rdm-fundamentals
+            url:  https://github.com/rdm-foundations/rdm-architecture
           - text: Report an issue
-            url:  https://github.com/chStaiger/rdm-fundamentals/issues
+            url:  https://github.com/rdm-foundations/rdm-architecture/issues
 
   chapters:
     - index.qmd
+    - preface.qmd
     - definitions.qmd
     - data-lifecycle.qmd
   
@@ -47,16 +48,15 @@ book:
         - policy-engines.qmd
         - metadata-portals.qmd
         - pid-services.qmd
-        - aai.qmd
     - rdm-platform.qmd
     - do-continuity.qmd
     - summary.qmd
     - references.qmd
   
   page-footer:
-    left: "©️ [Creative Commons Attribution 4.0 International](https://github.com/chStaiger/rdm-fundamentals/blob/main/LICENSE.md)"
-    right: "Built with [Quarto](https://quarto.org/) & [GitHub](https://github.com/)<br>Maintained with 🍵 & ☕"
-  
+    left: "©️ [Creative Commons Attribution 4.0 International](https://github.com/rdm-foundations/rdm-architecture/blob/main/LICENESE.md)<br>&ensp;&ensp;&ensp;[Authors & Contributors](https://github.com/rdm-foundations/rdm-architecture#contributors)"
+    right: "Built with [Quarto](https://quarto.org/) & [GitHub](https://github.com/)<br>Maintained with 🍵 & ☕"  
+
 bibliography: references.bib
 
 format:
@@ -70,5 +70,10 @@ format:
     number-sections: false
     mermaid:
       theme: forest
+    grid:
+      sidebar-width: 400px
+    comments: 
+      utterances: 
+        repo: rdm-foundations/rdm-architecture
 
 

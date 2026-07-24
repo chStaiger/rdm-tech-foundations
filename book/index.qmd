@@ -1,5 +1,42 @@
-# Preface
+---
+comments: false
+---
 
-This is a Quarto book.
+# Welcome
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+This book discusses the infrastructure behind Research Data Management (RDM): the systems, standards, workflows, and architectural patterns that enable data stewards to support research that is aligned with the FAIR (Findable, Accessible, Interoperable, Reusable) Principles throughout the data lifecycle.
+
+Modern RDM ecosystems are composed of specialised services: repositories, PID systems, metadata catalogues, workflow engines, storage layers - but FAIR only emerges when these services work together. This book discusses the roles of each component, the boundaries between them, the transitions where digital objects change state, as well as the limitations of current infrastrcuture and services.
+
+This book is intended for:
+ 
+- data stewards and data managers  
+- infrastructure architects  
+- domain specialists building community‑specific RDM tools  
+- anyone designing or maintaining FAIR‑aligned RDM services  
+
+It assumes basic familiarity with research workflows but does not require prior knowledge of RDM standards.
+
+## Authors & Contributors
+
+_Principles of Research Data Management Archiecture_ was authored by:
+
+- Christine Staiger
+- Neha Moopen
+
+This book was also supported by several contributors, you can find them listed in our GitHub repository under [Contributors](https://github.com/rdm-foundations/rdm-architecture#contributors. 
+
+We welcome contributions of all kinds! Our [contributing guidelines](https://github.com/rdm-foundations/rdm-architecture/CONTRIBUTING.md) can help you get started.
+
+## License & Citation
+
+This book is licensed under a Creative Commons Attribution 4.0 International License. 
+
+If you re-use or refer to this book, please cite it as:
+
+Staiger, C., & Moopen, N. _Principles of Research Data Management Architecture_. https://github.com/rdm-foundations/rdm-architecture
+
+## AI Disclosure
+
+The initial drafts for this book were created with assistance of Microsoft Copilot for writing. 
+The content was reviewed and edited by the authors and contributors. 
