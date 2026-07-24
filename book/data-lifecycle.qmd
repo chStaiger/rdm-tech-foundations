@@ -1,4 +1,4 @@
-# The Research Data Management Life Cycle and FAIR
+# The RDM Life Cycle and FAIR
 
 ## The Research Data Life Cycle
 
