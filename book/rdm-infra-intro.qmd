@@ -1,66 +1,145 @@
 # Research Data Management Infrastructure
 
-Modern research data management relies not only on **digital objects**, i.e. the combination of files, metadata, and persistent identifiers, but also on the **infrastructure** that enables those objects to be managed across their entire lifecycle.
+Modern research data management relies not only on digital objects, i.e. the combination of files, metadata, and persistent identifiers, but also on the infrastructure that enables those objects to be managed across their entire lifecycle.
 
-RDM infrastructure is the **ecosystem of systems** that ensures digital objects remain:
+RDM infrastructure is the ecosystem of systems that ensures digital objects remain:
 
-- **durable** (stored safely across time and technologies)  
-- **discoverable** (indexed and searchable)  
-- **identifiable** (anchored by persistent identifiers)  
-- **governed** (managed by policies, workflows, and access rules)  
-- **usable** (accessible to humans and machines in meaningful ways)  
-- **interoperable with compute** (able to move into and out of analysis environments without breaking identity or provenance)
+- durable (stored safely across time and technologies)  
+- discoverable (indexed and searchable)  
+- identifiable (anchored by persistent identifiers)  
+- governed (managed by policies, workflows, and access rules)  
+- usable (accessible to humans and machines in meaningful ways)  
+- interoperable with compute (able to move into and out of analysis environments without breaking identity or provenance)
 
-Just as a digital object consists of three interdependent components, the infrastructure that supports it can be understood through **five complementary layers**:
+Just as a digital object consists of three interdependent components, the infrastructure that supports it can be understood through five complementary layers:
 
-- **Storage Infrastructure** — the technical substrate that preserves the bitstreams.  
-- **Data Repositories and Policy engines**  — systems that curate, package, publish, and actively manage digital objects across different stages of the lifecycle.
+- Storage Infrastructure — the technical substrate that preserves the bitstreams.  
+- Data Repositories and Policy engines  — systems that curate, package, publish, and actively manage digital objects across different stages of the lifecycle.
 	- Policy engines coordinate files, metadata, and storage during active research.
 	- Data repositories focus on stabilised, publishable digital objects.
  
-- **Metadata Portals** — discovery layers that expose metadata for search, indexing, and aggregation.  
-- **PID Services** — the identifier infrastructure that anchors digital objects in a global namespace.  
-- **Compute Interoperability** — the ability of digital objects to flow into and out of compute systems (HPC, cloud, VMs, workflow engines) while preserving identity, metadata, and provenance.
+- Metadata Portals — discovery layers that expose metadata for search, indexing, and aggregation.  
+- PID Services — the identifier infrastructure that anchors digital objects in a global namespace.  
+- Compute Interoperability — the ability of digital objects to flow into and out of compute systems (HPC, cloud, VMs, workflow engines) while preserving identity, metadata, and provenance.
 
-```{mermaid}
-%%| label: fig-rdm-layers
-%%| fig-cap: Core RDM infrastructure layers and how they contribute to forming, exposing, and using digital objects.
-%%| fig-align: center
-%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
+```{dot}
+//| label: fig-rdm-layers
+//| fig-cap: Core RDM infrastructure layers and how they contribute to forming, exposing, and using digital objects.
+//| fig-align: center
+//| fig-width: 9
+digraph rdm_layers {
 
-flowchart BT
+    graph [
+        rankdir=LR,
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=18,
+        nodesep=0.8,
+        ranksep=1.4
+    ];
 
-    %% Top: Digital Objects
-    DO["Digital Objects<br/>(files + metadata + PID)"]
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=18,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2
+    ];
 
-    %% Exposure Layer
-    subgraph Exposure["Exposure and Interoperability Layer"]
-        direction LR
-        M["Metadata Portals"]
-        P["PID Services"]
-    end
+    edge [
+        fontname="Helvetica",
+        fontsize=18,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
 
-    %% Management Layer
-    subgraph Management["Digital Object Formation and Management Layer"]
-        direction LR
-        R["Data Repositories"]
-        PE["Policy Engines"]
-    end
+    // ----------------------------------------------------
+    // Top: Digital Objects
+    // ----------------------------------------------------
+    DO [label="Digital Objects\n(files + metadata + PID)"];
 
-    %% Storage Layer
-    S["Storage Infrastructure"]
+    // ----------------------------------------------------
+    // Exposure Layer
+    // ----------------------------------------------------
+    subgraph cluster_exposure {
+        label="";
+        color="#528641";
+        penwidth=2;
+        style="rounded";
 
-    %% Compute Interoperability (side)
-    C["Compute Interoperability"]
+        ExposureHeader [
+            label="Exposure and Interoperability Layer",
+            shape=box,
+            style="rounded",
+            color="#528641",
+            fillcolor="white",
+            penwidth=2,
+            fontsize=20
+        ];
 
-    %% Minimal connections
-    S -- "Managed by" --> Management
-    Management -- "Export Metadata" --> Exposure
-    Management -- "Create" --> DO
-    C -- "Discover and use" --> DO
+        M [label="Metadata Portals"];
+        P [label="PID Services"];
+
+        // Vertical stacking
+        ExposureHeader -> M [style=invis, weight=50];
+        ExposureHeader -> P [style=invis, weight=50];
+    }
+
+    // ----------------------------------------------------
+    // Management Layer
+    // ----------------------------------------------------
+    subgraph cluster_management {
+        label="";
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+
+        ManagementHeader [
+            label="Digital Object Formation and Management Layer",
+            shape=box,
+            style="rounded",
+            color="#528641",
+            fillcolor="white",
+            penwidth=2,
+            fontsize=20
+        ];
+
+        R  [label="Data Repositories"];
+        PE [label="Policy Engines"];
+
+        // Vertical stacking
+        ManagementHeader -> R  [style=invis, weight=50];
+        ManagementHeader -> PE [style=invis, weight=50];
+    }
+
+    // ----------------------------------------------------
+    // Storage Layer
+    // ----------------------------------------------------
+    S [label="Storage Infrastructure"];
+
+    // ----------------------------------------------------
+    // Compute Interoperability (side)
+    // ----------------------------------------------------
+    C [label="Compute Interoperability"];
+
+    // ----------------------------------------------------
+    // Align clusters horizontally (BT mode)
+    // ----------------------------------------------------
+    ExposureHeader   -> ManagementHeader [style=invis, weight=200];
+
+    // ----------------------------------------------------
+    // Visible edges
+    // ----------------------------------------------------
+    S          -> PE [label="Managed by"];
+    S          -> R [label="Managed by"];
+    ManagementHeader -> ExposureHeader [label="Export Metadata"];
+    ManagementHeader -> DO             [label="Create"];
+    C          -> DO                   [label="Discover and use"];
+}
+
 
 ```
 
@@ -79,11 +158,11 @@ Today, compute environments, storage systems, repositories, and metadata service
 
 In practice, compute interoperability would mean that:
 
-- workflows can **find data by metadata**, not by file paths  
-- compute jobs can **access the correct version** of a digital object  
-- provenance is **captured automatically** when new files are created  
-- policy engines can **promote outputs** into new digital objects  
-- identifiers and metadata remain **consistent across systems**
+- workflows can find data by metadata, not by file paths  
+- compute jobs can access the correct version of a digital object  
+- provenance is captured automatically when new files are created  
+- policy engines can promote outputs into new digital objects  
+- identifiers and metadata remain consistent across systems
 
 Compute interoperability is what makes digital objects *usable* during active research, not just after publication. It is the missing link between data management and data-intensive science and the direction in which RDM infrastructures must evolve.
 
@@ -99,18 +178,18 @@ Each layer plays a distinct role:
 - **Compute interoperability** makes them *usable in analysis workflows* without breaking identity or provenance.
 
 No single system provides all these functions.  
-Digital objects require **coordination across layers**, not just storage or publication in isolation.
+Digital objects require coordination across layers, not just storage or publication in isolation.
 
 ## Why RDM Infrastructure Matters
 
 A robust RDM infrastructure enables:
 
-- **Lifecycle continuity** — from active research to long‑term preservation.  
-- **Automation and policy enforcement** — through systems that coordinate files, metadata, and storage.  
-- **Discovery and reuse** — via portals and registries that expose metadata to the world.  
-- **Global interoperability** — through persistent identifiers and shared metadata standards.  
-- **Compute‑ready workflows** — where digital objects can be analysed, transformed, and regenerated without losing their identity.  
-- **Institutional resilience** — by distributing responsibilities across specialised systems.
+- Lifecycle continuity — from active research to long‑term preservation.  
+- Automation and policy enforcement — through systems that coordinate files, metadata, and storage.  
+- Discovery and reuse — via portals and registries that expose metadata to the world.  
+- Global interoperability — through persistent identifiers and shared metadata standards.  
+- Compute‑ready workflows — where digital objects can be analysed, transformed, and regenerated without losing their identity.  
+- Institutional resilience — by distributing responsibilities across specialised systems.
 
 Without this infrastructure, digital objects cannot be reliably preserved, discovered, analysed, or reused.
 
