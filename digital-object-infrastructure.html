@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f51d66800dd4230279bd6573c4b73a8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-11cafaeb44ee929428d09a09404358f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -77,6 +77,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="css_files/callout.css">
 <link rel="stylesheet" href="css_files/toc.css">
 <link rel="stylesheet" href="css_files/hyperlinks.css">
+<link rel="stylesheet" href="css_files/figure_margins.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -284,7 +285,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In the previous chapter, we saw that modern RDM depends on a coordinated infrastructure in which storage, metadata, identifiers and compute systems each play a distinct role in creating and supporting digital objects across their lifecycle. Storage keeps <strong>files</strong> safe, but it does not coordinate:</p>
+<p>In the previous chapter, we saw that modern RDM depends on a coordinated infrastructure in which storage, metadata, identifiers and compute systems each play a distinct role in creating and supporting digital objects across their lifecycle. Storage keeps files safe, but it does not coordinate:</p>
 <ul>
 <li>the <strong>files</strong> themselves<br>
 </li>
@@ -295,7 +296,7 @@ ul.task-list li input[type="checkbox"] {
 <li>their <strong>persistent identifiers</strong></li>
 <li>their <strong>relationships</strong>, provenance, or lifecycle state</li>
 </ul>
-<p>This coordination is needed <strong>throughout the entire data lifecycle</strong>, especially in the early, volatile stages where files are created, transformed, and stabilised. Yet these stages often lack infrastructure capable of treating files as emerging <strong>digital objects</strong>.</p>
+<p>This coordination is needed throughout the entire data lifecycle, especially in the early, volatile stages where files are created, transformed, and stabilised. Yet these stages often lack infrastructure capable of treating files as emerging digital objects.</p>
 <p>To fill this gap, RDM depends on systems that operate above storage, i.e.&nbsp;systems whose role is to manage files, metadata, identifiers, and policies in a unified way. The next sections introduce two such systems that play complementary roles in the RDM ecosystem: data repositories and policy engines.</p>
 <ul>
 <li><strong>Data repositories</strong>, which manage publication workflows and curate data for dissemination<br>
@@ -313,9 +314,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Historically, the term <strong>data repository</strong> referred to systems that <em>actively managed digital objects</em> using policies for storage, metadata, persistent identifiers and access. Early repository designs assumed that digital objects were created, governed, and preserved <strong>inside</strong> the repository itself.</p>
+<p>Historically, the term data repository referred to systems that <em>actively managed digital objects</em> using policies for storage, metadata, persistent identifiers and access. Early repository designs assumed that digital objects were created, governed, and preserved inside the repository itself.</p>
 <p>Over time, the meaning has shifted.<br>
-In contemporary research infrastructures, <em>data repository</em> usually refers to platforms that manage <strong>digital objects in their archived or published state</strong>, after files have stabilised and are ready for curation, dissemination, and long‑term preservation.</p>
+In contemporary research infrastructures, <em>data repository</em> usually refers to platforms that manage digital objects in their archived or published state, after files have stabilised and are ready for curation, dissemination, and long‑term preservation.</p>
 <p>There is currently no established term for platforms that manage digital objects during the active, volatile stages of research. These systems sit above storage, coordinate files and metadata, and apply policies long before data reaches a repository.</p>
 <p>To describe this class of platforms clearly and consistently, this book adopts the term <em>policy engines</em> for software and platforms which manage digital objects during active research. This distinction is central to understanding why repositories and policy engines play complementary roles in Research Data Management.</p>
 </div>

@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f51d66800dd4230279bd6573c4b73a8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-11cafaeb44ee929428d09a09404358f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,15 +72,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<meta name="mermaid-theme" content="forest">
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="css_files/callout.css">
 <link rel="stylesheet" href="css_files/toc.css">
 <link rel="stylesheet" href="css_files/hyperlinks.css">
+<link rel="stylesheet" href="css_files/figure_margins.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -321,14 +318,14 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="what-is-metadata-in-research-data-management" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-metadata-in-research-data-management">What Is Metadata in Research Data Management?</h2>
-<p>In the context of Research Data Management (RDM), <strong>metadata</strong> is structured information that describes, explains, and contextualises a digital object—such as a dataset, document, image, or software file. It acts as a layer of documentation that makes a digital object <strong>findable, understandable, and reusable</strong>, both now and in the future.</p>
+<p>In the context of Research Data Management (RDM), metadata is structured information that describes, explains, and contextualises a digital object—such as a dataset, document, image, or software file. It acts as a layer of documentation that makes a digital object findable, understandable, and reusable, both now and in the future.</p>
 <p>Metadata typically captures:</p>
 <ul>
-<li><strong>Content information</strong> — what the object contains</li>
-<li><strong>Provenance</strong> — how, when, and by whom it was created</li>
-<li><strong>Technical characteristics</strong> — file formats, structures, and software requirements</li>
-<li><strong>Administrative information</strong> — rights, licences, and access conditions</li>
-<li><strong>Relationships</strong> — links to other versions, datasets, or publications</li>
+<li>Content information — what the object contains</li>
+<li>Provenance — how, when, and by whom it was created</li>
+<li>Technical characteristics — file formats, structures, and software requirements</li>
+<li>Administrative information — rights, licences, and access conditions</li>
+<li>Relationships — links to other versions, datasets, or publications</li>
 </ul>
 <p>In short, metadata provides the context needed to interpret and reuse data beyond its original purpose.</p>
 <div class="blank">
@@ -468,14 +465,16 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="ontologies-controlled-vocabularies-metadata-schemas-and-templates" class="level2">
 <h2 class="anchored" data-anchor-id="ontologies-controlled-vocabularies-metadata-schemas-and-templates">Ontologies, Controlled Vocabularies, Metadata Schemas, and Templates</h2>
+<blockquote class="blockquote">
 <p><strong>Understanding the Building Blocks of Structured Research Metadata</strong></p>
+</blockquote>
 <p>In Research Data Management, terms such as <em>ontologies</em>, <em>controlled vocabularies</em>, <em>metadata schemas</em>, and <em>metadata templates</em> are often used together. While closely related, they serve distinct roles. Together, they ensure that research outputs are described in a consistent, machine-readable, and interoperable way.</p>
 <section id="controlled-vocabularies" class="level3">
 <h3 class="anchored" data-anchor-id="controlled-vocabularies">Controlled Vocabularies</h3>
-<p><strong>Controlled vocabularies</strong> are curated lists of approved terms used to describe data consistently.</p>
+<p>Controlled vocabularies are curated lists of approved terms used to describe data consistently.</p>
 <p>They:</p>
 <ul>
-<li>Provide <strong>standardised terms</strong> for describing concepts</li>
+<li>Provide standardised terms for describing concepts</li>
 <li>Reduce ambiguity (e.g., “soil moisture” vs.&nbsp;“soil humidity”)</li>
 <li>Improve searchability and interoperability</li>
 </ul>
@@ -492,11 +491,11 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="ontologies" class="level2">
 <h2 class="anchored" data-anchor-id="ontologies">Ontologies</h2>
-<p><strong>Ontologies</strong> extend controlled vocabularies by not only defining terms, but also specifying the <strong>relationships between them</strong>.</p>
+<p>Ontologies extend controlled vocabularies by not only defining terms, but also specifying the relationships between them.</p>
 <p>They:</p>
 <ul>
-<li>Provide a <strong>formal, machine-readable model</strong> of concepts</li>
-<li>Define <strong>hierarchies</strong> (e.g., “soil moisture” is a type of “hydrological variable”)</li>
+<li>Provide a formal, machine-readable model of concepts</li>
+<li>Define hierarchies (e.g., “soil moisture” is a type of “hydrological variable”)</li>
 <li>Enable reasoning and automated linking between datasets</li>
 </ul>
 <section id="examples-1" class="level4">
@@ -511,7 +510,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="metadata-schemas" class="level2">
 <h2 class="anchored" data-anchor-id="metadata-schemas">Metadata Schemas</h2>
-<p>A <strong>metadata schema</strong> defines <em>which fields</em> are used to describe a digital object and <em>how</em> those fields should be structured.</p>
+<p>A metadata schema defines <em>which fields</em> are used to describe a digital object and <em>how</em> those fields should be structured.</p>
 <p>They:</p>
 <ul>
 <li>Specify required and optional fields</li>
@@ -535,15 +534,15 @@ ul.task-list li input[type="checkbox"] {
 <li>License</li>
 <li>Persistent identifier</li>
 </ul>
-<p>Importantly, it does <strong>not</strong> define which terms to use—that is the role of controlled vocabularies.</p>
+<p>Importantly, it does not define which terms to use—that is the role of controlled vocabularies.</p>
 </section>
 </section>
 <section id="metadata-templates" class="level2">
 <h2 class="anchored" data-anchor-id="metadata-templates">Metadata Templates</h2>
-<p>A <strong>metadata template</strong> is a practical, user-friendly implementation of a metadata schema.</p>
+<p>A metadata template is a practical, user-friendly implementation of a metadata schema.</p>
 <p>They:</p>
 <ul>
-<li>Provide <strong>forms or structured documents</strong> for data entry</li>
+<li>Provide forms or structured documents for data entry</li>
 <li>Translate schema fields into prompts</li>
 <li>Include guidance or examples</li>
 <li>Often embed controlled vocabularies (e.g., dropdowns or autocomplete)</li>
@@ -597,10 +596,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="a-simple-analogy" class="level5">
 <h5 class="anchored" data-anchor-id="a-simple-analogy">A simple analogy</h5>
 <ul>
-<li><strong>Controlled vocabularies</strong> → the dictionary</li>
-<li><strong>Ontologies</strong> → the dictionary plus relationships</li>
-<li><strong>Metadata schemas</strong> → the blueprint</li>
-<li><strong>Metadata templates</strong> → the form you fill in</li>
+<li>Controlled vocabularies → the dictionary</li>
+<li>Ontologies → the dictionary plus relationships</li>
+<li>Metadata schemas → the blueprint</li>
+<li>Metadata templates → the form you fill in</li>
 </ul>
 </section>
 <section id="a-real-world-example" class="level5">
@@ -617,14 +616,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="linked-data-and-keyvalue-metadata" class="level2">
 <h2 class="anchored" data-anchor-id="linked-data-and-keyvalue-metadata">Linked Data and Key–Value Metadata</h2>
-<p>Metadata can range from simple structures to fully semantic representations. Two key approaches are <strong>key–value metadata</strong> and <strong>Linked Data</strong>.</p>
+<p>Metadata can range from simple structures to fully semantic representations. Two key approaches are key–value metadata and Linked Data.</p>
 </section>
 <section id="keyvalue-metadata" class="level2">
 <h2 class="anchored" data-anchor-id="keyvalue-metadata">Key–Value Metadata</h2>
 <p>Key–value metadata is the simplest and most widely used format. It consists of pairs:</p>
 <ul>
-<li><strong>Key</strong> → the field name</li>
-<li><strong>Value</strong> → the content</li>
+<li>Key → the field name</li>
+<li>Value → the content</li>
 </ul>
 <section id="examples-4" class="level5">
 <h5 class="anchored" data-anchor-id="examples-4">Examples</h5>
@@ -645,8 +644,8 @@ ul.task-list li input[type="checkbox"] {
 <section id="how-it-fits" class="level3">
 <h3 class="anchored" data-anchor-id="how-it-fits">How it fits</h3>
 <ul>
-<li>Schemas define the <strong>keys</strong></li>
-<li>Controlled vocabularies constrain the <strong>values</strong></li>
+<li>Schemas define the keys</li>
+<li>Controlled vocabularies constrain the values</li>
 <li>Templates present both to the user</li>
 </ul>
 <p>Key–value metadata forms the foundation of most metadata practices.</p>
@@ -657,13 +656,13 @@ ul.task-list li input[type="checkbox"] {
 <p>Linked Data is a more advanced, semantic approach that represents metadata as interconnected statements.</p>
 <section id="core-idea" class="level3">
 <h3 class="anchored" data-anchor-id="core-idea">Core idea</h3>
-<p>Information is expressed as <strong>subject–predicate–object</strong> triples:</p>
+<p>Information is expressed as subject–predicate–object triples:</p>
 <ul>
 <li>Dataset — <em>hasCreator</em> → Anna Vermeer</li>
 <li>Dataset — <em>hasSubject</em> → Soil Moisture</li>
 <li>Soil Moisture — <em>is a</em> → Hydrological Variable</li>
 </ul>
-<p>Each element is identified by a <strong>URI</strong> (Uniform Resource Identifier), ensuring global uniqueness through a standard web‑style identifier.</p>
+<p>Each element is identified by a URI (Uniform Resource Identifier), ensuring global uniqueness through a standard web‑style identifier.</p>
 <section id="characteristics-1" class="level6">
 <h6 class="anchored" data-anchor-id="characteristics-1">Characteristics</h6>
 <ul>
@@ -682,29 +681,29 @@ ul.task-list li input[type="checkbox"] {
 <li>Schemas can be expressed in machine-readable relationships (triples) using globally unique identifiers</li>
 <li>Templates may generate Linked Data automatically</li>
 </ul>
-<p>Linked Data turns metadata into a <strong>network of meaning</strong>, rather than a collection of fields.</p>
+<p>Linked Data turns metadata into a network of meaning, rather than a collection of fields.</p>
 </section>
 </section>
 <section id="a-simple-comparison" class="level2">
 <h2 class="anchored" data-anchor-id="a-simple-comparison">A Simple Comparison</h2>
 <p>Describing a book:</p>
 <ul>
-<li><p><strong>Key–value metadata</strong></p>
+<li><p>Key–value metadata</p>
 <ul>
 <li><code>title: The Hobbit</code></li>
 <li><code>author: J.R.R. Tolkien</code></li>
 </ul></li>
-<li><p><strong>Controlled vocabulary</strong></p>
+<li><p>Controlled vocabulary</p>
 <ul>
 <li><code>subject: Fantasy Fiction</code></li>
 </ul></li>
-<li><p><strong>Ontology</strong></p>
+<li><p>Ontology</p>
 <ul>
 <li>Fantasy Fiction → is a → Fiction Genre</li>
 </ul></li>
-<li><p><strong>Schema</strong> → defines the fields</p></li>
-<li><p><strong>Template</strong> → the form</p></li>
-<li><p><strong>Linked Data</strong> → a connected network (knowledge graph) of relationships</p></li>
+<li><p>Schema → defines the fields</p></li>
+<li><p>Template → the form</p></li>
+<li><p>Linked Data → a connected network (knowledge graph) of relationships</p></li>
 </ul>
 <section id="keyvalue-pairs-versus-linked-data" class="level3">
 <h3 class="anchored" data-anchor-id="keyvalue-pairs-versus-linked-data">Key–value pairs versus Linked Data</h3>
@@ -747,34 +746,108 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Each row stands alone as an independent field–value pair<br>
 </li>
-<li>Relationships (e.g., that <em>Anna Vermeer</em> is affiliated with <em>Utrecht University</em>) are <strong>implicit</strong><br>
+<li>Relationships (e.g., that <em>Anna Vermeer</em> is affiliated with <em>Utrecht University</em>) are implicit<br>
 </li>
 <li>Values are plain text, without global identifiers or machine‑interpretable meaning</li>
 </ul>
 <p>Such metadata is typically serialised as CSV or TSV files: simple, familiar, and easy to edit, but limited in how much structure or semantics they can express.</p>
-<p>In the diagram below, the <em>same metadata</em> is expressed as a small knowledge graph. Instead of isolated fields, we now have <strong>entities</strong> (dataset, person, organisation, concept) connected by <strong>explicit relationships</strong>.</p>
-<div class="cell" data-layout-align="center">
+<p>In the diagram below, the <em>same metadata</em> is expressed as a small knowledge graph. Instead of isolated fields, we now have entities (dataset, person, organisation, concept) connected by explicit relationships.</p>
+<div class="cell" data-fig-width="8" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-1">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-flowchart TD
-
-    D[Dataset]
-
-    D --&gt;|dc:title| T["Soil Moisture Dataset 2020–2023"]
-    D --&gt;|dc:issued| Y["2024"]
-    D --&gt;|dc:license| L["CC BY 4.0 (URI)"]
-    D --&gt;|dc:creator| P[Person: Anna Vermeer]
-    D --&gt;|dc:subject| S[Concept: Soil Moisture]
-
-    P --&gt;|schema:affiliation| O[Organisation: Utrecht University]
-</pre>
+<svg width="768" height="480" viewbox="0.00 0.00 955.87 293.60" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 289.6)">
+<title>knowledge_graph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-289.6 951.87,-289.6 951.87,4 -4,4"></polygon>
+<!-- D -->
+<g id="node1" class="node">
+<title>D</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M476.7,-285.6C476.7,-285.6 436.2,-285.6 436.2,-285.6 430.2,-285.6 424.2,-279.6 424.2,-273.6 424.2,-273.6 424.2,-261.6 424.2,-261.6 424.2,-255.6 430.2,-249.6 436.2,-249.6 436.2,-249.6 476.7,-249.6 476.7,-249.6 482.7,-249.6 488.7,-255.6 488.7,-261.6 488.7,-261.6 488.7,-273.6 488.7,-273.6 488.7,-279.6 482.7,-285.6 476.7,-285.6"></path>
+<text text-anchor="middle" x="456.45" y="-263.4" font-family="Helvetica,sans-Serif" font-size="14.00">Dataset</text>
+</g>
+<!-- T -->
+<g id="node2" class="node">
+<title>T</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M214.85,-160.8C214.85,-160.8 12.05,-160.8 12.05,-160.8 6.05,-160.8 0.05,-154.8 0.05,-148.8 0.05,-148.8 0.05,-136.8 0.05,-136.8 0.05,-130.8 6.05,-124.8 12.05,-124.8 12.05,-124.8 214.85,-124.8 214.85,-124.8 220.85,-124.8 226.85,-130.8 226.85,-136.8 226.85,-136.8 226.85,-148.8 226.85,-148.8 226.85,-154.8 220.85,-160.8 214.85,-160.8"></path>
+<text text-anchor="middle" x="113.45" y="-138.6" font-family="Helvetica,sans-Serif" font-size="14.00">Soil Moisture Dataset 2020–2023</text>
+</g>
+<!-- D&#45;&gt;T -->
+<g id="edge1" class="edge">
+<title>D-&gt;T</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M424.18,-255.05C366.09,-234.25 243.2,-190.25 170.58,-164.25"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="171.71,-160.94 161.12,-160.86 169.35,-167.53 171.71,-160.94"></polygon>
+<text text-anchor="middle" x="326.68" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">dc:title</text>
+</g>
+<!-- Y -->
+<g id="node3" class="node">
+<title>Y</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M326.45,-160.8C326.45,-160.8 296.45,-160.8 296.45,-160.8 290.45,-160.8 284.45,-154.8 284.45,-148.8 284.45,-148.8 284.45,-136.8 284.45,-136.8 284.45,-130.8 290.45,-124.8 296.45,-124.8 296.45,-124.8 326.45,-124.8 326.45,-124.8 332.45,-124.8 338.45,-130.8 338.45,-136.8 338.45,-136.8 338.45,-148.8 338.45,-148.8 338.45,-154.8 332.45,-160.8 326.45,-160.8"></path>
+<text text-anchor="middle" x="311.45" y="-138.6" font-family="Helvetica,sans-Serif" font-size="14.00">2024</text>
+</g>
+<!-- D&#45;&gt;Y -->
+<g id="edge2" class="edge">
+<title>D-&gt;Y</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M431.06,-249.55C416.67,-239.56 398.55,-226.41 383.31,-213.6 366.34,-199.34 348.47,-181.99 334.79,-168.15"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="337.15,-165.56 327.65,-160.87 332.15,-170.46 337.15,-165.56"></polygon>
+<text text-anchor="middle" x="413.02" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">dc:issued</text>
+</g>
+<!-- L -->
+<g id="node4" class="node">
+<title>L</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M504.41,-160.8C504.41,-160.8 408.49,-160.8 408.49,-160.8 402.49,-160.8 396.49,-154.8 396.49,-148.8 396.49,-148.8 396.49,-136.8 396.49,-136.8 396.49,-130.8 402.49,-124.8 408.49,-124.8 408.49,-124.8 504.41,-124.8 504.41,-124.8 510.41,-124.8 516.41,-130.8 516.41,-136.8 516.41,-136.8 516.41,-148.8 516.41,-148.8 516.41,-154.8 510.41,-160.8 504.41,-160.8"></path>
+<text text-anchor="middle" x="456.45" y="-138.6" font-family="Helvetica,sans-Serif" font-size="14.00">CC BY 4.0 (URI)</text>
+</g>
+<!-- D&#45;&gt;L -->
+<g id="edge3" class="edge">
+<title>D-&gt;L</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M456.45,-249.53C456.45,-229.29 456.45,-195.32 456.45,-171.35"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="459.95,-171.13 456.45,-161.13 452.95,-171.13 459.95,-171.13"></polygon>
+<text text-anchor="middle" x="487.58" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">dc:license</text>
+</g>
+<!-- P -->
+<g id="node5" class="node">
+<title>P</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M720.86,-160.8C720.86,-160.8 586.04,-160.8 586.04,-160.8 580.04,-160.8 574.04,-154.8 574.04,-148.8 574.04,-148.8 574.04,-136.8 574.04,-136.8 574.04,-130.8 580.04,-124.8 586.04,-124.8 586.04,-124.8 720.86,-124.8 720.86,-124.8 726.86,-124.8 732.86,-130.8 732.86,-136.8 732.86,-136.8 732.86,-148.8 732.86,-148.8 732.86,-154.8 726.86,-160.8 720.86,-160.8"></path>
+<text text-anchor="middle" x="653.45" y="-138.6" font-family="Helvetica,sans-Serif" font-size="14.00">Person: Anna Vermeer</text>
+</g>
+<!-- D&#45;&gt;P -->
+<g id="edge4" class="edge">
+<title>D-&gt;P</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M483.84,-249.53C518.59,-227.87 578.61,-190.45 617.15,-166.43"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="619.34,-169.19 625.97,-160.93 615.64,-163.25 619.34,-169.19"></polygon>
+<text text-anchor="middle" x="598.58" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">dc:creator</text>
+</g>
+<!-- S -->
+<g id="node6" class="node">
+<title>S</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M935.79,-160.8C935.79,-160.8 803.11,-160.8 803.11,-160.8 797.11,-160.8 791.11,-154.8 791.11,-148.8 791.11,-148.8 791.11,-136.8 791.11,-136.8 791.11,-130.8 797.11,-124.8 803.11,-124.8 803.11,-124.8 935.79,-124.8 935.79,-124.8 941.79,-124.8 947.79,-130.8 947.79,-136.8 947.79,-136.8 947.79,-148.8 947.79,-148.8 947.79,-154.8 941.79,-160.8 935.79,-160.8"></path>
+<text text-anchor="middle" x="869.45" y="-138.6" font-family="Helvetica,sans-Serif" font-size="14.00">Concept: Soil Moisture</text>
+</g>
+<!-- D&#45;&gt;S -->
+<g id="edge5" class="edge">
+<title>D-&gt;S</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M488.61,-257.73C525.92,-247.38 589.26,-229.65 643.45,-213.6 698.29,-197.36 760.36,-178.13 805.55,-163.97"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="806.72,-167.27 815.22,-160.94 804.63,-160.59 806.72,-167.27"></polygon>
+<text text-anchor="middle" x="724.97" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">dc:subject</text>
+</g>
+<!-- O -->
+<g id="node7" class="node">
+<title>O</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M748.08,-36C748.08,-36 558.82,-36 558.82,-36 552.82,-36 546.82,-30 546.82,-24 546.82,-24 546.82,-12 546.82,-12 546.82,-6 552.82,0 558.82,0 558.82,0 748.08,0 748.08,0 754.08,0 760.08,-6 760.08,-12 760.08,-12 760.08,-24 760.08,-24 760.08,-30 754.08,-36 748.08,-36"></path>
+<text text-anchor="middle" x="653.45" y="-13.8" font-family="Helvetica,sans-Serif" font-size="14.00">Organisation: Utrecht University</text>
+</g>
+<!-- P&#45;&gt;O -->
+<g id="edge6" class="edge">
+<title>P-&gt;O</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M653.45,-124.73C653.45,-104.49 653.45,-70.52 653.45,-46.55"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="656.95,-46.33 653.45,-36.33 649.95,-46.33 656.95,-46.33"></polygon>
+<text text-anchor="middle" x="707.53" y="-76.2" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">schema:affiliation</text>
+</g>
+</g>
+</svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -786,13 +859,13 @@ Figure&nbsp;6.1: Knowledge Graph
 </div>
 <p>Compared to the table:</p>
 <ul>
-<li>The <strong>table</strong> presents metadata as a flat list of fields<br>
+<li>The table presents metadata as a flat list of fields<br>
 </li>
-<li>The <strong>graph</strong> presents metadata as a network of connected entities<br>
+<li>The graph presents metadata as a network of connected entities<br>
 </li>
-<li>The person, organisation, and subject become <strong>first‑class nodes</strong><br>
+<li>The person, organisation, and subject become first‑class nodes<br>
 </li>
-<li>Relationships such as <code>creator</code> and <code>affiliation</code> are <strong>explicit and machine‑interpretable</strong></li>
+<li>Relationships such as <code>creator</code> and <code>affiliation</code> are explicit and machine‑interpretable</li>
 </ul>
 <p>This is the essential shift: from <em>fields with values</em> to <em>entities with relationships</em>.</p>
 <p>To serialise such a graph, we use a Linked Data format such as Turtle:</p>
@@ -829,7 +902,7 @@ Figure&nbsp;6.1: Knowledge Graph
     a skos:Concept ;
     skos:prefLabel "Soil Moisture"@en ;
     skos:definition "The amount of water contained in soil, typically expressed as a percentage."@en .</code></pre>
-<p>In this Turtle serialisation, the RDF graph not only describes the dataset, the creator, and the organisation, but also provides a <strong>stable identifier</strong> for the subject concept (“Soil Moisture”). This makes the metadata interoperable: other datasets can refer to the same concept, and machines can follow the URI to retrieve its meaning.</p>
+<p>In this Turtle serialisation, the RDF graph not only describes the dataset, the creator, and the organisation, but also provides a stable identifier for the subject concept (“Soil Moisture”). This makes the metadata interoperable: other datasets can refer to the same concept, and machines can follow the URI to retrieve its meaning.</p>
 <p>At the top of the file, we declare the ontologies and vocabularies we use. For example:</p>
 <pre><code>@prefix dc:     &lt;http://purl.org/dc/elements/1.1/&gt; .</code></pre>
 <p>This tells us that <code>dc:title</code> is shorthand for the full URI<br>
@@ -842,19 +915,19 @@ which is the authoritative definition of the Dublin Core <code>title</code> prop
 <section id="bringing-it-all-together" class="level2">
 <h2 class="anchored" data-anchor-id="bringing-it-all-together">Bringing It All Together</h2>
 <ul>
-<li>Key–value metadata is the <strong>practical starting point</strong></li>
-<li>Linked Data is the <strong>semantic, interoperable extension</strong></li>
-<li>Controlled vocabularies and ontologies provide <strong>meaning</strong> and <strong>standardisation</strong> of terms</li>
-<li>Schemas and templates provide <strong>structure</strong></li>
+<li>Key–value metadata is the practical starting point</li>
+<li>Linked Data is the semantic, interoperable extension</li>
+<li>Controlled vocabularies and ontologies provide meaning and standardisation of terms</li>
+<li>Schemas and templates provide structure</li>
 </ul>
-<p>Together, they form the foundation of <strong>FAIR, reusable research metadata</strong>.</p>
+<p>Together, they form the foundation of FAIR, reusable research metadata.</p>
 </section>
 <section id="understanding-and-combining-metadata-standards" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-and-combining-metadata-standards">Understanding and Combining Metadata Standards</h2>
 <p>Metadata standards vary in scope—from general to highly specialised. Understanding how they complement each other helps in selecting the right approach.</p>
 <section id="dublin-core" class="level3">
 <h3 class="anchored" data-anchor-id="dublin-core">Dublin Core</h3>
-<p>A <strong>general-purpose, lightweight metadata schema</strong>.</p>
+<p>A general-purpose, lightweight metadata schema.</p>
 <p>It provides:</p>
 <ul>
 <li>15 core elements (e.g., Title, Creator, Subject, Date)</li>
@@ -865,11 +938,11 @@ which is the authoritative definition of the Dublin Core <code>title</code> prop
 <li>Simple and widely supported</li>
 <li>Suitable for discovery and basic description</li>
 </ul>
-<p>Role: Provides <strong>baseline descriptive metadata</strong>.</p>
+<p>Role: Provides baseline descriptive metadata.</p>
 </section>
 <section id="prov-o" class="level3">
 <h3 class="anchored" data-anchor-id="prov-o">PROV-O</h3>
-<p>A <strong>provenance ontology</strong> describing how data was created.</p>
+<p>A provenance ontology describing how data was created.</p>
 <p>It provides</p>
 <ul>
 <li>Entities, activities, and agents</li>
@@ -880,7 +953,7 @@ which is the authoritative definition of the Dublin Core <code>title</code> prop
 <li>Supports reproducibility</li>
 <li>Captures workflows and processes</li>
 </ul>
-<p>Role: Adds <strong>semantic provenance and process context</strong>.</p>
+<p>Role: Adds semantic provenance and process context.</p>
 </section>
 <section id="discipline-specific-schema---data-documentation-initiative" class="level3">
 <h3 class="anchored" data-anchor-id="discipline-specific-schema---data-documentation-initiative">Discipline-Specific Schema - <a href="https://ddialliance.org/">Data Documentation Initiative</a></h3>
@@ -941,9 +1014,9 @@ which is the authoritative definition of the Dublin Core <code>title</code> prop
 </ul>
 <p>DDI enables researchers to understand:</p>
 <ul>
-<li><strong>what</strong> the data contains (variables),</li>
-<li><strong>how</strong> it was collected (methodology), and</li>
-<li><strong>how to reuse it correctly</strong>.</li>
+<li>what the data contains (variables),</li>
+<li>how it was collected (methodology), and</li>
+<li>how to reuse it correctly.</li>
 </ul>
 <p>It provides:</p>
 <ul>
@@ -954,11 +1027,11 @@ which is the authoritative definition of the Dublin Core <code>title</code> prop
 <ul>
 <li>Captures domain knowledge essential for reuse</li>
 </ul>
-<p>Role: Provides <strong>deep, field-specific context</strong>.</p>
+<p>Role: Provides deep, field-specific context.</p>
 </section>
 <section id="discipline-specific-schema---investigationstudyassay-isa" class="level3">
 <h3 class="anchored" data-anchor-id="discipline-specific-schema---investigationstudyassay-isa">Discipline-Specific Schema - Investigation–Study–Assay (ISA)</h3>
-<p><a href="https://isa-specs.readthedocs.io/en/latest/">ISA</a> is a <strong>discipline-specific metadata framework</strong> used in the life sciences to describe experimental workflows, especially in genomics, proteomics, and other omics research.</p>
+<p><a href="https://isa-specs.readthedocs.io/en/latest/">ISA</a> is a discipline-specific metadata framework used in the life sciences to describe experimental workflows, especially in genomics, proteomics, and other omics research.</p>
 <p>ISA organises metadata into three hierarchical levels:</p>
 <table class="caption-top table">
 <colgroup>
@@ -991,7 +1064,7 @@ which is the authoritative definition of the Dublin Core <code>title</code> prop
 </tr>
 </tbody>
 </table>
-<p>The <strong>assay level</strong> captures how data was actually generated.</p>
+<p>The assay level captures how data was actually generated.</p>
 <p>Investigation level</p>
 <ul>
 <li>Title: Gut Microbiome and Diet Study</li>
@@ -1011,9 +1084,9 @@ which is the authoritative definition of the Dublin Core <code>title</code> prop
 </ul>
 <p>ISA enables researchers to understand:</p>
 <ul>
-<li><strong>what was studied</strong> (samples and subjects),</li>
-<li><strong>how experiments were conducted</strong>, and</li>
-<li><strong>how measurements were generated</strong>.</li>
+<li>what was studied (samples and subjects),</li>
+<li>how experiments were conducted, and</li>
+<li>how measurements were generated.</li>
 </ul>
 <p>It provides:</p>
 <ul>
@@ -1024,7 +1097,7 @@ which is the authoritative definition of the Dublin Core <code>title</code> prop
 <ul>
 <li>Captures domain knowledge essential for reuse</li>
 </ul>
-<p>Role: Provides <strong>deep, field-specific context</strong>.</p>
+<p>Role: Provides deep, field-specific context.</p>
 </section>
 <section id="how-they-work-together" class="level3">
 <h3 class="anchored" data-anchor-id="how-they-work-together">How They Work Together</h3>
@@ -1059,7 +1132,7 @@ which is the authoritative definition of the Dublin Core <code>title</code> prop
 </tr>
 </tbody>
 </table>
-<p>Together, these layers create <strong>rich, FAIR, and interoperable metadata</strong>.</p>
+<p>Together, these layers create rich, FAIR, and interoperable metadata.</p>
 </section>
 </section>
 <section id="references" class="level2">

@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f51d66800dd4230279bd6573c4b73a8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-11cafaeb44ee929428d09a09404358f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -107,15 +107,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<meta name="mermaid-theme" content="forest">
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="css_files/callout.css">
 <link rel="stylesheet" href="css_files/toc.css">
 <link rel="stylesheet" href="css_files/hyperlinks.css">
+<link rel="stylesheet" href="css_files/figure_margins.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -360,15 +357,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In this chapter we will focus on PIDs and PID services for digital objects, i.e.&nbsp;data. A general overview over PIDs can be found in the chapter <a href="./pids.html">Persistent Identifiers</a>.</p>
 <section id="when-to-assign-a-persistent-identifier" class="level2">
 <h2 class="anchored" data-anchor-id="when-to-assign-a-persistent-identifier">When to Assign a Persistent Identifier</h2>
-<p>When implementing an RDM service or infrastructure component, persistent identifiers directly support the <strong>FAIR Data Principles</strong>, particularly the first principle:</p>
+<p>When implementing an RDM service or infrastructure component, persistent identifiers directly support the FAIR Data Principles, particularly the first principle:</p>
 <p><strong><a href="https://www.go-fair.org/fair-principles/f1-meta-data-assigned-globally-unique-persistent-identifiers/">F1</a>. (Meta)data are assigned a globally unique and persistent identifier.</strong> “Principle F1 is arguably the most important because it will be hard to achieve other aspects of FAIR without globally unique and persistent identifiers.”</p>
 <p>However, not every piece of data produced during research requires a PID immediately. During early stages of the research data lifecycle, datasets may still be experimental, incomplete, or subject to frequent changes. Assigning persistent identifiers too early can lead to unnecessary versioning and administrative overhead.</p>
-<p>A PID should typically be assigned once data becomes a <strong>stable digital object</strong>. Common situations in which a persistent identifier should be assigned include:</p>
+<p>A PID should typically be assigned once data becomes a stable digital object. Common situations in which a persistent identifier should be assigned include:</p>
 <ul>
-<li><strong>Data publication</strong> in a repository</li>
-<li><strong>Long-term data archiving</strong></li>
-<li>Creation of <strong>gold-standard datasets</strong> or <strong>reference datasets</strong></li>
-<li>When data is <strong>shared beyond the boundaries of a single research team</strong></li>
+<li>Data publication in a repository</li>
+<li>Long-term data archiving</li>
+<li>Creation of gold-standard datasets or reference datasets</li>
+<li>When data is shared beyond the boundaries of a single research team</li>
 </ul>
 <p>At this stage the digital object becomes part of the scholarly record and benefits from stable identification, discoverability, and citation.</p>
 </section>
@@ -377,8 +374,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Multiple persistent identifier (PID) systems exist to uniquely identify entities within the research ecosystem. Some focus on research outputs such as datasets and publications, while others identify people, institutions, or research activities. Below we list several PID systems commonly used for referencing datasets and digital objects.</p>
 <section id="doi-digital-object-identifier" class="level3">
 <h3 class="anchored" data-anchor-id="doi-digital-object-identifier">DOI (Digital Object Identifier)</h3>
-<p>The <strong>Digital Object Identifier (DOI)</strong> system, managed by the <strong>DOI Foundation</strong>, is one of the most widely used PID schemes in scholarly communication.</p>
-<p>DOIs are primarily used to identify <strong>digital research outputs</strong>, including:</p>
+<p>The Digital Object Identifier (DOI) system, managed by the DOI Foundation, is one of the most widely used PID schemes in scholarly communication.</p>
+<p>DOIs are primarily used to identify digital research outputs, including:</p>
 <ul>
 <li>datasets<br>
 </li>
@@ -388,19 +385,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li>reports</li>
 </ul>
-<p>The DOI system is built on top of the <strong>Handle System</strong>, which provides the underlying resolution infrastructure.</p>
+<p>The DOI system is built on top of the Handle System, which provides the underlying resolution infrastructure.</p>
 <p>Two major DOI registration agencies are widely used in research data management:</p>
 <ul>
 <li><strong>DataCite</strong> – primarily assigns DOIs to datasets and research data<br>
 </li>
 <li><strong>Crossref</strong> – primarily assigns DOIs to scholarly publications</li>
 </ul>
-<p><strong>Example DOI:</strong></p>
+<p>Example DOI:</p>
 <pre><code>10.5281/zenodo.3238330</code></pre>
 </section>
 <section id="epic-european-persistent-identifier-consortium" class="level3">
 <h3 class="anchored" data-anchor-id="epic-european-persistent-identifier-consortium">EPIC (European Persistent Identifier Consortium)</h3>
-<p>The <strong>European Persistent Identifier Consortium (EPIC)</strong> provides PID services <strong>based on the Handle System infrastructure</strong>. EPIC is widely used in <strong>European research infrastructures and data services</strong>.</p>
+<p>The European Persistent Identifier Consortium (EPIC) provides PID services based on the Handle System infrastructure. EPIC is widely used in European research infrastructures and data services.</p>
 <p>EPIC identifiers are typically used for:</p>
 <ul>
 <li>identifying digital objects in research infrastructures<br>
@@ -417,12 +414,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li>e-science services</li>
 </ul>
-<p><strong>Example EPIC Handle:</strong></p>
+<p>Example EPIC Handle:</p>
 <pre><code>21.T11998/0000-001A-3905-F</code></pre>
 </section>
 <section id="handle-system" class="level3">
 <h3 class="anchored" data-anchor-id="handle-system">Handle System</h3>
-<p>The <strong>Handle System</strong> is a <strong>technical resolution infrastructure</strong> developed by the <strong>Corporation for National Research Initiatives (CNRI)</strong>. It provides the distributed, persistent lookup mechanism used by several PID schemes.</p>
+<p>The Handle System is a technical resolution infrastructure developed by the Corporation for National Research Initiatives (CNRI). It provides the distributed, persistent lookup mechanism used by several PID schemes.</p>
 <p>The Handle System underpins:</p>
 <ul>
 <li>the DOI system<br>
@@ -440,7 +437,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="ark-archival-resource-key" class="level3">
 <h3 class="anchored" data-anchor-id="ark-archival-resource-key">ARK (Archival Resource Key)</h3>
-<p>The <strong>Archival Resource Key (ARK)</strong> is a <strong>separate PID system</strong>, distinct from the Handle System. It was developed by the <strong>California Digital Library</strong> and is widely adopted in <strong>libraries, archives, and cultural heritage institutions</strong>.</p>
+<p>The Archival Resource Key (ARK) is a separate PID system, distinct from the Handle System. It was developed by the California Digital Library and is widely adopted in libraries, archives, and cultural heritage institutions.</p>
 <p>ARKs are commonly used for identifying:</p>
 <ul>
 <li>digital collections<br>
@@ -449,74 +446,137 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li>digitized cultural heritage materials</li>
 </ul>
-<p>Unlike DOIs and EPIC identifiers, <strong>ARKs do not rely on the Handle System</strong>. They use their own resolution approach, typically through ARK-enabled service providers.</p>
-<p><strong>Example ARK:</strong></p>
+<p>Unlike DOIs and EPIC identifiers, ARKs do not rely on the Handle System. They use their own resolution approach, typically through ARK-enabled service providers.</p>
+<p>Example ARK:</p>
 <pre><code>ark:/12345/x54</code></pre>
 </section>
 </section>
 <section id="spotlight-on-handles-epics-dois" class="level2">
 <h2 class="anchored" data-anchor-id="spotlight-on-handles-epics-dois">Spotlight on Handles, EPICs, DOIs</h2>
-<p>Persistent identifier (PID) infrastructures for digital resources are built on layered technical and governance frameworks. Systems such as the <strong>Digital Object Identifier (DOI)</strong>, the <strong>Handle System</strong>, and services provided by <strong>EPIC</strong> operate within the broader conceptual framework of the <strong>Digital Object Network Architecture (DONA)</strong>. Together they form an ecosystem that enables stable identification, management, and resolution of digital objects on the internet.</p>
-<div class="cell" data-layout-align="center">
+<p>Persistent identifier (PID) infrastructures for digital resources are built on layered technical and governance frameworks. Systems such as the Digital Object Identifier (DOI), the Handle System, and services provided by EPIC operate within the broader conceptual framework of the Digital Object Network Architecture (DONA). Together they form an ecosystem that enables stable identification, management, and resolution of digital objects on the internet.</p>
+<div class="cell" data-fig-width="8" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-dona-epic-doi" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-dona-epic-doi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-1">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false}
-}}%%
-
-flowchart LR
-
-    subgraph Technical_Infrastructure["Technical Infrastructure"]
-        HANDLE["Handle System&lt;br&gt;(Global identifier system)"]
-    end
-
-    subgraph DOI_Framework["DOI Framework"]
-        DOI["DOI&lt;br&gt;(Specialized identifier for scholarly outputs)"]
-    end
-
-    subgraph EPIC_Framework["EPIC Framework"]
-        EPIC["EPIC&lt;br&gt;(Persistent identifiers for European research)"]
-    end
-
-    subgraph Global_Framework["Global Framework"]
-        DONA["DONA&lt;br&gt;(Global management of digital objects)"]
-    end
-
-    HANDLE --&gt;|Used by| DOI
-    HANDLE --&gt;|Used by| EPIC
-    DOI --&gt;|Part of| DONA
-    EPIC --&gt;|Part of| DONA
-
-    linkStyle 0 labelPosition:0.5, align:top;
-    linkStyle 1 labelPosition:0.5, align:top;
-    linkStyle 2 labelPosition:0.5, align:top;
-    linkStyle 3 labelPosition:0.5, align:top;
-</pre>
+<svg width="768" height="480" viewbox="0.00 0.00 640.00 340.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 336.8)">
+<title>pid_frameworks</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-336.8 636,-336.8 636,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>cluster_techinfra</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M261,-242.4C261,-242.4 423,-242.4 423,-242.4 429,-242.4 435,-248.4 435,-254.4 435,-254.4 435,-312.8 435,-312.8 435,-318.8 429,-324.8 423,-324.8 423,-324.8 261,-324.8 261,-324.8 255,-324.8 249,-318.8 249,-312.8 249,-312.8 249,-254.4 249,-254.4 249,-248.4 255,-242.4 261,-242.4"></path>
+<text text-anchor="middle" x="342" y="-308.2" font-family="Helvetica,sans-Serif" font-size="14.00">Technical Infrastructure</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_epic</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M326,-125.2C326,-125.2 612,-125.2 612,-125.2 618,-125.2 624,-131.2 624,-137.2 624,-137.2 624,-195.6 624,-195.6 624,-201.6 618,-207.6 612,-207.6 612,-207.6 326,-207.6 326,-207.6 320,-207.6 314,-201.6 314,-195.6 314,-195.6 314,-137.2 314,-137.2 314,-131.2 320,-125.2 326,-125.2"></path>
+<text text-anchor="middle" x="469" y="-191" font-family="Helvetica,sans-Serif" font-size="14.00">EPIC Framework</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_dona</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M220,-8C220,-8 468,-8 468,-8 474,-8 480,-14 480,-20 480,-20 480,-78.4 480,-78.4 480,-84.4 474,-90.4 468,-90.4 468,-90.4 220,-90.4 220,-90.4 214,-90.4 208,-84.4 208,-78.4 208,-78.4 208,-20 208,-20 208,-14 214,-8 220,-8"></path>
+<text text-anchor="middle" x="344" y="-73.8" font-family="Helvetica,sans-Serif" font-size="14.00">Global Framework</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_doi</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M20,-125.2C20,-125.2 294,-125.2 294,-125.2 300,-125.2 306,-131.2 306,-137.2 306,-137.2 306,-195.6 306,-195.6 306,-201.6 300,-207.6 294,-207.6 294,-207.6 20,-207.6 20,-207.6 14,-207.6 8,-201.6 8,-195.6 8,-195.6 8,-137.2 8,-137.2 8,-131.2 14,-125.2 20,-125.2"></path>
+<text text-anchor="middle" x="157" y="-191" font-family="Helvetica,sans-Serif" font-size="14.00">DOI Framework</text>
+</g>
+<!-- HANDLE -->
+<g id="node1" class="node">
+<title>HANDLE</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M415.33,-291.8C415.33,-291.8 268.67,-291.8 268.67,-291.8 262.67,-291.8 256.67,-285.8 256.67,-279.8 256.67,-279.8 256.67,-262.6 256.67,-262.6 256.67,-256.6 262.67,-250.6 268.67,-250.6 268.67,-250.6 415.33,-250.6 415.33,-250.6 421.33,-250.6 427.33,-256.6 427.33,-262.6 427.33,-262.6 427.33,-279.8 427.33,-279.8 427.33,-285.8 421.33,-291.8 415.33,-291.8"></path>
+<text text-anchor="middle" x="342" y="-275.4" font-family="Helvetica,sans-Serif" font-size="14.00">Handle System</text>
+<text text-anchor="middle" x="342" y="-258.6" font-family="Helvetica,sans-Serif" font-size="14.00">(Global identifier system)</text>
+</g>
+<!-- DOI -->
+<g id="node2" class="node">
+<title>DOI</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M286.4,-174.6C286.4,-174.6 27.6,-174.6 27.6,-174.6 21.6,-174.6 15.6,-168.6 15.6,-162.6 15.6,-162.6 15.6,-145.4 15.6,-145.4 15.6,-139.4 21.6,-133.4 27.6,-133.4 27.6,-133.4 286.4,-133.4 286.4,-133.4 292.4,-133.4 298.4,-139.4 298.4,-145.4 298.4,-145.4 298.4,-162.6 298.4,-162.6 298.4,-168.6 292.4,-174.6 286.4,-174.6"></path>
+<text text-anchor="middle" x="157" y="-158.2" font-family="Helvetica,sans-Serif" font-size="14.00">DOI</text>
+<text text-anchor="middle" x="157" y="-141.4" font-family="Helvetica,sans-Serif" font-size="14.00">(Specialized identifier for scholarly outputs)</text>
+</g>
+<!-- HANDLE&#45;&gt;DOI -->
+<g id="edge1" class="edge">
+<title>HANDLE-&gt;DOI</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M310.2,-250.4C279,-230.97 231.3,-201.27 197.43,-180.17"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="199.04,-177.05 188.7,-174.74 195.34,-182.99 199.04,-177.05"></polygon>
+<text text-anchor="middle" x="301.68" y="-219.8" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">Used by</text>
+</g>
+<!-- EPIC -->
+<g id="node3" class="node">
+<title>EPIC</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M604.07,-174.6C604.07,-174.6 333.93,-174.6 333.93,-174.6 327.93,-174.6 321.93,-168.6 321.93,-162.6 321.93,-162.6 321.93,-145.4 321.93,-145.4 321.93,-139.4 327.93,-133.4 333.93,-133.4 333.93,-133.4 604.07,-133.4 604.07,-133.4 610.07,-133.4 616.07,-139.4 616.07,-145.4 616.07,-145.4 616.07,-162.6 616.07,-162.6 616.07,-168.6 610.07,-174.6 604.07,-174.6"></path>
+<text text-anchor="middle" x="469" y="-158.2" font-family="Helvetica,sans-Serif" font-size="14.00">EPIC</text>
+<text text-anchor="middle" x="469" y="-141.4" font-family="Helvetica,sans-Serif" font-size="14.00">(Persistent identifiers for European research)</text>
+</g>
+<!-- HANDLE&#45;&gt;EPIC -->
+<g id="edge2" class="edge">
+<title>HANDLE-&gt;EPIC</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M363.83,-250.4C384.73,-231.44 416.41,-202.7 439.54,-181.72"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="441.97,-184.24 447.03,-174.93 437.27,-179.06 441.97,-184.24"></polygon>
+<text text-anchor="middle" x="426.68" y="-219.8" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">Used by</text>
+</g>
+<!-- DONA -->
+<g id="node4" class="node">
+<title>DONA</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M459.68,-57.4C459.68,-57.4 228.32,-57.4 228.32,-57.4 222.32,-57.4 216.32,-51.4 216.32,-45.4 216.32,-45.4 216.32,-28.2 216.32,-28.2 216.32,-22.2 222.32,-16.2 228.32,-16.2 228.32,-16.2 459.68,-16.2 459.68,-16.2 465.68,-16.2 471.68,-22.2 471.68,-28.2 471.68,-28.2 471.68,-45.4 471.68,-45.4 471.68,-51.4 465.68,-57.4 459.68,-57.4"></path>
+<text text-anchor="middle" x="344" y="-41" font-family="Helvetica,sans-Serif" font-size="14.00">DONA</text>
+<text text-anchor="middle" x="344" y="-24.2" font-family="Helvetica,sans-Serif" font-size="14.00">(Global management of digital objects)</text>
+</g>
+<!-- DOI&#45;&gt;DONA -->
+<g id="edge3" class="edge">
+<title>DOI-&gt;DONA</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M189.15,-133.2C220.68,-113.77 268.9,-84.07 303.14,-62.97"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="305.28,-65.76 311.96,-57.54 301.61,-59.8 305.28,-65.76"></polygon>
+<text text-anchor="middle" x="264.62" y="-102.6" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">Part of</text>
+</g>
+<!-- EPIC&#45;&gt;DONA -->
+<g id="edge4" class="edge">
+<title>EPIC-&gt;DONA</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M447.51,-133.2C426.94,-114.24 395.76,-85.5 373,-64.52"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="375.35,-61.93 365.63,-57.73 370.61,-67.08 375.35,-61.93"></polygon>
+<text text-anchor="middle" x="445.62" y="-102.6" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">Part of</text>
+</g>
+</g>
+</svg>
 </div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dona-epic-doi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;14.1: The main organisations DONA, EPIC and DOI
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p><strong>The Handle System provides the underlying technical infrastructure for persistent identifiers.</strong> It enables globally unique identifiers, known as <em>handles</em>, to be assigned to digital objects and resolved through a distributed network of handle servers. When a handle is queried, the system returns associated metadata, such as the current URL of the resource. This separation between the identifier and the object’s location ensures persistence even when the resource moves.</p>
-<p>Built on top of the Handle System is the Digital Object Identifier (DOI) system, a widely used persistent identifier scheme for scholarly publications, datasets, and other research outputs. <strong>DOIs use the handle protocol for resolution but add additional governance, metadata standards, and registration workflows tailored to scholarly communication.</strong> Organizations such as International DOI Foundation oversee the DOI framework and coordinate registration agencies that assign DOIs to digital objects.</p>
-<p>The European Persistent Identifier Consortium (EPIC) is another major provider of persistent identifiers based on the Handle System. EPIC operates a handle registration service primarily aimed at research institutions, data infrastructures, and e-science projects in Europe. Unlike the DOI system, which focuses heavily on scholarly publishing workflows, <strong>EPIC provides a more general handle-based PID service that can be used for datasets, research infrastructures, software, and other digital assets.</strong></p>
-<p>At the architectural level, both DOI and EPIC-based handles operate within the principles of the Digital Object Network Architecture (DONA). <strong>DONA defines a global infrastructure for digital object management, including the assignment of identifier prefixes, governance of the handle registry, and operation of root resolution services.</strong> Through DONA, different identifier communities—such as DOI registration agencies and EPIC handle services—can coexist while sharing the same global resolution infrastructure.</p>
+<blockquote class="blockquote">
+<p><strong>The Handle System provides the underlying technical infrastructure for persistent identifiers.</strong></p>
+</blockquote>
+<p>It enables globally unique identifiers, known as <em>handles</em>, to be assigned to digital objects and resolved through a distributed network of handle servers. When a handle is queried, the system returns associated metadata, such as the current URL of the resource. This separation between the identifier and the object’s location ensures persistence even when the resource moves.</p>
+<p>Built on top of the Handle System is the Digital Object Identifier (DOI) system, a widely used persistent identifier scheme for scholarly publications, datasets, and other research outputs.</p>
+<blockquote class="blockquote">
+<p><strong>DOIs use the handle protocol for resolution but add additional governance, metadata standards, and registration workflows tailored to scholarly communication.</strong></p>
+</blockquote>
+<p>Organizations such as International DOI Foundation oversee the DOI framework and coordinate registration agencies that assign DOIs to digital objects.</p>
+<p>The European Persistent Identifier Consortium (EPIC) is another major provider of persistent identifiers based on the Handle System. EPIC operates a handle registration service primarily aimed at research institutions, data infrastructures, and e-science projects in Europe. Unlike the DOI system, which focuses heavily on scholarly publishing workflows,</p>
+<blockquote class="blockquote">
+<p><strong>EPIC provides a more general handle-based PID service that can be used for datasets, research infrastructures, software, and other digital assets.</strong></p>
+</blockquote>
+<p>At the architectural level, both DOI and EPIC-based handles operate within the principles of the Digital Object Network Architecture (DONA).</p>
+<blockquote class="blockquote">
+<p><strong>DONA defines a global infrastructure for digital object management, including the assignment of identifier prefixes, governance of the handle registry, and operation of root resolution services.</strong></p>
+</blockquote>
+<p>Through DONA, different identifier communities—such as DOI registration agencies and EPIC handle services—can coexist while sharing the same global resolution infrastructure.</p>
 <p>In summary, DONA provides the overarching framework for managing digital object identifiers. The Handle System supplies the technical resolution mechanism within this framework. DOI represents a specialized, widely adopted identifier scheme built on handles, while EPIC operates as a consortium that provides handle-based persistent identifier services, particularly for European research infrastructures. This layered ecosystem enables long-term, interoperable identification and access to digital resources across diverse domains.</p>
 </section>
 <section id="different-use-of-the-handle-system-epic-vs-doi" class="level2">
 <h2 class="anchored" data-anchor-id="different-use-of-the-handle-system-epic-vs-doi">Different Use of the Handle System: EPIC vs DOI</h2>
-<p>Although both European Persistent Identifier Consortium (EPIC) and the Digital Object Identifier (DOI) system use the Handle System for identifier resolution, they <strong>use the Handle record in different ways</strong>.</p>
+<p>Although both European Persistent Identifier Consortium (EPIC) and the Digital Object Identifier (DOI) system use the Handle System for identifier resolution, they use the Handle record in different ways.</p>
 <section id="epic-metadata-in-the-handle-record" class="level3">
 <h3 class="anchored" data-anchor-id="epic-metadata-in-the-handle-record">EPIC: Metadata in the Handle Record</h3>
-<p>EPIC uses the Handle System <strong>as a full PID infrastructure</strong>, meaning that the <strong>Handle record itself stores meaningful metadata</strong> about the object. EPIC follows the <strong>PID Information Types</strong> model, which standardizes how information is encoded in Handle records.</p>
+<p>EPIC uses the Handle System as a full PID infrastructure, meaning that the Handle record itself stores meaningful metadata about the object. EPIC follows the PID Information Types model, which standardizes how information is encoded in Handle records.</p>
 <p>Example Handle:</p>
 <pre><code>21.T11998/0000-001A-3905-F</code></pre>
 <p>A Handle record in EPIC may include multiple typed entries such as:</p>
@@ -561,11 +621,11 @@ Figure&nbsp;14.1: The main organisations DONA, EPIC and DOI
 </tr>
 </tbody>
 </table>
-<p>In this model, the <strong>Handle record itself functions as a lightweight metadata container</strong>, enabling machines to retrieve essential information directly from the Handle infrastructure.</p>
+<p>In this model, the Handle record itself functions as a lightweight metadata container, enabling machines to retrieve essential information directly from the Handle infrastructure.</p>
 </section>
 <section id="doi-metadata-outside-the-handle-record" class="level3">
 <h3 class="anchored" data-anchor-id="doi-metadata-outside-the-handle-record">DOI: Metadata Outside the Handle Record</h3>
-<p>In contrast, the DOI system uses the Handle System <strong>primarily for resolution</strong>, not for storing descriptive metadata.</p>
+<p>In contrast, the DOI system uses the Handle System primarily for resolution, not for storing descriptive metadata.</p>
 <p>A DOI such as:</p>
 <pre><code>10.1000/182</code></pre>
 <p>is technically implemented as a Handle, but the Handle record typically contains only minimal information, most importantly:</p>
@@ -583,13 +643,13 @@ Figure&nbsp;14.1: The main organisations DONA, EPIC and DOI
 </tr>
 </tbody>
 </table>
-<p>The <strong>actual metadata</strong> for the DOI (title, authors, publication date, publisher, etc.) is <strong>stored in external metadata registries</strong> managed by DOI Registration Agencies such as Crossref or DataCite.</p>
-<p>These agencies maintain <strong>large metadata databases</strong> that can be queried through APIs. For example:</p>
+<p>The actual metadata for the DOI (title, authors, publication date, publisher, etc.) is stored in external metadata registries managed by DOI Registration Agencies such as Crossref or DataCite.</p>
+<p>These agencies maintain large metadata databases that can be queried through APIs. For example:</p>
 <ul>
 <li>Crossref metadata API</li>
 <li>DataCite metadata store</li>
 </ul>
-<p>When someone resolves a DOI through <code>doi.org</code>, the Handle system simply redirects the user to a <strong>landing page</strong>, while the rich metadata is retrieved from the registration agency’s infrastructure rather than from the Handle record itself.</p>
+<p>When someone resolves a DOI through <code>doi.org</code>, the Handle system simply redirects the user to a landing page, while the rich metadata is retrieved from the registration agency’s infrastructure rather than from the Handle record itself.</p>
 <p>The difference can be understood as two architectural approaches:</p>
 <table class="caption-top table">
 <colgroup>
@@ -634,57 +694,158 @@ Figure&nbsp;14.1: The main organisations DONA, EPIC and DOI
 </table>
 <p>Thus, EPIC uses the Handle System as a metadata‑aware PID infrastructure, designed to support interoperability across research infrastructures and to maintain actionable links between data objects, services, and workflows. In contrast, the DOI system uses the Handle System primarily as a resolution layer, while the descriptive metadata and publication‑oriented services are maintained in separate, domain‑specific registries such as DataCite and Crossref.</p>
 <p>Whereas DOIs are embedded in the scholarly publishing ecosystem—complete with citation metadata, indexing in bibliographic databases, and integration with publication workflows—EPIC identifiers are optimized for technical interoperability, enabling research infrastructures to reference, connect, and manage data objects across distributed systems. In other words, DOI focuses on publication, discoverability, and metadata indexing, while EPIC focuses on infrastructure‑level persistence, machine‑actionable metadata, and cross‑system integration.</p>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-fig-width="8" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-comp-epic-doi" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-comp-epic-doi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-3">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false}
-}}%%
-flowchart TB
-
-    %% Top-level
-    DONA["Digital Object Network Architecture (DONA)"]
-    GHR["Global Handle Registry"]
-    HANDLE["Handle System&lt;br&gt;(Identifier resolution infrastructure)"]
-
-    %% Branches
-    EPIC["EPIC Handle Services"]
-    DOI["DOI System"]
-
-    %% Handle record contents
-    EPIC_REC["Handle Record contains:&lt;br&gt;• URL&lt;br&gt;• PID Information Types&lt;br&gt;• checksums&lt;br&gt;• admin data&lt;br&gt;• service endpoints"]
-
-    DOI_REC["Handle Record contains:&lt;br&gt;• URL&lt;br&gt;• minimal metadata"]
-
-    %% Metadata flows
-    EPIC_META["Machine‑actionable PID metadata&lt;br&gt;stored in Handle infrastructure"]
-
-    DOI_META_SRC["Metadata stored externally&lt;br&gt;in DOI Registration Agencies"]
-
-    DOI_META_DB1["DOI metadata databases"]
-    DOI_META_DB2["DOI metadata databases"]
-
-    %% Structure
-    DONA --&gt; GHR --&gt; HANDLE
-
-    HANDLE --&gt; EPIC
-    HANDLE --&gt; DOI
-
-    EPIC --&gt; EPIC_REC --&gt; EPIC_META
-
-    DOI --&gt; DOI_REC --&gt; DOI_META_SRC
-    DOI_META_SRC --&gt; DOI_META_DB1
-    DOI_META_SRC --&gt; DOI_META_DB2
-
-</pre>
+<svg width="768" height="480" viewbox="0.00 0.00 806.14 645.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 641)">
+<title>deeper_tech_orgs</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-641 802.14,-641 802.14,4 -4,4"></polygon>
+<!-- DONA -->
+<g id="node1" class="node">
+<title>DONA</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M508.17,-637C508.17,-637 167.99,-637 167.99,-637 161.99,-637 155.99,-631 155.99,-625 155.99,-625 155.99,-613 155.99,-613 155.99,-607 161.99,-601 167.99,-601 167.99,-601 508.17,-601 508.17,-601 514.17,-601 520.17,-607 520.17,-613 520.17,-613 520.17,-625 520.17,-625 520.17,-631 514.17,-637 508.17,-637"></path>
+<text text-anchor="middle" x="338.08" y="-613.6" font-family="Helvetica,sans-Serif" font-size="18.00">Digital Object Network Architecture (DONA)</text>
+</g>
+<!-- GHR -->
+<g id="node2" class="node">
+<title>GHR</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M426.67,-565C426.67,-565 249.49,-565 249.49,-565 243.49,-565 237.49,-559 237.49,-553 237.49,-553 237.49,-541 237.49,-541 237.49,-535 243.49,-529 249.49,-529 249.49,-529 426.67,-529 426.67,-529 432.67,-529 438.67,-535 438.67,-541 438.67,-541 438.67,-553 438.67,-553 438.67,-559 432.67,-565 426.67,-565"></path>
+<text text-anchor="middle" x="338.08" y="-541.6" font-family="Helvetica,sans-Serif" font-size="18.00">Global Handle Registry</text>
+</g>
+<!-- DONA&#45;&gt;GHR -->
+<g id="edge1" class="edge">
+<title>DONA-&gt;GHR</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M338.08,-600.7C338.08,-592.98 338.08,-583.71 338.08,-575.11"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="341.58,-575.1 338.08,-565.1 334.58,-575.1 341.58,-575.1"></polygon>
+</g>
+<!-- HANDLE -->
+<g id="node3" class="node">
+<title>HANDLE</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M471.19,-493.1C471.19,-493.1 204.97,-493.1 204.97,-493.1 198.97,-493.1 192.97,-487.1 192.97,-481.1 192.97,-481.1 192.97,-453.7 192.97,-453.7 192.97,-447.7 198.97,-441.7 204.97,-441.7 204.97,-441.7 471.19,-441.7 471.19,-441.7 477.19,-441.7 483.19,-447.7 483.19,-453.7 483.19,-453.7 483.19,-481.1 483.19,-481.1 483.19,-487.1 477.19,-493.1 471.19,-493.1"></path>
+<text text-anchor="middle" x="338.08" y="-472.8" font-family="Helvetica,sans-Serif" font-size="18.00">Handle System</text>
+<text text-anchor="middle" x="338.08" y="-451.2" font-family="Helvetica,sans-Serif" font-size="18.00">(Identifier resolution infrastructure)</text>
+</g>
+<!-- GHR&#45;&gt;HANDLE -->
+<g id="edge2" class="edge">
+<title>GHR-&gt;HANDLE</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M338.08,-528.78C338.08,-521.27 338.08,-512.18 338.08,-503.35"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="341.58,-503.23 338.08,-493.23 334.58,-503.23 341.58,-503.23"></polygon>
+</g>
+<!-- EPIC -->
+<g id="node4" class="node">
+<title>EPIC</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M292.16,-368.8C292.16,-368.8 122,-368.8 122,-368.8 116,-368.8 110,-362.8 110,-356.8 110,-356.8 110,-344.8 110,-344.8 110,-338.8 116,-332.8 122,-332.8 122,-332.8 292.16,-332.8 292.16,-332.8 298.16,-332.8 304.16,-338.8 304.16,-344.8 304.16,-344.8 304.16,-356.8 304.16,-356.8 304.16,-362.8 298.16,-368.8 292.16,-368.8"></path>
+<text text-anchor="middle" x="207.08" y="-345.4" font-family="Helvetica,sans-Serif" font-size="18.00">EPIC Handle Services</text>
+</g>
+<!-- HANDLE&#45;&gt;EPIC -->
+<g id="edge3" class="edge">
+<title>HANDLE-&gt;EPIC</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M309.66,-441.53C287.27,-421.95 256.27,-394.83 234.22,-375.55"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="236.37,-372.77 226.54,-368.82 231.76,-378.04 236.37,-372.77"></polygon>
+</g>
+<!-- DOI -->
+<g id="node5" class="node">
+<title>DOI</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M528.59,-368.8C528.59,-368.8 439.57,-368.8 439.57,-368.8 433.57,-368.8 427.57,-362.8 427.57,-356.8 427.57,-356.8 427.57,-344.8 427.57,-344.8 427.57,-338.8 433.57,-332.8 439.57,-332.8 439.57,-332.8 528.59,-332.8 528.59,-332.8 534.59,-332.8 540.59,-338.8 540.59,-344.8 540.59,-344.8 540.59,-356.8 540.59,-356.8 540.59,-362.8 534.59,-368.8 528.59,-368.8"></path>
+<text text-anchor="middle" x="484.08" y="-345.4" font-family="Helvetica,sans-Serif" font-size="18.00">DOI System</text>
+</g>
+<!-- HANDLE&#45;&gt;DOI -->
+<g id="edge4" class="edge">
+<title>HANDLE-&gt;DOI</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M369.76,-441.53C394.93,-421.78 429.86,-394.36 454.47,-375.04"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="456.69,-377.75 462.39,-368.82 452.37,-372.24 456.69,-377.75"></polygon>
+</g>
+<!-- EPIC_REC -->
+<g id="node6" class="node">
+<title>EPIC_REC</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M272.65,-296.6C272.65,-296.6 81.51,-296.6 81.51,-296.6 75.51,-296.6 69.51,-290.6 69.51,-284.6 69.51,-284.6 69.51,-171.4 69.51,-171.4 69.51,-165.4 75.51,-159.4 81.51,-159.4 81.51,-159.4 272.65,-159.4 272.65,-159.4 278.65,-159.4 284.65,-165.4 284.65,-171.4 284.65,-171.4 284.65,-284.6 284.65,-284.6 284.65,-290.6 278.65,-296.6 272.65,-296.6"></path>
+<text text-anchor="middle" x="177.08" y="-276.6" font-family="Helvetica,sans-Serif" font-size="18.00">Handle Record contains:</text>
+<text text-anchor="middle" x="177.08" y="-255" font-family="Helvetica,sans-Serif" font-size="18.00">• URL</text>
+<text text-anchor="middle" x="177.08" y="-233.4" font-family="Helvetica,sans-Serif" font-size="18.00">• PID Information Types</text>
+<text text-anchor="middle" x="177.08" y="-211.8" font-family="Helvetica,sans-Serif" font-size="18.00">• checksums</text>
+<text text-anchor="middle" x="177.08" y="-190.2" font-family="Helvetica,sans-Serif" font-size="18.00">• admin data</text>
+<text text-anchor="middle" x="177.08" y="-168.6" font-family="Helvetica,sans-Serif" font-size="18.00">• service endpoints</text>
+</g>
+<!-- EPIC&#45;&gt;EPIC_REC -->
+<g id="edge5" class="edge">
+<title>EPIC-&gt;EPIC_REC</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M202.85,-332.75C201.03,-325.43 198.77,-316.32 196.34,-306.56"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="199.68,-305.48 193.87,-296.62 192.89,-307.17 199.68,-305.48"></polygon>
+</g>
+<!-- DOI_REC -->
+<g id="node7" class="node">
+<title>DOI_REC</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M607.69,-264.3C607.69,-264.3 418.47,-264.3 418.47,-264.3 412.47,-264.3 406.47,-258.3 406.47,-252.3 406.47,-252.3 406.47,-203.7 406.47,-203.7 406.47,-197.7 412.47,-191.7 418.47,-191.7 418.47,-191.7 607.69,-191.7 607.69,-191.7 613.69,-191.7 619.69,-197.7 619.69,-203.7 619.69,-203.7 619.69,-252.3 619.69,-252.3 619.69,-258.3 613.69,-264.3 607.69,-264.3"></path>
+<text text-anchor="middle" x="513.08" y="-244.2" font-family="Helvetica,sans-Serif" font-size="18.00">Handle Record contains:</text>
+<text text-anchor="middle" x="513.08" y="-222.6" font-family="Helvetica,sans-Serif" font-size="18.00">• URL</text>
+<text text-anchor="middle" x="513.08" y="-201" font-family="Helvetica,sans-Serif" font-size="18.00">• admin data</text>
+</g>
+<!-- DOI&#45;&gt;DOI_REC -->
+<g id="edge7" class="edge">
+<title>DOI-&gt;DOI_REC</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M488.17,-332.75C491.82,-317.55 497.33,-294.6 502.24,-274.15"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="505.66,-274.9 504.59,-264.36 498.85,-273.26 505.66,-274.9"></polygon>
+</g>
+<!-- EPIC_META -->
+<g id="node8" class="node">
+<title>EPIC_META</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M284.24,-123.3C284.24,-123.3 11.92,-123.3 11.92,-123.3 5.92,-123.3 -0.08,-117.3 -0.08,-111.3 -0.08,-111.3 -0.08,-83.9 -0.08,-83.9 -0.08,-77.9 5.92,-71.9 11.92,-71.9 11.92,-71.9 284.24,-71.9 284.24,-71.9 290.24,-71.9 296.24,-77.9 296.24,-83.9 296.24,-83.9 296.24,-111.3 296.24,-111.3 296.24,-117.3 290.24,-123.3 284.24,-123.3"></path>
+<text text-anchor="middle" x="148.08" y="-103" font-family="Helvetica,sans-Serif" font-size="18.00">Machine‑actionable PID metadata</text>
+<text text-anchor="middle" x="148.08" y="-81.4" font-family="Helvetica,sans-Serif" font-size="18.00">stored in Handle infrastructure</text>
+</g>
+<!-- EPIC_REC&#45;&gt;EPIC_META -->
+<g id="edge6" class="edge">
+<title>EPIC_REC-&gt;EPIC_META</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M161.73,-159.04C159.73,-150.17 157.75,-141.4 155.94,-133.41"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="159.3,-132.38 153.68,-123.4 152.47,-133.93 159.3,-132.38"></polygon>
+</g>
+<!-- DOI_META_SRC -->
+<g id="node9" class="node">
+<title>DOI_META_SRC</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M639.69,-123.3C639.69,-123.3 416.47,-123.3 416.47,-123.3 410.47,-123.3 404.47,-117.3 404.47,-111.3 404.47,-111.3 404.47,-83.9 404.47,-83.9 404.47,-77.9 410.47,-71.9 416.47,-71.9 416.47,-71.9 639.69,-71.9 639.69,-71.9 645.69,-71.9 651.69,-77.9 651.69,-83.9 651.69,-83.9 651.69,-111.3 651.69,-111.3 651.69,-117.3 645.69,-123.3 639.69,-123.3"></path>
+<text text-anchor="middle" x="528.08" y="-103" font-family="Helvetica,sans-Serif" font-size="18.00">Metadata stored externally</text>
+<text text-anchor="middle" x="528.08" y="-81.4" font-family="Helvetica,sans-Serif" font-size="18.00">in DOI Registration Agencies</text>
+</g>
+<!-- DOI_REC&#45;&gt;DOI_META_SRC -->
+<g id="edge8" class="edge">
+<title>DOI_REC-&gt;DOI_META_SRC</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M517.22,-191.57C519.34,-173.46 521.9,-151.48 524.01,-133.45"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="527.51,-133.68 525.19,-123.34 520.55,-132.87 527.51,-133.68"></polygon>
+</g>
+<!-- DOI_META_DB1 -->
+<g id="node10" class="node">
+<title>DOI_META_DB1</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M462.2,-36C462.2,-36 269.96,-36 269.96,-36 263.96,-36 257.96,-30 257.96,-24 257.96,-24 257.96,-12 257.96,-12 257.96,-6 263.96,0 269.96,0 269.96,0 462.2,0 462.2,0 468.2,0 474.2,-6 474.2,-12 474.2,-12 474.2,-24 474.2,-24 474.2,-30 468.2,-36 462.2,-36"></path>
+<text text-anchor="middle" x="366.08" y="-12.6" font-family="Helvetica,sans-Serif" font-size="18.00">DOI metadata databases</text>
+</g>
+<!-- DOI_META_SRC&#45;&gt;DOI_META_DB1 -->
+<g id="edge9" class="edge">
+<title>DOI_META_SRC-&gt;DOI_META_DB1</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M476.38,-71.83C455.26,-61.72 431.07,-50.13 410.73,-40.39"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="412.22,-37.22 401.69,-36.06 409.19,-43.53 412.22,-37.22"></polygon>
+</g>
+<!-- DOI_META_DB2 -->
+<g id="node11" class="node">
+<title>DOI_META_DB2</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M786.2,-36C786.2,-36 593.96,-36 593.96,-36 587.96,-36 581.96,-30 581.96,-24 581.96,-24 581.96,-12 581.96,-12 581.96,-6 587.96,0 593.96,0 593.96,0 786.2,0 786.2,0 792.2,0 798.2,-6 798.2,-12 798.2,-12 798.2,-24 798.2,-24 798.2,-30 792.2,-36 786.2,-36"></path>
+<text text-anchor="middle" x="690.08" y="-12.6" font-family="Helvetica,sans-Serif" font-size="18.00">DOI metadata databases</text>
+</g>
+<!-- DOI_META_SRC&#45;&gt;DOI_META_DB2 -->
+<g id="edge10" class="edge">
+<title>DOI_META_SRC-&gt;DOI_META_DB2</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M579.78,-71.83C600.9,-61.72 625.09,-50.13 645.43,-40.39"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="646.97,-43.53 654.47,-36.06 643.94,-37.22 646.97,-43.53"></polygon>
+</g>
+</g>
+</svg>
 </div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14.2: Deeper look into the technologies and organisations
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-comp-epic-doi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.2: Comaprison how EPIC and DOI use the Handle system differently.
 </figcaption>
 </figure>
 </div>
@@ -722,34 +883,82 @@ Figure&nbsp;14.2: Deeper look into the technologies and organisations
 </section>
 <section id="resolution-of-persistent-identifiers" class="level2">
 <h2 class="anchored" data-anchor-id="resolution-of-persistent-identifiers">Resolution of Persistent Identifiers</h2>
-<p>To understand how persistent identifiers function behind the scenes, it helps to look at <strong>how a resolver retrieves the information stored in a Handle record</strong>. Resolution is simply the process of turning an identifier into the current location or metadata of the object it represents.</p>
-<p>Using the <strong>Handle System</strong> as an example, the process works like this:</p>
-<p>When a user enters a Handle such as <code>21.T11998/0000-001A-3905-F</code> into a resolver—or clicks a link containing it—the request is sent to the global Handle infrastructure operated by the <strong>Corporation for National Research Initiatives (CNRI)</strong>.</p>
+<p>To understand how persistent identifiers function behind the scenes, it helps to look at how a resolver retrieves the information stored in a Handle record. Resolution is simply the process of turning an identifier into the current location or metadata of the object it represents.</p>
+<p>Using the Handle System as an example, the process works like this:</p>
+<p>When a user enters a Handle such as <code>21.T11998/0000-001A-3905-F</code> into a resolver—or clicks a link containing it—the request is sent to the global Handle infrastructure operated by the Corporation for National Research Initiatives (CNRI).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-resolution" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-resolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-4">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-
-flowchart TB
-
-    REQ[Browser: Send request&lt;br&gt;10.5281/zenodo.3238330]
-    PREFIX[Lookup prefix 10.5281 at global Handle server]
-    LOCAL[Contact local server&lt;br&gt;which hosts all PIDs for 10.5281]
-    RECORD[Get handle record]
-    REDIR[Redirect to resource in URL field]
-
-    REQ --&gt; PREFIX --&gt; LOCAL --&gt; RECORD --&gt; REDIR
-
-</pre>
+<svg width="672" height="480" viewbox="0.00 0.00 223.99 354.40" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 350.4)">
+<title>handle_resolution_flow</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-350.4 219.99,-350.4 219.99,4 -4,4"></polygon>
+<!-- REQ -->
+<g id="node1" class="node">
+<title>REQ</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M183.32,-346.2C183.32,-346.2 32.68,-346.2 32.68,-346.2 26.68,-346.2 20.68,-340.2 20.68,-334.2 20.68,-334.2 20.68,-317 20.68,-317 20.68,-311 26.68,-305 32.68,-305 32.68,-305 183.32,-305 183.32,-305 189.32,-305 195.32,-311 195.32,-317 195.32,-317 195.32,-334.2 195.32,-334.2 195.32,-340.2 189.32,-346.2 183.32,-346.2"></path>
+<text text-anchor="middle" x="108" y="-329.8" font-family="Helvetica,sans-Serif" font-size="14.00">Browser: Send request</text>
+<text text-anchor="middle" x="108" y="-313" font-family="Helvetica,sans-Serif" font-size="14.00">10.5281/zenodo.3238330</text>
+</g>
+<!-- PREFIX -->
+<g id="node2" class="node">
+<title>PREFIX</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M175.97,-268.6C175.97,-268.6 40.02,-268.6 40.02,-268.6 34.02,-268.6 28.02,-262.6 28.02,-256.6 28.02,-256.6 28.02,-239.4 28.02,-239.4 28.02,-233.4 34.02,-227.4 40.02,-227.4 40.02,-227.4 175.97,-227.4 175.97,-227.4 181.97,-227.4 187.97,-233.4 187.97,-239.4 187.97,-239.4 187.97,-256.6 187.97,-256.6 187.97,-262.6 181.97,-268.6 175.97,-268.6"></path>
+<text text-anchor="middle" x="108" y="-252.2" font-family="Helvetica,sans-Serif" font-size="14.00">Lookup prefix 10.5281</text>
+<text text-anchor="middle" x="108" y="-235.4" font-family="Helvetica,sans-Serif" font-size="14.00">at global Handle server</text>
+</g>
+<!-- REQ&#45;&gt;PREFIX -->
+<g id="edge1" class="edge">
+<title>REQ-&gt;PREFIX</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M108,-304.74C108,-296.84 108,-287.58 108,-278.9"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="111.5,-278.73 108,-268.73 104.5,-278.73 111.5,-278.73"></polygon>
+</g>
+<!-- LOCAL -->
+<g id="node3" class="node">
+<title>LOCAL</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M203.99,-191C203.99,-191 12,-191 12,-191 6,-191 0,-185 0,-179 0,-179 0,-161.8 0,-161.8 0,-155.8 6,-149.8 12,-149.8 12,-149.8 203.99,-149.8 203.99,-149.8 209.99,-149.8 215.99,-155.8 215.99,-161.8 215.99,-161.8 215.99,-179 215.99,-179 215.99,-185 209.99,-191 203.99,-191"></path>
+<text text-anchor="middle" x="108" y="-174.6" font-family="Helvetica,sans-Serif" font-size="14.00">Contact local server</text>
+<text text-anchor="middle" x="108" y="-157.8" font-family="Helvetica,sans-Serif" font-size="14.00">which hosts all PIDs for 10.5281</text>
+</g>
+<!-- PREFIX&#45;&gt;LOCAL -->
+<g id="edge2" class="edge">
+<title>PREFIX-&gt;LOCAL</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M108,-227.14C108,-219.24 108,-209.98 108,-201.3"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="111.5,-201.13 108,-191.13 104.5,-201.13 111.5,-201.13"></polygon>
+</g>
+<!-- RECORD -->
+<g id="node4" class="node">
+<title>RECORD</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M160.06,-113.6C160.06,-113.6 55.93,-113.6 55.93,-113.6 49.93,-113.6 43.93,-107.6 43.93,-101.6 43.93,-101.6 43.93,-89.6 43.93,-89.6 43.93,-83.6 49.93,-77.6 55.93,-77.6 55.93,-77.6 160.06,-77.6 160.06,-77.6 166.06,-77.6 172.06,-83.6 172.06,-89.6 172.06,-89.6 172.06,-101.6 172.06,-101.6 172.06,-107.6 166.06,-113.6 160.06,-113.6"></path>
+<text text-anchor="middle" x="108" y="-91.4" font-family="Helvetica,sans-Serif" font-size="14.00">Get handle record</text>
+</g>
+<!-- LOCAL&#45;&gt;RECORD -->
+<g id="edge3" class="edge">
+<title>LOCAL-&gt;RECORD</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M108,-149.51C108,-141.69 108,-132.59 108,-124.16"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="111.5,-123.99 108,-113.99 104.5,-123.99 111.5,-123.99"></polygon>
+</g>
+<!-- REDIR -->
+<g id="node5" class="node">
+<title>REDIR</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M167.05,-41.4C167.05,-41.4 48.94,-41.4 48.94,-41.4 42.94,-41.4 36.94,-35.4 36.94,-29.4 36.94,-29.4 36.94,-12.2 36.94,-12.2 36.94,-6.2 42.94,-0.2 48.94,-0.2 48.94,-0.2 167.05,-0.2 167.05,-0.2 173.05,-0.2 179.05,-6.2 179.05,-12.2 179.05,-12.2 179.05,-29.4 179.05,-29.4 179.05,-35.4 173.05,-41.4 167.05,-41.4"></path>
+<text text-anchor="middle" x="108" y="-25" font-family="Helvetica,sans-Serif" font-size="14.00">Redirect to resource</text>
+<text text-anchor="middle" x="108" y="-8.2" font-family="Helvetica,sans-Serif" font-size="14.00">in URL field</text>
+</g>
+<!-- RECORD&#45;&gt;REDIR -->
+<g id="edge4" class="edge">
+<title>RECORD-&gt;REDIR</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M108,-77.35C108,-69.69 108,-60.46 108,-51.74"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="111.5,-51.5 108,-41.5 104.5,-51.5 111.5,-51.5"></polygon>
+</g>
+</g>
+</svg>
 </div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-resolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;14.3: The Handle resolution
 </figcaption>
 </figure>
@@ -760,23 +969,23 @@ Figure&nbsp;14.3: The Handle resolution
 <ol type="1">
 <li><strong>Request submission</strong><br>
 The user or application sends the Handle to a resolver service.</li>
-<li><strong>Prefix lookup </strong> The resolver checks the prefix (the part before the slash) to determine which Handle server is responsible for that identifier.</li>
-<li><strong>Local server query </strong> The resolver contacts the appropriate server and requests the Handle record.</li>
+<li><strong>Prefix lookup</strong> The resolver checks the prefix (the part before the slash) to determine which Handle server is responsible for that identifier.</li>
+<li><strong>Local server query</strong> The resolver contacts the appropriate server and requests the Handle record.</li>
 <li><strong>Record retrieval</strong><br>
 The server returns the stored entries—typically including a URL pointing to the current location of the object, along with administrative fields such as HS_ADMIN.</li>
 <li><strong>Redirection</strong><br>
 Using the URL entry, the resolver redirects the user or system to the resource’s current location.</li>
 </ol>
 <p>Because the Handle record can be updated whenever the underlying resource moves, the identifier itself remains stable. This is the same principle described in the previous chapter: the PID stays the same, only the target information changes, ensuring long‑term access even as systems evolve.</p>
-<p>Understanding resolution tells us how a PID behaves once it exists. The next step is to look at how such identifiers come into being. This brings us to the two core building blocks of the Handle System: <strong>minting a Handle</strong> and <strong>managing the Handle record</strong>.</p>
+<p>Understanding resolution tells us how a PID behaves once it exists. The next step is to look at how such identifiers come into being. This brings us to the two core building blocks of the Handle System: minting a Handle and managing the Handle record.</p>
 </section>
 <section id="minting-handles-and-the-handle-record" class="level1">
 <h1>Minting Handles and the Handle Record</h1>
-<p>Persistent identifiers are only useful if they can be <strong>created, stored, and updated reliably</strong>. In the <strong>Handle System</strong>, this is achieved through two core concepts: <strong>minting a Handle</strong> and <strong>maintaining the Handle record</strong>.</p>
+<p>Persistent identifiers are only useful if they can be created, stored, and updated reliably. In the Handle System, this is achieved through two core concepts: minting a Handle and maintaining the Handle record.</p>
 <section id="minting-handles" class="level2">
 <h2 class="anchored" data-anchor-id="minting-handles">Minting Handles</h2>
-<p><em>Minting</em> a Handle means <strong>creating and registering a new persistent identifier</strong> for a digital object.</p>
-<p>Organisations participating in the Handle System receive a <strong>prefix</strong> (for example from EPIC). They then generate a unique <strong>suffix</strong> for each object they want to identify. Together, these form a globally unique Handle:</p>
+<p><em>Minting</em> a Handle means creating and registering a new persistent identifier for a digital object.</p>
+<p>Organisations participating in the Handle System receive a prefix (for example from EPIC). They then generate a unique suffix for each object they want to identify. Together, these form a globally unique Handle:</p>
 <pre><code>prefix/suffix</code></pre>
 <ul>
 <li><strong>Prefix</strong> – identifies the organisation responsible for the identifier<br>
@@ -789,11 +998,11 @@ Using the URL entry, the resolver redirects the user or system to the resource�
 </section>
 <section id="the-handle-record" class="level2">
 <h2 class="anchored" data-anchor-id="the-handle-record">The Handle Record</h2>
-<p>Every Handle points to a <strong>Handle record</strong>, which stores the information needed for resolution. At minimum, a record contains:</p>
+<p>Every Handle points to a Handle record, which stores the information needed for resolution. At minimum, a record contains:</p>
 <ul>
-<li>a <strong><code>URL</code> entry</strong>, indicating where the resolver should redirect the user<br>
+<li>a <code>URL</code> entry, indicating where the resolver should redirect the user<br>
 </li>
-<li>an <strong><code>HS_ADMIN</code> entry</strong>, defining who controls the Handle and what permissions they have</li>
+<li>an <code>HS_ADMIN</code> entry, defining who controls the Handle and what permissions they have</li>
 </ul>
 <p>Depending on the use case, additional entries may be included.<br>
 For example, EPIC Handles often store:</p>
@@ -807,20 +1016,20 @@ For example, EPIC Handles often store:</p>
 <li>machine‑actionable metadata</li>
 </ul>
 <p>This flexibility allows Handles to describe not only web resources but also files, collections, workflows, or non‑HTTP services.</p>
-<p>When the location of a digital object changes, only the <strong>Handle record</strong> needs to be updated.<br>
-The identifier itself remains stable, ensuring <strong>persistent and reliable access</strong> over time. The same is actually also true for all other information which is captured in the PID metadata.</p>
+<p>When the location of a digital object changes, only the Handle record needs to be updated.<br>
+The identifier itself remains stable, ensuring persistent and reliable access over time. The same is actually also true for all other information which is captured in the PID metadata.</p>
 </section>
 <section id="practical-example-creating-an-epic-handle-and-managing-its-metadata" class="level2">
 <h2 class="anchored" data-anchor-id="practical-example-creating-an-epic-handle-and-managing-its-metadata">Practical Example: Creating an EPIC Handle and Managing Its Metadata</h2>
-<p>To demonstrate how Handle‑based PIDs are created and managed in practice, this example uses <strong>pyhandle</strong>, a Python library developed by <strong>EUDAT</strong>.<br>
-EUDAT maintains large‑scale European research data services, and <code>pyhandle</code> is their official client library for interacting with <strong>EPIC Handle services</strong> through the Handle REST API.</p>
-<p>Before you can mint Handles, you need <strong>credentials</strong> issued by your Handle service provider (for example, EPIC or a local institutional Handle server). These credentials typically include:</p>
+<p>To demonstrate how Handle‑based PIDs are created and managed in practice, this example uses <code>pyhandle</code>, a Python library developed by EUDAT.<br>
+EUDAT maintains large‑scale European research data services, and <code>pyhandle</code> is their official client library for interacting with EPIC Handle services through the Handle REST API.</p>
+<p>Before you can mint Handles, you need credentials issued by your Handle service provider (for example, EPIC or a local institutional Handle server). These credentials typically include:</p>
 <ul>
-<li>the <strong>Handle prefix</strong> assigned to your organisation<br>
+<li>the Handle prefix assigned to your organisation<br>
 </li>
-<li>a <strong>username</strong> associated with that prefix<br>
+<li>a username associated with that prefix<br>
 </li>
-<li>a <strong>private key</strong> or password for authentication<br>
+<li>a private key or password for authentication<br>
 </li>
 <li>optional permissions for reverse lookup or administrative actions</li>
 </ul>
@@ -887,7 +1096,7 @@ EUDAT maintains large‑scale European research data services, and <code>pyhandl
 </section>
 <section id="searching-and-managing-handles" class="level3">
 <h3 class="anchored" data-anchor-id="searching-and-managing-handles">8. Searching and Managing Handles</h3>
-<p>Some Handle services allow <strong>reverse lookup</strong>, meaning you can search for Handles based on metadata values (e.g., a URL or checksum). This requires additional credentials with search permissions.</p>
+<p>Some Handle services allow reverse lookup, meaning you can search for Handles based on metadata values (e.g., a URL or checksum). This requires additional credentials with search permissions.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>search_client <span class="op">=</span> PyHandleClient(<span class="st">"rest"</span>).instantiate_for_read_and_search(</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    handle_server_url<span class="op">=</span><span class="st">"https://your.local.handle.server"</span>,</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    reverselookup_password<span class="op">=</span><span class="st">"your_password"</span>,</span>

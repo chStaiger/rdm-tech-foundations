@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f51d66800dd4230279bd6573c4b73a8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-11cafaeb44ee929428d09a09404358f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,15 +72,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<meta name="mermaid-theme" content="forest">
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="css_files/callout.css">
 <link rel="stylesheet" href="css_files/toc.css">
 <link rel="stylesheet" href="css_files/hyperlinks.css">
+<link rel="stylesheet" href="css_files/figure_margins.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -305,16 +302,16 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="what-are-files-in-research-data-management" class="level2">
 <h2 class="anchored" data-anchor-id="what-are-files-in-research-data-management">What Are Files in Research Data Management?</h2>
-<p>Every digital research project begins with files. They are the most immediate and tangible artefacts researchers work with: a CSV exported from an instrument, a TIFF image from a microscope, a NetCDF model output, a PDF protocol, or a collection of scripts and notebooks. In Research Data Management (RDM), files are the <strong>basic units of digital content</strong> — the raw material from which more structured research outputs are eventually created.</p>
+<p>Every digital research project begins with files. They are the most immediate and tangible artefacts researchers work with: a CSV exported from an instrument, a TIFF image from a microscope, a NetCDF model output, a PDF protocol, or a collection of scripts and notebooks. In Research Data Management (RDM), files are the basic units of digital content — the raw material from which more structured research outputs are eventually created.</p>
 <p>At this early stage, files function simply as containers of information. They are produced quickly, modified frequently, and organised in ways that suit the researcher’s workflow. Their purpose is to support active work rather than long‑term preservation. As a result:</p>
 <ul>
-<li>their organisation reflects <strong>workflow convenience</strong>,<br>
+<li>their organisation reflects workflow convenience,<br>
 </li>
-<li>they rarely have <strong>persistent identifiers</strong>,<br>
+<li>they rarely have persistent identifiers,<br>
 </li>
 <li>they are not yet accompanied by curated metadata,<br>
 </li>
-<li><strong>metadata and provenance still need to be captured from the start</strong>.</li>
+<li>metadata and provenance still need to be captured from the start.</li>
 </ul>
 <p>This is where FAIR already matters. Early decisions about naming, formats, folder structures, and documentation directly influence how findable, accessible, interoperable, and reusable the data will be later when files are eventually curated and published.</p>
 </section>
@@ -359,33 +356,73 @@ ul.task-list li input[type="checkbox"] {
 <p>Each file plays a different role. Some — such as raw data or calibration metadata — may have value on their own. Others only make sense in combination with the rest.</p>
 <p>Depending on the stage of the research data life cycle, these files may be treated as:</p>
 <ul>
-<li><strong>separate digital objects</strong>, each with its own metadata and persistent identifier, or<br>
+<li>separate digital objects, each with its own metadata and persistent identifier, or<br>
 </li>
-<li>a <strong>file bundle</strong>, representing a single conceptual dataset.</li>
+<li>a file bundle, representing a single conceptual dataset.</li>
 </ul>
 <p>The appropriate choice depends on how the files will be used, shared, and preserved. To understand when files become digital objects, we need to look at how they evolve across the research data life cycle.</p>
 </section>
 <section id="the-link-to-the-research-data-life-cycle" class="level2">
 <h2 class="anchored" data-anchor-id="the-link-to-the-research-data-life-cycle">The Link to the Research Data Life Cycle</h2>
-<p>The question of when files should be treated as <strong>digital objects</strong> becomes clearer when viewed through the research data life cycle. As files move through the stages — <strong>Process</strong>, <strong>Analyse</strong>, <strong>Archived</strong>, and <strong>Published</strong> — they evolve from volatile working copies into curated, citable digital objects.</p>
-<p>A key distinction emerges: files can be understood either as <strong>working materials</strong> — temporary, flexible, and often messy — or as <strong>components of a future digital object</strong>, which will eventually be curated, described, and preserved. Recognising when a file transitions from one category to the other is central to good RDM practice.</p>
-<div class="cell" data-layout-align="center">
+<p>The question of when files should be treated as digital objects becomes clearer when viewed through the research data life cycle. As files move through the stages — Process, Analyse, Archived, and Published — they evolve from volatile working copies into curated, citable digital objects.</p>
+<p>A key distinction emerges: files can be understood either as working materials — temporary, flexible, and often messy — or as components of a future digital object, which will eventually be curated, described, and preserved. Recognising when a file transitions from one category to the other is central to good RDM practice.</p>
+<div class="cell" data-fig-width="8" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-1">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-
-flowchart LR
-  A[Files] --&gt; B[Stabilised Files]
-  B --&gt; C[Digital Objects]
-  C --&gt; D[Published Digital Objects]
-
-</pre>
+<svg width="768" height="480" viewbox="0.00 0.00 785.04 76.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 72)">
+<title>progression</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-72 781.04,-72 781.04,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>cluster_flow</title>
+</g>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M58,-52C58,-52 28,-52 28,-52 22,-52 16,-46 16,-40 16,-40 16,-28 16,-28 16,-22 22,-16 28,-16 28,-16 58,-16 58,-16 64,-16 70,-22 70,-28 70,-28 70,-40 70,-40 70,-46 64,-52 58,-52"></path>
+<text text-anchor="middle" x="43" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Files</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M269.23,-52C269.23,-52 182.92,-52 182.92,-52 176.92,-52 170.92,-46 170.92,-40 170.92,-40 170.92,-28 170.92,-28 170.92,-22 176.92,-16 182.92,-16 182.92,-16 269.23,-16 269.23,-16 275.23,-16 281.23,-22 281.23,-28 281.23,-28 281.23,-40 281.23,-40 281.23,-46 275.23,-52 269.23,-52"></path>
+<text text-anchor="middle" x="226.08" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Stabilised Files</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M70.33,-34C93.86,-34 129.31,-34 160.34,-34"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="160.68,-37.5 170.68,-34 160.68,-30.5 160.68,-37.5"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M476.53,-52C476.53,-52 394.02,-52 394.02,-52 388.02,-52 382.02,-46 382.02,-40 382.02,-40 382.02,-28 382.02,-28 382.02,-22 388.02,-16 394.02,-16 394.02,-16 476.53,-16 476.53,-16 482.53,-16 488.53,-22 488.53,-28 488.53,-28 488.53,-40 488.53,-40 488.53,-46 482.53,-52 476.53,-52"></path>
+<text text-anchor="middle" x="435.28" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Digital Objects</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M281.25,-34C308.9,-34 342.7,-34 371.5,-34"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="371.86,-37.5 381.86,-34 371.86,-30.5 371.86,-37.5"></polygon>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M748.86,-52C748.86,-52 601.59,-52 601.59,-52 595.59,-52 589.59,-46 589.59,-40 589.59,-40 589.59,-28 589.59,-28 589.59,-22 595.59,-16 601.59,-16 601.59,-16 748.86,-16 748.86,-16 754.86,-16 760.86,-22 760.86,-28 760.86,-28 760.86,-40 760.86,-40 760.86,-46 754.86,-52 748.86,-52"></path>
+<text text-anchor="middle" x="675.22" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Published Digital Objects</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M488.5,-34C515.04,-34 548.15,-34 579.03,-34"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="579.4,-37.5 589.4,-34 579.4,-30.5 579.4,-37.5"></polygon>
+</g>
+</g>
+</svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -397,47 +434,47 @@ Figure&nbsp;5.1: Conceptual progression from working files to stabilised files, 
 </div>
 <section id="process-active-research-and-working-copies" class="level3">
 <h3 class="anchored" data-anchor-id="process-active-research-and-working-copies">Process — Active Research and Working Copies</h3>
-<p>During the <strong>Process</strong> stage, researchers generate and modify files rapidly: raw instrument outputs, logs, temporary results, scripts, and notebooks. These files typically live on local machines, lab servers, or compute systems such as HPC clusters or cloud VMs.</p>
+<p>During the Process stage, researchers generate and modify files rapidly: raw instrument outputs, logs, temporary results, scripts, and notebooks. These files typically live on local machines, lab servers, or compute systems such as HPC clusters or cloud VMs.</p>
 <p>At this point:</p>
 <ul>
-<li>files are <strong>provisional</strong> and organised for workflow convenience,<br>
+<li>files are provisional and organised for workflow convenience,<br>
 </li>
-<li>they have <strong>no persistent identifiers</strong>,<br>
+<li>they have no persistent identifiers,<br>
 </li>
-<li>and although <strong>metadata and provenance must already be captured</strong>, these records usually live in separate systems (ELNs, notebooks, workflow logs, version control).</li>
+<li>and although metadata and provenance must already be captured, these records usually live in separate systems (ELNs, notebooks, workflow logs, version control).</li>
 </ul>
-<p>This is also where <strong>FAIR begins</strong>. Early choices about naming, formats, and documentation shape later reuse.</p>
+<p>This is also where FAIR begins. Early choices about naming, formats, and documentation shape later reuse.</p>
 <p>A key distinction exists between:</p>
 <ul>
 <li><strong>working copies</strong> on fast, ephemeral compute storage, and<br>
 </li>
 <li><strong>more durable storage</strong> (project shares, institutional storage, version‑controlled repositories).</li>
 </ul>
-<p>Working copies support efficient computation, but they are <strong>not a substitute</strong> for durable storage. Files left only on scratch space are at high risk of loss.</p>
+<p>Working copies support efficient computation, but they are not a substitute for durable storage. Files left only on scratch space are at high risk of loss.</p>
 </section>
 </section>
 <section id="analyse-derivation-modelling-transformation" class="level2">
 <h2 class="anchored" data-anchor-id="analyse-derivation-modelling-transformation">Analyse — Derivation, Modelling, Transformation</h2>
-<p>In the <strong>Analyse</strong> stage, files begin to stabilise and gain <strong>scientific identity</strong>. Cleaned datasets, model outputs, and refined scripts emerge from raw materials. Researchers now distinguish between:</p>
+<p>In the Analyse stage, files begin to stabilise and gain scientific identity. Cleaned datasets, model outputs, and refined scripts emerge from raw materials. Researchers now distinguish between:</p>
 <ul>
 <li><strong>working files</strong> (temporary outputs, debug runs, scratch data), and<br>
 </li>
 <li><strong>results worth keeping</strong>, which are moved into more durable storage.</li>
 </ul>
-<p>Some files now <strong>cross the threshold</strong> into <strong>candidate digital objects</strong> — for example, a cleaned dataset used in a figure, a reusable model output, a calibration file, or a canonical analysis script.</p>
+<p>Some files now cross the threshold into candidate digital objects — for example, a cleaned dataset used in a figure, a reusable model output, a calibration file, or a canonical analysis script.</p>
 <p>These files may still lack full metadata or a PID, but they are now:</p>
 <ul>
-<li><strong>stabilised</strong>,<br>
+<li>stabilised,<br>
 </li>
-<li><strong>relocated</strong> to managed storage,<br>
+<li>relocated to managed storage,<br>
 </li>
-<li>and <strong>recognised</strong> as research outputs.</li>
+<li>and recognised as research outputs.</li>
 </ul>
 <p>This is the ideal moment to begin linking files, metadata, and persistent identifiers by coordinating storage solutions with metadata services, workflow engines, and institutional catalogues. Early alignment makes later archiving and publication far smoother.</p>
 </section>
 <section id="archived-longterm-retention-as-digital-objects" class="level2">
 <h2 class="anchored" data-anchor-id="archived-longterm-retention-as-digital-objects">Archived — Long‑Term Retention as Digital Objects</h2>
-<p>By the <strong>Archived</strong> stage, key files have stabilised and are formally assembled into <strong>digital objects</strong>, marking the first step of the archiving process. The focus shifts from active analysis to <strong>durability, integrity, and long‑term stewardship</strong>. Files move into preservation‑oriented storage, while their metadata and persistent identifiers are registered and linked so the digital object remains coherent across systems.</p>
+<p>By the Archived stage, key files have stabilised and are formally assembled into digital objects, marking the first step of the archiving process. The focus shifts from active analysis to durability, integrity, and long‑term stewardship. Files move into preservation‑oriented storage, while their metadata and persistent identifiers are registered and linked so the digital object remains coherent across systems.</p>
 <p>Archived files emphasise:</p>
 <ul>
 <li>long‑term retention,<br>
@@ -448,25 +485,25 @@ Figure&nbsp;5.1: Conceptual progression from working files to stabilised files, 
 </li>
 <li>migration to preservation‑oriented storage.</li>
 </ul>
-<p>Storage systems such as tape or object stores hold the <strong>files</strong>, while metadata, provenance, and persistent identifiers are maintained in separate services. Because these components live in different places, they must be carefully coordinated.</p>
-<p>At this stage, the digital object is fully defined, but its future — <strong>publish</strong>, <strong>keep internal</strong>, or <strong>retire</strong> — is still open.</p>
+<p>Storage systems such as tape or object stores hold the files, while metadata, provenance, and persistent identifiers are maintained in separate services. Because these components live in different places, they must be carefully coordinated.</p>
+<p>At this stage, the digital object is fully defined, but its future — publish, keep internal, or retire — is still open.</p>
 </section>
 <section id="published-public-dissemination-and-citation" class="level2">
 <h2 class="anchored" data-anchor-id="published-public-dissemination-and-citation">Published — Public Dissemination and Citation</h2>
-<p>In the <strong>Published</strong> stage, digital objects move from internal stewardship to <strong>public, citable research outputs</strong>. The emphasis shifts to <strong>discoverability, transparency, and reuse</strong>.</p>
+<p>In the Published stage, digital objects move from internal stewardship to public, citable research outputs. The emphasis shifts to discoverability, transparency, and reuse.</p>
 <p>At this point:</p>
 <ul>
-<li><strong>FAIR principles guide the final structure</strong> and metadata,<br>
+<li>FAIR principles guide the final structure and metadata,<br>
 </li>
-<li>digital objects receive <strong>globally resolvable persistent identifiers</strong> (often DOIs),<br>
+<li>digital objects receive globally resolvable persistent identifiers (often DOIs),<br>
 </li>
-<li>components with independent value <em>may</em> be published as <strong>separate digital objects</strong>,<br>
+<li>components with independent value <em>may</em> be published as separate digital objects,<br>
 </li>
-<li>datasets are typically released as <strong>coherent bundles</strong>,<br>
+<li>datasets are typically released as coherent bundles,<br>
 </li>
 <li>relationships between digital objects are made explicit.</li>
 </ul>
-<p>A crucial element of publication is <strong>findability</strong>. Metadata portals, institutional catalogues, and disciplinary registries index the digital object’s metadata and expose it to search engines and aggregators. Discoverability comes from the <strong>metadata</strong>, not the files themselves.</p>
+<p>A crucial element of publication is findability. Metadata portals, institutional catalogues, and disciplinary registries index the digital object’s metadata and expose it to search engines and aggregators. Discoverability comes from the metadata, not the files themselves.</p>
 <p>In practice:</p>
 <ul>
 <li>files live on managed durable storage,<br>
@@ -475,13 +512,13 @@ Figure&nbsp;5.1: Conceptual progression from working files to stabilised files, 
 </li>
 <li>and the persistent identifier links the two.</li>
 </ul>
-<p>Published digital objects are therefore more than preserved files: they are <strong>curated, documented, and discoverable research outputs</strong>, integrated into the wider scholarly ecosystem and ready for reuse.</p>
+<p>Published digital objects are therefore more than preserved files: they are curated, documented, and discoverable research outputs, integrated into the wider scholarly ecosystem and ready for reuse.</p>
 </section>
 <section id="files-as-separate-digital-objects-vs.-a-file-bundle" class="level2">
 <h2 class="anchored" data-anchor-id="files-as-separate-digital-objects-vs.-a-file-bundle">Files as Separate Digital Objects vs.&nbsp;a File Bundle</h2>
 <section id="when-files-become-separate-digital-objects" class="level3">
 <h3 class="anchored" data-anchor-id="when-files-become-separate-digital-objects">When Files Become Separate Digital Objects</h3>
-<p>Some files may have scientific value <strong>independent of the dataset they belong to</strong>. They stand on their own as research outputs and therefore deserve their own metadata, identifier, and citation. This is especially true for primary research artefacts, such as:</p>
+<p>Some files may have scientific value independent of the dataset they belong to. They stand on their own as research outputs and therefore deserve their own metadata, identifier, and citation. This is especially true for primary research artefacts, such as:</p>
 <ul>
 <li>a single <code>.tif</code> microscopy image,<br>
 </li>
@@ -491,11 +528,11 @@ Figure&nbsp;5.1: Conceptual progression from working files to stabilised files, 
 </li>
 <li>a <code>.bin</code> instrument dump from a field sensor.</li>
 </ul>
-<p>These files are not merely components; they are <strong>scientific objects</strong> in their own right.</p>
+<p>These files are not merely components; they are scientific objects in their own right.</p>
 </section>
 <section id="when-files-form-a-single-bundled-digital-object" class="level3">
 <h3 class="anchored" data-anchor-id="when-files-form-a-single-bundled-digital-object">When Files Form a Single Bundled Digital Object</h3>
-<p>In other cases, files are tightly interdependent and only make sense <strong>together</strong> as a coherent whole. Examples include:</p>
+<p>In other cases, files are tightly interdependent and only make sense together as a coherent whole. Examples include:</p>
 <ul>
 <li>a dataset and its README,<br>
 </li>
@@ -505,15 +542,15 @@ Figure&nbsp;5.1: Conceptual progression from working files to stabilised files, 
 </li>
 <li>a dataset accompanied by a helper script.</li>
 </ul>
-<p>Here, the files collectively represent one conceptual unit and are best deposited as a <strong>file bundle</strong> — a single digital object with multiple components.</p>
+<p>Here, the files collectively represent one conceptual unit and are best deposited as a file bundle — a single digital object with multiple components.</p>
 </section>
 </section>
 <section id="a-note-on-terminology-from-files-to-digital-objects" class="level2">
 <h2 class="anchored" data-anchor-id="a-note-on-terminology-from-files-to-digital-objects">A Note on Terminology: From Files to Digital Objects</h2>
-<p>Although this chapter focuses on <strong>files</strong>, the discussion naturally expands into the broader concept of <strong>digital objects</strong>. This shift is intentional. In research practice, files rarely exist in isolation: once they stabilise, are moved to durable storage, or enter archival workflows, they become part of a <strong>digital object</strong>.</p>
-<p>During the <em>Process</em> and <em>Analyse</em> stages, it is appropriate to speak primarily about <strong>files</strong>, because researchers interact with them as working artefacts. But once these files are stabilised, preserved, or prepared for dissemination, they transition into <strong>digital objects</strong>.</p>
+<p>Although this chapter focuses on files, the discussion naturally expands into the broader concept of digital objects. This shift is intentional. In research practice, files rarely exist in isolation: once they stabilise, are moved to durable storage, or enter archival workflows, they become part of a digital object.</p>
+<p>During the <em>Process</em> and <em>Analyse</em> stages, it is appropriate to speak primarily about files, because researchers interact with them as working artefacts. But once these files are stabilised, preserved, or prepared for dissemination, they transition into digital objects.</p>
 <p>This conceptual shift reflects the reality of the research data life cycle:<br>
-<strong>files are the raw materials; digital objects are the curated, managed, and preservable units that persist beyond the immediate research workflow.</strong></p>
+files are the raw materials; digital objects are the curated, managed, and preservable units that persist beyond the immediate research workflow.</p>
 <p>By acknowledging this transition, the chapter can describe both the practical handling of files during research and their later role as components of durable, citable digital objects.</p>
 </section>
 <section id="summary" class="level2">
@@ -522,9 +559,9 @@ Figure&nbsp;5.1: Conceptual progression from working files to stabilised files, 
 <li><strong>Process / Analyse</strong> → Files are created, transformed, and refined. Some begin to stabilise and may gain independent scientific value.</li>
 <li><strong>Archived</strong> → Stabilised files are preserved as parts of well‑defined digital objects, with coordinated storage, metadata, and persistent identifiers.<br>
 </li>
-<li><strong>Published</strong> → Files with distinct roles or reuse potential are released as <strong>separate digital objects</strong>, while tightly interdependent files are published together as a <strong>coherent bundle</strong>.</li>
+<li><strong>Published</strong> → Files with distinct roles or reuse potential are released as separate digital objects, while tightly interdependent files are published together as a coherent bundle.</li>
 </ul>
-<p>This perspective clarifies when a file is simply a component of a dataset, and when it should be recognised as a <strong>digital object in its own right</strong>, complete with metadata, identity, and long‑term value.</p>
+<p>This perspective clarifies when a file is simply a component of a dataset, and when it should be recognised as a digital object in its own right, complete with metadata, identity, and long‑term value.</p>
 
 
 </section>

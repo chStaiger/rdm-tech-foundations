@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f51d66800dd4230279bd6573c4b73a8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-11cafaeb44ee929428d09a09404358f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,15 +72,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<meta name="mermaid-theme" content="forest">
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="css_files/callout.css">
 <link rel="stylesheet" href="css_files/toc.css">
 <link rel="stylesheet" href="css_files/hyperlinks.css">
+<link rel="stylesheet" href="css_files/figure_margins.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -271,10 +268,10 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#the-fair-data-principles" id="toc-the-fair-data-principles" class="nav-link" data-scroll-target="#the-fair-data-principles">The FAIR Data Principles</a>
   <ul class="collapse">
-  <li><a href="#findable" id="toc-findable" class="nav-link" data-scroll-target="#findable"><strong>Findable</strong></a></li>
-  <li><a href="#accessible" id="toc-accessible" class="nav-link" data-scroll-target="#accessible"><strong>Accessible</strong></a></li>
-  <li><a href="#interoperable" id="toc-interoperable" class="nav-link" data-scroll-target="#interoperable"><strong>Interoperable</strong></a></li>
-  <li><a href="#reusable" id="toc-reusable" class="nav-link" data-scroll-target="#reusable"><strong>Reusable</strong></a></li>
+  <li><a href="#findable" id="toc-findable" class="nav-link" data-scroll-target="#findable">Findable</a></li>
+  <li><a href="#accessible" id="toc-accessible" class="nav-link" data-scroll-target="#accessible">Accessible</a></li>
+  <li><a href="#interoperable" id="toc-interoperable" class="nav-link" data-scroll-target="#interoperable">Interoperable</a></li>
+  <li><a href="#reusable" id="toc-reusable" class="nav-link" data-scroll-target="#reusable">Reusable</a></li>
   </ul></li>
   <li><a href="#how-fair-and-the-rdm-life-cycle-fit-together" id="toc-how-fair-and-the-rdm-life-cycle-fit-together" class="nav-link" data-scroll-target="#how-fair-and-the-rdm-life-cycle-fit-together">How FAIR and the RDM Life Cycle Fit Together</a></li>
   <li><a href="#research-data-management-services-across-the-life-cycle-and-how-fair-evolves" id="toc-research-data-management-services-across-the-life-cycle-and-how-fair-evolves" class="nav-link" data-scroll-target="#research-data-management-services-across-the-life-cycle-and-how-fair-evolves">Research Data Management Services Across the Life Cycle and How FAIR Evolves</a>
@@ -319,52 +316,52 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="the-research-data-life-cycle" class="level2">
 <h2 class="anchored" data-anchor-id="the-research-data-life-cycle">The Research Data Life Cycle</h2>
-<p>The <strong>Research Data Management (RDM) life cycle</strong> describes how research data develops from its initial creation to its long‑term preservation and potential reuse. It emphasises that data is not static: it moves through stages of increasing stability, documentation, and governance. Although different models use slightly different terminology, four core stages are widely recognised.</p>
+<p>The Research Data Management (RDM) life cycle describes how research data develops from its initial creation to its long‑term preservation and potential reuse. It emphasises that data is not static: it moves through stages of increasing stability, documentation, and governance. Although different models use slightly different terminology, four core stages are widely recognised.</p>
 <section id="process" class="level3">
 <h3 class="anchored" data-anchor-id="process">1. Process</h3>
-<p>In the early phase of a project, data is created, cleaned, and transformed. Files exist as <strong>working copies</strong> on local machines or compute systems. They are volatile, frequently modified, and organised primarily for workflow convenience rather than long‑term stewardship.</p>
+<p>In the early phase of a project, data is created, cleaned, and transformed. Files exist as working copies on local machines or compute systems. They are volatile, frequently modified, and organised primarily for workflow convenience rather than long‑term stewardship.</p>
 </section>
 <section id="analyse" class="level3">
 <h3 class="anchored" data-anchor-id="analyse">2. Analyse</h3>
-<p>As the project progresses, files begin to stabilise. Cleaned datasets, model outputs, calibration files, and cleaned scripts emerge. At this point, some files start to gain <strong>scientific identity</strong> and become candidates for long‑term retention.</p>
+<p>As the project progresses, files begin to stabilise. Cleaned datasets, model outputs, calibration files, and cleaned scripts emerge. At this point, some files start to gain scientific identity and become candidates for long‑term retention.</p>
 </section>
 <section id="archived" class="level3">
 <h3 class="anchored" data-anchor-id="archived">3. Archived</h3>
-<p>Once results stabilise, selected files are combined with metadata and persistent identifiers to form <strong>digital objects</strong>. These objects are stored in preservation‑oriented environments and protected through fixity checks, replication, and retention policies. They may remain internal or restricted, depending on the project’s needs.</p>
+<p>Once results stabilise, selected files are combined with metadata and persistent identifiers to form digital objects. These objects are stored in preservation‑oriented environments and protected through fixity checks, replication, and retention policies. They may remain internal or restricted, depending on the project’s needs.</p>
 </section>
 <section id="published" class="level3">
 <h3 class="anchored" data-anchor-id="published">4. Published</h3>
 <p>A subset of digital objects are curated for dissemination. These objects are further enriched with descriptive metadata, assigned globally resolvable identifiers (such as DOIs), and made available for discovery and reuse. This is the point where data becomes part of the scholarly record.</p>
-<p>Together, these stages form the <strong>structural backbone</strong> for understanding how data moves from working files to curated, citable digital objects.</p>
+<p>Together, these stages form the structural backbone for understanding how data moves from working files to curated, citable digital objects.</p>
 </section>
 </section>
 <section id="the-fair-data-principles" class="level2">
 <h2 class="anchored" data-anchor-id="the-fair-data-principles">The FAIR Data Principles</h2>
-<p>The <strong>FAIR principles</strong> - Findability, Accessibility, Interoperability, and Reusability - provide a framework for ensuring that research data can be discovered, understood, and reused by humans and machines. They are not a standard or a technology, but a set of <strong>guiding principles</strong> for good data stewardship.</p>
+<p>The FAIR principles - Findability, Accessibility, Interoperability, and Reusability - provide a framework for ensuring that research data can be discovered, understood, and reused by humans and machines. They are not a standard or a technology, but a set of guiding principles for good data stewardship.</p>
 <section id="findable" class="level3">
-<h3 class="anchored" data-anchor-id="findable"><strong>Findable</strong></h3>
+<h3 class="anchored" data-anchor-id="findable">Findable</h3>
 <p>Data should be described with rich metadata and assigned a persistent identifier so it can be located by humans and machines.</p>
 </section>
 <section id="accessible" class="level3">
-<h3 class="anchored" data-anchor-id="accessible"><strong>Accessible</strong></h3>
+<h3 class="anchored" data-anchor-id="accessible">Accessible</h3>
 <p>Data and metadata should be retrievable using standardised protocols. Access may be open, restricted, or controlled, but the conditions must be clear.</p>
 </section>
 <section id="interoperable" class="level3">
-<h3 class="anchored" data-anchor-id="interoperable"><strong>Interoperable</strong></h3>
+<h3 class="anchored" data-anchor-id="interoperable">Interoperable</h3>
 <p>Data should use well‑defined formats, vocabularies, and standards so it can be integrated with other datasets and tools.</p>
 </section>
 <section id="reusable" class="level3">
-<h3 class="anchored" data-anchor-id="reusable"><strong>Reusable</strong></h3>
+<h3 class="anchored" data-anchor-id="reusable">Reusable</h3>
 <p>Data should be richly described, licensed, and documented so it can be reused in new contexts. Provenance and quality information are essential.</p>
-<p>The FAIR Principles are about <strong>maximising the value and usability of data</strong>, not necessarily making it open. It applies to all data, regardless of access level.</p>
+<p>The FAIR Principles are about maximising the value and usability of data, not necessarily making it open. It applies to all data, regardless of access level.</p>
 </section>
 </section>
 <section id="how-fair-and-the-rdm-life-cycle-fit-together" class="level2">
 <h2 class="anchored" data-anchor-id="how-fair-and-the-rdm-life-cycle-fit-together">How FAIR and the RDM Life Cycle Fit Together</h2>
 <p>The RDM life cycle describes the processes data goes through.<br>
 FAIR specifies the requirements for data to be useful to humans and machines.</p>
-<p>A key insight is that <strong>the scope of FAIR changes as data moves through the life cycle</strong>.<br>
-FAIR is not something that “switches on” only at publication. Instead, it applies throughout, but for <strong>different audiences and purposes</strong>.</p>
+<p>A key insight is that the scope of FAIR changes as data moves through the life cycle.<br>
+FAIR is not something that “switches on” only at publication. Instead, it applies throughout, but for different audiences and purposes.</p>
 <blockquote class="blockquote">
 <p><strong>FAIR applies at every stage — the audience and purpose simply changes.</strong></p>
 </blockquote>
@@ -374,12 +371,12 @@ FAIR is not something that “switches on” only at publication. Instead, it ap
 <p>How do the FAIR principles map onto the stages of the Research Data Life Cycle?<br>
 And how can data infrastructure and services support these shifting interpretations of FAIR?</p>
 <p>The RDM life cycle and the FAIR principles each describe essential aspects of data stewardship, but they operate at different levels. The life cycle outlines conceptual stages of research activity, while FAIR defines the qualities that make data valuable and usable. To connect these two perspectives in a way that supports real systems and services, we need an intermediate layer: data states. Data states translate conceptual stages into operational conditions that storage systems, metadata services, and governance workflows can act upon.</p>
-<p>As research data moves from creation to long‑term preservation and publication, it passes through <strong>distinct data states</strong>. These states act as the <strong>operational link</strong> between the RDM life cycle and the FAIR principles:<br>
+<p>As research data moves from creation to long‑term preservation and publication, it passes through distinct data states. These states act as the operational link between the RDM life cycle and the FAIR principles:<br>
 - the <strong>life cycle</strong> describes how data <em>changes</em>,<br>
 - the <strong>data states</strong> describe how data is <em>managed</em>,<br>
 - and <strong>FAIR</strong> describes the <em>qualities</em> data should exhibit within each state.</p>
 <p>Understanding these states clarifies which RDM services, storage environments, and governance mechanisms are appropriate at each point.</p>
-<p>We can distinguish five operational <strong>data states</strong>:</p>
+<p>We can distinguish five operational data states:</p>
 <ol type="1">
 <li><strong>Active</strong> — data is being created and modified; FAIR supports internal organisation and team‑level reuse.<br>
 </li>
@@ -392,83 +389,207 @@ And how can data infrastructure and services support these shifting interpretati
 <li><strong>Published &amp; Preserved</strong> — selected objects enter the scholarly record; FAIR supports global findability, accessibility, and reuse.</li>
 </ol>
 <p>Together, these states provide the practical structure that allows the life cycle and FAIR to align in real workflows and infrastructures.</p>
-<p>The five states <strong>tie the life cycle and FAIR together</strong>: each life‑cycle stage corresponds to a data state, and each data state demands a different expression of FAIR.</p>
+<p>The five states tie the life cycle and FAIR together: each life‑cycle stage corresponds to a data state, and each data state demands a different expression of FAIR.</p>
 <p>Early in the project, FAIR is inward‑facing and pragmatic.<br>
 In mid‑life, FAIR becomes institutional and stewardship‑oriented.<br>
 At the end, FAIR becomes outward‑facing, enabling global discovery and reuse.</p>
-<p>In this way, the data states form the <strong>conceptual hinge</strong> that connects the evolving nature of data (the life cycle) with the evolving expectations placed on it (FAIR).</p>
+<p>In this way, the data states form the conceptual hinge that connects the evolving nature of data (the life cycle) with the evolving expectations placed on it (FAIR).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-data-states" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-data-states-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-data-states">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-
-flowchart TB
-
-    %% -------------------------
-    %% RDM LIFE CYCLE (TOP ROW)
-    %% -------------------------
-    subgraph RDM["RDM Life Cycle"]
-        direction LR
-        R1["Process"]
-        R2["Analyse"]
-        R3["Transition"]
-        R4["Archived"]
-        R5["Published"]
-    end
-
-    %% -------------------------
-    %% DATA STATES (MIDDLE ROW)
-    %% -------------------------
-    A["Active"]
-    C["Closed"]
-    L["Locked"]
-    R["Archived / Preserved"]
-    P["Published / Preserved"]
-
-    %% Flow of data states
-    A --&gt; C --&gt; L --&gt; R --&gt; P
-
-    %% -------------------------
-    %% FAIR SCOPES (BOTTOM ROW)
-    %% -------------------------
-    subgraph FAIR1["FAIR‑for‑Teams"]
-        direction LR
-        FT1["Active"]
-        FT2["Closed"]
-    end
-
-    subgraph FAIR2["FAIR‑for‑Stewardship"]
-        direction LR
-        FS1["Locked"]
-        FS2["Archived"]
-    end
-
-    subgraph FAIR3["FAIR‑for‑Reuse"]
-        direction LR
-        FR1["Published"]
-    end
-
-    %% -------------------------
-    %% ALIGNMENT LINES (no arrows)
-    %% -------------------------
-    R1 --- A
-    R2 --- C
-    R3 --- L
-    R4 --- R
-    R5 --- P
-
-    A --- FT1
-    C --- FT2
-    L --- FS1
-    R --- FS2
-    P --- FR1
-</pre>
+<svg width="672" height="480" viewbox="0.00 0.00 735.48 402.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 398.8)">
+<title>data_states</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-398.8 731.48,-398.8 731.48,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>cluster_rdm</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M20,-310C20,-310 602,-310 602,-310 608,-310 614,-316 614,-322 614,-322 614,-374.8 614,-374.8 614,-380.8 608,-386.8 602,-386.8 602,-386.8 20,-386.8 20,-386.8 14,-386.8 8,-380.8 8,-374.8 8,-374.8 8,-322 8,-322 8,-316 14,-310 20,-310"></path>
+<text text-anchor="middle" x="311" y="-370.2" font-family="Helvetica,sans-Serif" font-size="14.00">RDM Life Cycle</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_fair1</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M26,-8C26,-8 190,-8 190,-8 196,-8 202,-14 202,-20 202,-20 202,-76 202,-76 202,-82 196,-88 190,-88 190,-88 26,-88 26,-88 20,-88 14,-82 14,-76 14,-76 14,-20 14,-20 14,-14 20,-8 26,-8"></path>
+<text text-anchor="start" x="50.82" y="-17.4" font-family="Helvetica,sans-Serif" font-size="14.00">FAIR‑for‑Teams</text>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_fair2</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M274,-8C274,-8 456,-8 456,-8 462,-8 468,-14 468,-20 468,-20 468,-76 468,-76 468,-82 462,-88 456,-88 456,-88 274,-88 274,-88 268,-88 262,-82 262,-76 262,-76 262,-20 262,-20 262,-14 268,-8 274,-8"></path>
+<text text-anchor="start" x="290.7" y="-17.4" font-family="Helvetica,sans-Serif" font-size="14.00">FAIR‑for‑Stewardship</text>
+</g>
+<g id="clust8" class="cluster">
+<title>cluster_fair3</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M597,-8C597,-8 705,-8 705,-8 711,-8 717,-14 717,-20 717,-20 717,-76 717,-76 717,-82 711,-88 705,-88 705,-88 597,-88 597,-88 591,-88 585,-82 585,-76 585,-76 585,-20 585,-20 585,-14 591,-8 597,-8"></path>
+<text text-anchor="start" x="594.98" y="-17.4" font-family="Helvetica,sans-Serif" font-size="14.00">FAIR‑for‑Reuse</text>
+</g>
+<!-- R1 -->
+<g id="node1" class="node">
+<title>R1</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M70.07,-354C70.07,-354 27.93,-354 27.93,-354 21.93,-354 15.93,-348 15.93,-342 15.93,-342 15.93,-330 15.93,-330 15.93,-324 21.93,-318 27.93,-318 27.93,-318 70.07,-318 70.07,-318 76.07,-318 82.07,-324 82.07,-330 82.07,-330 82.07,-342 82.07,-342 82.07,-348 76.07,-354 70.07,-354"></path>
+<text text-anchor="middle" x="49" y="-331.8" font-family="Helvetica,sans-Serif" font-size="14.00">Process</text>
+</g>
+<!-- A -->
+<g id="node6" class="node">
+<title>A</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M64.12,-217C64.12,-217 33.88,-217 33.88,-217 27.88,-217 21.88,-211 21.88,-205 21.88,-205 21.88,-193 21.88,-193 21.88,-187 27.88,-181 33.88,-181 33.88,-181 64.12,-181 64.12,-181 70.12,-181 76.12,-187 76.12,-193 76.12,-193 76.12,-205 76.12,-205 76.12,-211 70.12,-217 64.12,-217"></path>
+<text text-anchor="middle" x="49" y="-194.8" font-family="Helvetica,sans-Serif" font-size="14.00">Active</text>
+</g>
+<!-- R1&#45;&gt;A -->
+<g id="edge5" class="edge">
+<title>R1-&gt;A</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M49,-317.9C49,-292.08 49,-243.38 49,-217.39"></path>
+</g>
+<!-- R2 -->
+<g id="node2" class="node">
+<title>R2</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M193.81,-354C193.81,-354 152.19,-354 152.19,-354 146.19,-354 140.19,-348 140.19,-342 140.19,-342 140.19,-330 140.19,-330 140.19,-324 146.19,-318 152.19,-318 152.19,-318 193.81,-318 193.81,-318 199.81,-318 205.81,-324 205.81,-330 205.81,-330 205.81,-342 205.81,-342 205.81,-348 199.81,-354 193.81,-354"></path>
+<text text-anchor="middle" x="173" y="-331.8" font-family="Helvetica,sans-Serif" font-size="14.00">Analyse</text>
+</g>
+<!-- C -->
+<g id="node7" class="node">
+<title>C</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M181.58,-217C181.58,-217 146.42,-217 146.42,-217 140.42,-217 134.42,-211 134.42,-205 134.42,-205 134.42,-193 134.42,-193 134.42,-187 140.42,-181 146.42,-181 146.42,-181 181.58,-181 181.58,-181 187.58,-181 193.58,-187 193.58,-193 193.58,-193 193.58,-205 193.58,-205 193.58,-211 187.58,-217 181.58,-217"></path>
+<text text-anchor="middle" x="164" y="-194.8" font-family="Helvetica,sans-Serif" font-size="14.00">Closed</text>
+</g>
+<!-- R2&#45;&gt;C -->
+<g id="edge6" class="edge">
+<title>R2-&gt;C</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M171.86,-317.9C170.14,-292.08 166.89,-243.38 165.16,-217.39"></path>
+</g>
+<!-- R3 -->
+<g id="node3" class="node">
+<title>R3</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M329.97,-354C329.97,-354 276.03,-354 276.03,-354 270.03,-354 264.03,-348 264.03,-342 264.03,-342 264.03,-330 264.03,-330 264.03,-324 270.03,-318 276.03,-318 276.03,-318 329.97,-318 329.97,-318 335.97,-318 341.97,-324 341.97,-330 341.97,-330 341.97,-342 341.97,-342 341.97,-348 335.97,-354 329.97,-354"></path>
+<text text-anchor="middle" x="303" y="-331.8" font-family="Helvetica,sans-Serif" font-size="14.00">Transition</text>
+</g>
+<!-- L -->
+<g id="node8" class="node">
+<title>L</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M300.64,-217C300.64,-217 263.36,-217 263.36,-217 257.36,-217 251.36,-211 251.36,-205 251.36,-205 251.36,-193 251.36,-193 251.36,-187 257.36,-181 263.36,-181 263.36,-181 300.64,-181 300.64,-181 306.64,-181 312.64,-187 312.64,-193 312.64,-193 312.64,-205 312.64,-205 312.64,-211 306.64,-217 300.64,-217"></path>
+<text text-anchor="middle" x="282" y="-194.8" font-family="Helvetica,sans-Serif" font-size="14.00">Locked</text>
+</g>
+<!-- R3&#45;&gt;L -->
+<g id="edge7" class="edge">
+<title>R3-&gt;L</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M300.34,-317.9C296.32,-292.08 288.75,-243.38 284.7,-217.39"></path>
+</g>
+<!-- R4 -->
+<g id="node4" class="node">
+<title>R4</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M458.47,-354C458.47,-354 411.53,-354 411.53,-354 405.53,-354 399.53,-348 399.53,-342 399.53,-342 399.53,-330 399.53,-330 399.53,-324 405.53,-318 411.53,-318 411.53,-318 458.47,-318 458.47,-318 464.47,-318 470.47,-324 470.47,-330 470.47,-330 470.47,-342 470.47,-342 470.47,-348 464.47,-354 458.47,-354"></path>
+<text text-anchor="middle" x="435" y="-331.8" font-family="Helvetica,sans-Serif" font-size="14.00">Archived</text>
+</g>
+<!-- R -->
+<g id="node9" class="node">
+<title>R</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M504.94,-217C504.94,-217 383.06,-217 383.06,-217 377.06,-217 371.06,-211 371.06,-205 371.06,-205 371.06,-193 371.06,-193 371.06,-187 377.06,-181 383.06,-181 383.06,-181 504.94,-181 504.94,-181 510.94,-181 516.94,-187 516.94,-193 516.94,-193 516.94,-205 516.94,-205 516.94,-211 510.94,-217 504.94,-217"></path>
+<text text-anchor="middle" x="444" y="-194.8" font-family="Helvetica,sans-Serif" font-size="14.00">Archived / Preserved</text>
+</g>
+<!-- R4&#45;&gt;R -->
+<g id="edge8" class="edge">
+<title>R4-&gt;R</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M436.14,-317.9C437.86,-292.08 441.11,-243.38 442.84,-217.39"></path>
+</g>
+<!-- R5 -->
+<g id="node5" class="node">
+<title>R5</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M593.99,-354C593.99,-354 540.01,-354 540.01,-354 534.01,-354 528.01,-348 528.01,-342 528.01,-342 528.01,-330 528.01,-330 528.01,-324 534.01,-318 540.01,-318 540.01,-318 593.99,-318 593.99,-318 599.99,-318 605.99,-324 605.99,-330 605.99,-330 605.99,-342 605.99,-342 605.99,-348 599.99,-354 593.99,-354"></path>
+<text text-anchor="middle" x="567" y="-331.8" font-family="Helvetica,sans-Serif" font-size="14.00">Published</text>
+</g>
+<!-- P -->
+<g id="node10" class="node">
+<title>P</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M715.46,-217C715.46,-217 586.54,-217 586.54,-217 580.54,-217 574.54,-211 574.54,-205 574.54,-205 574.54,-193 574.54,-193 574.54,-187 580.54,-181 586.54,-181 586.54,-181 715.46,-181 715.46,-181 721.46,-181 727.46,-187 727.46,-193 727.46,-193 727.46,-205 727.46,-205 727.46,-211 721.46,-217 715.46,-217"></path>
+<text text-anchor="middle" x="651" y="-194.8" font-family="Helvetica,sans-Serif" font-size="14.00">Published / Preserved</text>
+</g>
+<!-- R5&#45;&gt;P -->
+<g id="edge9" class="edge">
+<title>R5-&gt;P</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M577.64,-317.9C593.71,-292.08 624.01,-243.38 640.18,-217.39"></path>
+</g>
+<!-- A&#45;&gt;C -->
+<g id="edge1" class="edge">
+<title>A-&gt;C</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M76.4,-199C92.21,-199 108.03,-199 123.84,-199"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="124.23,-202.5 134.23,-199 124.23,-195.5 124.23,-202.5"></polygon>
+</g>
+<!-- FT1 -->
+<g id="node11" class="node">
+<title>FT1</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M64.12,-80C64.12,-80 33.88,-80 33.88,-80 27.88,-80 21.88,-74 21.88,-68 21.88,-68 21.88,-56 21.88,-56 21.88,-50 27.88,-44 33.88,-44 33.88,-44 64.12,-44 64.12,-44 70.12,-44 76.12,-50 76.12,-56 76.12,-56 76.12,-68 76.12,-68 76.12,-74 70.12,-80 64.12,-80"></path>
+<text text-anchor="middle" x="49" y="-57.8" font-family="Helvetica,sans-Serif" font-size="14.00">Active</text>
+</g>
+<!-- A&#45;&gt;FT1 -->
+<g id="edge10" class="edge">
+<title>A-&gt;FT1:n</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M49,-180.95C49,-158.17 49,-116.55 49,-81"></path>
+</g>
+<!-- C&#45;&gt;L -->
+<g id="edge2" class="edge">
+<title>C-&gt;L</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M193.96,-199C209.66,-199 225.37,-199 241.07,-199"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="241.39,-202.5 251.39,-199 241.39,-195.5 241.39,-202.5"></polygon>
+</g>
+<!-- FT2 -->
+<g id="node12" class="node">
+<title>FT2</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M181.58,-80C181.58,-80 146.42,-80 146.42,-80 140.42,-80 134.42,-74 134.42,-68 134.42,-68 134.42,-56 134.42,-56 134.42,-50 140.42,-44 146.42,-44 146.42,-44 181.58,-44 181.58,-44 187.58,-44 193.58,-50 193.58,-56 193.58,-56 193.58,-68 193.58,-68 193.58,-74 187.58,-80 181.58,-80"></path>
+<text text-anchor="middle" x="164" y="-57.8" font-family="Helvetica,sans-Serif" font-size="14.00">Closed</text>
+</g>
+<!-- C&#45;&gt;FT2 -->
+<g id="edge11" class="edge">
+<title>C-&gt;FT2:n</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M164,-180.95C164,-158.17 164,-116.55 164,-81"></path>
+</g>
+<!-- L&#45;&gt;R -->
+<g id="edge3" class="edge">
+<title>L-&gt;R</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M312.69,-199C328.76,-199 344.83,-199 360.9,-199"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="360.91,-202.5 370.91,-199 360.91,-195.5 360.91,-202.5"></polygon>
+</g>
+<!-- FS1 -->
+<g id="node13" class="node">
+<title>FS1</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M319.64,-80C319.64,-80 282.36,-80 282.36,-80 276.36,-80 270.36,-74 270.36,-68 270.36,-68 270.36,-56 270.36,-56 270.36,-50 276.36,-44 282.36,-44 282.36,-44 319.64,-44 319.64,-44 325.64,-44 331.64,-50 331.64,-56 331.64,-56 331.64,-68 331.64,-68 331.64,-74 325.64,-80 319.64,-80"></path>
+<text text-anchor="middle" x="301" y="-57.8" font-family="Helvetica,sans-Serif" font-size="14.00">Locked</text>
+</g>
+<!-- L&#45;&gt;FS1 -->
+<g id="edge12" class="edge">
+<title>L-&gt;FS1:n</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M286.6,-180.7C292.22,-157.99 301,-116.81 301,-81"></path>
+</g>
+<!-- R&#45;&gt;P -->
+<g id="edge4" class="edge">
+<title>R-&gt;P</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M517.18,-199C532.83,-199 548.48,-199 564.13,-199"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="564.42,-202.5 574.42,-199 564.42,-195.5 564.42,-202.5"></polygon>
+</g>
+<!-- FS2 -->
+<g id="node14" class="node">
+<title>FS2</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M448.47,-80C448.47,-80 401.53,-80 401.53,-80 395.53,-80 389.53,-74 389.53,-68 389.53,-68 389.53,-56 389.53,-56 389.53,-50 395.53,-44 401.53,-44 401.53,-44 448.47,-44 448.47,-44 454.47,-44 460.47,-50 460.47,-56 460.47,-56 460.47,-68 460.47,-68 460.47,-74 454.47,-80 448.47,-80"></path>
+<text text-anchor="middle" x="425" y="-57.8" font-family="Helvetica,sans-Serif" font-size="14.00">Archived</text>
+</g>
+<!-- R&#45;&gt;FS2 -->
+<g id="edge13" class="edge">
+<title>R-&gt;FS2:n</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M439.4,-180.7C433.78,-157.99 425,-116.81 425,-81"></path>
+</g>
+<!-- FR1 -->
+<g id="node15" class="node">
+<title>FR1</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M677.99,-80C677.99,-80 624.01,-80 624.01,-80 618.01,-80 612.01,-74 612.01,-68 612.01,-68 612.01,-56 612.01,-56 612.01,-50 618.01,-44 624.01,-44 624.01,-44 677.99,-44 677.99,-44 683.99,-44 689.99,-50 689.99,-56 689.99,-56 689.99,-68 689.99,-68 689.99,-74 683.99,-80 677.99,-80"></path>
+<text text-anchor="middle" x="651" y="-57.8" font-family="Helvetica,sans-Serif" font-size="14.00">Published</text>
+</g>
+<!-- P&#45;&gt;FR1 -->
+<g id="edge14" class="edge">
+<title>P-&gt;FR1:n</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M651,-180.95C651,-158.17 651,-116.55 651,-81"></path>
+</g>
+</g>
+</svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-data-states-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -575,7 +696,7 @@ Figure&nbsp;3.1: FAIR Scopes and data states Across the Life Cycle.
 </tr>
 <tr class="odd">
 <td><strong>Transition</strong></td>
-<td>Closed → <strong>Locked</strong></td>
+<td>Closed → Locked</td>
 <td>Freeze data to prevent accidental change</td>
 </tr>
 <tr class="even">
@@ -601,7 +722,7 @@ Figure&nbsp;3.1: FAIR Scopes and data states Across the Life Cycle.
 <section id="active-process-stage-fairforteams" class="level3">
 <h3 class="anchored" data-anchor-id="active-process-stage-fairforteams">Active — Process Stage — FAIR‑for‑Teams</h3>
 <p><strong>Typical services</strong>: HPC scratch, project storage, ELNs, version control.</p>
-<p>This stage supports rapid iteration and collaborative work. Files change frequently, so the priority is capturing <strong>provenance</strong>, i.e.&nbsp;records of how data was collected, processed, and transformed. At this point, provenance is often the only reliable account of <em>what happened, when, and why</em>.</p>
+<p>This stage supports rapid iteration and collaborative work. Files change frequently, so the priority is capturing provenance, i.e.&nbsp;records of how data was collected, processed, and transformed. At this point, provenance is often the only reliable account of <em>what happened, when, and why</em>.</p>
 <p>FAIR here is practical and internal: clear naming, shared access points, open formats, and well‑maintained notebooks that help the team work reproducibly.</p>
 <p><strong>Audience</strong>: research team</p>
 <p><strong>Focus</strong>: efficient collaboration and early capture of provenance</p>
@@ -617,7 +738,7 @@ Figure&nbsp;3.1: FAIR Scopes and data states Across the Life Cycle.
 <section id="locked-transition-stage-fairforstewardship-light" class="level3">
 <h3 class="anchored" data-anchor-id="locked-transition-stage-fairforstewardship-light">Locked — Transition Stage —FAIR‑for‑Stewardship (Light)</h3>
 <p><strong>Typical services</strong>: tape libraries, cold storage, retention systems.</p>
-<p>The Locked stage acts as a <strong>buffer</strong>. Data is frozen in a read‑only state to prevent accidental modification while decisions about long‑term retention are made. Because the data no longer changes, provenance becomes especially valuable for appraisal and assessment.</p>
+<p>The Locked stage acts as a buffer. Data is frozen in a read‑only state to prevent accidental modification while decisions about long‑term retention are made. Because the data no longer changes, provenance becomes especially valuable for appraisal and assessment.</p>
 <p>FAIR here is minimal but essential: stable locations, read‑only access, and preservation‑friendly formats.</p>
 <p><strong>Audience</strong>: research team + institutional stewards</p>
 <p><strong>Focus</strong>: safeguarding inactive data and supporting appraisal</p>
@@ -625,7 +746,7 @@ Figure&nbsp;3.1: FAIR Scopes and data states Across the Life Cycle.
 <section id="archived-preserved-archived-stage-fairforstewardship" class="level3">
 <h3 class="anchored" data-anchor-id="archived-preserved-archived-stage-fairforstewardship">Archived / Preserved — Archived Stage — FAIR‑for‑Stewardship</h3>
 <p><strong>Typical services</strong>: institutional repositories, preservation systems.</p>
-<p>At this stage, data becomes a <strong>managed digital object</strong>. Files are packaged with structured metadata, assigned persistent identifiers, and placed in systems designed for long‑term integrity and accessibility. Provenance gathered earlier provides the context needed for appraisal, authenticity, and future reuse.</p>
+<p>At this stage, data becomes a managed digital object. Files are packaged with structured metadata, assigned persistent identifiers, and placed in systems designed for long‑term integrity and accessibility. Provenance gathered earlier provides the context needed for appraisal, authenticity, and future reuse.</p>
 <p>FAIR now operates at the level of institutional governance: persistent identifiers, controlled access, preservation metadata, and versioning.</p>
 <p><strong>Audience</strong>: institutional stewards and selected collaborators</p>
 <p><strong>Focus</strong>: long‑term integrity and contextual understanding</p>
@@ -643,31 +764,31 @@ Figure&nbsp;3.1: FAIR Scopes and data states Across the Life Cycle.
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>This chapter began by presenting the life cycle and FAIR as separate frameworks; by following data through its states, we can now see how they converge into a single, coherent model of stewardship.</p>
 <ul>
-<li>The <strong>RDM life cycle</strong> describes how data evolves from volatile working files to curated, citable outputs.<br>
+<li>The RDM life cycle describes how data evolves from volatile working files to curated, citable outputs.<br>
 </li>
-<li>The <strong>states of a digital object</strong> determine which storage, tools, and governance mechanisms apply at each stage.</li>
-<li>The <strong>FAIR principles</strong> guide how data should behave, their emphasis shifts as data matures:
+<li>The states of a digital object determine which storage, tools, and governance mechanisms apply at each stage.</li>
+<li>The FAIR principles guide how data should behave, their emphasis shifts as data matures:
 <ul>
-<li><strong>FAIR‑for‑Teams</strong> in the Active and Closed states<br>
+<li>FAIR‑for‑Teams in the Active and Closed states<br>
 </li>
-<li><strong>FAIR‑for‑Stewardship</strong> in the Locked and Archived states<br>
+<li>FAIR‑for‑Stewardship in the Locked and Archived states<br>
 </li>
-<li><strong>FAIR‑for‑Reuse</strong> in the Published state</li>
+<li>FAIR‑for‑Reuse in the Published state</li>
 </ul></li>
 </ul>
 <p>Together, these elements form a coherent framework for managing data from creation to long‑term reuse.</p>
 <p>This alignment sets the stage for the next step: recognising that what moves through these states is not just a collection of files, but a structured digital object.</p>
-<p>As data progresses through the life cycle, it becomes increasingly clear that <strong>files alone are not enough</strong>. A file without context is difficult to interpret, impossible to trust, and often unusable. To be managed, preserved, and reused, data needs:</p>
+<p>As data progresses through the life cycle, it becomes increasingly clear that files alone are not enough. A file without context is difficult to interpret, impossible to trust, and often unusable. To be managed, preserved, and reused, data needs:</p>
 <ul>
-<li><strong>metadata</strong> that describes what it is,<br>
+<li>metadata that describes what it is,<br>
 </li>
-<li><strong>provenance</strong> that explains how it came to be,<br>
+<li>provenance that explains how it came to be,<br>
 </li>
-<li><strong>identifiers</strong> that allow it to be referenced,<br>
+<li>identifiers that allow it to be referenced,<br>
 </li>
-<li><strong>relationships</strong> that connect it to other data, code, and publications.</li>
+<li>relationships that connect it to other data, code, and publications.</li>
 </ul>
-<p>In other words, data must be packaged and understood as a <strong>digital object</strong>, not just a collection of files.<br>
+<p>In other words, data must be packaged and understood as a digital object, not just a collection of files.<br>
 This shift is essential for FAIR stewardship and long‑term preservation.</p>
 <p>With the life cycle, FAIR, and data states now integrated, the concept of the digital object becomes the natural foundation for modern research data management: the primary entity that infrastructures recognise, preserve, and serve, far beyond the limitations of individual files.</p>
 <p>The next chapter <a href="./digital-object.html">The Digital Object</a> explores this concept in depth:<br>

@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f51d66800dd4230279bd6573c4b73a8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-11cafaeb44ee929428d09a09404358f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,15 +72,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<meta name="mermaid-theme" content="forest">
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="css_files/callout.css">
 <link rel="stylesheet" href="css_files/toc.css">
 <link rel="stylesheet" href="css_files/hyperlinks.css">
+<link rel="stylesheet" href="css_files/figure_margins.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -262,9 +259,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#how-these-components-work-together" id="toc-how-these-components-work-together" class="nav-link active" data-scroll-target="#how-these-components-work-together"><strong>How These Components Work Together</strong></a></li>
-  <li><a href="#why-digital-objects-matter" id="toc-why-digital-objects-matter" class="nav-link" data-scroll-target="#why-digital-objects-matter"><strong>Why Digital Objects Matter</strong></a></li>
-  <li><a href="#in-essence" id="toc-in-essence" class="nav-link" data-scroll-target="#in-essence"><strong>In essence</strong></a></li>
+  <li><a href="#how-these-components-work-together" id="toc-how-these-components-work-together" class="nav-link active" data-scroll-target="#how-these-components-work-together">How These Components Work Together</a></li>
+  <li><a href="#why-digital-objects-matter" id="toc-why-digital-objects-matter" class="nav-link" data-scroll-target="#why-digital-objects-matter">Why Digital Objects Matter</a></li>
+  <li><a href="#in-essence" id="toc-in-essence" class="nav-link" data-scroll-target="#in-essence">In essence</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
@@ -291,34 +288,67 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>A <strong>digital (or data) object</strong> is a self‑contained, structured unit of information that exists in electronic form. It is more than just raw bits: it is a combination of <strong>content</strong>, <strong>context</strong>, and <strong>identity</strong> that allows computers and humans to store, interpret, preserve, and reuse information reliably.</p>
-<p>At its core, a digital object consists of <strong>three interdependent components</strong>:</p>
+<p>A digital (or data) object is a self‑contained, structured unit of information that exists in electronic form. It is more than just raw bits: it is a combination of <strong>content</strong>, <strong>context</strong>, and <strong>identity</strong> that allows computers and humans to store, interpret, preserve, and reuse information reliably.</p>
+<p>At its core, a digital object consists of three interdependent components:</p>
 <ul>
 <li><p><a href="./files.html"><strong>Bitstream(s) or File(s)</strong></a> — the actual digital content, stored as one or more files. These may be documents, images, audio recordings, videos, datasets, software packages, or any other digital material. On their own, files are simply encoded data; they require context to be meaningful.</p></li>
 <li><p><a href="./metadata.html"><strong>Metadata</strong></a> — the descriptive, structural, and technical information that explains how to interpret the files and how the object should be managed. Metadata identifies what the object is, how it is organized, who created it, when it was produced, and how it can be rendered or preserved. It provides the essential context that turns raw bits into understandable content.</p></li>
 <li><p><a href="./pids.html"><strong>Persistent Identifier (PID)</strong></a> — a stable, globally unique reference (such as a DOI, Handle, or ARK) that ensures the object can be identified, found, cited, and linked over time, even if its storage location changes. The PID anchors the object’s identity in a durable way.</p></li>
 </ul>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-fig-width="6" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-1">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-
-flowchart TD
-    A["Digital Object"]
-    B["Files"]
-    C["Metadata"]
-    D["Persistent Identifier"]
-
-    A --&gt; B
-    A --&gt; C
-    A --&gt; D
-</pre>
+<svg width="576" height="480" viewbox="0.00 0.00 387.92 152.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 148)">
+<title>digital_object</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-148 383.92,-148 383.92,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M186.76,-144C186.76,-144 111.24,-144 111.24,-144 105.24,-144 99.24,-138 99.24,-132 99.24,-132 99.24,-120 99.24,-120 99.24,-114 105.24,-108 111.24,-108 111.24,-108 186.76,-108 186.76,-108 192.76,-108 198.76,-114 198.76,-120 198.76,-120 198.76,-132 198.76,-132 198.76,-138 192.76,-144 186.76,-144"></path>
+<text text-anchor="middle" x="149" y="-121.8" font-family="Helvetica,sans-Serif" font-size="14.00">Digital Object</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M42,-36C42,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 42,0 42,0 48,0 54,-6 54,-12 54,-12 54,-24 54,-24 54,-30 48,-36 42,-36"></path>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Helvetica,sans-Serif" font-size="14.00">Files</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M129.4,-107.97C109.15,-90.38 77.39,-62.78 54.61,-42.99"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="56.8,-40.26 46.96,-36.34 52.21,-45.54 56.8,-40.26"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M174.37,-36C174.37,-36 123.63,-36 123.63,-36 117.63,-36 111.63,-30 111.63,-24 111.63,-24 111.63,-12 111.63,-12 111.63,-6 117.63,0 123.63,0 123.63,0 174.37,0 174.37,0 180.37,0 186.37,-6 186.37,-12 186.37,-12 186.37,-24 186.37,-24 186.37,-30 180.37,-36 174.37,-36"></path>
+<text text-anchor="middle" x="149" y="-13.8" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata</text>
+</g>
+<!-- A&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>A-&gt;C</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M149,-107.97C149,-91.38 149,-65.88 149,-46.43"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="152.5,-46.34 149,-36.34 145.5,-46.34 152.5,-46.34"></polygon>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M367.83,-36C367.83,-36 256.17,-36 256.17,-36 250.17,-36 244.17,-30 244.17,-24 244.17,-24 244.17,-12 244.17,-12 244.17,-6 250.17,0 256.17,0 256.17,0 367.83,0 367.83,0 373.83,0 379.83,-6 379.83,-12 379.83,-12 379.83,-24 379.83,-24 379.83,-30 373.83,-36 367.83,-36"></path>
+<text text-anchor="middle" x="312" y="-13.8" font-family="Helvetica,sans-Serif" font-size="14.00">Persistent Identifier</text>
+</g>
+<!-- A&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>A-&gt;D</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M175.19,-107.97C202.79,-90.02 246.42,-61.65 276.97,-41.78"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="279.13,-44.55 285.61,-36.16 275.31,-38.68 279.13,-44.55"></polygon>
+</g>
+</g>
+</svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -329,8 +359,8 @@ Figure&nbsp;4.1: The Digital Object
 </div>
 </div>
 <section id="how-these-components-work-together" class="level3">
-<h3 class="anchored" data-anchor-id="how-these-components-work-together"><strong>How These Components Work Together</strong></h3>
-<p>These three parts form a <strong>single functional entity</strong>:</p>
+<h3 class="anchored" data-anchor-id="how-these-components-work-together">How These Components Work Together</h3>
+<p>These three parts form a single functional entity:</p>
 <ul>
 <li>The <strong>files</strong> hold the content.<br>
 </li>
@@ -340,73 +370,122 @@ Figure&nbsp;4.1: The Digital Object
 </ul>
 <p>If any one of these components is missing, the digital object becomes incomplete. Files without metadata are uninterpretable; metadata without files is empty description; and neither files nor metadata are useful if they cannot be reliably identified and located.</p>
 <p>The diagrams below illustrate two common patterns for connecting a PID, the underlying files, and their metadata.</p>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-fig-width="8" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-do-implementation" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-do-implementation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-2">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-
-flowchart LR
-
-     F["Files"]
-     M["Metadata"]
-    
-    P["Persistent Identifier (PID)"]
-
-    P --&gt; |"points to"| F
-    F --&gt; |"points to"| M
-    M --&gt; |"contains"| P
-</pre>
+<svg width="768" height="480" viewbox="0.00 0.00 826.00 272.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 268)">
+<title>combined_relations</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-268 822,-268 822,4 -4,4"></polygon>
+<g id="clust3" class="cluster">
+<title>cluster_2</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M442,-8C442,-8 798,-8 798,-8 804,-8 810,-14 810,-20 810,-20 810,-244 810,-244 810,-250 804,-256 798,-256 798,-256 442,-256 442,-256 436,-256 430,-250 430,-244 430,-244 430,-20 430,-20 430,-14 436,-8 442,-8"></path>
+<text text-anchor="middle" x="620" y="-239.4" font-family="Helvetica,sans-Serif" font-size="14.00">Pattern 2</text>
+</g>
+<g id="clust1" class="cluster">
+<title>cluster_1</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M20,-8C20,-8 376,-8 376,-8 382,-8 388,-14 388,-20 388,-20 388,-244 388,-244 388,-250 382,-256 376,-256 376,-256 20,-256 20,-256 14,-256 8,-250 8,-244 8,-244 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
+<text text-anchor="middle" x="198" y="-239.4" font-family="Helvetica,sans-Serif" font-size="14.00">Pattern 1</text>
+</g>
+<!-- P1 -->
+<g id="node1" class="node">
+<title>P1</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M368.39,-223.2C368.39,-223.2 219.61,-223.2 219.61,-223.2 213.61,-223.2 207.61,-217.2 207.61,-211.2 207.61,-211.2 207.61,-199.2 207.61,-199.2 207.61,-193.2 213.61,-187.2 219.61,-187.2 219.61,-187.2 368.39,-187.2 368.39,-187.2 374.39,-187.2 380.39,-193.2 380.39,-199.2 380.39,-199.2 380.39,-211.2 380.39,-211.2 380.39,-217.2 374.39,-223.2 368.39,-223.2"></path>
+<text text-anchor="middle" x="294" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00">Persistent Identifier (PID)</text>
+</g>
+<!-- F1 -->
+<g id="node3" class="node">
+<title>F1</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M210,-52C210,-52 180,-52 180,-52 174,-52 168,-46 168,-40 168,-40 168,-28 168,-28 168,-22 174,-16 180,-16 180,-16 210,-16 210,-16 216,-16 222,-22 222,-28 222,-28 222,-40 222,-40 222,-46 216,-52 210,-52"></path>
+<text text-anchor="middle" x="195" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Files</text>
+</g>
+<!-- P1&#45;&gt;F1 -->
+<g id="edge1" class="edge">
+<title>P1-&gt;F1</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M283.96,-187.05C266.54,-157.28 230.63,-95.89 210.16,-60.91"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="213.14,-59.06 205.06,-52.2 207.09,-62.6 213.14,-59.06"></polygon>
+<text text-anchor="middle" x="278.24" y="-114.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">points to</text>
+</g>
+<!-- M1 -->
+<g id="node2" class="node">
+<title>M1</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M78.37,-223.2C78.37,-223.2 27.63,-223.2 27.63,-223.2 21.63,-223.2 15.63,-217.2 15.63,-211.2 15.63,-211.2 15.63,-199.2 15.63,-199.2 15.63,-193.2 21.63,-187.2 27.63,-187.2 27.63,-187.2 78.37,-187.2 78.37,-187.2 84.37,-187.2 90.37,-193.2 90.37,-199.2 90.37,-199.2 90.37,-211.2 90.37,-211.2 90.37,-217.2 84.37,-223.2 78.37,-223.2"></path>
+<text text-anchor="middle" x="53" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata</text>
+</g>
+<!-- M1&#45;&gt;P1 -->
+<g id="edge3" class="edge">
+<title>M1-&gt;P1</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M90.39,-205.2C119.09,-205.2 160.06,-205.2 197.74,-205.2"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="197.75,-208.7 207.75,-205.2 197.75,-201.7 197.75,-208.7"></polygon>
+<text text-anchor="middle" x="149" y="-213" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">contains</text>
+</g>
+<!-- F1&#45;&gt;M1 -->
+<g id="edge2" class="edge">
+<title>F1-&gt;M1</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M180.56,-52.2C155.34,-82.26 103.15,-144.44 73.95,-179.24"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="71.14,-177.14 67.4,-187.05 76.51,-181.64 71.14,-177.14"></polygon>
+<text text-anchor="middle" x="159.24" y="-114.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">points to</text>
+</g>
+<!-- F2 -->
+<g id="node4" class="node">
+<title>F2</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M511,-52C511,-52 481,-52 481,-52 475,-52 469,-46 469,-40 469,-40 469,-28 469,-28 469,-22 475,-16 481,-16 481,-16 511,-16 511,-16 517,-16 523,-22 523,-28 523,-28 523,-40 523,-40 523,-46 517,-52 511,-52"></path>
+<text text-anchor="middle" x="496" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Files</text>
+</g>
+<!-- M2 -->
+<g id="node5" class="node">
+<title>M2</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M500.37,-223.2C500.37,-223.2 449.63,-223.2 449.63,-223.2 443.63,-223.2 437.63,-217.2 437.63,-211.2 437.63,-211.2 437.63,-199.2 437.63,-199.2 437.63,-193.2 443.63,-187.2 449.63,-187.2 449.63,-187.2 500.37,-187.2 500.37,-187.2 506.37,-187.2 512.37,-193.2 512.37,-199.2 512.37,-199.2 512.37,-211.2 512.37,-211.2 512.37,-217.2 506.37,-223.2 500.37,-223.2"></path>
+<text text-anchor="middle" x="475" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata</text>
+</g>
+<!-- M2&#45;&gt;F2 -->
+<g id="edge7" class="edge">
+<title>M2-&gt;F2</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M477.13,-187.05C480.78,-157.66 488.25,-97.45 492.62,-62.26"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="496.11,-62.56 493.87,-52.2 489.16,-61.69 496.11,-62.56"></polygon>
+<text text-anchor="middle" x="550.04" y="-114.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">has access info to</text>
+</g>
+<!-- P2 -->
+<g id="node6" class="node">
+<title>P2</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M790.39,-223.2C790.39,-223.2 641.61,-223.2 641.61,-223.2 635.61,-223.2 629.61,-217.2 629.61,-211.2 629.61,-211.2 629.61,-199.2 629.61,-199.2 629.61,-193.2 635.61,-187.2 641.61,-187.2 641.61,-187.2 790.39,-187.2 790.39,-187.2 796.39,-187.2 802.39,-193.2 802.39,-199.2 802.39,-199.2 802.39,-211.2 802.39,-211.2 802.39,-217.2 796.39,-223.2 790.39,-223.2"></path>
+<text text-anchor="middle" x="716" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00">Persistent Identifier (PID)</text>
+</g>
+<!-- M2&#45;&gt;P2 -->
+<!-- M2&#45;&gt;P2 -->
+<g id="edge5" class="edge">
+<title>M2-&gt;P2</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M512.27,-190.36C521.57,-187.32 531.63,-184.56 541.2,-183 572.26,-177.93 606.58,-180.52 636.53,-185.43"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="636.05,-188.9 646.51,-187.18 637.26,-182.01 636.05,-188.9"></polygon>
+<text text-anchor="middle" x="571" y="-187.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">contains</text>
+</g>
+<!-- P2&#45;&gt;M2 -->
+<g id="edge6" class="edge">
+<title>P2-&gt;M2</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M629.75,-205.2C593.73,-205.2 553.26,-205.2 522.75,-205.2"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="522.39,-201.7 512.39,-205.2 522.39,-208.7 522.39,-201.7"></polygon>
+<text text-anchor="middle" x="571" y="-213" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">points to</text>
+</g>
+</g>
+</svg>
 </div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.2: PID points to a file which contains or points to the metadata.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-do-implementation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.2: Two common PID–File–Metadata relationship patterns.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>In the first pattern, the PID resolves directly to a file, which then contains or links to the relevant metadata.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div id="fig-3" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div>
-<pre class="mermaid mermaid-js" data-label="fig-3">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-
-flowchart LR
-
-    F["Files"]
-    M["Metadata"]
-    P["Persistent Identifier (PID)"]
-
-    M --&gt; |"contains"| P
-    P --&gt; |"points to"| M
-    M --&gt; |"has access info to"| F
-</pre>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.3: PID points to metadata or a landing page that contains information on how to access the file(s).
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
 <p>In the second pattern, the PID resolves to a metadata record or landing page, which provides the information needed to locate and access the file(s).<br>
 Both approaches are widely used; the choice depends on repository design and access requirements.</p>
 </section>
 <section id="why-digital-objects-matter" class="level3">
-<h3 class="anchored" data-anchor-id="why-digital-objects-matter"><strong>Why Digital Objects Matter</strong></h3>
+<h3 class="anchored" data-anchor-id="why-digital-objects-matter">Why Digital Objects Matter</h3>
 <p>Digital objects are the foundation of modern research data management systems. Their structured nature enables:</p>
 <ul>
 <li><p><strong>Preservation</strong> — keeping knowledge accessible as formats, platforms, and storage systems evolve.<br>
@@ -429,47 +508,111 @@ Replicas of files on different storage systems improve resilience and performanc
 <li><strong>Provenance</strong> — documenting how data came to be, including transformations and dependencies.<br>
 This includes relationships such as <em>raw data → processed data → analysed data</em>, making the object’s history transparent and reproducible.</li>
 </ul>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-fig-width="8" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-4">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-
-flowchart RL
-
-    subgraph RAW["Raw Data Object"]
-        direction TB
-        R_F["Files"]
-        R_M["Metadata"]
-        R_P["PID"]
-    end
-
-    subgraph PROC["Processed Data Object"]
-        direction TB
-        P_F["Files"]
-        P_M["Metadata"]
-        P_P["PID"]
-    end
-    
-    subgraph ANAL["Analysed Data Object"]
-        direction TB
-        A_F["Files"]
-        A_M["Metadata"]
-        A_P["PID"]
-    end
-
-    P_M --&gt; |"created from"| R_P
-    A_M --&gt; |"created from"| P_P
-</pre>
+<svg width="768" height="480" viewbox="0.00 0.00 518.00 397.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 393)">
+<title>data_lineage</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-393 514,-393 514,4 -4,4"></polygon>
+<g id="clust3" class="cluster">
+<title>cluster_analysis</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M363,-8C363,-8 490,-8 490,-8 496,-8 502,-14 502,-20 502,-20 502,-369 502,-369 502,-375 496,-381 490,-381 490,-381 363,-381 363,-381 357,-381 351,-375 351,-369 351,-369 351,-20 351,-20 351,-14 357,-8 363,-8"></path>
+<text text-anchor="middle" x="426.5" y="-364.4" font-family="Helvetica,sans-Serif" font-size="14.00">Analysed Data Object</text>
+</g>
+<g id="clust1" class="cluster">
+<title>cluster_raw</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M20,-8C20,-8 117,-8 117,-8 123,-8 129,-14 129,-20 129,-20 129,-369 129,-369 129,-375 123,-381 117,-381 117,-381 20,-381 20,-381 14,-381 8,-375 8,-369 8,-369 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
+<text text-anchor="middle" x="68.5" y="-364.4" font-family="Helvetica,sans-Serif" font-size="14.00">Raw Data Object</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_proc</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M167,-8C167,-8 302,-8 302,-8 308,-8 314,-14 314,-20 314,-20 314,-369 314,-369 314,-375 308,-381 302,-381 302,-381 167,-381 167,-381 161,-381 155,-375 155,-369 155,-369 155,-20 155,-20 155,-14 161,-8 167,-8"></path>
+<text text-anchor="middle" x="234.5" y="-364.4" font-family="Helvetica,sans-Serif" font-size="14.00">Processed Data Object</text>
+</g>
+<!-- R_F -->
+<g id="node1" class="node">
+<title>R_F</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M83,-348.2C83,-348.2 53,-348.2 53,-348.2 47,-348.2 41,-342.2 41,-336.2 41,-336.2 41,-324.2 41,-324.2 41,-318.2 47,-312.2 53,-312.2 53,-312.2 83,-312.2 83,-312.2 89,-312.2 95,-318.2 95,-324.2 95,-324.2 95,-336.2 95,-336.2 95,-342.2 89,-348.2 83,-348.2"></path>
+<text text-anchor="middle" x="68" y="-326" font-family="Helvetica,sans-Serif" font-size="14.00">Files</text>
+</g>
+<!-- R_M -->
+<g id="node2" class="node">
+<title>R_M</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M93.37,-209.2C93.37,-209.2 42.63,-209.2 42.63,-209.2 36.63,-209.2 30.63,-203.2 30.63,-197.2 30.63,-197.2 30.63,-185.2 30.63,-185.2 30.63,-179.2 36.63,-173.2 42.63,-173.2 42.63,-173.2 93.37,-173.2 93.37,-173.2 99.37,-173.2 105.37,-179.2 105.37,-185.2 105.37,-185.2 105.37,-197.2 105.37,-197.2 105.37,-203.2 99.37,-209.2 93.37,-209.2"></path>
+<text text-anchor="middle" x="68" y="-187" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata</text>
+</g>
+<!-- R_F&#45;&gt;R_M -->
+<!-- R_P -->
+<g id="node3" class="node">
+<title>R_P</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M96,-52C96,-52 66,-52 66,-52 60,-52 54,-46 54,-40 54,-40 54,-28 54,-28 54,-22 60,-16 66,-16 66,-16 96,-16 96,-16 102,-16 108,-22 108,-28 108,-28 108,-40 108,-40 108,-46 102,-52 96,-52"></path>
+<text text-anchor="middle" x="81" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">PID</text>
+</g>
+<!-- R_M&#45;&gt;R_P -->
+<!-- P_F -->
+<g id="node4" class="node">
+<title>P_F</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M245,-348.2C245,-348.2 215,-348.2 215,-348.2 209,-348.2 203,-342.2 203,-336.2 203,-336.2 203,-324.2 203,-324.2 203,-318.2 209,-312.2 215,-312.2 215,-312.2 245,-312.2 245,-312.2 251,-312.2 257,-318.2 257,-324.2 257,-324.2 257,-336.2 257,-336.2 257,-342.2 251,-348.2 245,-348.2"></path>
+<text text-anchor="middle" x="230" y="-326" font-family="Helvetica,sans-Serif" font-size="14.00">Files</text>
+</g>
+<!-- P_M -->
+<g id="node5" class="node">
+<title>P_M</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M255.37,-209.2C255.37,-209.2 204.63,-209.2 204.63,-209.2 198.63,-209.2 192.63,-203.2 192.63,-197.2 192.63,-197.2 192.63,-185.2 192.63,-185.2 192.63,-179.2 198.63,-173.2 204.63,-173.2 204.63,-173.2 255.37,-173.2 255.37,-173.2 261.37,-173.2 267.37,-179.2 267.37,-185.2 267.37,-185.2 267.37,-197.2 267.37,-197.2 267.37,-203.2 261.37,-209.2 255.37,-209.2"></path>
+<text text-anchor="middle" x="230" y="-187" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata</text>
+</g>
+<!-- P_F&#45;&gt;P_M -->
+<!-- P_M&#45;&gt;R_P -->
+<g id="edge7" class="edge">
+<title>P_M-&gt;R_P</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M199.49,-173.03C179.35,-160.67 153.25,-142.63 134.19,-122.2 117.19,-103.98 102.83,-79.49 93.33,-61.1"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="96.43,-59.48 88.82,-52.11 90.17,-62.62 96.43,-59.48"></polygon>
+<text text-anchor="middle" x="179.91" y="-107.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">created from</text>
+</g>
+<!-- P_P -->
+<g id="node6" class="node">
+<title>P_P</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M281,-52C281,-52 251,-52 251,-52 245,-52 239,-46 239,-40 239,-40 239,-28 239,-28 239,-22 245,-16 251,-16 251,-16 281,-16 281,-16 287,-16 293,-22 293,-28 293,-28 293,-40 293,-40 293,-46 287,-52 281,-52"></path>
+<text text-anchor="middle" x="266" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">PID</text>
+</g>
+<!-- P_M&#45;&gt;P_P -->
+<!-- A_F -->
+<g id="node7" class="node">
+<title>A_F</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M428,-348.2C428,-348.2 398,-348.2 398,-348.2 392,-348.2 386,-342.2 386,-336.2 386,-336.2 386,-324.2 386,-324.2 386,-318.2 392,-312.2 398,-312.2 398,-312.2 428,-312.2 428,-312.2 434,-312.2 440,-318.2 440,-324.2 440,-324.2 440,-336.2 440,-336.2 440,-342.2 434,-348.2 428,-348.2"></path>
+<text text-anchor="middle" x="413" y="-326" font-family="Helvetica,sans-Serif" font-size="14.00">Files</text>
+</g>
+<!-- A_M -->
+<g id="node8" class="node">
+<title>A_M</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M438.37,-209.2C438.37,-209.2 387.63,-209.2 387.63,-209.2 381.63,-209.2 375.63,-203.2 375.63,-197.2 375.63,-197.2 375.63,-185.2 375.63,-185.2 375.63,-179.2 381.63,-173.2 387.63,-173.2 387.63,-173.2 438.37,-173.2 438.37,-173.2 444.37,-173.2 450.37,-179.2 450.37,-185.2 450.37,-185.2 450.37,-197.2 450.37,-197.2 450.37,-203.2 444.37,-209.2 438.37,-209.2"></path>
+<text text-anchor="middle" x="413" y="-187" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata</text>
+</g>
+<!-- A_F&#45;&gt;A_M -->
+<!-- A_M&#45;&gt;P_P -->
+<g id="edge8" class="edge">
+<title>A_M-&gt;P_P</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M375.79,-173.31C353.29,-161.58 325.35,-144.14 306.19,-122.2 290.83,-104.61 280.25,-80.17 273.81,-61.63"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="277.1,-60.44 270.66,-52.03 270.45,-62.62 277.1,-60.44"></polygon>
+<text text-anchor="middle" x="350.91" y="-107.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">created from</text>
+</g>
+<!-- A_P -->
+<g id="node9" class="node">
+<title>A_P</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M431,-52C431,-52 401,-52 401,-52 395,-52 389,-46 389,-40 389,-40 389,-28 389,-28 389,-22 395,-16 401,-16 401,-16 431,-16 431,-16 437,-16 443,-22 443,-28 443,-28 443,-40 443,-40 443,-46 437,-52 431,-52"></path>
+<text text-anchor="middle" x="416" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">PID</text>
+</g>
+<!-- A_M&#45;&gt;A_P -->
+</g>
+</svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.4: Data lineage represented as a chain of Digital Objects (raw → processed → analysed).
+Figure&nbsp;4.3: Data lineage represented as a chain of Digital Objects (raw → processed → analysed).
 </figcaption>
 </figure>
 </div>
@@ -477,8 +620,8 @@ Figure&nbsp;4.4: Data lineage represented as a chain of Digital Objects (raw →
 </div>
 </section>
 <section id="in-essence" class="level3">
-<h3 class="anchored" data-anchor-id="in-essence"><strong>In essence</strong></h3>
-<p>A digital object is <strong>content + context + identity</strong>.<br>
+<h3 class="anchored" data-anchor-id="in-essence">In essence</h3>
+<p>A digital object is content + context + identity.<br>
 The bitstreams supply the content, the metadata provides the meaning needed to interpret and manage that content, and the persistent identifier anchors a stable, durable identity. Together, these components make digital information portable across systems, understandable over time, and resilient to changes in storage or technology. The chapters that follow examine each of these elements in depth, along with the infrastructure that enables them to function as a coherent whole.</p>
 </section>
 <section id="references" class="level2">

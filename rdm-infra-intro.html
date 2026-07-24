@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f51d66800dd4230279bd6573c4b73a8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-11cafaeb44ee929428d09a09404358f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,15 +72,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<meta name="mermaid-theme" content="forest">
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="css_files/callout.css">
 <link rel="stylesheet" href="css_files/toc.css">
 <link rel="stylesheet" href="css_files/hyperlinks.css">
+<link rel="stylesheet" href="css_files/figure_margins.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -290,79 +287,151 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Modern research data management relies not only on <strong>digital objects</strong>, i.e.&nbsp;the combination of files, metadata, and persistent identifiers, but also on the <strong>infrastructure</strong> that enables those objects to be managed across their entire lifecycle.</p>
-<p>RDM infrastructure is the <strong>ecosystem of systems</strong> that ensures digital objects remain:</p>
+<p>Modern research data management relies not only on digital objects, i.e.&nbsp;the combination of files, metadata, and persistent identifiers, but also on the infrastructure that enables those objects to be managed across their entire lifecycle.</p>
+<p>RDM infrastructure is the ecosystem of systems that ensures digital objects remain:</p>
 <ul>
-<li><strong>durable</strong> (stored safely across time and technologies)<br>
+<li>durable (stored safely across time and technologies)<br>
 </li>
-<li><strong>discoverable</strong> (indexed and searchable)<br>
+<li>discoverable (indexed and searchable)<br>
 </li>
-<li><strong>identifiable</strong> (anchored by persistent identifiers)<br>
+<li>identifiable (anchored by persistent identifiers)<br>
 </li>
-<li><strong>governed</strong> (managed by policies, workflows, and access rules)<br>
+<li>governed (managed by policies, workflows, and access rules)<br>
 </li>
-<li><strong>usable</strong> (accessible to humans and machines in meaningful ways)<br>
+<li>usable (accessible to humans and machines in meaningful ways)<br>
 </li>
-<li><strong>interoperable with compute</strong> (able to move into and out of analysis environments without breaking identity or provenance)</li>
+<li>interoperable with compute (able to move into and out of analysis environments without breaking identity or provenance)</li>
 </ul>
-<p>Just as a digital object consists of three interdependent components, the infrastructure that supports it can be understood through <strong>five complementary layers</strong>:</p>
+<p>Just as a digital object consists of three interdependent components, the infrastructure that supports it can be understood through five complementary layers:</p>
 <ul>
-<li><strong>Storage Infrastructure</strong> — the technical substrate that preserves the bitstreams.<br>
+<li>Storage Infrastructure — the technical substrate that preserves the bitstreams.<br>
 </li>
-<li><strong>Data Repositories and Policy engines</strong> — systems that curate, package, publish, and actively manage digital objects across different stages of the lifecycle.
+<li>Data Repositories and Policy engines — systems that curate, package, publish, and actively manage digital objects across different stages of the lifecycle.
 <ul>
 <li>Policy engines coordinate files, metadata, and storage during active research.</li>
 <li>Data repositories focus on stabilised, publishable digital objects.</li>
 </ul></li>
-<li><strong>Metadata Portals</strong> — discovery layers that expose metadata for search, indexing, and aggregation.<br>
+<li>Metadata Portals — discovery layers that expose metadata for search, indexing, and aggregation.<br>
 </li>
-<li><strong>PID Services</strong> — the identifier infrastructure that anchors digital objects in a global namespace.<br>
+<li>PID Services — the identifier infrastructure that anchors digital objects in a global namespace.<br>
 </li>
-<li><strong>Compute Interoperability</strong> — the ability of digital objects to flow into and out of compute systems (HPC, cloud, VMs, workflow engines) while preserving identity, metadata, and provenance.</li>
+<li>Compute Interoperability — the ability of digital objects to flow into and out of compute systems (HPC, cloud, VMs, workflow engines) while preserving identity, metadata, and provenance.</li>
 </ul>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-fig-width="9" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-rdm-layers" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-rdm-layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-rdm-layers">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-
-flowchart BT
-
-    %% Top: Digital Objects
-    DO["Digital Objects&lt;br/&gt;(files + metadata + PID)"]
-
-    %% Exposure Layer
-    subgraph Exposure["Exposure and Interoperability Layer"]
-        direction LR
-        M["Metadata Portals"]
-        P["PID Services"]
-    end
-
-    %% Management Layer
-    subgraph Management["Digital Object Formation and Management Layer"]
-        direction LR
-        R["Data Repositories"]
-        PE["Policy Engines"]
-    end
-
-    %% Storage Layer
-    S["Storage Infrastructure"]
-
-    %% Compute Interoperability (side)
-    C["Compute Interoperability"]
-
-    %% Minimal connections
-    S -- "Managed by" --&gt; Management
-    Management -- "Export Metadata" --&gt; Exposure
-    Management -- "Create" --&gt; DO
-    C -- "Discover and use" --&gt; DO
-
-</pre>
+<svg width="864" height="480" viewbox="0.00 0.00 1484.29 473.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 469)">
+<title>rdm_layers</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-469 1480.29,-469 1480.29,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>cluster_exposure</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M20,-86C20,-86 877.52,-86 877.52,-86 883.52,-86 889.52,-92 889.52,-98 889.52,-98 889.52,-220 889.52,-220 889.52,-226 883.52,-232 877.52,-232 877.52,-232 20,-232 20,-232 14,-232 8,-226 8,-220 8,-220 8,-98 8,-98 8,-92 14,-86 20,-86"></path>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_management</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M585.82,-270C585.82,-270 1448.79,-270 1448.79,-270 1454.79,-270 1460.79,-276 1460.79,-282 1460.79,-282 1460.79,-404 1460.79,-404 1460.79,-410 1454.79,-416 1448.79,-416 1448.79,-416 585.82,-416 585.82,-416 579.82,-416 573.82,-410 573.82,-404 573.82,-404 573.82,-282 573.82,-282 573.82,-276 579.82,-270 585.82,-270"></path>
+</g>
+<!-- DO -->
+<g id="node1" class="node">
+<title>DO</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M1464.33,-85.7C1464.33,-85.7 1282.17,-85.7 1282.17,-85.7 1276.17,-85.7 1270.17,-79.7 1270.17,-73.7 1270.17,-73.7 1270.17,-46.3 1270.17,-46.3 1270.17,-40.3 1276.17,-34.3 1282.17,-34.3 1282.17,-34.3 1464.33,-34.3 1464.33,-34.3 1470.33,-34.3 1476.33,-40.3 1476.33,-46.3 1476.33,-46.3 1476.33,-73.7 1476.33,-73.7 1476.33,-79.7 1470.33,-85.7 1464.33,-85.7"></path>
+<text text-anchor="middle" x="1373.25" y="-65.4" font-family="Helvetica,sans-Serif" font-size="18.00">Digital Objects</text>
+<text text-anchor="middle" x="1373.25" y="-43.8" font-family="Helvetica,sans-Serif" font-size="18.00">(files + metadata + PID)</text>
+</g>
+<!-- ExposureHeader -->
+<g id="node2" class="node">
+<title>ExposureHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M335.61,-224C335.61,-224 28.13,-224 28.13,-224 22.13,-224 16.13,-218 16.13,-212 16.13,-212 16.13,-200 16.13,-200 16.13,-194 22.13,-188 28.13,-188 28.13,-188 335.61,-188 335.61,-188 341.61,-188 347.61,-194 347.61,-200 347.61,-200 347.61,-212 347.61,-212 347.61,-218 341.61,-224 335.61,-224"></path>
+<text text-anchor="middle" x="181.87" y="-200" font-family="Helvetica,sans-Serif" font-size="20.00">Exposure and Interoperability Layer</text>
+</g>
+<!-- M -->
+<g id="node3" class="node">
+<title>M</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M869.55,-130C869.55,-130 741.41,-130 741.41,-130 735.41,-130 729.41,-124 729.41,-118 729.41,-118 729.41,-106 729.41,-106 729.41,-100 735.41,-94 741.41,-94 741.41,-94 869.55,-94 869.55,-94 875.55,-94 881.55,-100 881.55,-106 881.55,-106 881.55,-118 881.55,-118 881.55,-124 875.55,-130 869.55,-130"></path>
+<text text-anchor="middle" x="805.48" y="-106.6" font-family="Helvetica,sans-Serif" font-size="18.00">Metadata Portals</text>
+</g>
+<!-- ExposureHeader&#45;&gt;M -->
+<!-- P -->
+<g id="node4" class="node">
+<title>P</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M853.51,-224C853.51,-224 757.45,-224 757.45,-224 751.45,-224 745.45,-218 745.45,-212 745.45,-212 745.45,-200 745.45,-200 745.45,-194 751.45,-188 757.45,-188 757.45,-188 853.51,-188 853.51,-188 859.51,-188 865.51,-194 865.51,-200 865.51,-200 865.51,-212 865.51,-212 865.51,-218 859.51,-224 853.51,-224"></path>
+<text text-anchor="middle" x="805.48" y="-200.6" font-family="Helvetica,sans-Serif" font-size="18.00">PID Services</text>
+</g>
+<!-- ExposureHeader&#45;&gt;P -->
+<!-- ManagementHeader -->
+<g id="node5" class="node">
+<title>ManagementHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M1017.31,-318C1017.31,-318 593.65,-318 593.65,-318 587.65,-318 581.65,-312 581.65,-306 581.65,-306 581.65,-294 581.65,-294 581.65,-288 587.65,-282 593.65,-282 593.65,-282 1017.31,-282 1017.31,-282 1023.31,-282 1029.31,-288 1029.31,-294 1029.31,-294 1029.31,-306 1029.31,-306 1029.31,-312 1023.31,-318 1017.31,-318"></path>
+<text text-anchor="middle" x="805.48" y="-294" font-family="Helvetica,sans-Serif" font-size="20.00">Digital Object Formation and Management Layer</text>
+</g>
+<!-- ExposureHeader&#45;&gt;ManagementHeader -->
+<!-- ManagementHeader&#45;&gt;DO -->
+<g id="edge9" class="edge">
+<title>ManagementHeader-&gt;DO</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M904.59,-281.95C944.01,-273.23 989.42,-261.29 1029.14,-246 1139.82,-203.41 1259.53,-132.12 1324.2,-91.28"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="1326.38,-94.04 1332.95,-85.72 1322.63,-88.13 1326.38,-94.04"></polygon>
+<text text-anchor="middle" x="1149.68" y="-226.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">Create</text>
+</g>
+<!-- ManagementHeader&#45;&gt;ExposureHeader -->
+<g id="edge8" class="edge">
+<title>ManagementHeader-&gt;ExposureHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M718.52,-281.97C674.91,-272.29 621.27,-259.57 573.82,-246 554.41,-240.45 550.6,-235.41 530.82,-231.4 475.21,-220.12 413.72,-213.7 358.09,-210.08"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="357.97,-206.57 347.77,-209.44 357.53,-213.56 357.97,-206.57"></polygon>
+<text text-anchor="middle" x="464.78" y="-236.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">Export Metadata</text>
+</g>
+<!-- R -->
+<g id="node6" class="node">
+<title>R</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M1440.82,-408C1440.82,-408 1305.69,-408 1305.69,-408 1299.69,-408 1293.69,-402 1293.69,-396 1293.69,-396 1293.69,-384 1293.69,-384 1293.69,-378 1299.69,-372 1305.69,-372 1305.69,-372 1440.82,-372 1440.82,-372 1446.82,-372 1452.82,-378 1452.82,-384 1452.82,-384 1452.82,-396 1452.82,-396 1452.82,-402 1446.82,-408 1440.82,-408"></path>
+<text text-anchor="middle" x="1373.25" y="-384.6" font-family="Helvetica,sans-Serif" font-size="18.00">Data Repositories</text>
+</g>
+<!-- ManagementHeader&#45;&gt;R -->
+<!-- PE -->
+<g id="node7" class="node">
+<title>PE</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M1428.32,-314C1428.32,-314 1318.19,-314 1318.19,-314 1312.19,-314 1306.19,-308 1306.19,-302 1306.19,-302 1306.19,-290 1306.19,-290 1306.19,-284 1312.19,-278 1318.19,-278 1318.19,-278 1428.32,-278 1428.32,-278 1434.32,-278 1440.32,-284 1440.32,-290 1440.32,-290 1440.32,-302 1440.32,-302 1440.32,-308 1434.32,-314 1428.32,-314"></path>
+<text text-anchor="middle" x="1373.25" y="-290.6" font-family="Helvetica,sans-Serif" font-size="18.00">Policy Engines</text>
+</g>
+<!-- ManagementHeader&#45;&gt;PE -->
+<!-- S -->
+<g id="node8" class="node">
+<title>S</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M888.56,-465C888.56,-465 722.39,-465 722.39,-465 716.39,-465 710.39,-459 710.39,-453 710.39,-453 710.39,-441 710.39,-441 710.39,-435 716.39,-429 722.39,-429 722.39,-429 888.56,-429 888.56,-429 894.56,-429 900.56,-435 900.56,-441 900.56,-441 900.56,-453 900.56,-453 900.56,-459 894.56,-465 888.56,-465"></path>
+<text text-anchor="middle" x="805.48" y="-441.6" font-family="Helvetica,sans-Serif" font-size="18.00">Storage Infrastructure</text>
+</g>
+<!-- S&#45;&gt;R -->
+<g id="edge7" class="edge">
+<title>S-&gt;R</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M900.74,-437.75C940.39,-433.85 987.01,-429.23 1029.14,-425 1115.6,-416.32 1214.29,-406.23 1283.56,-399.13"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="1283.97,-402.6 1293.56,-398.1 1283.26,-395.64 1283.97,-402.6"></polygon>
+<text text-anchor="middle" x="1149.68" y="-424.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">Managed by</text>
+</g>
+<!-- S&#45;&gt;PE -->
+<g id="edge6" class="edge">
+<title>S-&gt;PE</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M900.73,-452.27C942.01,-450.98 989.88,-444.4 1029.14,-425 1058.91,-410.29 1051.57,-387.31 1080.14,-370.4 1146.91,-330.88 1234.3,-312.18 1296.05,-303.44"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="1296.68,-306.89 1306.11,-302.08 1295.73,-299.95 1296.68,-306.89"></polygon>
+<text text-anchor="middle" x="1149.68" y="-375.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">Managed by</text>
+</g>
+<!-- C -->
+<g id="node9" class="node">
+<title>C</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M899.58,-36C899.58,-36 711.38,-36 711.38,-36 705.38,-36 699.38,-30 699.38,-24 699.38,-24 699.38,-12 699.38,-12 699.38,-6 705.38,0 711.38,0 711.38,0 899.58,0 899.58,0 905.58,0 911.58,-6 911.58,-12 911.58,-12 911.58,-24 911.58,-24 911.58,-30 905.58,-36 899.58,-36"></path>
+<text text-anchor="middle" x="805.48" y="-12.6" font-family="Helvetica,sans-Serif" font-size="18.00">Compute Interoperability</text>
+</g>
+<!-- C&#45;&gt;DO -->
+<g id="edge10" class="edge">
+<title>C-&gt;DO</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M911.57,-25.8C1010.59,-33.15 1158.49,-44.13 1259.83,-51.65"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="1259.88,-55.17 1270.11,-52.42 1260.39,-48.19 1259.88,-55.17"></polygon>
+<text text-anchor="middle" x="1149.68" y="-53.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">Discover and use</text>
+</g>
+</g>
+</svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rdm-layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -383,15 +452,15 @@ Figure&nbsp;9.1: Core RDM infrastructure layers and how they contribute to formi
 Today, compute environments, storage systems, repositories, and metadata services often operate in isolation, requiring manual coordination and fragile workarounds. Achieving true compute interoperability remains an active area of development across institutions and research infrastructures.</p>
 <p>In practice, compute interoperability would mean that:</p>
 <ul>
-<li>workflows can <strong>find data by metadata</strong>, not by file paths<br>
+<li>workflows can find data by metadata, not by file paths<br>
 </li>
-<li>compute jobs can <strong>access the correct version</strong> of a digital object<br>
+<li>compute jobs can access the correct version of a digital object<br>
 </li>
-<li>provenance is <strong>captured automatically</strong> when new files are created<br>
+<li>provenance is captured automatically when new files are created<br>
 </li>
-<li>policy engines can <strong>promote outputs</strong> into new digital objects<br>
+<li>policy engines can promote outputs into new digital objects<br>
 </li>
-<li>identifiers and metadata remain <strong>consistent across systems</strong></li>
+<li>identifiers and metadata remain consistent across systems</li>
 </ul>
 <p>Compute interoperability is what makes digital objects <em>usable</em> during active research, not just after publication. It is the missing link between data management and data-intensive science and the direction in which RDM infrastructures must evolve.</p>
 </section>
@@ -410,23 +479,23 @@ Today, compute environments, storage systems, repositories, and metadata service
 <li><strong>Compute interoperability</strong> makes them <em>usable in analysis workflows</em> without breaking identity or provenance.</li>
 </ul>
 <p>No single system provides all these functions.<br>
-Digital objects require <strong>coordination across layers</strong>, not just storage or publication in isolation.</p>
+Digital objects require coordination across layers, not just storage or publication in isolation.</p>
 </section>
 <section id="why-rdm-infrastructure-matters" class="level2">
 <h2 class="anchored" data-anchor-id="why-rdm-infrastructure-matters">Why RDM Infrastructure Matters</h2>
 <p>A robust RDM infrastructure enables:</p>
 <ul>
-<li><strong>Lifecycle continuity</strong> — from active research to long‑term preservation.<br>
+<li>Lifecycle continuity — from active research to long‑term preservation.<br>
 </li>
-<li><strong>Automation and policy enforcement</strong> — through systems that coordinate files, metadata, and storage.<br>
+<li>Automation and policy enforcement — through systems that coordinate files, metadata, and storage.<br>
 </li>
-<li><strong>Discovery and reuse</strong> — via portals and registries that expose metadata to the world.<br>
+<li>Discovery and reuse — via portals and registries that expose metadata to the world.<br>
 </li>
-<li><strong>Global interoperability</strong> — through persistent identifiers and shared metadata standards.<br>
+<li>Global interoperability — through persistent identifiers and shared metadata standards.<br>
 </li>
-<li><strong>Compute‑ready workflows</strong> — where digital objects can be analysed, transformed, and regenerated without losing their identity.<br>
+<li>Compute‑ready workflows — where digital objects can be analysed, transformed, and regenerated without losing their identity.<br>
 </li>
-<li><strong>Institutional resilience</strong> — by distributing responsibilities across specialised systems.</li>
+<li>Institutional resilience — by distributing responsibilities across specialised systems.</li>
 </ul>
 <p>Without this infrastructure, digital objects cannot be reliably preserved, discovered, analysed, or reused.</p>
 <p>With this conceptual foundation in place, we can now examine the first major component of the infrastructure above storage: the systems that actively manage digital objects during research and prepare them for publication.</p>

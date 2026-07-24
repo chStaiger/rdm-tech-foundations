@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f51d66800dd4230279bd6573c4b73a8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-11cafaeb44ee929428d09a09404358f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,15 +72,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<meta name="mermaid-theme" content="forest">
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="css_files/callout.css">
 <link rel="stylesheet" href="css_files/toc.css">
 <link rel="stylesheet" href="css_files/hyperlinks.css">
+<link rel="stylesheet" href="css_files/figure_margins.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -326,23 +323,23 @@ ul.task-list li input[type="checkbox"] {
 <p>A policy engine manages active data and often forms digital objects early in the lifecycle. A repository manages publication, curation, and long‑term preservation. When the two are connected only through an API, neither system has visibility into the other’s lifecycle state.</p>
 <p>This leads to several failure modes:</p>
 <ul>
-<li>the same dataset can be <strong>published multiple times</strong><br>
+<li>the same dataset can be published multiple times<br>
 </li>
-<li>the repository may mint <strong>multiple DOIs</strong> for the same object<br>
+<li>the repository may mint multiple DOIs for the same object<br>
 </li>
 <li>the policy engine cannot see whether a dataset is still a draft, under review, or already published<br>
 </li>
 <li>provenance becomes fragmented: the repository sees a “new upload”, not a continuation of the same object</li>
 </ul>
 <p>The root cause is simple:<br>
-the policy engine and the repository do not share a <strong>digital‑object identity</strong> or a <strong>shared lifecycle model</strong>.<br>
+the policy engine and the repository do not share a digital‑object identity or a shared lifecycle model.<br>
 The repository treats each API upload as a new object, creating a new identifier for the same data; the policy engine assumes it is handing over the same one, while not being able to establish that with the repository.</p>
-<p><strong>Result:</strong><br>
+<p>Result:<br>
 The digital object forks into multiple versions, each with its own identifiers and metadata.</p>
 </section>
 <section id="synchronisation-sharing-service-repository-or-policy-engine-working-copies-drift-away-from-the-digital-object" class="level3">
 <h3 class="anchored" data-anchor-id="synchronisation-sharing-service-repository-or-policy-engine-working-copies-drift-away-from-the-digital-object">2. Synchronisation / Sharing Service → Repository or Policy Engine: Working Copies Drift Away From the Digital Object</h3>
-<p>Synchronisation and file‑sharing services are designed for <strong>working copies</strong>, not for maintaining the authoritative representation of a digital object. They allow:</p>
+<p>Synchronisation and file‑sharing services are designed for working copies, not for maintaining the authoritative representation of a digital object. They allow:</p>
 <ul>
 <li>renaming<br>
 </li>
@@ -359,112 +356,155 @@ The digital object forks into multiple versions, each with its own identifiers a
 <li>sometimes even metadata tagging</li>
 </ul>
 <p>All of these are legitimate user actions in a sync environment.<br>
-The problem is not that the digital object in the policy engine or repository becomes unstable, <strong>it remains stable</strong>, but that its <strong>connection to the original working files becomes unreliable</strong> if the sync service is treated as a source of truth.</p>
+The problem is not that the digital object in the policy engine or repository becomes unstable, it remains stable, but that its connection to the original working files becomes unreliable if the sync service is treated as a source of truth.</p>
 <p>When a repository or policy engine ingests files from a sync service via an API:</p>
 <ul>
-<li>files may <strong>disappear</strong> from the sync service after ingestion<br>
+<li>files may disappear from the sync service after ingestion<br>
 </li>
-<li>files may be <strong>renamed</strong>, breaking the mapping between working copies and the ingested object<br>
+<li>files may be renamed, breaking the mapping between working copies and the ingested object<br>
 </li>
-<li>files may be <strong>overwritten</strong>, so the working copy no longer corresponds to the preserved version<br>
+<li>files may be overwritten, so the working copy no longer corresponds to the preserved version<br>
 </li>
 <li>folder structures may change, breaking assumptions about context or metadata extraction<br>
 </li>
-<li>sync conflicts may create <strong>duplicate or partial files</strong>, making it unclear which version was ingested</li>
+<li>sync conflicts may create duplicate or partial files, making it unclear which version was ingested</li>
 </ul>
 <p>In this scenario:</p>
 <ul>
-<li><strong>the digital object in the repository or policy engine is stable</strong>,<br>
+<li>the digital object in the repository or policy engine is stable,<br>
 </li>
-<li><strong>but the working copies in the sync service are not</strong>.</li>
+<li>but the working copies in the sync service are not.</li>
 </ul>
-<p>This means the digital object <strong>loses its connection to the evolving working environment</strong>, and the sync service cannot be relied upon to reflect the authoritative bitstreams.</p>
-<p>It is therefore essential that <strong>once a digital object is formed, the repository or policy engine becomes the single source of truth for the bitstreams</strong>.<br>
+<p>This means the digital object loses its connection to the evolving working environment, and the sync service cannot be relied upon to reflect the authoritative bitstreams.</p>
+<p>It is therefore essential that once a digital object is formed, the repository or policy engine becomes the single source of truth for the bitstreams.<br>
 The sync service may continue to hold working copies, but it must not be treated as the authoritative representation.</p>
-<p><strong>Result:</strong><br>
+<p>Result:<br>
 The digital object remains stable, but its link to the working copies breaks as the sync service cannot guarantee persistence, identity, or provenance for the files it holds.</p>
 </section>
 <section id="repository-policy-engine-metadata-service-two-sources-of-truth-for-metadata" class="level3">
 <h3 class="anchored" data-anchor-id="repository-policy-engine-metadata-service-two-sources-of-truth-for-metadata">3. Repository / Policy Engine → Metadata Service: Two Sources of Truth for Metadata</h3>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-fig-width="8" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-meta-push" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-meta-combined" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-meta-push-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-meta-combined-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-meta-push">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-
-flowchart LR
-
-    PE["Policy Engine"]
-    REPO["Repository"]
-
-    subgraph META["Metadata Service"]
-        M1["Metadata"]
-    end
-
-    PE -- "push metadata" --&gt; M1
-    REPO -- "push metadata" --&gt; M1
-
-    %% Style for metadata (light)
-    style M1 fill:#e8e8e8,stroke:#333,stroke-width:1px
-</pre>
+<svg width="768" height="480" viewbox="0.00 0.00 788.00 471.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 467.2)">
+<title>meta_combined</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-467.2 784,-467.2 784,4 -4,4"></polygon>
+<g id="clust3" class="cluster">
+<title>cluster_edit</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M405,-8C405,-8 760,-8 760,-8 766,-8 772,-14 772,-20 772,-20 772,-443.2 772,-443.2 772,-449.2 766,-455.2 760,-455.2 760,-455.2 405,-455.2 405,-455.2 399,-455.2 393,-449.2 393,-443.2 393,-443.2 393,-20 393,-20 393,-14 399,-8 405,-8"></path>
+<text text-anchor="middle" x="582.5" y="-438.6" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata Edit (no return)</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_meta2</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M506,-193.2C506,-193.2 624,-193.2 624,-193.2 630,-193.2 636,-199.2 636,-205.2 636,-205.2 636,-258 636,-258 636,-264 630,-270 624,-270 624,-270 506,-270 506,-270 500,-270 494,-264 494,-258 494,-258 494,-205.2 494,-205.2 494,-199.2 500,-193.2 506,-193.2"></path>
+<text text-anchor="middle" x="565" y="-253.4" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata Service</text>
+</g>
+<g id="clust1" class="cluster">
+<title>cluster_push</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M20,-185.2C20,-185.2 373,-185.2 373,-185.2 379,-185.2 385,-191.2 385,-197.2 385,-197.2 385,-443.2 385,-443.2 385,-449.2 379,-455.2 373,-455.2 373,-455.2 20,-455.2 20,-455.2 14,-455.2 8,-449.2 8,-443.2 8,-443.2 8,-197.2 8,-197.2 8,-191.2 14,-185.2 20,-185.2"></path>
+<text text-anchor="middle" x="196.5" y="-438.6" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata Push</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_meta1</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M133,-193.2C133,-193.2 233,-193.2 233,-193.2 239,-193.2 245,-199.2 245,-205.2 245,-205.2 245,-258 245,-258 245,-264 239,-270 233,-270 233,-270 133,-270 133,-270 127,-270 121,-264 121,-258 121,-258 121,-205.2 121,-205.2 121,-199.2 127,-193.2 133,-193.2"></path>
+<text text-anchor="middle" x="183" y="-253.4" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata Service</text>
+</g>
+<!-- PE1 -->
+<g id="node1" class="node">
+<title>PE1</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M309.33,-422.4C309.33,-422.4 232.67,-422.4 232.67,-422.4 226.67,-422.4 220.67,-416.4 220.67,-410.4 220.67,-410.4 220.67,-398.4 220.67,-398.4 220.67,-392.4 226.67,-386.4 232.67,-386.4 232.67,-386.4 309.33,-386.4 309.33,-386.4 315.33,-386.4 321.33,-392.4 321.33,-398.4 321.33,-398.4 321.33,-410.4 321.33,-410.4 321.33,-416.4 315.33,-422.4 309.33,-422.4"></path>
+<text text-anchor="middle" x="271" y="-400.2" font-family="Helvetica,sans-Serif" font-size="14.00">Policy Engine</text>
+</g>
+<!-- M1 -->
+<g id="node3" class="node">
+<title>M1</title>
+<path fill="#e8e8e8" stroke="#333333" d="M204.37,-237.2C204.37,-237.2 153.63,-237.2 153.63,-237.2 147.63,-237.2 141.63,-231.2 141.63,-225.2 141.63,-225.2 141.63,-213.2 141.63,-213.2 141.63,-207.2 147.63,-201.2 153.63,-201.2 153.63,-201.2 204.37,-201.2 204.37,-201.2 210.37,-201.2 216.37,-207.2 216.37,-213.2 216.37,-213.2 216.37,-225.2 216.37,-225.2 216.37,-231.2 210.37,-237.2 204.37,-237.2"></path>
+<text text-anchor="middle" x="179" y="-215" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata</text>
+</g>
+<!-- PE1&#45;&gt;M1 -->
+<g id="edge1" class="edge">
+<title>PE1-&gt;M1</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M262.34,-386.16C246.21,-354.03 211.43,-284.78 192.3,-246.68"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="195.18,-244.62 187.57,-237.26 188.93,-247.76 195.18,-244.62"></polygon>
+<text text-anchor="middle" x="280.93" y="-307" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">push metadata</text>
+</g>
+<!-- REPO1 -->
+<g id="node2" class="node">
+<title>REPO1</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M117.42,-422.4C117.42,-422.4 58.58,-422.4 58.58,-422.4 52.58,-422.4 46.58,-416.4 46.58,-410.4 46.58,-410.4 46.58,-398.4 46.58,-398.4 46.58,-392.4 52.58,-386.4 58.58,-386.4 58.58,-386.4 117.42,-386.4 117.42,-386.4 123.42,-386.4 129.42,-392.4 129.42,-398.4 129.42,-398.4 129.42,-410.4 129.42,-410.4 129.42,-416.4 123.42,-422.4 117.42,-422.4"></path>
+<text text-anchor="middle" x="88" y="-400.2" font-family="Helvetica,sans-Serif" font-size="14.00">Repository</text>
+</g>
+<!-- REPO1&#45;&gt;M1 -->
+<g id="edge2" class="edge">
+<title>REPO1-&gt;M1</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M80.32,-386.35C72.11,-365.45 61.94,-329.45 75.15,-302.2 87.62,-276.47 112.51,-256.37 134.8,-242.52"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="136.71,-245.45 143.51,-237.33 133.13,-239.44 136.71,-245.45"></polygon>
+<text text-anchor="middle" x="128.93" y="-307" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">push metadata</text>
+</g>
+<!-- USER2 -->
+<g id="node4" class="node">
+<title>USER2</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M580,-422.4C580,-422.4 550,-422.4 550,-422.4 544,-422.4 538,-416.4 538,-410.4 538,-410.4 538,-398.4 538,-398.4 538,-392.4 544,-386.4 550,-386.4 550,-386.4 580,-386.4 580,-386.4 586,-386.4 592,-392.4 592,-398.4 592,-398.4 592,-410.4 592,-410.4 592,-416.4 586,-422.4 580,-422.4"></path>
+<text text-anchor="middle" x="565" y="-400.2" font-family="Helvetica,sans-Serif" font-size="14.00">User</text>
+</g>
+<!-- M2 -->
+<g id="node7" class="node">
+<title>M2</title>
+<path fill="#ffeb99" stroke="#333333" d="M615.73,-237.2C615.73,-237.2 514.27,-237.2 514.27,-237.2 508.27,-237.2 502.27,-231.2 502.27,-225.2 502.27,-225.2 502.27,-213.2 502.27,-213.2 502.27,-207.2 508.27,-201.2 514.27,-201.2 514.27,-201.2 615.73,-201.2 615.73,-201.2 621.73,-201.2 627.73,-207.2 627.73,-213.2 627.73,-213.2 627.73,-225.2 627.73,-225.2 627.73,-231.2 621.73,-237.2 615.73,-237.2"></path>
+<text text-anchor="middle" x="565" y="-215" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata (edited)</text>
+</g>
+<!-- USER2&#45;&gt;M2 -->
+<g id="edge3" class="edge">
+<title>USER2-&gt;M2</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M565,-386.16C565,-354.3 565,-285.96 565,-247.66"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="568.5,-247.26 565,-237.26 561.5,-247.26 568.5,-247.26"></polygon>
+<text text-anchor="middle" x="613.48" y="-307" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">edit metadata</text>
+</g>
+<!-- PE2 -->
+<g id="node5" class="node">
+<title>PE2</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M511.33,-52C511.33,-52 434.67,-52 434.67,-52 428.67,-52 422.67,-46 422.67,-40 422.67,-40 422.67,-28 422.67,-28 422.67,-22 428.67,-16 434.67,-16 434.67,-16 511.33,-16 511.33,-16 517.33,-16 523.33,-22 523.33,-28 523.33,-28 523.33,-40 523.33,-40 523.33,-46 517.33,-52 511.33,-52"></path>
+<text text-anchor="middle" x="473" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Policy Engine</text>
+</g>
+<!-- REPO2 -->
+<g id="node6" class="node">
+<title>REPO2</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M686.42,-52C686.42,-52 627.58,-52 627.58,-52 621.58,-52 615.58,-46 615.58,-40 615.58,-40 615.58,-28 615.58,-28 615.58,-22 621.58,-16 627.58,-16 627.58,-16 686.42,-16 686.42,-16 692.42,-16 698.42,-22 698.42,-28 698.42,-28 698.42,-40 698.42,-40 698.42,-46 692.42,-52 686.42,-52"></path>
+<text text-anchor="middle" x="657" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Repository</text>
+</g>
+<!-- M2&#45;&gt;PE2 -->
+<g id="edge4" class="edge">
+<title>M2-&gt;PE2</title>
+<path fill="none" stroke="#528641" stroke-width="2" stroke-dasharray="5,2" d="M529.21,-201.15C504.84,-187.38 474.5,-165.48 460.24,-136.2 448.85,-112.81 454.74,-82.92 461.82,-61.71"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="465.2,-62.65 465.33,-52.06 458.63,-60.26 465.2,-62.65"></polygon>
+<text text-anchor="middle" x="513.38" y="-121.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">no propagation</text>
+</g>
+<!-- M2&#45;&gt;REPO2 -->
+<g id="edge5" class="edge">
+<title>M2-&gt;REPO2</title>
+<path fill="none" stroke="#528641" stroke-width="2" stroke-dasharray="5,2" d="M573.66,-200.96C589.79,-168.83 624.57,-99.58 643.7,-61.48"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="647.07,-62.56 648.43,-52.06 640.82,-59.42 647.07,-62.56"></polygon>
+<text text-anchor="middle" x="666.38" y="-121.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">no propagation</text>
+</g>
+</g>
+</svg>
 </div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-meta-push-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;17.1: The policy engine and repository export their metadata to the metadata service.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div id="fig-meta-edit-no-return" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-meta-edit-no-return-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div>
-<pre class="mermaid mermaid-js" data-label="fig-meta-edit-no-return">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-
-flowchart RL
-
-    USER["User"]
-    PE["Policy Engine"]
-    REPO["Repository"]
-
-    subgraph META["Metadata Service"]
-        M2["Metadata (edited)"]
-    end
-
-    %% No return path
-    M2 -. "no propagation" .-&gt; PE
-    M2 -. "no propagation" .-&gt; REPO
-
-    %% User edits metadata
-    USER -- "edit metadata" --&gt; M2
-
-    %% Style for edited metadata (highlight)
-    style M2 fill:#ffeb99,stroke:#333,stroke-width:1px
-</pre>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-meta-edit-no-return-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;17.2: Users edit metadata inside the metadata service, but updates do not flow back to the policy engine or repository.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-meta-combined-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17.1: The policy engine and repository export their metadata to the metadata service. Users edit metadata inside the metadata service, but updates do not flow back to the policy engine or repository.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>Metadata services aggregate metadata from repositories, policy engines, and other systems.<br>
-If they only <strong>expose</strong> metadata, the digital‑object layer remains intact:<br>
+If they only expose metadata, the digital‑object layer remains intact:<br>
 the repository or policy engine remains the authoritative source.</p>
-<p>But if the metadata service is also used to <strong>enrich</strong>, <strong>modify</strong>, or <strong>extend</strong> metadata, the digital object now has <strong>two competing sources of truth</strong>:</p>
+<p>But if the metadata service is also used to enrich, modify, or extend metadata, the digital object now has two competing sources of truth:</p>
 <ul>
 <li>the repository/policy engine holds one version<br>
 </li>
@@ -472,65 +512,105 @@ the repository or policy engine remains the authoritative source.</p>
 </ul>
 <p>This creates several failure modes:</p>
 <ul>
-<li>metadata becomes <strong>out of sync</strong><br>
+<li>metadata becomes out of sync<br>
 </li>
-<li>updates in one system are <strong>not propagated</strong> to the other<br>
+<li>updates in one system are not propagated to the other<br>
 </li>
-<li>identifiers may be <strong>linked inconsistently</strong><br>
+<li>identifiers may be linked inconsistently<br>
 </li>
-<li>provenance may be <strong>split across systems</strong><br>
+<li>provenance may be split across systems<br>
 </li>
-<li>portals may expose <strong>stale or conflicting metadata</strong></li>
+<li>portals may expose stale or conflicting metadata</li>
 </ul>
 <p>Once two systems can modify metadata independently, the digital object no longer has a single, authoritative description.</p>
-<p><strong>Result:</strong><br>
+<p>Result:<br>
 The digital object’s metadata diverges, and FAIRness collapses at the semantic level.</p>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-fig-width="8" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-orchestrated" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-orchestrated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-orchestrated">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-
-flowchart LR
-
-    %% User
-    USER["User"]
-
-    %% Services
-    PE["Policy Engine"]
-    REPO["Repository"]
-
-    %% Metadata service with internal metadata node
-    subgraph META["Metadata Service"]
-        M["Metadata"]
-    end
-
-    %% Orchestration layer = Digital-object layer
-    ORCH["Orchestration Layer&lt;br&gt;identity, metadata binding, provenance, lifecycle state"]
-
-    %% All services expose state changes to orchestration
-    PE &lt;--&gt; ORCH
-    REPO &lt;--&gt; ORCH
-    META &lt;--&gt; ORCH
-
-    %% User edits metadata
-    USER -- "edit metadata" --&gt; M
-
-    %% Metadata service communicates edits to orchestration
-    M --&gt; ORCH
-
-    %% Style metadata node
-    style M fill:#e8e8e8,stroke:#333,stroke-width:1px
-</pre>
+<svg width="768" height="480" viewbox="0.00 0.00 835.09 308.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 304)">
+<title>orchestrated</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-304 831.09,-304 831.09,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>cluster_meta</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M264.18,-215C264.18,-215 364.55,-215 364.55,-215 370.55,-215 376.55,-221 376.55,-227 376.55,-227 376.55,-280 376.55,-280 376.55,-286 370.55,-292 364.55,-292 364.55,-292 264.18,-292 264.18,-292 258.18,-292 252.18,-286 252.18,-280 252.18,-280 252.18,-227 252.18,-227 252.18,-221 258.18,-215 264.18,-215"></path>
+<text text-anchor="middle" x="314.37" y="-275.4" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata Service</text>
+</g>
+<!-- USER -->
+<g id="node1" class="node">
+<title>USER</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M42,-259C42,-259 12,-259 12,-259 6,-259 0,-253 0,-247 0,-247 0,-235 0,-235 0,-229 6,-223 12,-223 12,-223 42,-223 42,-223 48,-223 54,-229 54,-235 54,-235 54,-247 54,-247 54,-253 48,-259 42,-259"></path>
+<text text-anchor="middle" x="27" y="-236.8" font-family="Helvetica,sans-Serif" font-size="14.00">User</text>
+</g>
+<!-- M -->
+<g id="node4" class="node">
+<title>M</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M339.74,-259C339.74,-259 288.99,-259 288.99,-259 282.99,-259 276.99,-253 276.99,-247 276.99,-247 276.99,-235 276.99,-235 276.99,-229 282.99,-223 288.99,-223 288.99,-223 339.74,-223 339.74,-223 345.74,-223 351.74,-229 351.74,-235 351.74,-235 351.74,-247 351.74,-247 351.74,-253 345.74,-259 339.74,-259"></path>
+<text text-anchor="middle" x="314.37" y="-236.8" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata</text>
+</g>
+<!-- USER&#45;&gt;M -->
+<g id="edge4" class="edge">
+<title>USER-&gt;M</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M54.08,-241C102.34,-241 206.14,-241 266.75,-241"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="266.82,-244.5 276.82,-241 266.82,-237.5 266.82,-244.5"></polygon>
+<text text-anchor="middle" x="153.48" y="-245.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">edit metadata</text>
+</g>
+<!-- PE -->
+<g id="node2" class="node">
+<title>PE</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M352.69,-144C352.69,-144 276.04,-144 276.04,-144 270.04,-144 264.04,-138 264.04,-132 264.04,-132 264.04,-120 264.04,-120 264.04,-114 270.04,-108 276.04,-108 276.04,-108 352.69,-108 352.69,-108 358.69,-108 364.69,-114 364.69,-120 364.69,-120 364.69,-132 364.69,-132 364.69,-138 358.69,-144 352.69,-144"></path>
+<text text-anchor="middle" x="314.37" y="-121.8" font-family="Helvetica,sans-Serif" font-size="14.00">Policy Engine</text>
+</g>
+<!-- ORCH -->
+<g id="node5" class="node">
+<title>ORCH</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M815.24,-261.6C815.24,-261.6 490.63,-261.6 490.63,-261.6 484.63,-261.6 478.63,-255.6 478.63,-249.6 478.63,-249.6 478.63,-232.4 478.63,-232.4 478.63,-226.4 484.63,-220.4 490.63,-220.4 490.63,-220.4 815.24,-220.4 815.24,-220.4 821.24,-220.4 827.24,-226.4 827.24,-232.4 827.24,-232.4 827.24,-249.6 827.24,-249.6 827.24,-255.6 821.24,-261.6 815.24,-261.6"></path>
+<text text-anchor="middle" x="652.93" y="-245.2" font-family="Helvetica,sans-Serif" font-size="14.00">Orchestration Layer</text>
+<text text-anchor="middle" x="652.93" y="-228.4" font-family="Helvetica,sans-Serif" font-size="14.00">identity, metadata binding, provenance, lifecycle state</text>
+</g>
+<!-- PE&#45;&gt;ORCH -->
+<g id="edge1" class="edge">
+<title>PE-&gt;ORCH</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M374.52,-146.21C432.4,-165.99 520.57,-196.12 581.92,-217.08"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="375.62,-142.89 365.03,-142.97 373.36,-149.51 375.62,-142.89"></polygon>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="580.93,-220.44 591.53,-220.36 583.2,-213.82 580.93,-220.44"></polygon>
+</g>
+<!-- REPO -->
+<g id="node3" class="node">
+<title>REPO</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M343.78,-36C343.78,-36 284.95,-36 284.95,-36 278.95,-36 272.95,-30 272.95,-24 272.95,-24 272.95,-12 272.95,-12 272.95,-6 278.95,0 284.95,0 284.95,0 343.78,0 343.78,0 349.78,0 355.78,-6 355.78,-12 355.78,-12 355.78,-24 355.78,-24 355.78,-30 349.78,-36 343.78,-36"></path>
+<text text-anchor="middle" x="314.37" y="-13.8" font-family="Helvetica,sans-Serif" font-size="14.00">Repository</text>
+</g>
+<!-- REPO&#45;&gt;ORCH -->
+<g id="edge2" class="edge">
+<title>REPO-&gt;ORCH</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M351.07,-41.66C414.38,-83.6 545.85,-170.71 612.04,-214.56"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="352.89,-38.67 342.62,-36.06 349.03,-44.5 352.89,-38.67"></polygon>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="610.28,-217.6 620.54,-220.2 614.14,-211.76 610.28,-217.6"></polygon>
+</g>
+<!-- M&#45;&gt;ORCH -->
+<g id="edge3" class="edge">
+<title>M-&gt;ORCH</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M361.87,-221.67C420.11,-212.4 520.24,-211.53 586.27,-219.08"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="360.95,-218.28 351.71,-223.46 362.16,-225.17 360.95,-218.28"></polygon>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="586.21,-222.6 596.57,-220.36 587.08,-215.65 586.21,-222.6"></polygon>
+</g>
+<!-- M&#45;&gt;ORCH -->
+<g id="edge5" class="edge">
+<title>M-&gt;ORCH</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M351.71,-258.54C407.84,-269.48 516.47,-270.93 586.52,-262.89"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="587.08,-266.35 596.57,-261.64 586.21,-259.4 587.08,-266.35"></polygon>
+</g>
+</g>
+</svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-orchestrated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;17.3: With an orchestration layer acting as the digital-object layer, all services expose changes in digital-object state. User edits in the metadata service are communicated to the orchestration layer, ensuring consistent updates across the platform.
+Figure&nbsp;17.2: With an orchestration layer acting as the digital-object layer, all services expose changes in digital-object state. User edits in the metadata service are communicated to the orchestration layer, ensuring consistent updates across the platform.
 </figcaption>
 </figure>
 </div>
@@ -558,16 +638,16 @@ Figure&nbsp;17.3: With an orchestration layer acting as the digital-object layer
 </li>
 <li>the digital object loses coherence</li>
 </ul>
-<p>This is why a FAIR‑aligned platform must treat the digital object as a <strong>shared, governed entity</strong>, not an emergent side effect of API calls.</p>
+<p>This is why a FAIR‑aligned platform must treat the digital object as a shared, governed entity, not an emergent side effect of API calls.</p>
 </section>
 <section id="ensuring-continuity-across-the-lifecycle-through-an-orchestration-layer" class="level2">
 <h2 class="anchored" data-anchor-id="ensuring-continuity-across-the-lifecycle-through-an-orchestration-layer">Ensuring Continuity Across the Lifecycle Through an Orchestration Layer</h2>
-<p>The failure modes described in the previous sections duplicate DOIs, unstable working copies, metadata divergence, and fragmented provenance are not isolated accidents. They are symptoms of a deeper architectural problem: <strong>most current RDM infrastructures treat digital objects as local constructs</strong>, defined independently by each service. APIs move files and metadata, but they do not preserve <strong>identity</strong>, <strong>metadata binding</strong>, <strong>provenance</strong>, or <strong>lifecycle state</strong> across system boundaries.</p>
-<p>This is the <strong>current state of the art</strong> in many research environments:<br>
+<p>The failure modes described in the previous sections duplicate DOIs, unstable working copies, metadata divergence, and fragmented provenance are not isolated accidents. They are symptoms of a deeper architectural problem: most current RDM infrastructures treat digital objects as local constructs, defined independently by each service. APIs move files and metadata, but they do not preserve identity, metadata binding, provenance, or lifecycle state across system boundaries.</p>
+<p>This is the current state of the art in many research environments:<br>
 systems exchange data, but they do not share a digital‑object model.<br>
 As a result, digital objects fracture as they move.</p>
-<p>The international <strong>FAIR Digital Object (FDO)</strong> community has been working to solve exactly this problem. Their work—formalised in the <strong>FDO‑IP (FAIR Digital Object Interoperability Principles)</strong>—provides a conceptual and technical foundation for ensuring that digital objects remain coherent across the entire lifecycle, regardless of how many systems they pass through.</p>
-<p>An <strong>orchestration layer</strong> is the architectural mechanism that implements these principles in practice.</p>
+<p>The international FAIR Digital Object (FDO) community has been working to solve exactly this problem. Their work formalised in the FDO‑IP (FAIR Digital Object Interoperability Principles) provides a conceptual and technical foundation for ensuring that digital objects remain coherent across the entire lifecycle, regardless of how many systems they pass through.</p>
+<p>An orchestration layer is the architectural mechanism that implements these principles in practice.</p>
 </section>
 <section id="the-problem-rdm-systems-without-a-shared-digitalobject-layer" class="level2">
 <h2 class="anchored" data-anchor-id="the-problem-rdm-systems-without-a-shared-digitalobject-layer">The Problem: RDM Systems Without a Shared Digital‑Object Layer</h2>
@@ -598,17 +678,17 @@ No system is responsible for continuity.</p>
 </blockquote>
 <p>An FDO is defined by:</p>
 <ul>
-<li>a <strong>persistent, globally unique identifier</strong><br>
+<li>a persistent, globally unique identifier<br>
 </li>
-<li>a <strong>typed, machine‑actionable object record</strong><br>
+<li>a typed, machine‑actionable object record<br>
 </li>
-<li><strong>bound metadata</strong> that travels with the object<br>
+<li>bound metadata that travels with the object<br>
 </li>
-<li><strong>explicit lifecycle state</strong><br>
+<li>explicit lifecycle state<br>
 </li>
-<li><strong>cross‑system provenance</strong><br>
+<li>cross‑system provenance<br>
 </li>
-<li><strong>standard interfaces</strong> for accessing and updating the object</li>
+<li>standard interfaces for accessing and updating the object</li>
 </ul>
 <p>The FDO‑IP formalises these requirements into a set of interoperability principles that any system can adopt.</p>
 <p>The orchestration layer is the architectural component that enforces these principles across an RDM platform.</p>
@@ -623,14 +703,14 @@ No system is responsible for continuity.</p>
 <section id="fairdomseek-in-the-rdm-architecture" class="level2">
 <h2 class="anchored" data-anchor-id="fairdomseek-in-the-rdm-architecture">FAIRDOM‑SEEK in the RDM Architecture</h2>
 <p>The failure modes above show how easily digital objects fragment when transitions rely only on APIs and when each system maintains its own local view of identity, metadata, and lifecycle state.<br>
-In response to these challenges, some research communities, especially the <strong>life sciences</strong>, have taken a different architectural path. Instead of distributing responsibility for identity, metadata, and provenance across multiple loosely connected systems, they developed platforms that <strong>minimise transitions during active research</strong>.</p>
+In response to these challenges, some research communities, especially the life sciences, have taken a different architectural path. Instead of distributing responsibility for identity, metadata, and provenance across multiple loosely connected systems, they developed platforms that minimise transitions during active research.</p>
 <p>The FAIRDOM‑SEEK community exemplifies this strategy.</p>
 <blockquote class="blockquote">
 <p><strong>Rather than moving digital objects between many services, SEEK provides a single environment where identity, metadata, context, and provenance are created and maintained together throughout active research.</strong></p>
 </blockquote>
 <p>By reducing the number of handovers, SEEK reduces the opportunities for identity drift, metadata forking, and provenance loss.<br>
 This approach does not eliminate transitions entirely, but it postpones them until the digital object is mature, when the risks are lower and the need for continuous provenance is less critical.</p>
-<p><strong>FAIRDOM‑SEEK therefore occupies a hybrid space in the RDM ecosystem.</strong><br>
+<p>FAIRDOM‑SEEK therefore occupies a hybrid space in the RDM ecosystem.<br>
 It was built <em>by and for the life sciences community</em>, where research objects are complex and interdependent: samples, assays, protocols, models, workflows, and multi‑step experimental designs all need to be linked and contextualised long before formal publication.</p>
 <p>Because of this complexity, SEEK does not fit neatly into a single RDM category.<br>
 Instead, it combines capabilities traditionally associated with:</p>
@@ -641,62 +721,118 @@ Instead, it combines capabilities traditionally associated with:</p>
 </li>
 <li><strong>metadata services</strong> (semantic annotation, ISA structures, machine‑actionable metadata)</li>
 </ul>
-<p>Its purpose is not to replace these components, but to <strong>bridge the gap between active research and publication</strong>, ensuring that digital objects become richly contextualised and machine‑actionable before they enter preservation‑oriented systems.</p>
-<div class="cell" data-layout-align="center">
+<p>Its purpose is not to replace these components, but to bridge the gap between active research and publication, ensuring that digital objects become richly contextualised and machine‑actionable before they enter preservation‑oriented systems.</p>
+<div class="cell" data-fig-width="8" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-seek-lifecycle" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-seek-lifecycle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-seek-lifecycle">%%{init: {
-  "look": "handDrawn",
-  "themeVariables": { "primaryColor": "#d8b4f8", "edgeLabelBackground":"#ffffff" },
-  "flowchart": { "htmlLabels": false }
-}}%%
-
-flowchart TD
-
-    %% Layers (clean labels)
-    A["Active Research Systems"]
-
-    B["FAIRification / Digital‑Object Layer&lt;br&gt;FAIRDOM‑SEEK • FAIR Data Station&lt;br&gt;(internal discovery only)"]
-
-    C["Publication Services"]
-
-    %% New purple nodes
-    ARCH["Archiving Services"]
-    PORTALS["Metadata Portals"]
-    AGG["Aggregation Services"]
-
-    D["Discovery and Aggregation&lt;br&gt;(external)"]
-
-    %% Flow
-    A --&gt;|"research outputs"| B
-    B --&gt;|"FAIR research objects"| C
-
-    %% Publication → Archiving
-    B --&gt; ARCH
-    C --&gt; ARCH
-
-    %% Publication → Metadata Portals
-    C --&gt; PORTALS
-
-    %% Metadata Portals → Aggregation
-    PORTALS --&gt; D
-
-    %% Aggregation → Discovery
-    B --&gt; AGG
-    C --&gt; AGG
-
-    %% Style purple nodes
-    style ARCH fill:#e5d4ff,stroke:#6b21a8,stroke-width:1px
-    style PORTALS fill:#e5d4ff,stroke:#6b21a8,stroke-width:1px
-    style D fill:#e5d4ff,stroke:#6b21a8,stroke-width:1px
-</pre>
+<svg width="768" height="480" viewbox="0.00 0.00 553.11 664.40" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 660.4)">
+<title>seek_lifecycle</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-660.4 549.11,-660.4 549.11,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M355.53,-656.4C355.53,-656.4 203.54,-656.4 203.54,-656.4 197.54,-656.4 191.54,-650.4 191.54,-644.4 191.54,-644.4 191.54,-632.4 191.54,-632.4 191.54,-626.4 197.54,-620.4 203.54,-620.4 203.54,-620.4 355.53,-620.4 355.53,-620.4 361.53,-620.4 367.53,-626.4 367.53,-632.4 367.53,-632.4 367.53,-644.4 367.53,-644.4 367.53,-650.4 361.53,-656.4 355.53,-656.4"></path>
+<text text-anchor="middle" x="279.54" y="-634.2" font-family="Helvetica,sans-Serif" font-size="14.00">Active Research Systems</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M398.39,-499.4C398.39,-499.4 160.69,-499.4 160.69,-499.4 154.69,-499.4 148.69,-493.4 148.69,-487.4 148.69,-487.4 148.69,-452.6 148.69,-452.6 148.69,-446.6 154.69,-440.6 160.69,-440.6 160.69,-440.6 398.39,-440.6 398.39,-440.6 404.39,-440.6 410.39,-446.6 410.39,-452.6 410.39,-452.6 410.39,-487.4 410.39,-487.4 410.39,-493.4 404.39,-499.4 398.39,-499.4"></path>
+<text text-anchor="middle" x="279.54" y="-482.6" font-family="Helvetica,sans-Serif" font-size="14.00">FAIRification / Digital‑Object Layer</text>
+<text text-anchor="middle" x="279.54" y="-465.8" font-family="Helvetica,sans-Serif" font-size="14.00">FAIRDOM‑SEEK • FAIR Data Station</text>
+<text text-anchor="middle" x="279.54" y="-449" font-family="Helvetica,sans-Serif" font-size="14.00">(internal discovery only)</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M279.54,-620.22C279.54,-594.33 279.54,-544.65 279.54,-509.74"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="283.04,-509.43 279.54,-499.43 276.04,-509.43 283.04,-509.43"></polygon>
+<text text-anchor="middle" x="339.13" y="-555" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">research outputs</text>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M339.6,-319.6C339.6,-319.6 221.48,-319.6 221.48,-319.6 215.48,-319.6 209.48,-313.6 209.48,-307.6 209.48,-307.6 209.48,-295.6 209.48,-295.6 209.48,-289.6 215.48,-283.6 221.48,-283.6 221.48,-283.6 339.6,-283.6 339.6,-283.6 345.6,-283.6 351.6,-289.6 351.6,-295.6 351.6,-295.6 351.6,-307.6 351.6,-307.6 351.6,-313.6 345.6,-319.6 339.6,-319.6"></path>
+<text text-anchor="middle" x="280.54" y="-297.4" font-family="Helvetica,sans-Serif" font-size="14.00">Publication Services</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M272.11,-440.64C267.85,-421.01 263.8,-394.26 266.26,-370.6 267.68,-356.91 270.67,-341.92 273.55,-329.51"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="276.95,-330.31 275.9,-319.77 270.15,-328.67 276.95,-330.31"></polygon>
+<text text-anchor="middle" x="344.68" y="-375.4" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">FAIR research objects</text>
+</g>
+<!-- AGG -->
+<g id="node4" class="node">
+<title>AGG</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M137.11,-180.6C137.11,-180.6 11.96,-180.6 11.96,-180.6 5.96,-180.6 -0.04,-174.6 -0.04,-168.6 -0.04,-168.6 -0.04,-156.6 -0.04,-156.6 -0.04,-150.6 5.96,-144.6 11.96,-144.6 11.96,-144.6 137.11,-144.6 137.11,-144.6 143.11,-144.6 149.11,-150.6 149.11,-156.6 149.11,-156.6 149.11,-168.6 149.11,-168.6 149.11,-174.6 143.11,-180.6 137.11,-180.6"></path>
+<text text-anchor="middle" x="74.54" y="-158.4" font-family="Helvetica,sans-Serif" font-size="14.00">Aggregation Services</text>
+</g>
+<!-- B&#45;&gt;AGG -->
+<g id="edge7" class="edge">
+<title>B-&gt;AGG</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M258.77,-440.66C237.08,-410.84 202.26,-362.37 173.54,-319.6 143.24,-274.47 109.67,-220.73 90.44,-189.55"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="93.17,-187.32 84.95,-180.64 87.21,-190.99 93.17,-187.32"></polygon>
+</g>
+<!-- ARCH -->
+<g id="node5" class="node">
+<title>ARCH</title>
+<path fill="#e5d4ff" stroke="#6b21a8" stroke-width="2" d="M533.19,-180.6C533.19,-180.6 425.89,-180.6 425.89,-180.6 419.89,-180.6 413.89,-174.6 413.89,-168.6 413.89,-168.6 413.89,-156.6 413.89,-156.6 413.89,-150.6 419.89,-144.6 425.89,-144.6 425.89,-144.6 533.19,-144.6 533.19,-144.6 539.19,-144.6 545.19,-150.6 545.19,-156.6 545.19,-156.6 545.19,-168.6 545.19,-168.6 545.19,-174.6 539.19,-180.6 533.19,-180.6"></path>
+<text text-anchor="middle" x="479.54" y="-158.4" font-family="Helvetica,sans-Serif" font-size="14.00">Archiving Services</text>
+</g>
+<!-- B&#45;&gt;ARCH -->
+<g id="edge3" class="edge">
+<title>B-&gt;ARCH</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M371.55,-440.68C396.73,-428.74 421.69,-412.24 438.54,-389.8 483.46,-329.96 484.58,-236.46 481.95,-190.69"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="485.44,-190.38 481.27,-180.64 478.46,-190.85 485.44,-190.38"></polygon>
+</g>
+<!-- C&#45;&gt;AGG -->
+<g id="edge8" class="edge">
+<title>C-&gt;AGG</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M254.86,-283.53C217.91,-258.95 149.66,-213.56 108.55,-186.22"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="110.48,-183.3 100.21,-180.67 106.6,-189.13 110.48,-183.3"></polygon>
+</g>
+<!-- C&#45;&gt;ARCH -->
+<g id="edge4" class="edge">
+<title>C-&gt;ARCH</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M305.34,-283.53C340.89,-259.05 406.42,-213.94 446.18,-186.56"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="448.49,-189.23 454.74,-180.67 444.52,-183.46 448.49,-189.23"></polygon>
+</g>
+<!-- PORTALS -->
+<g id="node6" class="node">
+<title>PORTALS</title>
+<path fill="#e5d4ff" stroke="#6b21a8" stroke-width="2" d="M330.37,-180.6C330.37,-180.6 232.7,-180.6 232.7,-180.6 226.7,-180.6 220.7,-174.6 220.7,-168.6 220.7,-168.6 220.7,-156.6 220.7,-156.6 220.7,-150.6 226.7,-144.6 232.7,-144.6 232.7,-144.6 330.37,-144.6 330.37,-144.6 336.37,-144.6 342.37,-150.6 342.37,-156.6 342.37,-156.6 342.37,-168.6 342.37,-168.6 342.37,-174.6 336.37,-180.6 330.37,-180.6"></path>
+<text text-anchor="middle" x="281.54" y="-158.4" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata Portals</text>
+</g>
+<!-- C&#45;&gt;PORTALS -->
+<g id="edge5" class="edge">
+<title>C-&gt;PORTALS</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M280.66,-283.53C280.83,-260.35 281.14,-218.66 281.34,-191.06"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="284.84,-190.91 281.41,-180.89 277.84,-190.86 284.84,-190.91"></polygon>
+</g>
+<!-- D -->
+<g id="node7" class="node">
+<title>D</title>
+<path fill="#e5d4ff" stroke="#6b21a8" stroke-width="2" d="M361.63,-41.4C361.63,-41.4 201.44,-41.4 201.44,-41.4 195.44,-41.4 189.44,-35.4 189.44,-29.4 189.44,-29.4 189.44,-12.2 189.44,-12.2 189.44,-6.2 195.44,-0.2 201.44,-0.2 201.44,-0.2 361.63,-0.2 361.63,-0.2 367.63,-0.2 373.63,-6.2 373.63,-12.2 373.63,-12.2 373.63,-29.4 373.63,-29.4 373.63,-35.4 367.63,-41.4 361.63,-41.4"></path>
+<text text-anchor="middle" x="281.54" y="-25" font-family="Helvetica,sans-Serif" font-size="14.00">Discovery and Aggregation</text>
+<text text-anchor="middle" x="281.54" y="-8.2" font-family="Helvetica,sans-Serif" font-size="14.00">(external)</text>
+</g>
+<!-- PORTALS&#45;&gt;D -->
+<g id="edge6" class="edge">
+<title>PORTALS-&gt;D</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M281.54,-144.46C281.54,-121.44 281.54,-80.18 281.54,-51.92"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="285.04,-51.79 281.54,-41.79 278.04,-51.79 285.04,-51.79"></polygon>
+</g>
+</g>
+</svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-seek-lifecycle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;17.4: FAIRDOM‑SEEK operates in the FAIRification / digital‑object layer. Archiving and metadata aggregation are handled by external services.
+Figure&nbsp;17.3: FAIRDOM‑SEEK operates in the FAIRification / digital‑object layer. Archiving and metadata aggregation are handled by external services.
 </figcaption>
 </figure>
 </div>
@@ -740,14 +876,14 @@ Figure&nbsp;17.4: FAIRDOM‑SEEK operates in the FAIRification / digital‑objec
 </li>
 <li>machine‑actionable metadata export (JSON‑LD, RDF, RO‑Crate)</li>
 </ul>
-<p>Because they combine these capabilities, SEEK operates in the <strong>FAIRification and contextualisation layer</strong> — the transitional space where raw files become structured, semantically rich <strong>research objects</strong>.</p>
-<p>This is the same space where, in the examples above, digital objects break when transitions rely only on APIs. SEEK helps prevent such failures by <strong>binding identity, metadata, and context early in the lifecycle</strong>.</p>
+<p>Because they combine these capabilities, SEEK operates in the FAIRification and contextualisation layer — the transitional space where raw files become structured, semantically rich research objects.</p>
+<p>This is the same space where, in the examples above, digital objects break when transitions rely only on APIs. SEEK helps prevent such failures by binding identity, metadata, and context early in the lifecycle.</p>
 </section>
 </section>
 <section id="rocrate-vs.-oaisstyle-archival-packaging" class="level3">
 <h3 class="anchored" data-anchor-id="rocrate-vs.-oaisstyle-archival-packaging">RO‑Crate vs.&nbsp;OAIS‑Style Archival Packaging</h3>
-<p>A key reason SEEK sits between categories is their use of <strong>RO‑Crate</strong>, a packaging format optimised for FAIR metadata, semantic relationships, and research‑object context.<br>
-Repositories and archives, by contrast, rely on <strong>OAIS‑aligned</strong> standards such as METS, PREMIS, and BagIt, which focus on long‑term preservation and fixity.</p>
+<p>A key reason SEEK sits between categories is their use of RO‑Crate, a packaging format optimised for FAIR metadata, semantic relationships, and research‑object context.<br>
+Repositories and archives, by contrast, rely on OAIS‑aligned standards such as METS, PREMIS, and BagIt, which focus on long‑term preservation and fixity.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 10%">
@@ -811,22 +947,22 @@ SEEK therefore sits naturally between active research systems and repositories.<
 <section id="publishing-in-fairdomseek-rocratecentric" class="level3">
 <h3 class="anchored" data-anchor-id="publishing-in-fairdomseek-rocratecentric">Publishing in FAIRDOM‑SEEK (RO‑Crate‑centric)</h3>
 <ul>
-<li>Focus on <strong>context</strong>, <strong>ISA structure</strong>, <strong>samples</strong>, <strong>models</strong>, <strong>protocols</strong><br>
+<li>Focus on context, ISA structure, samples, models, protocols<br>
 </li>
-<li>Assets interlinked into a <strong>research graph</strong><br>
+<li>Assets interlinked into a research graph<br>
 </li>
-<li>Metadata exposed via <strong>Bioschemas, RDF, SPARQL, JSON API</strong><br>
+<li>Metadata exposed via Bioschemas, RDF, SPARQL, JSON API<br>
 </li>
 <li>Optional DOI minting<br>
 </li>
 <li>Not designed for long‑term preservation</li>
 </ul>
-<p><strong>SEEK publishes <em>metadata‑rich research objects</em>, not archival datasets.</strong></p>
+<p>SEEK publishes <em>metadata‑rich research objects</em>, not archival datasets.</p>
 </section>
 <section id="publishing-in-a-repository-oaisaligned" class="level3">
 <h3 class="anchored" data-anchor-id="publishing-in-a-repository-oaisaligned">Publishing in a Repository (OAIS‑aligned)</h3>
 <ul>
-<li>Focus on <strong>dataset‑level publication</strong><br>
+<li>Focus on dataset‑level publication<br>
 </li>
 <li>DOI mandatory<br>
 </li>
@@ -838,7 +974,7 @@ SEEK therefore sits naturally between active research systems and repositories.<
 </li>
 <li>Archival packaging (BagIt, AIP) ensures fixity</li>
 </ul>
-<p><strong>Repositories publish <em>archival digital objects</em> that enter the scholarly record.</strong></p>
+<p>Repositories publish <em>archival digital objects</em> that enter the scholarly record.</p>
 </section>
 <section id="why-this-hybrid-role-matters-for-transitions" class="level3">
 <h3 class="anchored" data-anchor-id="why-this-hybrid-role-matters-for-transitions">Why This Hybrid Role Matters for Transitions</h3>
@@ -858,18 +994,18 @@ SEEK therefore sits naturally between active research systems and repositories.<
 </li>
 <li>reflect the complexity and interconnectedness of life‑science research objects</li>
 </ul>
-<p>They do not replace repositories or policy engines; they <strong>complement</strong> them by ensuring that digital objects are <strong>contextualised, semantically rich, and machine‑actionable</strong> before they enter the publication and preservation layers.</p>
+<p>They do not replace repositories or policy engines; they complement them by ensuring that digital objects are contextualised, semantically rich, and machine‑actionable before they enter the publication and preservation layers.</p>
 </section>
 </section>
 <section id="architectural-principles-for-robust-rdm-transitions" class="level2">
 <h2 class="anchored" data-anchor-id="architectural-principles-for-robust-rdm-transitions">Architectural Principles for Robust RDM Transitions</h2>
-<p>A FAIR‑aligned RDM platform succeeds or fails in the <strong>transitions</strong> between components.<br>
-This chapter showed that when systems exchange data only through APIs—without a shared digital‑object layer, i.e.&nbsp;identity, metadata, and provenance can fragment across boundaries. The solution is not to build more isolated services, but to design platforms that <strong>treat transitions as first‑class architectural concerns</strong>.</p>
+<p>A FAIR‑aligned RDM platform succeeds or fails in the transitions between components.<br>
+This chapter showed that when systems exchange data only through APIs—without a shared digital‑object layer, i.e.&nbsp;identity, metadata, and provenance can fragment across boundaries. The solution is not to build more isolated services, but to design platforms that treat transitions as first‑class architectural concerns.</p>
 <p>Three principles follow from this.</p>
 <section id="good-platform-design-matters" class="level3">
 <h3 class="anchored" data-anchor-id="good-platform-design-matters">1. Good platform design matters</h3>
 <p>RDM infrastructure is not simply a collection of tools.<br>
-It is an ecosystem in which digital objects must remain <strong>identifiable, contextualised, and traceable</strong> as they move across services.</p>
+It is an ecosystem in which digital objects must remain identifiable, contextualised, and traceable as they move across services.</p>
 <p>Designing for this continuity requires:</p>
 <ul>
 <li>stable identifiers<br>
@@ -905,25 +1041,25 @@ It is an ecosystem in which digital objects must remain <strong>identifiable, co
 </li>
 <li>preventing multiple sources of truth</li>
 </ul>
-<p>This mindset shifts the focus from <strong>tool‑centric design</strong> to <strong>ecosystem‑centric design</strong>.</p>
+<p>This mindset shifts the focus from tool‑centric design to ecosystem‑centric design.</p>
 </section>
 <section id="disciplinespecific-platforms-are-valuable-but-must-expose-standards" class="level3">
 <h3 class="anchored" data-anchor-id="disciplinespecific-platforms-are-valuable-but-must-expose-standards">3. Discipline‑specific platforms are valuable, but must expose standards</h3>
-<p>Systems like <strong>FAIRDOM‑SEEK</strong> and <strong>FAIR Data Station</strong> show how discipline‑specific platforms can provide deep, domain‑appropriate FAIRification.<br>
+<p>Systems like FAIRDOM‑SEEK and FAIR Data Station show how discipline‑specific platforms can provide deep, domain‑appropriate FAIRification.<br>
 Their strength lies in supporting the complexity of life‑science research objects: samples, assays, workflows, models, and protocols.</p>
 <p>But they remain interoperable because they expose:</p>
 <ul>
-<li><strong>standard identifiers</strong> (DOIs, ORCID, internal stable IDs)<br>
+<li>standard identifiers (DOIs, ORCID, internal stable IDs)<br>
 </li>
-<li><strong>standard metadata models</strong> (ISA, JSON‑LD, schema.org, Bioschemas)<br>
+<li>standard metadata models (ISA, JSON‑LD, schema.org, Bioschemas)<br>
 </li>
-<li><strong>standard packaging</strong> (RO‑Crate)<br>
+<li>standard packaging (RO‑Crate)<br>
 </li>
-<li><strong>standard APIs</strong><br>
+<li>standard APIs<br>
 </li>
-<li><strong>standard provenance structures</strong></li>
+<li>standard provenance structures</li>
 </ul>
-<p>This ensures that domain‑specific platforms can be <strong>combined with repositories, policy engines, and metadata portals from other disciplines</strong> without losing coherence.</p>
+<p>This ensures that domain‑specific platforms can be combined with repositories, policy engines, and metadata portals from other disciplines without losing coherence.</p>
 <p>In other words:</p>
 <blockquote class="blockquote">
 <p><strong>Discipline‑specific does not mean discipline‑isolated.</strong><br>
@@ -960,7 +1096,7 @@ A service that cannot risks breaking the digital‑object layer.</p>
 </li>
 <li><strong>Interfaces matter</strong>: every service must make clear how it participates in the lifecycle of a digital object.</li>
 </ul>
-<p>This sets the stage for the next chapter, where we look at <strong>metadata portals and aggregation services</strong>, and how they depend on well‑designed transitions to provide global discovery.</p>
+<p>This sets the stage for the next chapter, where we look at metadata portals and aggregation services, and how they depend on well‑designed transitions to provide global discovery.</p>
 
 
 </section>

@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f51d66800dd4230279bd6573c4b73a8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-11cafaeb44ee929428d09a09404358f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,15 +72,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<meta name="mermaid-theme" content="forest">
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="css_files/callout.css">
 <link rel="stylesheet" href="css_files/toc.css">
 <link rel="stylesheet" href="css_files/hyperlinks.css">
+<link rel="stylesheet" href="css_files/figure_margins.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -387,38 +384,114 @@ The engine discovers the file later and forms the digital object retroactively.<
 </section>
 <section id="policy-engine-architecture" class="level2">
 <h2 class="anchored" data-anchor-id="policy-engine-architecture">Policy Engine Architecture</h2>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-fig-width="10" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-1">%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
-
-flowchart TB
-
-    User["User&lt;br/&gt;(commands, queries)"]
-
-    subgraph P["Policy Engine"]
-        Rules["Policy Rules&lt;br/&gt;(placement, replication, retention)"]
-        Catalog["Metadata Catalog&lt;br/&gt;(checksums, replicas, provenance)"]
-        Orchestration["Data Orchestration&lt;br/&gt;(movement, triggers, automation)"]
-    end
-
-    subgraph S["Storage Systems"]
-        POSIX["POSIX File Systems"]
-        Object["Object Stores"]
-        Tape["Tape / Cold Storage"]
-        CloudStore["Cloud Storage"]
-    end
-
-    User --&gt; P
-
-    P --&gt; POSIX
-    P --&gt; Object
-    P --&gt; Tape
-    P --&gt; CloudStore
-</pre>
+<svg width="960" height="480" viewbox="0.00 0.00 1077.39 737.60" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 733.6)">
+<title>policy_engines</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-733.6 1073.39,-733.6 1073.39,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>cluster_policy</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M96.53,-350C96.53,-350 784.35,-350 784.35,-350 790.35,-350 796.35,-356 796.35,-362 796.35,-362 796.35,-658 796.35,-658 796.35,-664 790.35,-670 784.35,-670 784.35,-670 96.53,-670 96.53,-670 90.53,-670 84.53,-664 84.53,-658 84.53,-658 84.53,-362 84.53,-362 84.53,-356 90.53,-350 96.53,-350"></path>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_storage</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M343.65,-8C343.65,-8 1049.39,-8 1049.39,-8 1055.39,-8 1061.39,-14 1061.39,-20 1061.39,-20 1061.39,-330 1061.39,-330 1061.39,-336 1055.39,-342 1049.39,-342 1049.39,-342 343.65,-342 343.65,-342 337.65,-342 331.65,-336 331.65,-330 331.65,-330 331.65,-20 331.65,-20 331.65,-14 337.65,-8 343.65,-8"></path>
+</g>
+<!-- User -->
+<g id="node1" class="node">
+<title>User</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M173.09,-729.7C173.09,-729.7 11.97,-729.7 11.97,-729.7 5.97,-729.7 -0.03,-723.7 -0.03,-717.7 -0.03,-717.7 -0.03,-690.3 -0.03,-690.3 -0.03,-684.3 5.97,-678.3 11.97,-678.3 11.97,-678.3 173.09,-678.3 173.09,-678.3 179.09,-678.3 185.09,-684.3 185.09,-690.3 185.09,-690.3 185.09,-717.7 185.09,-717.7 185.09,-723.7 179.09,-729.7 173.09,-729.7"></path>
+<text text-anchor="middle" x="92.53" y="-709.4" font-family="Helvetica,sans-Serif" font-size="18.00">User</text>
+<text text-anchor="middle" x="92.53" y="-687.8" font-family="Helvetica,sans-Serif" font-size="18.00">(commands, queries)</text>
+</g>
+<!-- PolicyHeader -->
+<g id="node2" class="node">
+<title>PolicyHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M396.33,-428C396.33,-428 282.97,-428 282.97,-428 276.97,-428 270.97,-422 270.97,-416 270.97,-416 270.97,-404 270.97,-404 270.97,-398 276.97,-392 282.97,-392 282.97,-392 396.33,-392 396.33,-392 402.33,-392 408.33,-398 408.33,-404 408.33,-404 408.33,-416 408.33,-416 408.33,-422 402.33,-428 396.33,-428"></path>
+<text text-anchor="middle" x="339.65" y="-404" font-family="Helvetica,sans-Serif" font-size="20.00">Policy Engine</text>
+</g>
+<!-- User&#45;&gt;PolicyHeader -->
+<g id="edge10" class="edge">
+<title>User-&gt;PolicyHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M179.39,-678.21C181.34,-676.87 183.24,-675.47 185.06,-674 265.03,-609.29 312,-491.05 330.06,-437.57"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="333.38,-438.66 333.19,-428.07 326.73,-436.47 333.38,-438.66"></polygon>
+</g>
+<!-- Rules -->
+<g id="node3" class="node">
+<title>Rules</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M770.93,-443.7C770.93,-443.7 511.66,-443.7 511.66,-443.7 505.66,-443.7 499.66,-437.7 499.66,-431.7 499.66,-431.7 499.66,-404.3 499.66,-404.3 499.66,-398.3 505.66,-392.3 511.66,-392.3 511.66,-392.3 770.93,-392.3 770.93,-392.3 776.93,-392.3 782.93,-398.3 782.93,-404.3 782.93,-404.3 782.93,-431.7 782.93,-431.7 782.93,-437.7 776.93,-443.7 770.93,-443.7"></path>
+<text text-anchor="middle" x="641.3" y="-423.4" font-family="Helvetica,sans-Serif" font-size="18.00">Policy Rules</text>
+<text text-anchor="middle" x="641.3" y="-401.8" font-family="Helvetica,sans-Serif" font-size="18.00">(placement, replication, retention)</text>
+</g>
+<!-- PolicyHeader&#45;&gt;Rules -->
+<!-- Catalog -->
+<g id="node4" class="node">
+<title>Catalog</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M776.41,-552.7C776.41,-552.7 506.18,-552.7 506.18,-552.7 500.18,-552.7 494.18,-546.7 494.18,-540.7 494.18,-540.7 494.18,-513.3 494.18,-513.3 494.18,-507.3 500.18,-501.3 506.18,-501.3 506.18,-501.3 776.41,-501.3 776.41,-501.3 782.41,-501.3 788.41,-507.3 788.41,-513.3 788.41,-513.3 788.41,-540.7 788.41,-540.7 788.41,-546.7 782.41,-552.7 776.41,-552.7"></path>
+<text text-anchor="middle" x="641.3" y="-532.4" font-family="Helvetica,sans-Serif" font-size="18.00">Metadata Catalog</text>
+<text text-anchor="middle" x="641.3" y="-510.8" font-family="Helvetica,sans-Serif" font-size="18.00">(checksums, replicas, provenance)</text>
+</g>
+<!-- PolicyHeader&#45;&gt;Catalog -->
+<!-- Orchestration -->
+<g id="node5" class="node">
+<title>Orchestration</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M769.9,-661.7C769.9,-661.7 512.69,-661.7 512.69,-661.7 506.69,-661.7 500.69,-655.7 500.69,-649.7 500.69,-649.7 500.69,-622.3 500.69,-622.3 500.69,-616.3 506.69,-610.3 512.69,-610.3 512.69,-610.3 769.9,-610.3 769.9,-610.3 775.9,-610.3 781.9,-616.3 781.9,-622.3 781.9,-622.3 781.9,-649.7 781.9,-649.7 781.9,-655.7 775.9,-661.7 769.9,-661.7"></path>
+<text text-anchor="middle" x="641.3" y="-641.4" font-family="Helvetica,sans-Serif" font-size="18.00">Data Orchestration</text>
+<text text-anchor="middle" x="641.3" y="-619.8" font-family="Helvetica,sans-Serif" font-size="18.00">(movement, triggers, automation)</text>
+</g>
+<!-- PolicyHeader&#45;&gt;Orchestration -->
+<!-- StorageHeader -->
+<g id="node7" class="node">
+<title>StorageHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M713.58,-334C713.58,-334 569.01,-334 569.01,-334 563.01,-334 557.01,-328 557.01,-322 557.01,-322 557.01,-310 557.01,-310 557.01,-304 563.01,-298 569.01,-298 569.01,-298 713.58,-298 713.58,-298 719.58,-298 725.58,-304 725.58,-310 725.58,-310 725.58,-322 725.58,-322 725.58,-328 719.58,-334 713.58,-334"></path>
+<text text-anchor="middle" x="641.3" y="-310" font-family="Helvetica,sans-Serif" font-size="20.00">Storage Systems</text>
+</g>
+<!-- PolicyHeader&#45;&gt;StorageHeader -->
+<g id="edge11" class="edge">
+<title>PolicyHeader-&gt;StorageHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M372.23,-391.88C402.55,-375.29 450.13,-351.35 494.24,-338 510.96,-332.94 529.13,-329.01 546.78,-325.98"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="547.8,-329.36 557.11,-324.29 546.67,-322.45 547.8,-329.36"></polygon>
+</g>
+<!-- TopPolicyAnchor -->
+<!-- TopPolicyAnchor&#45;&gt;PolicyHeader -->
+<!-- TopStorageAnchor -->
+<!-- TopPolicyAnchor&#45;&gt;TopStorageAnchor -->
+<!-- POSIX -->
+<g id="node8" class="node">
+<title>POSIX</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M1041.41,-52C1041.41,-52 886.33,-52 886.33,-52 880.33,-52 874.33,-46 874.33,-40 874.33,-40 874.33,-28 874.33,-28 874.33,-22 880.33,-16 886.33,-16 886.33,-16 1041.41,-16 1041.41,-16 1047.41,-16 1053.41,-22 1053.41,-28 1053.41,-28 1053.41,-40 1053.41,-40 1053.41,-46 1047.41,-52 1041.41,-52"></path>
+<text text-anchor="middle" x="963.87" y="-28.6" font-family="Helvetica,sans-Serif" font-size="18.00">POSIX File Systems</text>
+</g>
+<!-- StorageHeader&#45;&gt;POSIX -->
+<!-- Object -->
+<g id="node9" class="node">
+<title>Object</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M1014.42,-146C1014.42,-146 913.32,-146 913.32,-146 907.32,-146 901.32,-140 901.32,-134 901.32,-134 901.32,-122 901.32,-122 901.32,-116 907.32,-110 913.32,-110 913.32,-110 1014.42,-110 1014.42,-110 1020.42,-110 1026.42,-116 1026.42,-122 1026.42,-122 1026.42,-134 1026.42,-134 1026.42,-140 1020.42,-146 1014.42,-146"></path>
+<text text-anchor="middle" x="963.87" y="-122.6" font-family="Helvetica,sans-Serif" font-size="18.00">Object Stores</text>
+</g>
+<!-- StorageHeader&#45;&gt;Object -->
+<!-- Tape -->
+<g id="node10" class="node">
+<title>Tape</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M1040.46,-240C1040.46,-240 887.28,-240 887.28,-240 881.28,-240 875.28,-234 875.28,-228 875.28,-228 875.28,-216 875.28,-216 875.28,-210 881.28,-204 887.28,-204 887.28,-204 1040.46,-204 1040.46,-204 1046.46,-204 1052.46,-210 1052.46,-216 1052.46,-216 1052.46,-228 1052.46,-228 1052.46,-234 1046.46,-240 1040.46,-240"></path>
+<text text-anchor="middle" x="963.87" y="-216.6" font-family="Helvetica,sans-Serif" font-size="18.00">Tape / Cold Storage</text>
+</g>
+<!-- StorageHeader&#45;&gt;Tape -->
+<!-- CloudStore -->
+<g id="node11" class="node">
+<title>CloudStore</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M1017.45,-334C1017.45,-334 910.29,-334 910.29,-334 904.29,-334 898.29,-328 898.29,-322 898.29,-322 898.29,-310 898.29,-310 898.29,-304 904.29,-298 910.29,-298 910.29,-298 1017.45,-298 1017.45,-298 1023.45,-298 1029.45,-304 1029.45,-310 1029.45,-310 1029.45,-322 1029.45,-322 1029.45,-328 1023.45,-334 1017.45,-334"></path>
+<text text-anchor="middle" x="963.87" y="-310.6" font-family="Helvetica,sans-Serif" font-size="18.00">Cloud Storage</text>
+</g>
+<!-- StorageHeader&#45;&gt;CloudStore -->
+<!-- TopStorageAnchor&#45;&gt;StorageHeader -->
+</g>
+</svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -447,7 +520,7 @@ Figure&nbsp;12.1: Policy engines coordinate storage, enabling metadata‑driven 
 </div>
 </div>
 <p>Despite this difference, both models share a common internal structure: a metadata catalog, a rule engine, and orchestration components that interact with storage systems.</p>
-<p>This architecture allows the policy engine to act as the <strong>control plane</strong> for active data.</p>
+<p>This architecture allows the policy engine to act as the control plane for active data.</p>
 <p>The engine applies relevant policies like replication, placement, retention, lineage and either executes the action itself (storage‑centric) or coordinates it across existing systems (observation‑centric).</p>
 <p>Rather than controlling every file operation, the policy engine focuses on the important moments in a file’s life: when it appears, changes, moves, or needs to be governed. By capturing and managing these key events, the engine ensures that digital objects remain trackable, discoverable, and governed across the infrastructure.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mental model">
@@ -529,46 +602,113 @@ It decides where data goes, how it is replicated, how it is described, and how i
 </section>
 <section id="example-policies" class="level2">
 <h2 class="anchored" data-anchor-id="example-policies">Example Policies</h2>
-<p>The following examples illustrate how policy engines operate on <strong>digital objects</strong> by coordinating files, metadata, identifiers, and storage systems during active research.</p>
+<p>The following examples illustrate how policy engines operate on digital objects by coordinating files, metadata, identifiers, and storage systems during active research.</p>
 <section id="file-replication" class="level3">
 <h3 class="anchored" data-anchor-id="file-replication">File Replication</h3>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-fig-width="9" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-2">%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
-
-flowchart TB
-
-    User["User"]
-
-    subgraph PE["Policy Engine"]
-        Upload["Receive File"]
-        Policy["Replication Policy&lt;br/&gt;(e.g., 2 replicas)"]
-        Catalog["Metadata Catalog&lt;br/&gt;(checksums, replica state)"]
-    end
-
-    subgraph Storage["Storage Systems"]
-        A["Storage A"]
-        B["Storage B"]
-    end
-
-    %% User uploads file to Policy Engine
-    User -- "upload file" --&gt; Upload
-
-    %% Policy triggers replication
-    Upload -- "replication policy triggers" --&gt; Policy
-
-    %% Policy Engine writes primary and replica
-    Policy --"store file"--&gt; A
-
-    %% Optional visual cue for replication relationship
-    Policy --"store file"--&gt; B
-    
-    
-</pre>
+<svg width="864" height="480" viewbox="0.00 0.00 1334.78 279.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 275)">
+<title>replication_flow</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-275 1330.78,-275 1330.78,4 -4,4"></polygon>
+<g id="clust2" class="cluster">
+<title>cluster_storage</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M325.25,-8C325.25,-8 1242.27,-8 1242.27,-8 1248.27,-8 1254.27,-14 1254.27,-20 1254.27,-20 1254.27,-51 1254.27,-51 1254.27,-57 1248.27,-63 1242.27,-63 1242.27,-63 325.25,-63 325.25,-63 319.25,-63 313.25,-57 313.25,-51 313.25,-51 313.25,-20 313.25,-20 313.25,-14 319.25,-8 325.25,-8"></path>
+</g>
+<g id="clust1" class="cluster">
+<title>cluster_policy_engine</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M20,-71C20,-71 1306.78,-71 1306.78,-71 1312.78,-71 1318.78,-77 1318.78,-83 1318.78,-83 1318.78,-215 1318.78,-215 1318.78,-221 1312.78,-227 1306.78,-227 1306.78,-227 20,-227 20,-227 14,-227 8,-221 8,-215 8,-215 8,-83 8,-83 8,-77 14,-71 20,-71"></path>
+</g>
+<!-- User -->
+<g id="node1" class="node">
+<title>User</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M99.59,-271C99.59,-271 69.59,-271 69.59,-271 63.59,-271 57.59,-265 57.59,-259 57.59,-259 57.59,-247 57.59,-247 57.59,-241 63.59,-235 69.59,-235 69.59,-235 99.59,-235 99.59,-235 105.59,-235 111.59,-241 111.59,-247 111.59,-247 111.59,-259 111.59,-259 111.59,-265 105.59,-271 99.59,-271"></path>
+<text text-anchor="middle" x="84.59" y="-247.6" font-family="Helvetica,sans-Serif" font-size="18.00">User</text>
+</g>
+<!-- Upload -->
+<g id="node3" class="node">
+<title>Upload</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M450.92,-149C450.92,-149 359.85,-149 359.85,-149 353.85,-149 347.85,-143 347.85,-137 347.85,-137 347.85,-125 347.85,-125 347.85,-119 353.85,-113 359.85,-113 359.85,-113 450.92,-113 450.92,-113 456.92,-113 462.92,-119 462.92,-125 462.92,-125 462.92,-137 462.92,-137 462.92,-143 456.92,-149 450.92,-149"></path>
+<text text-anchor="middle" x="405.39" y="-125.6" font-family="Helvetica,sans-Serif" font-size="18.00">Receive File</text>
+</g>
+<!-- User&#45;&gt;Upload -->
+<g id="edge7" class="edge">
+<title>User-&gt;Upload</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M111.72,-244.93C124.32,-240.92 139.6,-235.91 153.18,-231 222.65,-205.9 301.63,-173.87 352.18,-152.92"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="353.7,-156.08 361.59,-149.01 351.01,-149.61 353.7,-156.08"></polygon>
+<text text-anchor="middle" x="237.21" y="-217.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">upload file</text>
+</g>
+<!-- PEHeader -->
+<g id="node2" class="node">
+<title>PEHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M141.27,-115C141.27,-115 27.91,-115 27.91,-115 21.91,-115 15.91,-109 15.91,-103 15.91,-103 15.91,-91 15.91,-91 15.91,-85 21.91,-79 27.91,-79 27.91,-79 141.27,-79 141.27,-79 147.27,-79 153.27,-85 153.27,-91 153.27,-91 153.27,-103 153.27,-103 153.27,-109 147.27,-115 141.27,-115"></path>
+<text text-anchor="middle" x="84.59" y="-91" font-family="Helvetica,sans-Serif" font-size="20.00">Policy Engine</text>
+</g>
+<!-- PEHeader&#45;&gt;Upload -->
+<!-- StorageHeader -->
+<g id="node6" class="node">
+<title>StorageHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M477.67,-55C477.67,-55 333.1,-55 333.1,-55 327.1,-55 321.1,-49 321.1,-43 321.1,-43 321.1,-31 321.1,-31 321.1,-25 327.1,-19 333.1,-19 333.1,-19 477.67,-19 477.67,-19 483.67,-19 489.67,-25 489.67,-31 489.67,-31 489.67,-43 489.67,-43 489.67,-49 483.67,-55 477.67,-55"></path>
+<text text-anchor="middle" x="405.39" y="-31" font-family="Helvetica,sans-Serif" font-size="20.00">Storage Systems</text>
+</g>
+<!-- PEHeader&#45;&gt;StorageHeader -->
+<!-- Policy -->
+<g id="node4" class="node">
+<title>Policy</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M919.72,-218.7C919.72,-218.7 785.58,-218.7 785.58,-218.7 779.58,-218.7 773.58,-212.7 773.58,-206.7 773.58,-206.7 773.58,-179.3 773.58,-179.3 773.58,-173.3 779.58,-167.3 785.58,-167.3 785.58,-167.3 919.72,-167.3 919.72,-167.3 925.72,-167.3 931.72,-173.3 931.72,-179.3 931.72,-179.3 931.72,-206.7 931.72,-206.7 931.72,-212.7 925.72,-218.7 919.72,-218.7"></path>
+<text text-anchor="middle" x="852.65" y="-198.4" font-family="Helvetica,sans-Serif" font-size="18.00">Replication Policy</text>
+<text text-anchor="middle" x="852.65" y="-176.8" font-family="Helvetica,sans-Serif" font-size="18.00">(e.g., 2 replicas)</text>
+</g>
+<!-- Upload&#45;&gt;Policy -->
+<!-- Upload&#45;&gt;Policy -->
+<g id="edge8" class="edge">
+<title>Upload-&gt;Policy</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M463.23,-138.92C539.08,-149.48 674.17,-168.29 763.34,-180.7"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="763.05,-184.2 773.44,-182.11 764.02,-177.26 763.05,-184.2"></polygon>
+<text text-anchor="middle" x="631.57" y="-179.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">replication policy triggers</text>
+</g>
+<!-- Catalog -->
+<g id="node5" class="node">
+<title>Catalog</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M1298.81,-218.7C1298.81,-218.7 1097.68,-218.7 1097.68,-218.7 1091.68,-218.7 1085.68,-212.7 1085.68,-206.7 1085.68,-206.7 1085.68,-179.3 1085.68,-179.3 1085.68,-173.3 1091.68,-167.3 1097.68,-167.3 1097.68,-167.3 1298.81,-167.3 1298.81,-167.3 1304.81,-167.3 1310.81,-173.3 1310.81,-179.3 1310.81,-179.3 1310.81,-206.7 1310.81,-206.7 1310.81,-212.7 1304.81,-218.7 1298.81,-218.7"></path>
+<text text-anchor="middle" x="1198.24" y="-198.4" font-family="Helvetica,sans-Serif" font-size="18.00">Metadata Catalog</text>
+<text text-anchor="middle" x="1198.24" y="-176.8" font-family="Helvetica,sans-Serif" font-size="18.00">(checksums, replica state)</text>
+</g>
+<!-- Policy&#45;&gt;Catalog -->
+<!-- A -->
+<g id="node7" class="node">
+<title>A</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M888.7,-52C888.7,-52 816.6,-52 816.6,-52 810.6,-52 804.6,-46 804.6,-40 804.6,-40 804.6,-28 804.6,-28 804.6,-22 810.6,-16 816.6,-16 816.6,-16 888.7,-16 888.7,-16 894.7,-16 900.7,-22 900.7,-28 900.7,-28 900.7,-40 900.7,-40 900.7,-46 894.7,-52 888.7,-52"></path>
+<text text-anchor="middle" x="852.65" y="-28.6" font-family="Helvetica,sans-Serif" font-size="18.00">Storage A</text>
+</g>
+<!-- Policy&#45;&gt;A -->
+<g id="edge9" class="edge">
+<title>Policy-&gt;A</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M852.65,-167.38C852.65,-138.66 852.65,-92.22 852.65,-62.41"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="856.15,-62.24 852.65,-52.24 849.15,-62.24 856.15,-62.24"></polygon>
+<text text-anchor="middle" x="838.85" y="-104.3" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">store file</text>
+</g>
+<!-- B -->
+<g id="node8" class="node">
+<title>B</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M1234.3,-52C1234.3,-52 1162.19,-52 1162.19,-52 1156.19,-52 1150.19,-46 1150.19,-40 1150.19,-40 1150.19,-28 1150.19,-28 1150.19,-22 1156.19,-16 1162.19,-16 1162.19,-16 1234.3,-16 1234.3,-16 1240.3,-16 1246.3,-22 1246.3,-28 1246.3,-28 1246.3,-40 1246.3,-40 1246.3,-46 1240.3,-52 1234.3,-52"></path>
+<text text-anchor="middle" x="1198.24" y="-28.6" font-family="Helvetica,sans-Serif" font-size="18.00">Storage B</text>
+</g>
+<!-- Policy&#45;&gt;B -->
+<g id="edge10" class="edge">
+<title>Policy-&gt;B</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M889.15,-167.18C933.13,-136.4 1011.39,-85.55 1085.71,-57 1102.84,-50.42 1122.2,-45.59 1139.93,-42.1"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="1140.96,-45.47 1150.15,-40.2 1139.68,-38.59 1140.96,-45.47"></polygon>
+<text text-anchor="middle" x="1008.7" y="-113.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">store file</text>
+</g>
+<!-- StorageHeader&#45;&gt;A -->
+<!-- A&#45;&gt;B -->
+</g>
+</svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -582,39 +722,104 @@ Figure&nbsp;12.2: A user uploads a file to the policy engine. A replication poli
 </section>
 <section id="file-movement-to-cold-storage" class="level3">
 <h3 class="anchored" data-anchor-id="file-movement-to-cold-storage">File Movement to Cold Storage</h3>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-fig-width="9" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-3">%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
-
-flowchart TB
-
-    subgraph PE["Policy Engine"]
-        Monitor["Monitor Metadata&lt;br/&gt;(timestamps, access times)"]
-        AgePolicy["Data‑Aging Policy&lt;br/&gt;(move after X days)"]
-        Catalog["Metadata Catalog&lt;br/&gt;(location, timestamps)"]
-    end
-
-    subgraph Storage["Storage Systems"]
-        Hot["Online Storage"]
-        Cold["Cold Storage"]
-    end
-
-    %% Policy Engine monitors metadata
-    Monitor --&gt; Catalog
-
-    %% Aging policy triggers automatically
-    Catalog -- "aging policy triggers" --&gt; AgePolicy
-
-    %% Policy Engine moves data
-    AgePolicy --"send trigger to migrate"--&gt; Storage
-
-    %% Visual cue for migration
-    Hot -. "migrate aged data" .-&gt; Cold
-</pre>
+<svg width="864" height="480" viewbox="0.00 0.00 542.00 531.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 527.8)">
+<title>data_aging_flow</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-527.8 538,-527.8 538,4 -4,4"></polygon>
+<g id="clust2" class="cluster">
+<title>cluster_storage</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M312,-15.6C312,-15.6 514,-15.6 514,-15.6 520,-15.6 526,-21.6 526,-27.6 526,-27.6 526,-373.2 526,-373.2 526,-379.2 520,-385.2 514,-385.2 514,-385.2 312,-385.2 312,-385.2 306,-385.2 300,-379.2 300,-373.2 300,-373.2 300,-27.6 300,-27.6 300,-21.6 306,-15.6 312,-15.6"></path>
+</g>
+<g id="clust1" class="cluster">
+<title>cluster_policy_engine</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M20,-8C20,-8 280,-8 280,-8 286,-8 292,-14 292,-20 292,-20 292,-503.8 292,-503.8 292,-509.8 286,-515.8 280,-515.8 280,-515.8 20,-515.8 20,-515.8 14,-515.8 8,-509.8 8,-503.8 8,-503.8 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
+</g>
+<!-- PEHeader -->
+<g id="node1" class="node">
+<title>PEHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M271.68,-507.8C271.68,-507.8 158.32,-507.8 158.32,-507.8 152.32,-507.8 146.32,-501.8 146.32,-495.8 146.32,-495.8 146.32,-483.8 146.32,-483.8 146.32,-477.8 152.32,-471.8 158.32,-471.8 158.32,-471.8 271.68,-471.8 271.68,-471.8 277.68,-471.8 283.68,-477.8 283.68,-483.8 283.68,-483.8 283.68,-495.8 283.68,-495.8 283.68,-501.8 277.68,-507.8 271.68,-507.8"></path>
+<text text-anchor="middle" x="215" y="-483.8" font-family="Helvetica,sans-Serif" font-size="20.00">Policy Engine</text>
+</g>
+<!-- Monitor -->
+<g id="node2" class="node">
+<title>Monitor</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M238.04,-384.9C238.04,-384.9 27.96,-384.9 27.96,-384.9 21.96,-384.9 15.96,-378.9 15.96,-372.9 15.96,-372.9 15.96,-345.5 15.96,-345.5 15.96,-339.5 21.96,-333.5 27.96,-333.5 27.96,-333.5 238.04,-333.5 238.04,-333.5 244.04,-333.5 250.04,-339.5 250.04,-345.5 250.04,-345.5 250.04,-372.9 250.04,-372.9 250.04,-378.9 244.04,-384.9 238.04,-384.9"></path>
+<text text-anchor="middle" x="133" y="-364.6" font-family="Helvetica,sans-Serif" font-size="18.00">Monitor Metadata</text>
+<text text-anchor="middle" x="133" y="-343" font-family="Helvetica,sans-Serif" font-size="18.00">(timestamps, access times)</text>
+</g>
+<!-- PEHeader&#45;&gt;Monitor -->
+<!-- StorageHeader -->
+<g id="node5" class="node">
+<title>StorageHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M464.29,-377.2C464.29,-377.2 319.71,-377.2 319.71,-377.2 313.71,-377.2 307.71,-371.2 307.71,-365.2 307.71,-365.2 307.71,-353.2 307.71,-353.2 307.71,-347.2 313.71,-341.2 319.71,-341.2 319.71,-341.2 464.29,-341.2 464.29,-341.2 470.29,-341.2 476.29,-347.2 476.29,-353.2 476.29,-353.2 476.29,-365.2 476.29,-365.2 476.29,-371.2 470.29,-377.2 464.29,-377.2"></path>
+<text text-anchor="middle" x="392" y="-353.2" font-family="Helvetica,sans-Serif" font-size="20.00">Storage Systems</text>
+</g>
+<!-- PEHeader&#45;&gt;StorageHeader -->
+<!-- AgePolicy -->
+<g id="node3" class="node">
+<title>AgePolicy</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M245.55,-226.1C245.55,-226.1 96.45,-226.1 96.45,-226.1 90.45,-226.1 84.45,-220.1 84.45,-214.1 84.45,-214.1 84.45,-186.7 84.45,-186.7 84.45,-180.7 90.45,-174.7 96.45,-174.7 96.45,-174.7 245.55,-174.7 245.55,-174.7 251.55,-174.7 257.55,-180.7 257.55,-186.7 257.55,-186.7 257.55,-214.1 257.55,-214.1 257.55,-220.1 251.55,-226.1 245.55,-226.1"></path>
+<text text-anchor="middle" x="171" y="-205.8" font-family="Helvetica,sans-Serif" font-size="18.00">Data-Aging Policy</text>
+<text text-anchor="middle" x="171" y="-184.2" font-family="Helvetica,sans-Serif" font-size="18.00">(move after X days)</text>
+</g>
+<!-- Monitor&#45;&gt;AgePolicy -->
+<!-- Catalog -->
+<g id="node4" class="node">
+<title>Catalog</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M272.05,-67.3C272.05,-67.3 103.95,-67.3 103.95,-67.3 97.95,-67.3 91.95,-61.3 91.95,-55.3 91.95,-55.3 91.95,-27.9 91.95,-27.9 91.95,-21.9 97.95,-15.9 103.95,-15.9 103.95,-15.9 272.05,-15.9 272.05,-15.9 278.05,-15.9 284.05,-21.9 284.05,-27.9 284.05,-27.9 284.05,-55.3 284.05,-55.3 284.05,-61.3 278.05,-67.3 272.05,-67.3"></path>
+<text text-anchor="middle" x="188" y="-47" font-family="Helvetica,sans-Serif" font-size="18.00">Metadata Catalog</text>
+<text text-anchor="middle" x="188" y="-25.4" font-family="Helvetica,sans-Serif" font-size="18.00">(location, timestamps)</text>
+</g>
+<!-- Monitor&#45;&gt;Catalog -->
+<g id="edge7" class="edge">
+<title>Monitor-&gt;Catalog</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M111.38,-333.32C73.62,-286.68 3.87,-184.17 50,-110.2 60.16,-93.91 75.51,-81.44 92.33,-71.92"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="94.04,-74.98 101.24,-67.21 90.77,-68.79 94.04,-74.98"></polygon>
+</g>
+<!-- AgePolicy&#45;&gt;Catalog -->
+<!-- AgePolicy&#45;&gt;StorageHeader -->
+<g id="edge9" class="edge">
+<title>AgePolicy-&gt;StorageHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M172.43,-226C174.85,-245.84 181.23,-273.2 197.91,-290.6 207.21,-300.3 272.76,-321.99 325.14,-338.2"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="324.17,-341.56 334.76,-341.16 326.23,-334.87 324.17,-341.56"></polygon>
+<text text-anchor="middle" x="287.04" y="-274.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">send trigger to migrate</text>
+</g>
+<!-- Catalog&#45;&gt;AgePolicy -->
+<g id="edge8" class="edge">
+<title>Catalog-&gt;AgePolicy</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M116.34,-67.22C97.25,-77.43 78.9,-91.41 67.92,-110.2 54.07,-133.88 73.89,-154.4 99.73,-169.77"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="98.25,-172.95 108.69,-174.78 101.67,-166.84 98.25,-172.95"></polygon>
+<text text-anchor="middle" x="148.04" y="-115.6" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">aging policy triggers</text>
+</g>
+<!-- Hot -->
+<g id="node6" class="node">
+<title>Hot</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M448.08,-218.4C448.08,-218.4 335.92,-218.4 335.92,-218.4 329.92,-218.4 323.92,-212.4 323.92,-206.4 323.92,-206.4 323.92,-194.4 323.92,-194.4 323.92,-188.4 329.92,-182.4 335.92,-182.4 335.92,-182.4 448.08,-182.4 448.08,-182.4 454.08,-182.4 460.08,-188.4 460.08,-194.4 460.08,-194.4 460.08,-206.4 460.08,-206.4 460.08,-212.4 454.08,-218.4 448.08,-218.4"></path>
+<text text-anchor="middle" x="392" y="-195" font-family="Helvetica,sans-Serif" font-size="18.00">Online Storage</text>
+</g>
+<!-- StorageHeader&#45;&gt;Hot -->
+<!-- Cold -->
+<g id="node7" class="node">
+<title>Cold</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M505.56,-59.6C505.56,-59.6 408.44,-59.6 408.44,-59.6 402.44,-59.6 396.44,-53.6 396.44,-47.6 396.44,-47.6 396.44,-35.6 396.44,-35.6 396.44,-29.6 402.44,-23.6 408.44,-23.6 408.44,-23.6 505.56,-23.6 505.56,-23.6 511.56,-23.6 517.56,-29.6 517.56,-35.6 517.56,-35.6 517.56,-47.6 517.56,-47.6 517.56,-53.6 511.56,-59.6 505.56,-59.6"></path>
+<text text-anchor="middle" x="457" y="-36.2" font-family="Helvetica,sans-Serif" font-size="18.00">Cold Storage</text>
+</g>
+<!-- Hot&#45;&gt;Cold -->
+<!-- Hot&#45;&gt;Cold -->
+<g id="edge10" class="edge">
+<title>Hot-&gt;Cold</title>
+<path fill="none" stroke="#528641" stroke-width="2" stroke-dasharray="1,5" d="M375.06,-182.23C359.2,-163.96 339.75,-134.42 352.9,-110.2 363.78,-90.17 383.43,-75.16 402.75,-64.43"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="404.64,-67.39 411.87,-59.65 401.39,-61.19 404.64,-67.39"></polygon>
+<text text-anchor="middle" x="424.55" y="-115.6" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">migrate aged data</text>
+</g>
+</g>
+</svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -628,41 +833,129 @@ Figure&nbsp;12.3: The policy engine monitors file metadata. When a data‑aging 
 </section>
 <section id="digitalobject-promotion-on-ingest" class="level3">
 <h3 class="anchored" data-anchor-id="digitalobject-promotion-on-ingest">Digital‑Object Promotion on Ingest</h3>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-fig-width="9" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-4">%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
-flowchart LR
-
-    User["User&lt;br/&gt;(uploads file)"]
-
-    subgraph PE["Policy Engine"]
-        Ingest["Receive File"]
-        Fixity["Fixity Check&lt;br/&gt;(compute checksum)"]
-        Meta["Metadata Extraction&lt;br/&gt;(provenance, tags, timestamps)"]
-        PID["Identifier Assignment&lt;br/&gt;(PID or local ID)"]
-        Catalog["Metadata Catalog&lt;br/&gt;(checksum, PID, metadata)"]
-    end
-
-    subgraph Storage["Storage Systems"]
-        Store["Storage Backend&lt;br/&gt;(POSIX / Object / Tape)"]
-    end
-
-    %% User interacts with Policy Engine, not storage
-    User --&gt; Ingest
-
-    %% Ingest pipeline inside the policy engine
-    Ingest --&gt; Fixity
-    Fixity --&gt; Meta
-    Meta --&gt; PID
-    PID --&gt; Catalog
-
-    %% Only the policy engine writes to storage
-    Ingest --&gt; Store
-</pre>
+<svg width="864" height="480" viewbox="0.00 0.00 657.53 754.40" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 750.4)">
+<title>ingest_flow</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-750.4 653.53,-750.4 653.53,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>cluster_policy_engine</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M139.53,-8C139.53,-8 399.53,-8 399.53,-8 405.53,-8 411.53,-14 411.53,-20 411.53,-20 411.53,-726.4 411.53,-726.4 411.53,-732.4 405.53,-738.4 399.53,-738.4 399.53,-738.4 139.53,-738.4 139.53,-738.4 133.53,-738.4 127.53,-732.4 127.53,-726.4 127.53,-726.4 127.53,-20 127.53,-20 127.53,-14 133.53,-8 139.53,-8"></path>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_storage</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M431.53,-419.6C431.53,-419.6 629.53,-419.6 629.53,-419.6 635.53,-419.6 641.53,-425.6 641.53,-431.6 641.53,-431.6 641.53,-596.8 641.53,-596.8 641.53,-602.8 635.53,-608.8 629.53,-608.8 629.53,-608.8 431.53,-608.8 431.53,-608.8 425.53,-608.8 419.53,-602.8 419.53,-596.8 419.53,-596.8 419.53,-431.6 419.53,-431.6 419.53,-425.6 425.53,-419.6 431.53,-419.6"></path>
+</g>
+<!-- User -->
+<g id="node1" class="node">
+<title>User</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M107.08,-738.1C107.08,-738.1 11.97,-738.1 11.97,-738.1 5.97,-738.1 -0.03,-732.1 -0.03,-726.1 -0.03,-726.1 -0.03,-698.7 -0.03,-698.7 -0.03,-692.7 5.97,-686.7 11.97,-686.7 11.97,-686.7 107.08,-686.7 107.08,-686.7 113.08,-686.7 119.08,-692.7 119.08,-698.7 119.08,-698.7 119.08,-726.1 119.08,-726.1 119.08,-732.1 113.08,-738.1 107.08,-738.1"></path>
+<text text-anchor="middle" x="59.53" y="-717.8" font-family="Helvetica,sans-Serif" font-size="18.00">User</text>
+<text text-anchor="middle" x="59.53" y="-696.2" font-family="Helvetica,sans-Serif" font-size="18.00">(uploads file)</text>
+</g>
+<!-- Ingest -->
+<g id="node3" class="node">
+<title>Ingest</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M315.06,-600.8C315.06,-600.8 223.99,-600.8 223.99,-600.8 217.99,-600.8 211.99,-594.8 211.99,-588.8 211.99,-588.8 211.99,-576.8 211.99,-576.8 211.99,-570.8 217.99,-564.8 223.99,-564.8 223.99,-564.8 315.06,-564.8 315.06,-564.8 321.06,-564.8 327.06,-570.8 327.06,-576.8 327.06,-576.8 327.06,-588.8 327.06,-588.8 327.06,-594.8 321.06,-600.8 315.06,-600.8"></path>
+<text text-anchor="middle" x="269.53" y="-577.4" font-family="Helvetica,sans-Serif" font-size="18.00">Receive File</text>
+</g>
+<!-- User&#45;&gt;Ingest -->
+<g id="edge8" class="edge">
+<title>User-&gt;Ingest</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M100.02,-686.8C138.25,-663.56 195.12,-629.01 232.26,-606.44"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="234.53,-609.16 241.26,-600.98 230.9,-603.18 234.53,-609.16"></polygon>
+</g>
+<!-- PEHeader -->
+<g id="node2" class="node">
+<title>PEHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M391.21,-730.4C391.21,-730.4 277.84,-730.4 277.84,-730.4 271.84,-730.4 265.84,-724.4 265.84,-718.4 265.84,-718.4 265.84,-706.4 265.84,-706.4 265.84,-700.4 271.84,-694.4 277.84,-694.4 277.84,-694.4 391.21,-694.4 391.21,-694.4 397.21,-694.4 403.21,-700.4 403.21,-706.4 403.21,-706.4 403.21,-718.4 403.21,-718.4 403.21,-724.4 397.21,-730.4 391.21,-730.4"></path>
+<text text-anchor="middle" x="334.53" y="-706.4" font-family="Helvetica,sans-Serif" font-size="20.00">Policy Engine</text>
+</g>
+<!-- PEHeader&#45;&gt;Ingest -->
+<!-- StorageHeader -->
+<g id="node8" class="node">
+<title>StorageHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M583.81,-600.8C583.81,-600.8 439.24,-600.8 439.24,-600.8 433.24,-600.8 427.24,-594.8 427.24,-588.8 427.24,-588.8 427.24,-576.8 427.24,-576.8 427.24,-570.8 433.24,-564.8 439.24,-564.8 439.24,-564.8 583.81,-564.8 583.81,-564.8 589.81,-564.8 595.81,-570.8 595.81,-576.8 595.81,-576.8 595.81,-588.8 595.81,-588.8 595.81,-594.8 589.81,-600.8 583.81,-600.8"></path>
+<text text-anchor="middle" x="511.53" y="-576.8" font-family="Helvetica,sans-Serif" font-size="20.00">Storage Systems</text>
+</g>
+<!-- PEHeader&#45;&gt;StorageHeader -->
+<!-- Fixity -->
+<g id="node4" class="node">
+<title>Fixity</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M349.08,-478.9C349.08,-478.9 189.97,-478.9 189.97,-478.9 183.97,-478.9 177.97,-472.9 177.97,-466.9 177.97,-466.9 177.97,-439.5 177.97,-439.5 177.97,-433.5 183.97,-427.5 189.97,-427.5 189.97,-427.5 349.08,-427.5 349.08,-427.5 355.08,-427.5 361.08,-433.5 361.08,-439.5 361.08,-439.5 361.08,-466.9 361.08,-466.9 361.08,-472.9 355.08,-478.9 349.08,-478.9"></path>
+<text text-anchor="middle" x="269.53" y="-458.6" font-family="Helvetica,sans-Serif" font-size="18.00">Fixity Check</text>
+<text text-anchor="middle" x="269.53" y="-437" font-family="Helvetica,sans-Serif" font-size="18.00">(compute checksum)</text>
+</g>
+<!-- Ingest&#45;&gt;Fixity -->
+<!-- Ingest&#45;&gt;Fixity -->
+<g id="edge9" class="edge">
+<title>Ingest-&gt;Fixity</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M284.96,-564.59C291.62,-545.31 293.01,-513.53 289.14,-489.01"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="292.54,-488.14 287.16,-479.01 285.67,-489.5 292.54,-488.14"></polygon>
+</g>
+<!-- Store -->
+<g id="node9" class="node">
+<title>Store</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M621.59,-478.9C621.59,-478.9 439.46,-478.9 439.46,-478.9 433.46,-478.9 427.46,-472.9 427.46,-466.9 427.46,-466.9 427.46,-439.5 427.46,-439.5 427.46,-433.5 433.46,-427.5 439.46,-427.5 439.46,-427.5 621.59,-427.5 621.59,-427.5 627.59,-427.5 633.59,-433.5 633.59,-439.5 633.59,-439.5 633.59,-466.9 633.59,-466.9 633.59,-472.9 627.59,-478.9 621.59,-478.9"></path>
+<text text-anchor="middle" x="530.53" y="-458.6" font-family="Helvetica,sans-Serif" font-size="18.00">Storage Backend</text>
+<text text-anchor="middle" x="530.53" y="-437" font-family="Helvetica,sans-Serif" font-size="18.00">(POSIX / Object / Tape)</text>
+</g>
+<!-- Ingest&#45;&gt;Store -->
+<g id="edge13" class="edge">
+<title>Ingest-&gt;Store</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M304.45,-564.72C347.04,-543.9 419.69,-508.39 471.13,-483.24"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="472.7,-486.36 480.15,-478.83 469.63,-480.08 472.7,-486.36"></polygon>
+</g>
+<!-- Meta -->
+<g id="node5" class="node">
+<title>Meta</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M391.63,-341.7C391.63,-341.7 147.42,-341.7 147.42,-341.7 141.42,-341.7 135.42,-335.7 135.42,-329.7 135.42,-329.7 135.42,-302.3 135.42,-302.3 135.42,-296.3 141.42,-290.3 147.42,-290.3 147.42,-290.3 391.63,-290.3 391.63,-290.3 397.63,-290.3 403.63,-296.3 403.63,-302.3 403.63,-302.3 403.63,-329.7 403.63,-329.7 403.63,-335.7 397.63,-341.7 391.63,-341.7"></path>
+<text text-anchor="middle" x="269.53" y="-321.4" font-family="Helvetica,sans-Serif" font-size="18.00">Metadata Extraction</text>
+<text text-anchor="middle" x="269.53" y="-299.8" font-family="Helvetica,sans-Serif" font-size="18.00">(provenance, tags, timestamps)</text>
+</g>
+<!-- Fixity&#45;&gt;Meta -->
+<!-- Fixity&#45;&gt;Meta -->
+<g id="edge10" class="edge">
+<title>Fixity-&gt;Meta</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M286.81,-427.4C292.01,-406.15 292.67,-375.32 288.79,-351.63"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="292.18,-350.75 286.77,-341.64 285.32,-352.14 292.18,-350.75"></polygon>
+</g>
+<!-- PID -->
+<g id="node6" class="node">
+<title>PID</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M349.61,-204.5C349.61,-204.5 189.44,-204.5 189.44,-204.5 183.44,-204.5 177.44,-198.5 177.44,-192.5 177.44,-192.5 177.44,-165.1 177.44,-165.1 177.44,-159.1 183.44,-153.1 189.44,-153.1 189.44,-153.1 349.61,-153.1 349.61,-153.1 355.61,-153.1 361.61,-159.1 361.61,-165.1 361.61,-165.1 361.61,-192.5 361.61,-192.5 361.61,-198.5 355.61,-204.5 349.61,-204.5"></path>
+<text text-anchor="middle" x="269.53" y="-184.2" font-family="Helvetica,sans-Serif" font-size="18.00">Identifier Assignment</text>
+<text text-anchor="middle" x="269.53" y="-162.6" font-family="Helvetica,sans-Serif" font-size="18.00">(PID or local ID)</text>
+</g>
+<!-- Meta&#45;&gt;PID -->
+<!-- Meta&#45;&gt;PID -->
+<g id="edge11" class="edge">
+<title>Meta-&gt;PID</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M286.81,-290.2C292.01,-268.95 292.67,-238.12 288.79,-214.43"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="292.18,-213.55 286.77,-204.44 285.32,-214.94 292.18,-213.55"></polygon>
+</g>
+<!-- Catalog -->
+<g id="node7" class="node">
+<title>Catalog</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M374.6,-67.3C374.6,-67.3 164.45,-67.3 164.45,-67.3 158.45,-67.3 152.45,-61.3 152.45,-55.3 152.45,-55.3 152.45,-27.9 152.45,-27.9 152.45,-21.9 158.45,-15.9 164.45,-15.9 164.45,-15.9 374.6,-15.9 374.6,-15.9 380.6,-15.9 386.6,-21.9 386.6,-27.9 386.6,-27.9 386.6,-55.3 386.6,-55.3 386.6,-61.3 380.6,-67.3 374.6,-67.3"></path>
+<text text-anchor="middle" x="269.53" y="-47" font-family="Helvetica,sans-Serif" font-size="18.00">Metadata Catalog</text>
+<text text-anchor="middle" x="269.53" y="-25.4" font-family="Helvetica,sans-Serif" font-size="18.00">(checksum, PID, metadata)</text>
+</g>
+<!-- PID&#45;&gt;Catalog -->
+<!-- PID&#45;&gt;Catalog -->
+<g id="edge12" class="edge">
+<title>PID-&gt;Catalog</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M286.81,-153C292.01,-131.75 292.67,-100.92 288.79,-77.23"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="292.18,-76.35 286.77,-67.24 285.32,-77.74 292.18,-76.35"></polygon>
+</g>
+<!-- StorageHeader&#45;&gt;Store -->
+</g>
+</svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -676,38 +969,137 @@ Figure&nbsp;12.4: When a user uploads a file, the policy engine applies an inges
 </section>
 <section id="autolink-derived-data" class="level3">
 <h3 class="anchored" data-anchor-id="autolink-derived-data">Auto‑Link Derived Data</h3>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-fig-width="9" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-5" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-5">%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
-flowchart TB
-
-    subgraph Compute["Compute Environment"]
-        WF["Workflow&lt;br/&gt;(input data + output file + parameters)"]
-    end
-
-    subgraph PE["Policy Engine"]
-        NewObj["Create New Digital Object&lt;br/&gt;(output file)"]
-        Extract["Extract metadata from output file&lt;br/&gt;(checksum, timestamps, filetype)"]
-        Catalog["Metadata Catalog&lt;br/&gt;(created from input data, workflow parameters, extracted metadata)"]
-    
-        ID["Assign Identifier&lt;br/&gt;(PID or local ID)"]
-    end
-
-    subgraph Storage["Storage Systems"]
-        Store["Storage Backend&lt;br/&gt;(POSIX / Object / Tape)"]
-    end
-
-    Compute -- "Upload file and metadata" --&gt; PE
-    PE -- "Store file" --&gt; Storage
-    NewObj --&gt; Extract
-    ID --&gt; NewObj
-    Extract --&gt; Catalog
-    
-</pre>
+<svg width="864" height="480" viewbox="0.00 0.00 1226.00 787.60" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 783.6)">
+<title>workflow_generated_data</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-783.6 1222,-783.6 1222,4 -4,4"></polygon>
+<g id="clust2" class="cluster">
+<title>cluster_policy_engine</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M362,-8C362,-8 968,-8 968,-8 974,-8 980,-14 980,-20 980,-20 980,-629 980,-629 980,-635 974,-641 968,-641 968,-641 362,-641 362,-641 356,-641 350,-635 350,-629 350,-629 350,-20 350,-20 350,-14 356,-8 362,-8"></path>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_storage</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M1000,-284.4C1000,-284.4 1198,-284.4 1198,-284.4 1204,-284.4 1210,-290.4 1210,-296.4 1210,-296.4 1210,-470.2 1210,-470.2 1210,-476.2 1204,-482.2 1198,-482.2 1198,-482.2 1000,-482.2 1000,-482.2 994,-482.2 988,-476.2 988,-470.2 988,-470.2 988,-296.4 988,-296.4 988,-290.4 994,-284.4 1000,-284.4"></path>
+</g>
+<g id="clust1" class="cluster">
+<title>cluster_compute</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M20,-581.4C20,-581.4 330,-581.4 330,-581.4 336,-581.4 342,-587.4 342,-593.4 342,-593.4 342,-759.6 342,-759.6 342,-765.6 336,-771.6 330,-771.6 330,-771.6 20,-771.6 20,-771.6 14,-771.6 8,-765.6 8,-759.6 8,-759.6 8,-593.4 8,-593.4 8,-587.4 14,-581.4 20,-581.4"></path>
+</g>
+<!-- ComputeHeader -->
+<g id="node1" class="node">
+<title>ComputeHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M322.48,-763.6C322.48,-763.6 131.52,-763.6 131.52,-763.6 125.52,-763.6 119.52,-757.6 119.52,-751.6 119.52,-751.6 119.52,-739.6 119.52,-739.6 119.52,-733.6 125.52,-727.6 131.52,-727.6 131.52,-727.6 322.48,-727.6 322.48,-727.6 328.48,-727.6 334.48,-733.6 334.48,-739.6 334.48,-739.6 334.48,-751.6 334.48,-751.6 334.48,-757.6 328.48,-763.6 322.48,-763.6"></path>
+<text text-anchor="middle" x="227" y="-739.6" font-family="Helvetica,sans-Serif" font-size="20.00">Compute Environment</text>
+</g>
+<!-- WF -->
+<g id="node2" class="node">
+<title>WF</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M321.67,-640.7C321.67,-640.7 28.33,-640.7 28.33,-640.7 22.33,-640.7 16.33,-634.7 16.33,-628.7 16.33,-628.7 16.33,-601.3 16.33,-601.3 16.33,-595.3 22.33,-589.3 28.33,-589.3 28.33,-589.3 321.67,-589.3 321.67,-589.3 327.67,-589.3 333.67,-595.3 333.67,-601.3 333.67,-601.3 333.67,-628.7 333.67,-628.7 333.67,-634.7 327.67,-640.7 321.67,-640.7"></path>
+<text text-anchor="middle" x="175" y="-620.4" font-family="Helvetica,sans-Serif" font-size="18.00">Workflow</text>
+<text text-anchor="middle" x="175" y="-598.8" font-family="Helvetica,sans-Serif" font-size="18.00">(input data + output file + parameters)</text>
+</g>
+<!-- ComputeHeader&#45;&gt;WF -->
+<!-- PEHeader -->
+<g id="node3" class="node">
+<title>PEHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M716.68,-633C716.68,-633 603.32,-633 603.32,-633 597.32,-633 591.32,-627 591.32,-621 591.32,-621 591.32,-609 591.32,-609 591.32,-603 597.32,-597 603.32,-597 603.32,-597 716.68,-597 716.68,-597 722.68,-597 728.68,-603 728.68,-609 728.68,-609 728.68,-621 728.68,-621 728.68,-627 722.68,-633 716.68,-633"></path>
+<text text-anchor="middle" x="660" y="-609" font-family="Helvetica,sans-Serif" font-size="20.00">Policy Engine</text>
+</g>
+<!-- ComputeHeader&#45;&gt;PEHeader -->
+<!-- WF&#45;&gt;PEHeader -->
+<g id="edge9" class="edge">
+<title>WF-&gt;PEHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M333.81,-615C416.71,-615 514.49,-615 581.23,-615"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="581.26,-618.5 591.26,-615 581.26,-611.5 581.26,-618.5"></polygon>
+<text text-anchor="middle" x="462.5" y="-623.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">Upload file and metadata</text>
+</g>
+<!-- NewObj -->
+<g id="node4" class="node">
+<title>NewObj</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M734.58,-481.9C734.58,-481.9 535.42,-481.9 535.42,-481.9 529.42,-481.9 523.42,-475.9 523.42,-469.9 523.42,-469.9 523.42,-442.5 523.42,-442.5 523.42,-436.5 529.42,-430.5 535.42,-430.5 535.42,-430.5 734.58,-430.5 734.58,-430.5 740.58,-430.5 746.58,-436.5 746.58,-442.5 746.58,-442.5 746.58,-469.9 746.58,-469.9 746.58,-475.9 740.58,-481.9 734.58,-481.9"></path>
+<text text-anchor="middle" x="635" y="-461.6" font-family="Helvetica,sans-Serif" font-size="18.00">Create New Digital Object</text>
+<text text-anchor="middle" x="635" y="-440" font-family="Helvetica,sans-Serif" font-size="18.00">(output file)</text>
+</g>
+<!-- PEHeader&#45;&gt;NewObj -->
+<!-- PEHeader&#45;&gt;NewObj -->
+<g id="edge11" class="edge">
+<title>PEHeader-&gt;NewObj</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M657.28,-596.92C653.28,-571.85 645.74,-524.55 640.55,-491.98"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="643.98,-491.29 638.95,-481.97 637.07,-492.39 643.98,-491.29"></polygon>
+<text text-anchor="middle" x="719.51" y="-530.2" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">Triggers workflow</text>
+</g>
+<!-- StorageHeader -->
+<g id="node8" class="node">
+<title>StorageHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M1152.29,-474.2C1152.29,-474.2 1007.71,-474.2 1007.71,-474.2 1001.71,-474.2 995.71,-468.2 995.71,-462.2 995.71,-462.2 995.71,-450.2 995.71,-450.2 995.71,-444.2 1001.71,-438.2 1007.71,-438.2 1007.71,-438.2 1152.29,-438.2 1152.29,-438.2 1158.29,-438.2 1164.29,-444.2 1164.29,-450.2 1164.29,-450.2 1164.29,-462.2 1164.29,-462.2 1164.29,-468.2 1158.29,-474.2 1152.29,-474.2"></path>
+<text text-anchor="middle" x="1080" y="-450.2" font-family="Helvetica,sans-Serif" font-size="20.00">Storage Systems</text>
+</g>
+<!-- PEHeader&#45;&gt;StorageHeader -->
+<!-- PEHeader&#45;&gt;StorageHeader -->
+<g id="edge10" class="edge">
+<title>PEHeader-&gt;StorageHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M728.77,-600.26C780.67,-588.81 853.11,-570.48 914,-546.4 960.86,-527.87 1011.42,-499.35 1044.27,-479.57"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="1046.32,-482.42 1053.04,-474.23 1042.68,-476.43 1046.32,-482.42"></polygon>
+<text text-anchor="middle" x="996.52" y="-530.2" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">Store file</text>
+</g>
+<!-- Extract -->
+<g id="node5" class="node">
+<title>Extract</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M762.07,-343.7C762.07,-343.7 507.93,-343.7 507.93,-343.7 501.93,-343.7 495.93,-337.7 495.93,-331.7 495.93,-331.7 495.93,-304.3 495.93,-304.3 495.93,-298.3 501.93,-292.3 507.93,-292.3 507.93,-292.3 762.07,-292.3 762.07,-292.3 768.07,-292.3 774.07,-298.3 774.07,-304.3 774.07,-304.3 774.07,-331.7 774.07,-331.7 774.07,-337.7 768.07,-343.7 762.07,-343.7"></path>
+<text text-anchor="middle" x="635" y="-323.4" font-family="Helvetica,sans-Serif" font-size="18.00">Extract metadata from output file</text>
+<text text-anchor="middle" x="635" y="-301.8" font-family="Helvetica,sans-Serif" font-size="18.00">(checksum, timestamps, filetype)</text>
+</g>
+<!-- NewObj&#45;&gt;Extract -->
+<!-- NewObj&#45;&gt;Extract -->
+<g id="edge12" class="edge">
+<title>NewObj-&gt;Extract</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M652.21,-430.54C657.46,-409.17 658.16,-378.01 654.29,-354.05"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="657.66,-353.06 652.27,-343.94 650.8,-354.43 657.66,-353.06"></polygon>
+</g>
+<!-- Catalog -->
+<g id="node6" class="node">
+<title>Catalog</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M899.74,-205.5C899.74,-205.5 370.26,-205.5 370.26,-205.5 364.26,-205.5 358.26,-199.5 358.26,-193.5 358.26,-193.5 358.26,-166.1 358.26,-166.1 358.26,-160.1 364.26,-154.1 370.26,-154.1 370.26,-154.1 899.74,-154.1 899.74,-154.1 905.74,-154.1 911.74,-160.1 911.74,-166.1 911.74,-166.1 911.74,-193.5 911.74,-193.5 911.74,-199.5 905.74,-205.5 899.74,-205.5"></path>
+<text text-anchor="middle" x="635" y="-185.2" font-family="Helvetica,sans-Serif" font-size="18.00">Metadata Catalog</text>
+<text text-anchor="middle" x="635" y="-163.6" font-family="Helvetica,sans-Serif" font-size="18.00">(created from input data, workflow parameters, extracted metadata)</text>
+</g>
+<!-- Extract&#45;&gt;Catalog -->
+<!-- Extract&#45;&gt;Catalog -->
+<g id="edge14" class="edge">
+<title>Extract-&gt;Catalog</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M652.21,-292.34C657.46,-270.97 658.16,-239.81 654.29,-215.85"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="657.66,-214.86 652.27,-205.74 650.8,-216.23 657.66,-214.86"></polygon>
+</g>
+<!-- ID -->
+<g id="node7" class="node">
+<title>ID</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M695.07,-67.3C695.07,-67.3 574.93,-67.3 574.93,-67.3 568.93,-67.3 562.93,-61.3 562.93,-55.3 562.93,-55.3 562.93,-27.9 562.93,-27.9 562.93,-21.9 568.93,-15.9 574.93,-15.9 574.93,-15.9 695.07,-15.9 695.07,-15.9 701.07,-15.9 707.07,-21.9 707.07,-27.9 707.07,-27.9 707.07,-55.3 707.07,-55.3 707.07,-61.3 701.07,-67.3 695.07,-67.3"></path>
+<text text-anchor="middle" x="635" y="-47" font-family="Helvetica,sans-Serif" font-size="18.00">Assign Identifier</text>
+<text text-anchor="middle" x="635" y="-25.4" font-family="Helvetica,sans-Serif" font-size="18.00">(PID or local ID)</text>
+</g>
+<!-- Catalog&#45;&gt;ID -->
+<!-- ID&#45;&gt;NewObj -->
+<g id="edge13" class="edge">
+<title>ID-&gt;NewObj</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M707.23,-46.33C779.89,-54.39 888.48,-79.14 941,-154.2 1020.99,-268.52 820.28,-376.63 706.69,-426.46"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="705.1,-423.33 697.32,-430.52 707.89,-429.75 705.1,-423.33"></polygon>
+</g>
+<!-- Store -->
+<g id="node9" class="node">
+<title>Store</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M1190.06,-343.7C1190.06,-343.7 1007.94,-343.7 1007.94,-343.7 1001.94,-343.7 995.94,-337.7 995.94,-331.7 995.94,-331.7 995.94,-304.3 995.94,-304.3 995.94,-298.3 1001.94,-292.3 1007.94,-292.3 1007.94,-292.3 1190.06,-292.3 1190.06,-292.3 1196.06,-292.3 1202.06,-298.3 1202.06,-304.3 1202.06,-304.3 1202.06,-331.7 1202.06,-331.7 1202.06,-337.7 1196.06,-343.7 1190.06,-343.7"></path>
+<text text-anchor="middle" x="1099" y="-323.4" font-family="Helvetica,sans-Serif" font-size="18.00">Storage Backend</text>
+<text text-anchor="middle" x="1099" y="-301.8" font-family="Helvetica,sans-Serif" font-size="18.00">(POSIX / Object / Tape)</text>
+</g>
+<!-- StorageHeader&#45;&gt;Store -->
+</g>
+</svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -722,49 +1114,145 @@ Figure&nbsp;12.5: Workflow‑generated data is uploaded to the policy engine, wh
 </section>
 <section id="metadatadriven-access-to-digital-objects" class="level2">
 <h2 class="anchored" data-anchor-id="metadatadriven-access-to-digital-objects">Metadata‑Driven Access to Digital Objects</h2>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-fig-width="9" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-6" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-6">%%{init: {"look": "handDrawn","flowchart": { "htmlLabels": false }}}%%
-
-flowchart TB
-
-    subgraph Storage["Storage Systems"]
-        S1["Storage Backend 1"]
-        S2["Storage Backend 2"]
-    end
-
-    subgraph PE["Policy Engine"]
-        Catalog["Metadata Catalog&lt;br/&gt;(provenance, tags, arrival time)"]
-    end
-
-    subgraph Compute["Compute Environment"]
-        User["User / Workflow&lt;br/&gt;(query metadata)"]
-        Stream["Workflow A&lt;br/&gt;(stream content)"]
-        Copy["Workflow B&lt;br/&gt;(stage working copy)"]
-    end
-
-    %% User/workflow queries catalog
-    User -- "query metadata" --&gt; Catalog
-
-    %% Catalog returns access info to user/workflow
-    Catalog -- "return location + access info" --&gt; User
-
-    %% User/workflow injects access info into workflows
-    User -- "ingest access info" --&gt; Stream
-    User -- "ingest access info" --&gt; Copy
-
-    %% Workflows fetch data through policy engine
-    Stream -- "request data" --&gt; Catalog
-    Copy -- "request data" --&gt; Catalog
-
-    %% Policy engine fetches from storage
-    Catalog -- "fetch data" --&gt; S1
-
-</pre>
+<svg width="864" height="480" viewbox="0.00 0.00 1694.02 491.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 487)">
+<title>metadata_query_flow</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-487 1690.02,-487 1690.02,4 -4,4"></polygon>
+<g id="clust2" class="cluster">
+<title>cluster_policy_engine</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M329.93,-102C329.93,-102 1041.77,-102 1041.77,-102 1047.77,-102 1053.77,-108 1053.77,-114 1053.77,-114 1053.77,-158 1053.77,-158 1053.77,-164 1047.77,-170 1041.77,-170 1041.77,-170 329.93,-170 329.93,-170 323.93,-170 317.93,-164 317.93,-158 317.93,-158 317.93,-114 317.93,-114 317.93,-108 323.93,-102 329.93,-102"></path>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_compute</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M20,-178C20,-178 1409.91,-178 1409.91,-178 1415.91,-178 1421.91,-184 1421.91,-190 1421.91,-190 1421.91,-463 1421.91,-463 1421.91,-469 1415.91,-475 1409.91,-475 1409.91,-475 20,-475 20,-475 14,-475 8,-469 8,-463 8,-463 8,-190 8,-190 8,-184 14,-178 20,-178"></path>
+</g>
+<g id="clust1" class="cluster">
+<title>cluster_storage</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M833.58,-8C833.58,-8 1666.02,-8 1666.02,-8 1672.02,-8 1678.02,-14 1678.02,-20 1678.02,-20 1678.02,-48 1678.02,-48 1678.02,-54 1672.02,-60 1666.02,-60 1666.02,-60 833.58,-60 833.58,-60 827.58,-60 821.58,-54 821.58,-48 821.58,-48 821.58,-20 821.58,-20 821.58,-14 827.58,-8 833.58,-8"></path>
+</g>
+<!-- StorageHeader -->
+<g id="node1" class="node">
+<title>StorageHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M986.01,-52C986.01,-52 841.44,-52 841.44,-52 835.44,-52 829.44,-46 829.44,-40 829.44,-40 829.44,-28 829.44,-28 829.44,-22 835.44,-16 841.44,-16 841.44,-16 986.01,-16 986.01,-16 992.01,-16 998.01,-22 998.01,-28 998.01,-28 998.01,-40 998.01,-40 998.01,-46 992.01,-52 986.01,-52"></path>
+<text text-anchor="middle" x="913.72" y="-28" font-family="Helvetica,sans-Serif" font-size="20.00">Storage Systems</text>
+</g>
+<!-- S1 -->
+<g id="node2" class="node">
+<title>S1</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M1395.48,-52C1395.48,-52 1250.27,-52 1250.27,-52 1244.27,-52 1238.27,-46 1238.27,-40 1238.27,-40 1238.27,-28 1238.27,-28 1238.27,-22 1244.27,-16 1250.27,-16 1250.27,-16 1395.48,-16 1395.48,-16 1401.48,-16 1407.48,-22 1407.48,-28 1407.48,-28 1407.48,-40 1407.48,-40 1407.48,-46 1401.48,-52 1395.48,-52"></path>
+<text text-anchor="middle" x="1322.88" y="-28.6" font-family="Helvetica,sans-Serif" font-size="18.00">Storage Backend 1</text>
+</g>
+<!-- StorageHeader&#45;&gt;S1 -->
+<!-- S2 -->
+<g id="node3" class="node">
+<title>S2</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M1658.07,-52C1658.07,-52 1512.86,-52 1512.86,-52 1506.86,-52 1500.86,-46 1500.86,-40 1500.86,-40 1500.86,-28 1500.86,-28 1500.86,-22 1506.86,-16 1512.86,-16 1512.86,-16 1658.07,-16 1658.07,-16 1664.07,-16 1670.07,-22 1670.07,-28 1670.07,-28 1670.07,-40 1670.07,-40 1670.07,-46 1664.07,-52 1658.07,-52"></path>
+<text text-anchor="middle" x="1585.46" y="-28.6" font-family="Helvetica,sans-Serif" font-size="18.00">Storage Backend 2</text>
+</g>
+<!-- S1&#45;&gt;S2 -->
+<!-- PEHeader -->
+<g id="node4" class="node">
+<title>PEHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M451.2,-146C451.2,-146 337.84,-146 337.84,-146 331.84,-146 325.84,-140 325.84,-134 325.84,-134 325.84,-122 325.84,-122 325.84,-116 331.84,-110 337.84,-110 337.84,-110 451.2,-110 451.2,-110 457.2,-110 463.2,-116 463.2,-122 463.2,-122 463.2,-134 463.2,-134 463.2,-140 457.2,-146 451.2,-146"></path>
+<text text-anchor="middle" x="394.52" y="-122" font-family="Helvetica,sans-Serif" font-size="20.00">Policy Engine</text>
+</g>
+<!-- PEHeader&#45;&gt;StorageHeader -->
+<!-- Catalog -->
+<g id="node5" class="node">
+<title>Catalog</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M1033.82,-161.7C1033.82,-161.7 793.62,-161.7 793.62,-161.7 787.62,-161.7 781.62,-155.7 781.62,-149.7 781.62,-149.7 781.62,-122.3 781.62,-122.3 781.62,-116.3 787.62,-110.3 793.62,-110.3 793.62,-110.3 1033.82,-110.3 1033.82,-110.3 1039.82,-110.3 1045.82,-116.3 1045.82,-122.3 1045.82,-122.3 1045.82,-149.7 1045.82,-149.7 1045.82,-155.7 1039.82,-161.7 1033.82,-161.7"></path>
+<text text-anchor="middle" x="913.72" y="-141.4" font-family="Helvetica,sans-Serif" font-size="18.00">Metadata Catalog</text>
+<text text-anchor="middle" x="913.72" y="-119.8" font-family="Helvetica,sans-Serif" font-size="18.00">(provenance, tags, arrival time)</text>
+</g>
+<!-- PEHeader&#45;&gt;Catalog -->
+<!-- Catalog&#45;&gt;S1 -->
+<g id="edge15" class="edge">
+<title>Catalog-&gt;S1</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M1016.94,-110.39C1085.81,-93.14 1175.45,-70.68 1239.69,-54.59"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="1240.93,-57.89 1249.78,-52.06 1239.23,-51.1 1240.93,-57.89"></polygon>
+<text text-anchor="middle" x="1138.81" y="-96.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">fetch data</text>
+</g>
+<!-- User -->
+<g id="node7" class="node">
+<title>User</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M459.08,-314.7C459.08,-314.7 329.95,-314.7 329.95,-314.7 323.95,-314.7 317.95,-308.7 317.95,-302.7 317.95,-302.7 317.95,-275.3 317.95,-275.3 317.95,-269.3 323.95,-263.3 329.95,-263.3 329.95,-263.3 459.08,-263.3 459.08,-263.3 465.08,-263.3 471.08,-269.3 471.08,-275.3 471.08,-275.3 471.08,-302.7 471.08,-302.7 471.08,-308.7 465.08,-314.7 459.08,-314.7"></path>
+<text text-anchor="middle" x="394.52" y="-294.4" font-family="Helvetica,sans-Serif" font-size="18.00">User / Workflow</text>
+<text text-anchor="middle" x="394.52" y="-272.8" font-family="Helvetica,sans-Serif" font-size="18.00">(query metadata)</text>
+</g>
+<!-- Catalog&#45;&gt;User -->
+<g id="edge10" class="edge">
+<title>Catalog-&gt;User</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M789.74,-161.65C786.99,-163.02 784.29,-164.47 781.67,-166 757.21,-180.25 763.19,-198.84 738.67,-213 735.83,-214.64 581.86,-248.39 481.15,-270.36"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="480.3,-266.96 471.28,-272.51 481.79,-273.8 480.3,-266.96"></polygon>
+<text text-anchor="middle" x="626.36" y="-267.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">return location + access info</text>
+</g>
+<!-- ComputeHeader -->
+<g id="node6" class="node">
+<title>ComputeHeader</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M218.98,-222C218.98,-222 28.01,-222 28.01,-222 22.01,-222 16.01,-216 16.01,-210 16.01,-210 16.01,-198 16.01,-198 16.01,-192 22.01,-186 28.01,-186 28.01,-186 218.98,-186 218.98,-186 224.98,-186 230.98,-192 230.98,-198 230.98,-198 230.98,-210 230.98,-210 230.98,-216 224.98,-222 218.98,-222"></path>
+<text text-anchor="middle" x="123.49" y="-198" font-family="Helvetica,sans-Serif" font-size="20.00">Compute Environment</text>
+</g>
+<!-- ComputeHeader&#45;&gt;PEHeader -->
+<!-- ComputeHeader&#45;&gt;User -->
+<!-- User&#45;&gt;Catalog -->
+<g id="edge9" class="edge">
+<title>User-&gt;Catalog</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M415.53,-263.17C436.91,-237.66 473.29,-199.86 514.05,-181.4 594.23,-145.09 692.37,-133.56 771.22,-131.2"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="771.32,-134.7 781.23,-130.95 771.14,-127.7 771.32,-134.7"></polygon>
+<text text-anchor="middle" x="626.36" y="-186.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">query metadata</text>
+</g>
+<!-- Stream -->
+<g id="node8" class="node">
+<title>Stream</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M975.27,-328.7C975.27,-328.7 852.18,-328.7 852.18,-328.7 846.18,-328.7 840.18,-322.7 840.18,-316.7 840.18,-316.7 840.18,-289.3 840.18,-289.3 840.18,-283.3 846.18,-277.3 852.18,-277.3 852.18,-277.3 975.27,-277.3 975.27,-277.3 981.27,-277.3 987.27,-283.3 987.27,-289.3 987.27,-289.3 987.27,-316.7 987.27,-316.7 987.27,-322.7 981.27,-328.7 975.27,-328.7"></path>
+<text text-anchor="middle" x="913.72" y="-308.4" font-family="Helvetica,sans-Serif" font-size="18.00">Workflow A</text>
+<text text-anchor="middle" x="913.72" y="-286.8" font-family="Helvetica,sans-Serif" font-size="18.00">(stream content)</text>
+</g>
+<!-- User&#45;&gt;Stream -->
+<!-- User&#45;&gt;Stream -->
+<g id="edge11" class="edge">
+<title>User-&gt;Stream</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M471.24,-300.76C485.43,-302.53 500.17,-304.07 514.05,-305 622.99,-312.32 749.06,-309.86 829.77,-306.89"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="830.01,-310.39 839.87,-306.51 829.75,-303.39 830.01,-310.39"></polygon>
+<text text-anchor="middle" x="626.36" y="-314.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">ingest access info</text>
+</g>
+<!-- Copy -->
+<g id="node9" class="node">
+<title>Copy</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M1401.95,-328.7C1401.95,-328.7 1243.81,-328.7 1243.81,-328.7 1237.81,-328.7 1231.81,-322.7 1231.81,-316.7 1231.81,-316.7 1231.81,-289.3 1231.81,-289.3 1231.81,-283.3 1237.81,-277.3 1243.81,-277.3 1243.81,-277.3 1401.95,-277.3 1401.95,-277.3 1407.95,-277.3 1413.95,-283.3 1413.95,-289.3 1413.95,-289.3 1413.95,-316.7 1413.95,-316.7 1413.95,-322.7 1407.95,-328.7 1401.95,-328.7"></path>
+<text text-anchor="middle" x="1322.88" y="-308.4" font-family="Helvetica,sans-Serif" font-size="18.00">Workflow B</text>
+<text text-anchor="middle" x="1322.88" y="-286.8" font-family="Helvetica,sans-Serif" font-size="18.00">(stage working copy)</text>
+</g>
+<!-- User&#45;&gt;Copy -->
+<g id="edge12" class="edge">
+<title>User-&gt;Copy</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M439.28,-314.74C461.01,-326.19 488.11,-338.51 514.05,-345 746.83,-403.19 815.05,-382.23 1053.77,-358 1109.94,-352.3 1171.73,-340.04 1221.82,-328.54"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="1222.73,-331.92 1231.68,-326.25 1221.15,-325.1 1222.73,-331.92"></polygon>
+<text text-anchor="middle" x="913.72" y="-387.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">ingest access info</text>
+</g>
+<!-- Stream&#45;&gt;Catalog -->
+<g id="edge13" class="edge">
+<title>Stream-&gt;Catalog</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M913.72,-277.24C913.72,-249.04 913.72,-203.6 913.72,-171.91"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="917.22,-171.73 913.72,-161.73 910.22,-171.73 917.22,-171.73"></polygon>
+<text text-anchor="middle" x="899.92" y="-214.1" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">request data</text>
+</g>
+<!-- Stream&#45;&gt;Copy -->
+<!-- Copy&#45;&gt;Catalog -->
+<g id="edge14" class="edge">
+<title>Copy-&gt;Catalog</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M1280.23,-277.38C1228.77,-246.76 1137.72,-195.93 1053.77,-166 1052.72,-165.63 1051.67,-165.26 1050.61,-164.89"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="1051.54,-161.51 1040.95,-161.71 1049.35,-168.16 1051.54,-161.51"></polygon>
+<text text-anchor="middle" x="1138.81" y="-231.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">request data</text>
+</g>
+</g>
+</svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">

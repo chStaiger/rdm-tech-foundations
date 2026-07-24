@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f51d66800dd4230279bd6573c4b73a8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-11cafaeb44ee929428d09a09404358f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,15 +72,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<meta name="mermaid-theme" content="forest">
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="css_files/callout.css">
 <link rel="stylesheet" href="css_files/toc.css">
 <link rel="stylesheet" href="css_files/hyperlinks.css">
+<link rel="stylesheet" href="css_files/figure_margins.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -308,7 +305,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Persistent Identifiers (PIDs) are long-lasting references used to uniquely identify digital objects such as research papers, datasets, software, or even researchers. Unlike regular web links that may break or change over time, PIDs are designed to remain stable and consistently point to the correct resource location, even if its location on the internet changes.</p>
-<p>A PID works by assigning a unique identifier to an object and linking it to a record that stores important information about that object, such as its title, creator, and <strong>most importantly its current location</strong>. You can think of the so-called PID entry as an ID card or at least an address book for the object. Like with your own ID card, you need to update that metadata. For example, if the object moves to a different website or repository, the metadata behind the PID needs to be updated so that the identifier continues to point to the correct place.</p>
+<p>A PID works by assigning a unique identifier to an object and linking it to a record that stores important information about that object, such as its title, creator, and most importantly its current location. You can think of the so-called PID entry as an ID card or at least an address book for the object. Like with your own ID card, you need to update that metadata. For example, if the object moves to a different website or repository, the metadata behind the PID needs to be updated so that the identifier continues to point to the correct place.</p>
 <p>By providing stable, machine-readable references, PIDs help ensure that digital resources remain accessible, traceable, and properly attributed over time.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Examples">
 <div class="callout-header d-flex align-content-center">
@@ -327,8 +324,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="why-not-simply-use-uniform-resource-locations-urls" class="level2">
 <h2 class="anchored" data-anchor-id="why-not-simply-use-uniform-resource-locations-urls">Why not simply use Uniform Resource Locations (URLs)?</h2>
-<p>In the context of <strong>Persistent Identifiers (PIDs)</strong>, the distinction between <strong>URLs</strong> and <strong>URIs</strong> becomes important because PIDs are designed to <strong>identify</strong> digital objects in a stable way, even if their <strong>location changes</strong>.</p>
-<p>A <strong>URL (Uniform Resource Locator)</strong> is a specific kind of URI that points to the <strong>current location</strong> of a resource on the web. The <strong>URI (Uniform Resource Identifier)</strong> is a broader concept: it is any identifier used to uniquely identify a resource. Many PIDs are implemented as URIs because they provide a <strong>stable identity</strong> for an object without tying it permanently to a specific location.</p>
+<p>In the context of Persistent Identifiers (PIDs), the distinction between URLs and URIs becomes important because PIDs are designed to identify digital objects in a stable way, even if their location changes.</p>
+<p>A URL (Uniform Resource Locator) is a specific kind of URI that points to the current location of a resource on the web. The URI (Uniform Resource Identifier) is a broader concept: it is any identifier used to uniquely identify a resource. Many PIDs are implemented as URIs because they provide a stable identity for an object without tying it permanently to a specific location.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -346,17 +343,17 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td><strong>URL (Uniform Resource Locator)</strong></td>
 <td><code>https://www.nature.com/articles/nphys1170</code></td>
-<td>The <strong>actual web address</strong> where the resource is currently located.</td>
+<td>The actual web address where the resource is currently located.</td>
 </tr>
 <tr class="even">
 <td><strong>URI (Uniform Resource Identifier)</strong></td>
 <td><code>urn:isbn:9780131101630</code></td>
-<td>Identifies a resource (in this case a book by its ISBN) but does <strong>not necessarily tell you where to find it online</strong>.</td>
+<td>Identifies a resource (in this case a book by its ISBN) but does not necessarily tell you where to find it online.</td>
 </tr>
 <tr class="odd">
 <td><strong>PID (Persistent Identifier)</strong></td>
 <td><code>10.1038/nphys1170</code> (a Digital Object Identifier (DOI))</td>
-<td>A <strong>long-lasting identifier</strong> for a digital object such as a research article. It stays the same even if the location of the object changes.</td>
+<td>A long-lasting identifier for a digital object such as a research article. It stays the same even if the location of the object changes.</td>
 </tr>
 </tbody>
 </table>
@@ -370,30 +367,61 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The <em>persistent</em> aspect of a PID is the identifier, it <strong>MUST NOT</strong> change. The location even the content of the object it identifies can change over time. Also when the object is deleted, the PID continues to exist.</p>
+<p>The <em>persistent</em> aspect of a PID is the identifier, it MUST NOT change. The location even the content of the object it identifies can change over time. Also when the object is deleted, the PID continues to exist.</p>
 </div>
 </div>
 </section>
 <section id="how-does-a-pid-work" class="level2">
 <h2 class="anchored" data-anchor-id="how-does-a-pid-work">How does a PID work?</h2>
-<p>A PID typically works through a <strong>resolution system or resolver</strong>:</p>
+<p>A PID typically works through a resolution system or resolver:</p>
 <ol type="1">
 <li>The PID uniquely identifies the object.</li>
 <li>The PID resolves through an infrastructure service.</li>
-<li>The service redirects the user to the <strong>current URL</strong> where the object is located or, if the object itself is not reachable through the <strong>http</strong>, a metadata entry that provides more information like the landing page of a data repository.</li>
+<li>The service redirects the user to the current URL where the object is located or, if the object itself is not reachable through the <strong>http</strong>, a metadata entry that provides more information like the landing page of a data repository.</li>
 </ol>
-<p>For example, a Digital Object Identifier (DOI) such as <code>10.1000/182</code> identifies a publication. When you access it via <a href="https://doi.org/10.1000/182" class="uri">https://doi.org/10.1000/182</a>, the DOI service resolves the identifier and redirects you to the <strong>current URL</strong> of the article on a publisher or repository website. In this example, the DOI is an identifier for The DOI Handbook. The DOI service resolves the identifier to the current URL which, as of writing this, is <a href="https://www.doi.org/the-identifier/resources/handbook/" class="uri">https://www.doi.org/the-identifier/resources/handbook/</a>.</p>
-<div class="cell" data-layout-align="center">
+<p>For example, a Digital Object Identifier (DOI) such as <code>10.1000/182</code> identifies a publication. When you access it via <a href="https://doi.org/10.1000/182" class="uri">https://doi.org/10.1000/182</a>, the DOI service resolves the identifier and redirects you to the current URL of the article on a publisher or repository website. In this example, the DOI is an identifier for The DOI Handbook. The DOI service resolves the identifier to the current URL which, as of writing this, is <a href="https://www.doi.org/the-identifier/resources/handbook/" class="uri">https://www.doi.org/the-identifier/resources/handbook/</a>.</p>
+<div class="cell" data-fig-width="6" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-1">%%{init: {"look": "handDrawn"}}%%
-flowchart LR
-  A(PID) --&gt; B{Resolver}
-  B --&gt; C(URL)
-</pre>
+<svg width="576" height="480" viewbox="0.00 0.00 113.22 310.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 306)">
+<title>resolver</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-306 109.22,-306 109.22,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M67.61,-302C67.61,-302 37.61,-302 37.61,-302 31.61,-302 25.61,-296 25.61,-290 25.61,-290 25.61,-278 25.61,-278 25.61,-272 31.61,-266 37.61,-266 37.61,-266 67.61,-266 67.61,-266 73.61,-266 79.61,-272 79.61,-278 79.61,-278 79.61,-290 79.61,-290 79.61,-296 73.61,-302 67.61,-302"></path>
+<text text-anchor="middle" x="52.61" y="-279.8" font-family="Helvetica,sans-Serif" font-size="14.00">PID</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="#daeab4" stroke="#528641" stroke-width="2" points="52.61,-194 -0.11,-151 52.61,-108 105.33,-151 52.61,-194"></polygon>
+<text text-anchor="middle" x="52.61" y="-146.8" font-family="Helvetica,sans-Serif" font-size="14.00">Resolver</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M52.61,-265.87C52.61,-250.25 52.61,-226.32 52.61,-204.43"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="56.11,-204.22 52.61,-194.22 49.11,-204.22 56.11,-204.22"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M67.61,-36C67.61,-36 37.61,-36 37.61,-36 31.61,-36 25.61,-30 25.61,-24 25.61,-24 25.61,-12 25.61,-12 25.61,-6 31.61,0 37.61,0 37.61,0 67.61,0 67.61,0 73.61,0 79.61,-6 79.61,-12 79.61,-12 79.61,-24 79.61,-24 79.61,-30 73.61,-36 67.61,-36"></path>
+<text text-anchor="middle" x="52.61" y="-13.8" font-family="Helvetica,sans-Serif" font-size="14.00">URL</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M52.61,-107.83C52.61,-87.76 52.61,-64.33 52.61,-46.57"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="56.11,-46.33 52.61,-36.33 49.11,-46.33 56.11,-46.33"></polygon>
+</g>
+</g>
+</svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -403,76 +431,152 @@ Figure&nbsp;7.1: The Resolver
 </div>
 </div>
 </div>
-<p>This separation is what makes PIDs persistent. If the resource moves to a different website, the <strong>URL can be updated in the PID record</strong>, while the <strong>identifier itself remains the same</strong>, ensuring that citations and references continue to work over time.</p>
+<p>This separation is what makes PIDs persistent. If the resource moves to a different website, the URL can be updated in the PID record, while the identifier itself remains the same, ensuring that citations and references continue to work over time.</p>
 <p>A notable update of the location is the so-called tombstone. If the object an identifier points to is deleted, the identifier still continues to exist and should be redirected to a <a href="https://servicedesk.surf.nl/wiki/spaces/WIKI/pages/102827225/PIDs+Setting+up+your+PID+structure#PIDs%3ASettingupyourPIDstructure-Tombstoning">tombstone page</a>.</p>
-<p>PIDs help to prevent <strong>Link Rot</strong>.</p>
-<div class="cell" data-layout-align="center">
+<p>PIDs help to prevent Link Rot.</p>
+<div class="cell" data-fig-width="8" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-nopid" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-nopid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-nopid">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-
-flowchart LR
-
-    LINK["Create direct URL"]
-    USE["Users access URL"]
-    MOVE["Resource moves"]
-    BREAK["URL breaks 404"]
-
-    LINK --&gt; USE --&gt; MOVE --&gt; BREAK
-
-    %% Style for the 404 node
-    style BREAK fill:#ffcccc,stroke:#cc0000,color:#000000
-    style MOVE fill:#e0f7e9,stroke:#2e8b57,color:#000000
-</pre>
+<svg width="768" height="480" viewbox="0.00 0.00 530.00 795.40" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 791.4)">
+<title>lifecycle</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-791.4 526,-791.4 526,4 -4,4"></polygon>
+<g id="clust2" class="cluster">
+<title>cluster_pid</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M236,-8C236,-8 502,-8 502,-8 508,-8 514,-14 514,-20 514,-20 514,-767.4 514,-767.4 514,-773.4 508,-779.4 502,-779.4 502,-779.4 236,-779.4 236,-779.4 230,-779.4 224,-773.4 224,-767.4 224,-767.4 224,-20 224,-20 224,-14 230,-8 236,-8"></path>
+<text text-anchor="middle" x="369" y="-755.6" font-family="Helvetica,sans-Serif" font-size="22.00">PID Lifecycle</text>
+</g>
+<g id="clust1" class="cluster">
+<title>cluster_nopid</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M20,-145C20,-145 186,-145 186,-145 192,-145 198,-151 198,-157 198,-157 198,-630.4 198,-630.4 198,-636.4 192,-642.4 186,-642.4 186,-642.4 20,-642.4 20,-642.4 14,-642.4 8,-636.4 8,-630.4 8,-630.4 8,-157 8,-157 8,-151 14,-145 20,-145"></path>
+<text text-anchor="middle" x="103" y="-618.6" font-family="Helvetica,sans-Serif" font-size="22.00">No‑PID Lifecycle</text>
+</g>
+<!-- LINK -->
+<g id="node1" class="node">
+<title>LINK</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M174.05,-600C174.05,-600 37.95,-600 37.95,-600 31.95,-600 25.95,-594 25.95,-588 25.95,-588 25.95,-576 25.95,-576 25.95,-570 31.95,-564 37.95,-564 37.95,-564 174.05,-564 174.05,-564 180.05,-564 186.05,-570 186.05,-576 186.05,-576 186.05,-588 186.05,-588 186.05,-594 180.05,-600 174.05,-600"></path>
+<text text-anchor="middle" x="106" y="-576.6" font-family="Helvetica,sans-Serif" font-size="18.00">Create direct URL</text>
+</g>
+<!-- USE -->
+<g id="node2" class="node">
+<title>USE</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M173.54,-463C173.54,-463 32.46,-463 32.46,-463 26.46,-463 20.46,-457 20.46,-451 20.46,-451 20.46,-439 20.46,-439 20.46,-433 26.46,-427 32.46,-427 32.46,-427 173.54,-427 173.54,-427 179.54,-427 185.54,-433 185.54,-439 185.54,-439 185.54,-451 185.54,-451 185.54,-457 179.54,-463 173.54,-463"></path>
+<text text-anchor="middle" x="103" y="-439.6" font-family="Helvetica,sans-Serif" font-size="18.00">Users access URL</text>
+</g>
+<!-- LINK&#45;&gt;USE -->
+<g id="edge1" class="edge">
+<title>LINK-&gt;USE</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M105.62,-563.9C105.11,-541.1 104.21,-500.48 103.61,-473.39"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="107.11,-473.31 103.39,-463.39 100.11,-473.46 107.11,-473.31"></polygon>
+</g>
+<!-- MOVE -->
+<g id="node3" class="node">
+<title>MOVE</title>
+<path fill="#e0f7e9" stroke="#2e8b57" stroke-width="2" d="M162.55,-326C162.55,-326 35.45,-326 35.45,-326 29.45,-326 23.45,-320 23.45,-314 23.45,-314 23.45,-302 23.45,-302 23.45,-296 29.45,-290 35.45,-290 35.45,-290 162.55,-290 162.55,-290 168.55,-290 174.55,-296 174.55,-302 174.55,-302 174.55,-314 174.55,-314 174.55,-320 168.55,-326 162.55,-326"></path>
+<text text-anchor="middle" x="99" y="-302.6" font-family="Helvetica,sans-Serif" font-size="18.00">Resource moves</text>
+</g>
+<!-- USE&#45;&gt;MOVE -->
+<g id="edge3" class="edge">
+<title>USE-&gt;MOVE</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M102.49,-426.9C101.82,-404.1 100.61,-363.48 99.81,-336.39"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="103.31,-336.28 99.52,-326.39 96.31,-336.48 103.31,-336.28"></polygon>
+</g>
+<!-- BREAK -->
+<g id="node4" class="node">
+<title>BREAK</title>
+<path fill="#ffcccc" stroke="#cc0000" stroke-width="2" d="M162.07,-189C162.07,-189 39.93,-189 39.93,-189 33.93,-189 27.93,-183 27.93,-177 27.93,-177 27.93,-165 27.93,-165 27.93,-159 33.93,-153 39.93,-153 39.93,-153 162.07,-153 162.07,-153 168.07,-153 174.07,-159 174.07,-165 174.07,-165 174.07,-177 174.07,-177 174.07,-183 168.07,-189 162.07,-189"></path>
+<text text-anchor="middle" x="101" y="-165.6" font-family="Helvetica,sans-Serif" font-size="18.00">URL breaks 404</text>
+</g>
+<!-- MOVE&#45;&gt;BREAK -->
+<g id="edge2" class="edge">
+<title>MOVE-&gt;BREAK</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M99.25,-289.9C99.59,-267.1 100.19,-226.48 100.59,-199.39"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="104.09,-199.44 100.74,-189.39 97.09,-199.33 104.09,-199.44"></polygon>
+</g>
+<!-- MOVE_PID -->
+<g id="node9" class="node">
+<title>MOVE_PID</title>
+<path fill="#e0f7e9" stroke="#2e8b57" stroke-width="2" d="M371.55,-189C371.55,-189 244.45,-189 244.45,-189 238.45,-189 232.45,-183 232.45,-177 232.45,-177 232.45,-165 232.45,-165 232.45,-159 238.45,-153 244.45,-153 244.45,-153 371.55,-153 371.55,-153 377.55,-153 383.55,-159 383.55,-165 383.55,-165 383.55,-177 383.55,-177 383.55,-183 377.55,-189 371.55,-189"></path>
+<text text-anchor="middle" x="308" y="-165.6" font-family="Helvetica,sans-Serif" font-size="18.00">Resource moves</text>
+</g>
+<!-- MOVE&#45;&gt;MOVE_PID -->
+<!-- UPDATE -->
+<g id="node10" class="node">
+<title>UPDATE</title>
+<path fill="#e0f7e9" stroke="#2e8b57" stroke-width="2" d="M350.06,-52C350.06,-52 243.94,-52 243.94,-52 237.94,-52 231.94,-46 231.94,-40 231.94,-40 231.94,-28 231.94,-28 231.94,-22 237.94,-16 243.94,-16 243.94,-16 350.06,-16 350.06,-16 356.06,-16 362.06,-22 362.06,-28 362.06,-28 362.06,-40 362.06,-40 362.06,-46 356.06,-52 350.06,-52"></path>
+<text text-anchor="middle" x="297" y="-28.6" font-family="Helvetica,sans-Serif" font-size="18.00">Update record</text>
+</g>
+<!-- BREAK&#45;&gt;UPDATE -->
+<!-- MINT -->
+<g id="node5" class="node">
+<title>MINT</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M349.51,-737C349.51,-737 288.49,-737 288.49,-737 282.49,-737 276.49,-731 276.49,-725 276.49,-725 276.49,-713 276.49,-713 276.49,-707 282.49,-701 288.49,-701 288.49,-701 349.51,-701 349.51,-701 355.51,-701 361.51,-707 361.51,-713 361.51,-713 361.51,-725 361.51,-725 361.51,-731 355.51,-737 349.51,-737"></path>
+<text text-anchor="middle" x="319" y="-713.6" font-family="Helvetica,sans-Serif" font-size="18.00">Mint PID</text>
+</g>
+<!-- STORE -->
+<g id="node6" class="node">
+<title>STORE</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M382.05,-600C382.05,-600 255.95,-600 255.95,-600 249.95,-600 243.95,-594 243.95,-588 243.95,-588 243.95,-576 243.95,-576 243.95,-570 249.95,-564 255.95,-564 255.95,-564 382.05,-564 382.05,-564 388.05,-564 394.05,-570 394.05,-576 394.05,-576 394.05,-588 394.05,-588 394.05,-594 388.05,-600 382.05,-600"></path>
+<text text-anchor="middle" x="319" y="-576.6" font-family="Helvetica,sans-Serif" font-size="18.00">Store PID record</text>
+</g>
+<!-- MINT&#45;&gt;STORE -->
+<g id="edge4" class="edge">
+<title>MINT-&gt;STORE</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M319,-700.9C319,-678.1 319,-637.48 319,-610.39"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="322.5,-610.39 319,-600.39 315.5,-610.39 322.5,-610.39"></polygon>
+</g>
+<!-- STORE&#45;&gt;LINK -->
+<!-- RESOLVE -->
+<g id="node7" class="node">
+<title>RESOLVE</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M406.53,-463C406.53,-463 271.47,-463 271.47,-463 265.47,-463 259.47,-457 259.47,-451 259.47,-451 259.47,-439 259.47,-439 259.47,-433 265.47,-427 271.47,-427 271.47,-427 406.53,-427 406.53,-427 412.53,-427 418.53,-433 418.53,-439 418.53,-439 418.53,-451 418.53,-451 418.53,-457 412.53,-463 406.53,-463"></path>
+<text text-anchor="middle" x="339" y="-439.6" font-family="Helvetica,sans-Serif" font-size="18.00">Users access PID</text>
+</g>
+<!-- STORE&#45;&gt;RESOLVE -->
+<g id="edge5" class="edge">
+<title>STORE-&gt;RESOLVE</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M321.53,-563.9C324.91,-541.1 330.93,-500.48 334.94,-473.39"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="338.42,-473.79 336.42,-463.39 331.5,-472.76 338.42,-473.79"></polygon>
+</g>
+<!-- ACCESS -->
+<g id="node8" class="node">
+<title>ACCESS</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M433.58,-326C433.58,-326 244.42,-326 244.42,-326 238.42,-326 232.42,-320 232.42,-314 232.42,-314 232.42,-302 232.42,-302 232.42,-296 238.42,-290 244.42,-290 244.42,-290 433.58,-290 433.58,-290 439.58,-290 445.58,-296 445.58,-302 445.58,-302 445.58,-314 445.58,-314 445.58,-320 439.58,-326 433.58,-326"></path>
+<text text-anchor="middle" x="339" y="-302.6" font-family="Helvetica,sans-Serif" font-size="18.00">PID resolves to resource</text>
+</g>
+<!-- RESOLVE&#45;&gt;ACCESS -->
+<g id="edge6" class="edge">
+<title>RESOLVE-&gt;ACCESS</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M339,-426.9C339,-404.1 339,-363.48 339,-336.39"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="342.5,-336.39 339,-326.39 335.5,-336.39 342.5,-336.39"></polygon>
+</g>
+<!-- ACCESS&#45;&gt;MOVE_PID -->
+<g id="edge7" class="edge">
+<title>ACCESS-&gt;MOVE_PID</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M335.07,-289.9C329.84,-267.1 320.51,-226.48 314.29,-199.39"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="317.64,-198.35 311.99,-189.39 310.82,-199.92 317.64,-198.35"></polygon>
+</g>
+<!-- MOVE_PID&#45;&gt;UPDATE -->
+<g id="edge8" class="edge">
+<title>MOVE_PID-&gt;UPDATE</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M306.61,-152.9C304.75,-130.1 301.44,-89.48 299.23,-62.39"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="302.72,-62.07 298.42,-52.39 295.74,-62.64 302.72,-62.07"></polygon>
+</g>
+<!-- UPDATE&#45;&gt;RESOLVE -->
+<g id="edge9" class="edge">
+<title>UPDATE-&gt;RESOLVE</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M320.17,-52.21C345.72,-72.16 386.68,-107.18 413,-145 453.04,-202.53 460.94,-221.34 475,-290 478.21,-305.67 481.64,-311.44 475,-326 455.67,-368.37 412.77,-401.39 380.29,-421.59"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="378.18,-418.78 371.43,-426.95 381.8,-424.77 378.18,-418.78"></polygon>
+</g>
+</g>
+</svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nopid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.2: No‑PID Lifecycle (Direct URL → Link Rot)
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div id="fig-pid" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-pid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div>
-<pre class="mermaid mermaid-js" data-label="fig-pid">%%{init: {
-  "look": "handDrawn",
-  "themeVariables": {
-      "fontSize": "22px",
-      "fontSizeSection": "28px"
-  },
-  "flowchart": { "htmlLabels": false }
-}}%%
-
-flowchart LR
-
-    MINT["Mint PID"]
-    STORE["Store PID record"]
-    RESOLVE["Users access PID"]
-    ACCESS["PID resolves to resource"]
-    MOVE_PID["Resource moves"]
-    UPDATE["Update record"]
-
-    MINT --&gt; STORE --&gt; RESOLVE --&gt; ACCESS --&gt; MOVE_PID --&gt; UPDATE --&gt; RESOLVE
-    
-    %% Highlight the two nodes
-    style MOVE_PID fill:#e0f7e9,stroke:#2e8b57,color:#000000
-    style UPDATE fill:#e0f7e9,stroke:#2e8b57,color:#000000
-</pre>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.3: PID Lifecycle (Mint → Store → Resolve → Update)
+Figure&nbsp;7.2: No‑PID Lifecycle (Direct URL → Link Rot) vs PID Lifecycle (Mint → Store → Resolve → Update)
 </figcaption>
 </figure>
 </div>
@@ -482,7 +586,7 @@ Figure&nbsp;7.3: PID Lifecycle (Mint → Store → Resolve → Update)
 </section>
 <section id="how-do-we-ensure-that-pids-are-globally-unique" class="level2">
 <h2 class="anchored" data-anchor-id="how-do-we-ensure-that-pids-are-globally-unique">How do we ensure that PIDs are globally unique?</h2>
-<p>To reliably identify objects, the PID needs to be globally unique. Persistent Identifiers are designed with <strong>structured namespaces and controlled registration systems</strong> to guarantee this global uniqueness. A good example is the Digital Object Identifier (DOI).</p>
+<p>To reliably identify objects, the PID needs to be globally unique. Persistent Identifiers are designed with structured namespaces and controlled registration systems to guarantee this global uniqueness. A good example is the Digital Object Identifier (DOI).</p>
 <section id="structured-identifier-format" class="level4">
 <h4 class="anchored" data-anchor-id="structured-identifier-format">1. Structured Identifier Format</h4>
 <p>A DOI has two main parts separated by a slash:</p>
@@ -493,7 +597,7 @@ Figure&nbsp;7.3: PID Lifecycle (Mint → Store → Resolve → Update)
 <li><strong>Prefix (<code>10.1038</code>)</strong> – identifies the organization that registered the DOI.</li>
 <li><strong>Suffix (<code>nphys1170</code>)</strong> – chosen by that organization to uniquely identify a specific object.</li>
 </ul>
-<p>This structure ensures uniqueness because <strong>different organizations control different prefixes</strong>.</p>
+<p>This structure ensures uniqueness because different organizations control different prefixes.</p>
 </section>
 <section id="central-registration-authorities" class="level4">
 <h4 class="anchored" data-anchor-id="central-registration-authorities">2. Central Registration Authorities</h4>
@@ -504,75 +608,75 @@ Figure&nbsp;7.3: PID Lifecycle (Mint → Store → Resolve → Update)
 </ul>
 <p>These agencies ensure that:</p>
 <ul>
-<li>Each <strong>prefix is globally unique</strong></li>
-<li>Each registered DOI is stored in a <strong>central registry</strong></li>
+<li>Each prefix is globally unique</li>
+<li>Each registered DOI is stored in a central registry</li>
 </ul>
 </section>
 <section id="responsibility-of-the-prefix-holder" class="level4">
 <h4 class="anchored" data-anchor-id="responsibility-of-the-prefix-holder">3. Responsibility of the Prefix Holder</h4>
-<p>Once an organization receives a prefix, it is responsible for ensuring that the <strong>suffixes it creates are unique within its prefix</strong>. For example:</p>
+<p>Once an organization receives a prefix, it is responsible for ensuring that the suffixes it creates are unique within its prefix. For example:</p>
 <pre><code>10.5281/zenodo.3238330
 10.5281/zenodo.3257173</code></pre>
 <p>Both belong to the same prefix (<code>10.5281</code>, which is owned by Zenodo) but identify different objects.</p>
 </section>
 <section id="registry-validation" class="level4">
 <h4 class="anchored" data-anchor-id="registry-validation">4. Registry Validation</h4>
-<p>When a DOI is registered, the system checks the central registry to ensure that <strong>the full identifier has not already been assigned</strong>.</p>
+<p>When a DOI is registered, the system checks the central registry to ensure that the full identifier has not already been assigned.</p>
 </section>
 <section id="summary" class="level3">
 <h3 class="anchored" data-anchor-id="summary">Summary</h3>
 <p>Global uniqueness is ensured through:</p>
 <ol type="1">
-<li><strong>A structured identifier format</strong> (prefix + suffix)</li>
-<li><strong>Central governance and registration agencies</strong></li>
-<li><strong>Delegated namespaces for organizations</strong></li>
-<li><strong>Registry validation when identifiers are created</strong></li>
+<li>A structured identifier format (prefix + suffix)</li>
+<li>Central governance and registration agencies</li>
+<li>Delegated namespaces for organizations</li>
+<li>Registry validation when identifiers are created</li>
 </ol>
 <p>This layered approach allows billions of objects to receive unique identifiers while keeping the system scalable and reliable.</p>
 </section>
 </section>
 <section id="minting-persistent-identifiers-pids" class="level2">
 <h2 class="anchored" data-anchor-id="minting-persistent-identifiers-pids">Minting Persistent Identifiers (PIDs)</h2>
-<p><strong>Minting a Persistent Identifier (PID)</strong> refers to the process of <strong>creating and registering a new, globally unique identifier for a digital object</strong>. This object can be a research article, dataset, software package, researcher, organization, or other scholarly resource.</p>
-<p>Minting a PID ensures that the object can be <strong>consistently identified, cited, and discovered over time</strong>, regardless of where the object is stored.</p>
+<p>Minting a Persistent Identifier (PID) refers to the process of creating and registering a new, globally unique identifier for a digital object. This object can be a research article, dataset, software package, researcher, organization, or other scholarly resource.</p>
+<p>Minting a PID ensures that the object can be consistently identified, cited, and discovered over time, regardless of where the object is stored.</p>
 <section id="how-pid-minting-works" class="level4">
 <h4 class="anchored" data-anchor-id="how-pid-minting-works">How PID Minting Works</h4>
 <p>The process of minting a PID typically involves four steps:</p>
 <ol type="1">
 <li><p><strong>Create the identifier</strong><br>
-A unique identifier is generated according to the rules of the PID system. In the DOI system, for example, this involves creating a <strong>prefix–suffix combination</strong>.</p></li>
+A unique identifier is generated according to the rules of the PID system. In the DOI system, for example, this involves creating a prefix–suffix combination.</p></li>
 <li><p><strong>Register the PID with a registration authority</strong><br>
 The identifier is registered with an official infrastructure provider or registration agency, such as DataCite or Crossref. This ensures global uniqueness and records the PID in a trusted registry.</p></li>
 <li><p><strong>Submit metadata describing the object</strong><br>
 Metadata is provided together with the identifier. This typically includes elements such as the title, creator, checksum, and other information needed to reliably identify and manage the object.</p></li>
 <li><p><strong>Link the PID to a resolvable location</strong><br>
-The PID record must include a <strong>URL or landing page</strong> where the digital object can currently be accessed. This location is what enables PID resolvers to redirect users to the object. Without a valid, maintained URL, the PID cannot function as a persistent, actionable reference.</p></li>
+The PID record must include a URL or landing page where the digital object can currently be accessed. This location is what enables PID resolvers to redirect users to the object. Without a valid, maintained URL, the PID cannot function as a persistent, actionable reference.</p></li>
 </ol>
-<p>Minting a PID is therefore not only about creating an identifier, it also involves <strong>registering and maintaining the information that allows the identifier to function over time</strong>.</p>
+<p>Minting a PID is therefore not only about creating an identifier, it also involves registering and maintaining the information that allows the identifier to function over time.</p>
 </section>
 </section>
 <section id="pid-profiles-and-pid-information-types" class="level2">
 <h2 class="anchored" data-anchor-id="pid-profiles-and-pid-information-types">PID Profiles and PID Information Types</h2>
-<p>To make Persistent Identifiers truly useful in digital infrastructures, it is not enough to simply create the identifier itself. Systems also need a clear way to define <strong>what information is associated with a PID and how that information should be structured and interpreted</strong>. This is where <strong>PID profiles</strong> and <strong>PID information types</strong> play an important role.</p>
+<p>To make Persistent Identifiers truly useful in digital infrastructures, it is not enough to simply create the identifier itself. Systems also need a clear way to define what information is associated with a PID and how that information should be structured and interpreted. This is where PID profiles and PID information types play an important role.</p>
 <section id="pid-profiles" class="level3">
 <h3 class="anchored" data-anchor-id="pid-profiles">PID Profiles</h3>
-<p>A <strong>PID profile</strong> defines <strong>how a specific type of PID should be implemented and used within a community or infrastructure</strong>. It describes the expected structure, metadata, and relationships associated with identifiers for a particular type of object.</p>
-<p>PID profiles help ensure that identifiers are used <strong>consistently and interoperably across systems</strong>.</p>
+<p>A PID profile defines how a specific type of PID should be implemented and used within a community or infrastructure. It describes the expected structure, metadata, and relationships associated with identifiers for a particular type of object.</p>
+<p>PID profiles help ensure that identifiers are used consistently and interoperably across systems.</p>
 <p>A PID profile typically specifies:</p>
 <ul>
-<li><strong>The type of object</strong> the PID represents (e.g., dataset, person, organization, instrument)</li>
-<li><strong>Required and optional metadata fields</strong></li>
-<li><strong>Relationships to other identifiers</strong></li>
-<li><strong>Rules for updating and maintaining the PID record</strong></li>
-<li><strong>Resolution expectations</strong></li>
+<li>The type of object the PID represents (e.g., dataset, person, organization, instrument)</li>
+<li>Required and optional metadata fields</li>
+<li>Relationships to other identifiers</li>
+<li>Rules for updating and maintaining the PID record</li>
+<li>Resolution expectations</li>
 </ul>
 <p>For example, a dataset registered through DataCite using a Digital Object Identifier (DOI) follows a defined metadata profile that includes fields such as title, creator, publisher, publication year, and resource type.</p>
-<p>PID profiles therefore provide <strong>guidance for implementers</strong>, ensuring that identifiers are not only unique but also <strong>meaningful and usable across systems</strong>.</p>
+<p>PID profiles therefore provide guidance for implementers, ensuring that identifiers are not only unique but also meaningful and usable across systems.</p>
 </section>
 <section id="pid-information-types" class="level3">
 <h3 class="anchored" data-anchor-id="pid-information-types">PID Information Types</h3>
-<p><strong>PID information types</strong> define the <strong>individual pieces of information stored in a PID record</strong> and how they are represented in the PID infrastructure. They describe the structure and semantics of the data associated with a PID.</p>
-<p>In systems such as the Handle System, <a href="./pid-services.html">see PID services</a>, a PID record consists of a set of <strong>typed values</strong>, where each value has a specific meaning.</p>
+<p>PID information types define the individual pieces of information stored in a PID record and how they are represented in the PID infrastructure. They describe the structure and semantics of the data associated with a PID.</p>
+<p>In systems such as the Handle System, <a href="./pid-services.html">see PID services</a>, a PID record consists of a set of typed values, where each value has a specific meaning.</p>
 <p>Examples of information types include:</p>
 <ul>
 <li><strong>Location information</strong> – the URL where the resource or its landing page can be accessed</li>
@@ -581,16 +685,16 @@ The PID record must include a <strong>URL or landing page</strong> where the dig
 <li><strong>Metadata references</strong> – links to detailed metadata records</li>
 <li><strong>Relationships</strong> – links to other identifiers such as people, organizations, or related datasets</li>
 </ul>
-<p>Each information type has a <strong>defined structure and meaning</strong>, allowing machines and services to interpret the information consistently.</p>
+<p>Each information type has a defined structure and meaning, allowing machines and services to interpret the information consistently.</p>
 </section>
 <section id="how-pid-profiles-and-information-types-work-together" class="level3">
 <h3 class="anchored" data-anchor-id="how-pid-profiles-and-information-types-work-together">How PID Profiles and Information Types Work Together</h3>
 <p>PID profiles and PID information types complement each other:</p>
 <ul>
-<li><strong>PID profiles</strong> define <strong>what information should exist for a particular type of object</strong>.</li>
-<li><strong>PID information types</strong> define <strong>how that information is stored and structured within the PID record</strong>.</li>
+<li>PID profiles define what information should exist for a particular type of object.</li>
+<li>PID information types define how that information is stored and structured within the PID record.</li>
 </ul>
-<p>Together, they enable PID infrastructures to support <strong>reliable identification, rich metadata, and automated linking between research entities</strong>, forming the basis for interoperable research data ecosystems.</p>
+<p>Together, they enable PID infrastructures to support reliable identification, rich metadata, and automated linking between research entities, forming the basis for interoperable research data ecosystems.</p>
 <p>Both together can be seen as a sort metadata schema for PIDs.</p>
 <p>Infrastructures that implement PIDs with PID profiles and PID information types are <a href="https://docs.coscine.de/en/">Coscine (Collaborative Scientific Integration Environment)</a> and <a href="https://eudat.eu/service-catalogue/b2handle">EUDAT (European Data Infrastructure)</a>. Coscine implements the PID kernel information as defined by the Research Data Alliance (RDA) in their <a href="https://doi.org/10.15497/rda00031">Recommendations</a>. EUDAT does not implement a standard for PID profiles and information types. PID profiles in EUDAT are customised to community needs and include timestamps, checksums and data classification.</p>
 </section>
@@ -599,10 +703,10 @@ The PID record must include a <strong>URL or landing page</strong> where the dig
 <h2 class="anchored" data-anchor-id="using-persistent-identifiers-pids-for-non-resolvable-or-sensitive-data">Using Persistent Identifiers (PIDs) for Non-Resolvable or Sensitive Data</h2>
 <p>Persistent Identifiers are often accessed through resolvers (for example <code>https://doi.org/...</code>), directing to a resource which can be accessed through http. However, some resources on the internet are not accessible through http, or are sensitive and only accessible after a successful authorisation. This includes offline data, restricted datasets, physical samples, or resources stored in systems without web access. In those cases the resolver will not be able to serve the resource.</p>
 <p>In those cases it is advised to create a landing page with information for users and machines how to access the data. In the chapter <a href="./pid-services.html#practical-example-creating-a-handle-and-managing-its-metadata">PID services</a> we show how the PID entry itself can serve as a landing page.</p>
-<p>The key principle is that a PID <strong>identifies the object, not necessarily its downloadable location</strong>.</p>
+<p>The key principle is that a PID identifies the object, not necessarily its downloadable location.</p>
 <section id="use-the-pid-to-identify-the-object" class="level4">
 <h4 class="anchored" data-anchor-id="use-the-pid-to-identify-the-object">1. Use the PID to Identify the Object</h4>
-<p>Even if the object itself cannot be accessed online, a PID still provides a <strong>stable reference</strong>. For example, a dataset stored in a secure environment or a physical specimen can still receive a Digital Object Identifier (DOI).</p>
+<p>Even if the object itself cannot be accessed online, a PID still provides a stable reference. For example, a dataset stored in a secure environment or a physical specimen can still receive a Digital Object Identifier (DOI).</p>
 <p>The PID ensures that the object can be:</p>
 <ul>
 <li>Cited in publications</li>
@@ -612,7 +716,7 @@ The PID record must include a <strong>URL or landing page</strong> where the dig
 </section>
 <section id="provide-a-landing-page-instead-of-the-data" class="level4">
 <h4 class="anchored" data-anchor-id="provide-a-landing-page-instead-of-the-data">2. Provide a Landing Page Instead of the Data</h4>
-<p>For non-resolvable or restricted data, the PID typically resolves to a <strong>metadata landing page</strong> rather than the data itself.</p>
+<p>For non-resolvable or restricted data, the PID typically resolves to a metadata landing page rather than the data itself.</p>
 <p>This landing page may include:</p>
 <ul>
 <li>Description of the resource</li>
@@ -623,24 +727,52 @@ The PID record must include a <strong>URL or landing page</strong> where the dig
 </ul>
 <p>Many repositories using services such as DataCite follow this pattern.</p>
 <p>Example:</p>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div id="fig-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-2">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-flowchart LR
-  A(PID) --&gt; B(Landing page)
-  B --&gt; C(Instructions for accessing the data)
-</pre>
+<svg width="672" height="480" viewbox="0.00 0.00 620.25 44.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
+<title>pid_nonresolvable</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-40 616.25,-40 616.25,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M42,-36C42,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 42,0 42,0 48,0 54,-6 54,-12 54,-12 54,-24 54,-24 54,-30 48,-36 42,-36"></path>
+<text text-anchor="middle" x="27" y="-12.6" font-family="Helvetica,sans-Serif" font-size="18.00">PID</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M239.16,-36C239.16,-36 137.95,-36 137.95,-36 131.95,-36 125.95,-30 125.95,-24 125.95,-24 125.95,-12 125.95,-12 125.95,-6 131.95,0 137.95,0 137.95,0 239.16,0 239.16,0 245.16,0 251.16,-6 251.16,-12 251.16,-12 251.16,-24 251.16,-24 251.16,-30 245.16,-36 239.16,-36"></path>
+<text text-anchor="middle" x="188.55" y="-12.6" font-family="Helvetica,sans-Serif" font-size="18.00">Landing page</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M54.35,-18C71.23,-18 94.03,-18 115.99,-18"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="115.99,-21.5 125.99,-18 115.99,-14.5 115.99,-21.5"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M600.33,-36C600.33,-36 335.03,-36 335.03,-36 329.03,-36 323.03,-30 323.03,-24 323.03,-24 323.03,-12 323.03,-12 323.03,-6 329.03,0 335.03,0 335.03,0 600.33,0 600.33,0 606.33,0 612.33,-6 612.33,-12 612.33,-12 612.33,-24 612.33,-24 612.33,-30 606.33,-36 600.33,-36"></path>
+<text text-anchor="middle" x="467.68" y="-12.6" font-family="Helvetica,sans-Serif" font-size="18.00">Instructions for accessing the data</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M251.4,-18C269.94,-18 291.15,-18 312.87,-18"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="312.87,-21.5 322.87,-18 312.87,-14.5 312.87,-21.5"></polygon>
+</g>
+</g>
+</svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.4: PIDs for non-resolvable resources.
+Figure&nbsp;7.3: PIDs for non-resolvable resources.
 </figcaption>
 </figure>
 </div>
@@ -650,18 +782,18 @@ Figure&nbsp;7.4: PIDs for non-resolvable resources.
 </section>
 <section id="use-pids-for-physical-or-offline-objects" class="level4">
 <h4 class="anchored" data-anchor-id="use-pids-for-physical-or-offline-objects">3. Use PIDs for Physical or Offline Objects</h4>
-<p>PIDs are also commonly used for <strong>non-digital resources</strong>, such as:</p>
+<p>PIDs are also commonly used for non-digital resources, such as:</p>
 <ul>
 <li>biological specimens</li>
 <li>museum collections</li>
 <li>laboratory samples</li>
 <li>instruments or facilities</li>
 </ul>
-<p>In these cases, the PID identifies the object and resolves to <strong>documentation about the object</strong>.</p>
+<p>In these cases, the PID identifies the object and resolves to documentation about the object.</p>
 </section>
 <section id="use-persistent-identifier-schemes-that-do-not-depend-on-http" class="level4">
 <h4 class="anchored" data-anchor-id="use-persistent-identifier-schemes-that-do-not-depend-on-http">4. Use Persistent Identifier Schemes That Do Not Depend on HTTP</h4>
-<p>Some identifier schemes are designed primarily for <strong>identification rather than web resolution</strong>, such as identifiers based on the Handle System or URN-based schemes. These identifiers can still be stored and exchanged in metadata systems even when direct web access is not possible. We will give some examples in the section <a href="./pid-services.html">PID services</a>.</p>
+<p>Some identifier schemes are designed primarily for identification rather than web resolution, such as identifiers based on the Handle System or URN-based schemes. These identifiers can still be stored and exchanged in metadata systems even when direct web access is not possible. We will give some examples in the section <a href="./pid-services.html">PID services</a>.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Persistent Identification Without Public Access">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -672,15 +804,15 @@ Figure&nbsp;7.4: PIDs for non-resolvable resources.
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A PID does not require the underlying object to be directly accessible online. Instead, the PID provides a <strong>stable identifier and a metadata record</strong>, ensuring that the object can still be <strong>found, cited, and described</strong>, even when access is restricted or occurs outside the web.</p>
+<p>A PID does not require the underlying object to be directly accessible online. Instead, the PID provides a stable identifier and a metadata record, ensuring that the object can still be found, cited, and described, even when access is restricted or occurs outside the web.</p>
 </div>
 </div>
-<p>Assigning a PID marks the moment when a dataset enters the scholarly record. From here, the responsibility shifts to the systems that keep that identifier usable over time. In the following chapter, we look at the <a href="./pid-services.html"><strong>PID services</strong></a> that mint identifiers, store their metadata, and ensure that they continue to resolve even as data and infrastructures evolve.</p>
+<p>Assigning a PID marks the moment when a dataset enters the scholarly record. From here, the responsibility shifts to the systems that keep that identifier usable over time. In the following chapter, we look at the <a href="./pid-services.html">PID services</a> that mint identifiers, store their metadata, and ensure that they continue to resolve even as data and infrastructures evolve.</p>
 </section>
 </section>
 <section id="how-pids-and-metadata-complement-each-other" class="level2">
 <h2 class="anchored" data-anchor-id="how-pids-and-metadata-complement-each-other">How PIDs and Metadata Complement Each Other</h2>
-<p>Persistent Identifiers and metadata serve different but tightly connected purposes. A <strong>PID identifies a digital object</strong>, while <strong>metadata describes it</strong>. The PID is the stable, globally unique reference that allows systems to point to the same digital object over time, even as its location or access conditions change. The metadata stored inside a <strong>PID record is intentionally minimal</strong>: it contains only the information needed for the PID infrastructure to function, such as the current URL, administrative details, checksums, or links to richer metadata. This is sometimes called PID kernel information. In contrast, the <strong>full descriptive metadata of a digital object lives outside the PID system in repositories</strong>, catalogs, or metadata stores. In practice, the two are inseparable: a PID without metadata is meaningless, and metadata without a PID is difficult to track or reference reliably.</p>
+<p>Persistent Identifiers and metadata serve different but tightly connected purposes. A PID identifies a digital object, while metadata describes it. The PID is the stable, globally unique reference that allows systems to point to the same digital object over time, even as its location or access conditions change. The metadata stored inside a PID record is intentionally minimal: it contains only the information needed for the PID infrastructure to function, such as the current URL, administrative details, checksums, or links to richer metadata. This is sometimes called PID kernel information. In contrast, the full descriptive metadata of a digital object lives outside the PID system in repositories, catalogs, or metadata stores. In practice, the two are inseparable: a PID without metadata is meaningless, and metadata without a PID is difficult to track or reference reliably.</p>
 <p>The PID anchors the digital object in a stable identity, and the metadata builds the descriptive structure around that identity. Only when the two are linked do we get a reliable, machine‑actionable scholarly record.</p>
 </section>
 <section id="references" class="level2">

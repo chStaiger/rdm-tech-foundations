@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f51d66800dd4230279bd6573c4b73a8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-11cafaeb44ee929428d09a09404358f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -77,6 +77,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="css_files/callout.css">
 <link rel="stylesheet" href="css_files/toc.css">
 <link rel="stylesheet" href="css_files/hyperlinks.css">
+<link rel="stylesheet" href="css_files/figure_margins.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -311,33 +312,33 @@ ul.task-list li input[type="checkbox"] {
 </li>
 <li><strong>Compute systems</strong> consume digital objects, using identifiers, metadata, and provenance for reproducible analysis.</li>
 </ul>
-<p>When these systems interoperate through stable APIs, shared schemas, and coordinated policies, they stop being isolated tools and become a <strong>platform</strong>: an environment where data can move, evolve, and be reused without losing identity, metadata, or provenance.</p>
+<p>When these systems interoperate through stable APIs, shared schemas, and coordinated policies, they stop being isolated tools and become a platform: an environment where data can move, evolve, and be reused without losing identity, metadata, or provenance.</p>
 <p>This is the shift from <em>components</em> to <em>infrastructure design</em>.<br>
-Designing a modern RDM platform means taking the FAIR principles seriously—not as guidelines for researchers, but as <strong>requirements on the infrastructure itself</strong>. A FAIR‑aligned platform is therefore not a single system but a coordinated ecosystem that makes data <strong>Findable, Accessible, Interoperable, and Reusable by design</strong>.</p>
+Designing a modern RDM platform means taking the FAIR principles seriously—not as guidelines for researchers, but as requirements on the infrastructure itself. A FAIR‑aligned platform is therefore not a single system but a coordinated ecosystem that makes data Findable, Accessible, Interoperable, and Reusable by design.</p>
 <section id="what-fair-means-for-infrastructure" class="level2">
 <h2 class="anchored" data-anchor-id="what-fair-means-for-infrastructure">What FAIR Means for Infrastructure</h2>
-<p>FAIR is often interpreted as a metadata‑centric framework, but for infrastructure, FAIR applies equally to <strong>files</strong>, <strong>formats</strong>, and the <strong>protocols and workflows</strong> that produce them. A digital object is not only metadata + PID; it is also:</p>
+<p>FAIR is often interpreted as a metadata‑centric framework, but for infrastructure, FAIR applies equally to files, formats, and the protocols and workflows that produce them. A digital object is not only metadata + PID; it is also:</p>
 <ul>
-<li>the <strong>files</strong> themselves<br>
+<li>the files themselves<br>
 </li>
-<li>the <strong>formats</strong> they use<br>
+<li>the formats they use<br>
 </li>
-<li>the <strong>methods and processes</strong> that generated them<br>
+<li>the methods and processes that generated them<br>
 </li>
-<li>the <strong>relationships</strong> that bind these elements together</li>
+<li>the relationships that bind these elements together</li>
 </ul>
-<p>A FAIR‑aligned infrastructure must therefore support <strong>metadata FAIRness</strong>, <strong>file FAIRness</strong>, and <strong>protocol FAIRness</strong> simultaneously.</p>
+<p>A FAIR‑aligned infrastructure must therefore support metadata FAIRness, file FAIRness, and protocol FAIRness simultaneously.</p>
 <section id="findable-f1f4" class="level3">
 <h3 class="anchored" data-anchor-id="findable-f1f4">Findable (F1–F4)</h3>
-<p>To make data findable, infrastructure must support <strong>persistent identifiers</strong> (F1) such as DOIs or Handles, ensuring that datasets remain citable and identifiable even as they move across storage systems. These identifiers must be accompanied by <strong>rich metadata</strong> (F2) that describes the dataset in a structured, machine‑readable way. Metadata must explicitly link back to the dataset it describes (F3), and both data and metadata must be registered in <strong>searchable indexes</strong> (F4) that can be harvested by external services.</p>
+<p>To make data findable, infrastructure must support persistent identifiers (F1) such as DOIs or Handles, ensuring that datasets remain citable and identifiable even as they move across storage systems. These identifiers must be accompanied by rich metadata (F2) that describes the dataset in a structured, machine‑readable way. Metadata must explicitly link back to the dataset it describes (F3), and both data and metadata must be registered in searchable indexes (F4) that can be harvested by external services.</p>
 <p><strong>Findability also applies to files.</strong><br>
 Infrastructure must ensure that:</p>
 <ul>
-<li>files have <strong>stable internal identifiers</strong><br>
+<li>files have stable internal identifiers<br>
 </li>
 <li>file‑level metadata (format, size, checksums) is indexed<br>
 </li>
-<li>formats are <strong>recognisable and documented</strong><br>
+<li>formats are recognisable and documented<br>
 </li>
 <li>files remain findable <em>within</em> datasets and workflows</li>
 </ul>
@@ -345,7 +346,7 @@ Infrastructure must ensure that:</p>
 </section>
 <section id="accessible-a1a2" class="level3">
 <h3 class="anchored" data-anchor-id="accessible-a1a2">Accessible (A1–A2)</h3>
-<p>Accessibility requires that data and metadata be retrievable through <strong>open, standardised protocols</strong> (A1), such as HTTPS, S3, WebDAV, or OAI‑PMH. These protocols must be free to implement (A1.1) and support authentication and authorisation where needed (A1.2). Even if data becomes restricted or removed, its metadata must remain accessible (A2), ensuring that the scholarly record is preserved.</p>
+<p>Accessibility requires that data and metadata be retrievable through open, standardised protocols (A1), such as HTTPS, S3, WebDAV, or OAI‑PMH. These protocols must be free to implement (A1.1) and support authentication and authorisation where needed (A1.2). Even if data becomes restricted or removed, its metadata must remain accessible (A2), ensuring that the scholarly record is preserved.</p>
 <p>Authentication and Authorisation Infrastructure (AAI) plays a central role here. AAI ensures that users whether humans or machines can access data in a controlled, auditable way. It provides:</p>
 <ul>
 <li>authentication (confirming who the user is)</li>
@@ -355,9 +356,9 @@ Infrastructure must ensure that:</p>
 <p>AAI is therefore a core part of FAIR Accessibility, enabling secure access without compromising openness. Inthe chapter <a href="./aai.html">Authentication and Authorisation Infrastructure</a> we provide an introduction.</p>
 <p><strong>For files, accessibility means:</strong></p>
 <ul>
-<li>files must be retrievable via <strong>stable URLs</strong> or API endpoints<br>
+<li>files must be retrievable via stable URLs or API endpoints<br>
 </li>
-<li>formats must be <strong>open or well‑documented</strong> so they can be accessed in the future<br>
+<li>formats must be open or well‑documented so they can be accessed in the future<br>
 </li>
 <li>versioning must ensure that older file versions remain accessible<br>
 </li>
@@ -375,16 +376,16 @@ Infrastructure must ensure that:</p>
 </section>
 <section id="interoperable-i1i3" class="level3">
 <h3 class="anchored" data-anchor-id="interoperable-i1i3">Interoperable (I1–I3)</h3>
-<p>Interoperability is achieved when infrastructure supports <strong>formal, shared languages</strong> (I1) such as RDF, JSON‑LD, or XML, enabling machines to understand and combine metadata from different sources. Metadata must rely on <strong>FAIR vocabularies and ontologies</strong> (I2), which include:</p>
+<p>Interoperability is achieved when infrastructure supports formal, shared languages (I1) such as RDF, JSON‑LD, or XML, enabling machines to understand and combine metadata from different sources. Metadata must rely on FAIR vocabularies and ontologies (I2), which include:</p>
 <ul>
-<li><strong>generic vocabularies</strong> such as Dublin Core or schema.org<br>
+<li>generic vocabularies such as Dublin Core or schema.org<br>
 </li>
-<li><strong>domain ontologies</strong> from communities such as the <strong>OBO Foundry</strong>, a collaborative initiative that develops interoperable, well‑structured ontologies for biology and related fields</li>
+<li>domain ontologies from communities such as the OBO Foundry, a collaborative initiative that develops interoperable, well‑structured ontologies for biology and related fields</li>
 </ul>
 <p>These vocabularies provide stable identifiers and shared semantics, allowing metadata to be interpreted consistently across systems. Interoperability also requires qualified references (I3) that link datasets to related entities such as software, instruments, or grants.</p>
 <p><strong>For files, interoperability requires:</strong></p>
 <ul>
-<li>use of <strong>open, community‑accepted formats</strong><br>
+<li>use of open, community‑accepted formats<br>
 </li>
 <li>format validation and conversion workflows<br>
 </li>
@@ -398,11 +399,11 @@ Infrastructure must ensure that:</p>
 </li>
 <li>machine‑readable provenance linking files to the processes that generated them</li>
 </ul>
-<p>Together, these elements require APIs, ontology support, and metadata models capable of expressing <strong>rich, typed relationships between files, workflows, samples, and datasets</strong>, not just flat metadata fields.</p>
+<p>Together, these elements require APIs, ontology support, and metadata models capable of expressing rich, typed relationships between files, workflows, samples, and datasets, not just flat metadata fields.</p>
 </section>
 <section id="reusable-r1r1.3" class="level3">
 <h3 class="anchored" data-anchor-id="reusable-r1r1.3">Reusable (R1–R1.3)</h3>
-<p>Reuse depends on <strong>rich descriptions</strong> (R1) that capture domain‑specific details using community standards such as <strong>ISA</strong> or <strong>DDI</strong>. Metadata must include a clear <strong>usage license</strong> (R1.1), detailed <strong>provenance</strong> (R1.2), and conform to community expectations (R1.3).</p>
+<p>Reuse depends on rich descriptions (R1) that capture domain‑specific details using community standards such as ISA or DDI. Metadata must include a clear usage license (R1.1), detailed provenance (R1.2), and conform to community expectations (R1.3).</p>
 <p><strong>For files, reuse requires:</strong></p>
 <ul>
 <li>formats that can be opened and interpreted in the future<br>
@@ -423,14 +424,16 @@ Infrastructure must ensure that:</p>
 </li>
 <li>machine‑actionable provenance</li>
 </ul>
-<p>Infrastructure must therefore support schema versioning, provenance capture, workflow integration, and controlled vocabularies for licensing <strong>not only for metadata, but also for files and protocols</strong>.</p>
+<p>Infrastructure must therefore support schema versioning, provenance capture, workflow integration, and controlled vocabularies for licensing not only for metadata, but also for files and protocols.</p>
 </section>
 </section>
 <section id="integration-and-policy-the-glue-that-makes-fair-work" class="level2">
 <h2 class="anchored" data-anchor-id="integration-and-policy-the-glue-that-makes-fair-work">Integration and Policy: The Glue That Makes FAIR Work</h2>
-<p>A FAIR data platform is only FAIR if its components work together. This requires <strong>well‑defined integrations</strong> and an <strong>orchestration layer</strong> that governs how data and metadata move across the lifecycle. Storage, metadata services, policy engines, and repositories must interoperate through stable interfaces and shared standards so that data remains coherent as it transitions between systems.</p>
-<p><strong>APIs alone are not enough.</strong><br>
-APIs allow systems to exchange data, but they do <strong>not</strong> guarantee that:</p>
+<p>A FAIR data platform is only FAIR if its components work together. This requires well‑defined integrations and an orchestration layer that governs how data and metadata move across the lifecycle. Storage, metadata services, policy engines, and repositories must interoperate through stable interfaces and shared standards so that data remains coherent as it transitions between systems.</p>
+<blockquote class="blockquote">
+<p><strong>APIs alone are not enough.</strong></p>
+</blockquote>
+<p>APIs allow systems to exchange data, but they do not guarantee that:</p>
 <ul>
 <li>identifiers remain stable across components<br>
 </li>
@@ -442,7 +445,7 @@ APIs allow systems to exchange data, but they do <strong>not</strong> guarantee 
 </li>
 <li>transformations and transfers are traceable</li>
 </ul>
-<p>When components communicate only through ad‑hoc API calls, the <strong>digital object effectively “falls apart” at each system boundary</strong>. Provenance becomes fragmented, identifiers drift, and metadata must be reconstructed or is lost entirely. The platform may appear integrated, yet behaves like isolated tools stitched together by point‑to‑point connections.</p>
+<p>When components communicate only through ad‑hoc API calls, the digital object effectively “falls apart” at each system boundary. Provenance becomes fragmented, identifiers drift, and metadata must be reconstructed or is lost entirely. The platform may appear integrated, yet behaves like isolated tools stitched together by point‑to‑point connections.</p>
 <p>A FAIR‑aligned infrastructure therefore needs:</p>
 <ul>
 <li>Clear integration contracts (APIs, event streams, metadata mappings, PID handling)<br>
@@ -464,12 +467,12 @@ APIs allow systems to exchange data, but they do <strong>not</strong> guarantee 
 <li>synchronisation across catalogs and indexes</li>
 </ul></li>
 </ul>
-<p>With this orchestration layer, the platform becomes a <strong>coherent, predictable, auditable, FAIR‑by‑design ecosystem</strong>.<br>
+<p>With this orchestration layer, the platform becomes a coherent, predictable, auditable, FAIR‑by‑design ecosystem.<br>
 Without it, digital objects lose their identity and provenance in the gaps between services.</p>
 </section>
 <section id="transitions-in-the-rdm-lifecycle-where-fair-is-won-or-lost" class="level2">
 <h2 class="anchored" data-anchor-id="transitions-in-the-rdm-lifecycle-where-fair-is-won-or-lost">Transitions in the RDM Lifecycle: Where FAIR Is Won or Lost</h2>
-<p>The importance of orchestration becomes clear when looking at the <strong>transitions</strong> that occur throughout the research data lifecycle. These lifecycle transitions, e.g moving from active data to archived data, from FAIRified metadata to a published dataset, or from a repository to a discovery portal, almost always correspond to <strong>transitions between components</strong> of the RDM platform.</p>
+<p>The importance of orchestration becomes clear when looking at the transitions that occur throughout the research data lifecycle. These lifecycle transitions, e.g moving from active data to archived data, from FAIRified metadata to a published dataset, or from a repository to a discovery portal, almost always correspond to transitions between components of the RDM platform.</p>
 <p>Each transition is a point where the digital object is most vulnerable.<br>
 Every time data crosses a system boundary, the platform must preserve:</p>
 <ul>
@@ -484,8 +487,8 @@ Every time data crosses a system boundary, the platform must preserve:</p>
 <section id="preserving-the-identity-of-the-digital-object" class="level3">
 <h3 class="anchored" data-anchor-id="preserving-the-identity-of-the-digital-object">1. Preserving the identity of the digital object</h3>
 <p>Not every system in the research workflow needs to treat files as fully formed digital objects.<br>
-During early, active phases such as work in synchronisation services or collaborative file shares researchers often work with <strong>working copies</strong>, drafts, and temporary outputs. In these environments, strict digital‑object identity is not required; files may change rapidly, and identifiers may not yet be assigned.</p>
-<p>However, <strong>once a digital object is formed</strong>, its identity must remain stable and traceable as it moves through the RDM lifecycle. From that point onward, every service must recognise the object as the <em>same</em> entity. This requires:</p>
+During early, active phases such as work in synchronisation services or collaborative file shares researchers often work with working copies, drafts, and temporary outputs. In these environments, strict digital‑object identity is not required; files may change rapidly, and identifiers may not yet be assigned.</p>
+<p>However, once a digital object is formed, its identity must remain stable and traceable as it moves through the RDM lifecycle. From that point onward, every service must recognise the object as the <em>same</em> entity. This requires:</p>
 <ul>
 <li>early or timely PID assignment when the object stabilises<br>
 </li>
@@ -496,13 +499,14 @@ During early, active phases such as work in synchronisation services or collabor
 <li>mappings that prevent re‑minting or duplication</li>
 </ul>
 <p>If identifiers diverge after the digital object is formed, the object fractures into multiple incompatible versions across storage, workflows, repositories, and portals. This breaks traceability, provenance, and ultimately FAIRness.</p>
-<p>In short:<br>
-<strong>working copies may be fluid, but digital objects must be stable.</strong><br>
+<blockquote class="blockquote">
+<p><strong>Working copies may be fluid, but digital objects must be stable.</strong><br>
 Once identity is established, it must persist across all transitions.</p>
+</blockquote>
 </section>
 <section id="ensuring-metadata-travels-with-the-object" class="level3">
 <h3 class="anchored" data-anchor-id="ensuring-metadata-travels-with-the-object">2. Ensuring metadata travels with the object</h3>
-<p>Many systems like storage, workflow engines and transfer tools are <strong>file‑centric</strong>. They move bytes, not digital objects. Without orchestration:</p>
+<p>Many systems like storage, workflow engines and transfer tools are file‑centric. They move bytes, not digital objects. Without orchestration:</p>
 <ul>
 <li>metadata becomes detached<br>
 </li>
@@ -514,9 +518,9 @@ Once identity is established, it must persist across all transitions.</p>
 </ul>
 <p>A FAIR‑aligned platform must therefore ensure that:</p>
 <ul>
-<li>metadata is <strong>bound</strong> to the object through identifiers<br>
+<li>metadata is bound to the object through identifiers<br>
 </li>
-<li>metadata is <strong>carried forward</strong> at each transition<br>
+<li>metadata is carried forward at each transition<br>
 </li>
 <li>file‑centric systems can still reference metadata via PIDs<br>
 </li>
@@ -524,7 +528,7 @@ Once identity is established, it must persist across all transitions.</p>
 </li>
 <li>provenance is captured automatically</li>
 </ul>
-<p>This requires shared <strong>metadata models</strong>, <strong>identifier schemes</strong>, and <strong>exchange formats</strong> across all components.</p>
+<p>This requires shared metadata models, identifier schemes, and exchange formats across all components.</p>
 </section>
 <section id="why-transitions-and-orchestration-belong-together" class="level3">
 <h3 class="anchored" data-anchor-id="why-transitions-and-orchestration-belong-together">Why transitions and orchestration belong together</h3>
@@ -540,7 +544,7 @@ The orchestration layer ensures that these transitions are:</p>
 <li>lossless</li>
 </ul>
 <p>Without orchestration, the digital object loses coherence as it moves across the platform.<br>
-With orchestration, it remains <strong>identifiable, described, linked, and traceable</strong> from creation to publication and beyond.</p>
+With orchestration, it remains identifiable, described, linked, and traceable** from creation to publication and beyond.</p>
 </section>
 </section>
 <section id="references" class="level2">

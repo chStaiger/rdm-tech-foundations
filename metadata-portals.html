@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f51d66800dd4230279bd6573c4b73a8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-11cafaeb44ee929428d09a09404358f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -107,15 +107,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<meta name="mermaid-theme" content="forest">
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="css_files/callout.css">
 <link rel="stylesheet" href="css_files/toc.css">
 <link rel="stylesheet" href="css_files/hyperlinks.css">
+<link rel="stylesheet" href="css_files/figure_margins.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -350,12 +347,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="portals-harvesters-indexers-and-serialisation" class="level3">
 <h3 class="anchored" data-anchor-id="portals-harvesters-indexers-and-serialisation">Portals, Harvesters, Indexers, and Serialisation</h3>
-<p>Metadata becomes truly powerful only when it can be <strong>shared, discovered, aggregated, and reused</strong> across systems. For this to work, research infrastructures rely on a set of services that collect, expose, and standardise metadata at scale. These services form the <strong>metadata infrastructure</strong> that underpins FAIR data ecosystems.</p>
-<p>This chapter introduces the main components of that infrastructure: <strong>metadata portals</strong>, <strong>metadata harvesters</strong>, <strong>indexing services</strong>, and the <strong>serialisation formats</strong> that allow metadata to move between systems.</p>
+<p>Metadata becomes truly powerful only when it can be shared, discovered, aggregated, and reused across systems. For this to work, research infrastructures rely on a set of services that collect, expose, and standardise metadata at scale. These services form the metadata infrastructure that underpins FAIR data ecosystems.</p>
+<p>This chapter introduces the main components of that infrastructure: metadata portals, metadata harvesters, indexing services, and the serialisation formats that allow metadata to move between systems.</p>
 </section>
 <section id="why-local-metadata-alone-is-not-enough" class="level2">
 <h2 class="anchored" data-anchor-id="why-local-metadata-alone-is-not-enough">Why Local Metadata Alone Is Not Enough</h2>
-<p>Creating a metadata record inside a repository is essential, but <strong>metadata that stays inside a single system remains effectively invisible to the wider research ecosystem</strong>. A dataset may be perfectly documented, but if its metadata is not exposed in standardised, machine‑readable ways, it cannot be:</p>
+<p>Creating a metadata record inside a repository is essential, but metadata that stays inside a single system remains effectively invisible to the wider research ecosystem. A dataset may be perfectly documented, but if its metadata is not exposed in standardised, machine‑readable ways, it cannot be:</p>
 <ul>
 <li>discovered by search engines<br>
 </li>
@@ -369,21 +366,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li>found by researchers outside the hosting institution</li>
 </ul>
-<p>In other words, <strong>metadata is only as useful as the infrastructure that distributes it</strong>.</p>
+<p>In other words, metadata is only as useful as the infrastructure that distributes it.</p>
 <p>Several factors limit the findability of “local‑only” metadata:</p>
 <ul>
-<li><strong>Siloing</strong> — each repository stores metadata in its own database, often with its own schema<br>
+<li>Siloing — each repository stores metadata in its own database, often with its own schema<br>
 </li>
-<li><strong>Lack of standardisation</strong> — metadata may not follow common schemas or vocabularies<br>
+<li>Lack of standardisation — metadata may not follow common schemas or vocabularies<br>
 </li>
-<li><strong>No machine‑readable exposure</strong> — metadata may be visible on a webpage but not accessible via APIs or harvesting protocols<br>
+<li>No machine‑readable exposure — metadata may be visible on a webpage but not accessible via APIs or harvesting protocols<br>
 </li>
-<li><strong>No cross‑repository search</strong> — users must know the repository exists before they can find the data<br>
+<li>No cross‑repository search — users must know the repository exists before they can find the data<br>
 </li>
-<li><strong>No integration with PID services</strong> — identifiers may not be resolvable or linked to global discovery systems</li>
+<li>No integration with PID services — identifiers may not be resolvable or linked to global discovery systems</li>
 </ul>
-<p>This is why FAIR emphasises that metadata must be <strong>findable and accessible</strong>, not merely present.</p>
-<p>To achieve this, repositories must expose metadata through <strong>standard protocols</strong> (e.g., OAI‑PMH, ResourceSync, REST APIs) so that external services can collect and index it.</p>
+<p>This is why FAIR emphasises that metadata must be findable and accessible, not merely present.</p>
+<p>To achieve this, repositories must expose metadata through standard protocols (e.g., OAI‑PMH, ResourceSync, REST APIs) so that external services can collect and index it.</p>
 <p>The Figure below shows the architecture to make metadata actionable for researchers and machines. The nodes in light green denote the components that directly interact with users and machines and which you might have already used.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -391,57 +388,119 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-metadata-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-metadata-flow">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-
-flowchart TD
-
-    %% Consumer at the top
-    subgraph Consumer["Consumer"]
-        USER["Researchers and Machines"]
-    end
-
-    %% Repository
-    subgraph Repository["Repository"]
-        DATA["Data Files"]
-        META["Local Metadata&lt;br&gt;(JSON, XML, RDF)"]
-        API["Expose Metadata&lt;br&gt;via OAI-PMH / REST API"]
-        META --&gt;|"offered through"| API
-    end
-
-    %% Metadata Service
-    subgraph MetadataService["Metadata Service"]
-        HARV["Harvester&lt;br&gt;Collect and Normalise"]
-        INDEX["Indexer&lt;br&gt;Search Index / Knowledge Graph"]
-        PORTAL["Metadata Portal&lt;br&gt;Discovery Interface"]
-        HARV --&gt;|"provide harvested metadata"| INDEX
-        INDEX --&gt;|"serve indexed metadata"| PORTAL
-    end
-
-    %% --- Anchor the layout ---
-    %% These edges ensure Consumer stays ABOVE the two subgraphs
-    USER --&gt; |"search / explore"| PORTAL
-    USER --&gt; |"access and download"| DATA
-
-    %% Metadata flow (Repository → Metadata Service)
-    API --&gt;|"offer metadata"| HARV
-
-
-    %% Highlight nodes (light green fill, dark green text)
-    style USER fill:#d8f3dc,stroke:#1b4332,color:#1b4332
-    style DATA fill:#d8f3dc,stroke:#1b4332,color:#1b4332
-    style PORTAL fill:#d8f3dc,stroke:#1b4332,color:#1b4332
-
-    %% Link styles
-    linkStyle 0 labelPosition:0.5, align:top;
-    linkStyle 1 labelPosition:0.5, align:top;
-    linkStyle 2 labelPosition:0.5, align:top;
-    linkStyle 3 labelPosition:0.5, align:top;
-    linkStyle 4 labelPosition:0.5, align:top;
-
-</pre>
+<svg width="672" height="480" viewbox="0.00 0.00 474.84 630.40" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 626.4)">
+<title>metadata_flow</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-626.4 470.84,-626.4 470.84,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>cluster_consumer</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M119,-537.6C119,-537.6 297,-537.6 297,-537.6 303,-537.6 309,-543.6 309,-549.6 309,-549.6 309,-602.4 309,-602.4 309,-608.4 303,-614.4 297,-614.4 297,-614.4 119,-614.4 119,-614.4 113,-614.4 107,-608.4 107,-602.4 107,-602.4 107,-549.6 107,-549.6 107,-543.6 113,-537.6 119,-537.6"></path>
+<text text-anchor="middle" x="208" y="-597.8" font-family="Helvetica,sans-Serif" font-size="14.00">Consumer</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_repository</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M20,-321.2C20,-321.2 245,-321.2 245,-321.2 251,-321.2 257,-327.2 257,-333.2 257,-333.2 257,-488.4 257,-488.4 257,-494.4 251,-500.4 245,-500.4 245,-500.4 20,-500.4 20,-500.4 14,-500.4 8,-494.4 8,-488.4 8,-488.4 8,-333.2 8,-333.2 8,-327.2 14,-321.2 20,-321.2"></path>
+<text text-anchor="middle" x="132.5" y="-483.8" font-family="Helvetica,sans-Serif" font-size="14.00">Repository</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_metadata</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M91,-8C91,-8 305,-8 305,-8 311,-8 317,-14 317,-20 317,-20 317,-272 317,-272 317,-278 311,-284 305,-284 305,-284 91,-284 91,-284 85,-284 79,-278 79,-272 79,-272 79,-20 79,-20 79,-14 85,-8 91,-8"></path>
+<text text-anchor="middle" x="198" y="-267.4" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata Service</text>
+</g>
+<!-- TOP_ANCHOR -->
+<!-- USER -->
+<g id="node2" class="node">
+<title>USER</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M289.42,-581.6C289.42,-581.6 126.58,-581.6 126.58,-581.6 120.58,-581.6 114.58,-575.6 114.58,-569.6 114.58,-569.6 114.58,-557.6 114.58,-557.6 114.58,-551.6 120.58,-545.6 126.58,-545.6 126.58,-545.6 289.42,-545.6 289.42,-545.6 295.42,-545.6 301.42,-551.6 301.42,-557.6 301.42,-557.6 301.42,-569.6 301.42,-569.6 301.42,-575.6 295.42,-581.6 289.42,-581.6"></path>
+<text text-anchor="middle" x="208" y="-559.4" font-family="Helvetica,sans-Serif" font-size="14.00">Researchers and Machines</text>
+</g>
+<!-- DATA -->
+<g id="node4" class="node">
+<title>DATA</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M236.52,-464.8C236.52,-464.8 181.48,-464.8 181.48,-464.8 175.48,-464.8 169.48,-458.8 169.48,-452.8 169.48,-452.8 169.48,-440.8 169.48,-440.8 169.48,-434.8 175.48,-428.8 181.48,-428.8 181.48,-428.8 236.52,-428.8 236.52,-428.8 242.52,-428.8 248.52,-434.8 248.52,-440.8 248.52,-440.8 248.52,-452.8 248.52,-452.8 248.52,-458.8 242.52,-464.8 236.52,-464.8"></path>
+<text text-anchor="middle" x="209" y="-442.6" font-family="Helvetica,sans-Serif" font-size="14.00">Data Files</text>
+</g>
+<!-- USER&#45;&gt;DATA -->
+<g id="edge5" class="edge">
+<title>USER-&gt;DATA</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M203.91,-545.25C202.78,-539.65 201.7,-533.39 201.14,-527.6 199.44,-510.04 201.35,-490.3 203.71,-474.85"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="207.17,-475.36 205.38,-464.92 200.27,-474.2 207.17,-475.36"></polygon>
+<text text-anchor="middle" x="270.93" y="-513.2" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">access &amp; download</text>
+</g>
+<!-- PORTAL -->
+<g id="node10" class="node">
+<title>PORTAL</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M253.82,-57.4C253.82,-57.4 142.18,-57.4 142.18,-57.4 136.18,-57.4 130.18,-51.4 130.18,-45.4 130.18,-45.4 130.18,-28.2 130.18,-28.2 130.18,-22.2 136.18,-16.2 142.18,-16.2 142.18,-16.2 253.82,-16.2 253.82,-16.2 259.82,-16.2 265.82,-22.2 265.82,-28.2 265.82,-28.2 265.82,-45.4 265.82,-45.4 265.82,-51.4 259.82,-57.4 253.82,-57.4"></path>
+<text text-anchor="middle" x="198" y="-41" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata Portal</text>
+<text text-anchor="middle" x="198" y="-24.2" font-family="Helvetica,sans-Serif" font-size="14.00">Discovery Interface</text>
+</g>
+<!-- USER&#45;&gt;PORTAL -->
+<g id="edge4" class="edge">
+<title>USER-&gt;PORTAL</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M277.99,-545.57C307.92,-537.99 336.62,-530.19 339,-527.6 363.33,-501.05 353,-483.81 353,-447.8 353,-447.8 353,-447.8 353,-132.6 353,-106.51 357.25,-94.24 339,-75.6 322.32,-58.57 298.86,-48.95 275.86,-43.59"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="276.55,-40.16 266.05,-41.55 275.13,-47.02 276.55,-40.16"></polygon>
+<text text-anchor="middle" x="409.92" y="-296.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">search / explore</text>
+</g>
+<!-- LEFT_ANCHOR -->
+<!-- META -->
+<g id="node5" class="node">
+<title>META</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M139.78,-467.4C139.78,-467.4 28.22,-467.4 28.22,-467.4 22.22,-467.4 16.22,-461.4 16.22,-455.4 16.22,-455.4 16.22,-438.2 16.22,-438.2 16.22,-432.2 22.22,-426.2 28.22,-426.2 28.22,-426.2 139.78,-426.2 139.78,-426.2 145.78,-426.2 151.78,-432.2 151.78,-438.2 151.78,-438.2 151.78,-455.4 151.78,-455.4 151.78,-461.4 145.78,-467.4 139.78,-467.4"></path>
+<text text-anchor="middle" x="84" y="-451" font-family="Helvetica,sans-Serif" font-size="14.00">Local Metadata</text>
+<text text-anchor="middle" x="84" y="-434.2" font-family="Helvetica,sans-Serif" font-size="14.00">(JSON, XML, RDF)</text>
+</g>
+<!-- API -->
+<g id="node6" class="node">
+<title>API</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M206.64,-370.6C206.64,-370.6 57.36,-370.6 57.36,-370.6 51.36,-370.6 45.36,-364.6 45.36,-358.6 45.36,-358.6 45.36,-341.4 45.36,-341.4 45.36,-335.4 51.36,-329.4 57.36,-329.4 57.36,-329.4 206.64,-329.4 206.64,-329.4 212.64,-329.4 218.64,-335.4 218.64,-341.4 218.64,-341.4 218.64,-358.6 218.64,-358.6 218.64,-364.6 212.64,-370.6 206.64,-370.6"></path>
+<text text-anchor="middle" x="132" y="-354.2" font-family="Helvetica,sans-Serif" font-size="14.00">Expose Metadata</text>
+<text text-anchor="middle" x="132" y="-337.4" font-family="Helvetica,sans-Serif" font-size="14.00">via OAI-PMH / REST API</text>
+</g>
+<!-- META&#45;&gt;API -->
+<g id="edge1" class="edge">
+<title>META-&gt;API</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M93.95,-426.16C100.7,-412.81 109.76,-394.93 117.34,-379.96"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="120.67,-381.12 122.07,-370.62 114.43,-377.96 120.67,-381.12"></polygon>
+<text text-anchor="middle" x="167.26" y="-393.6" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">offered through</text>
+</g>
+<!-- HARV -->
+<g id="node8" class="node">
+<title>HARV</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M213.42,-251C213.42,-251 98.58,-251 98.58,-251 92.58,-251 86.58,-245 86.58,-239 86.58,-239 86.58,-221.8 86.58,-221.8 86.58,-215.8 92.58,-209.8 98.58,-209.8 98.58,-209.8 213.42,-209.8 213.42,-209.8 219.42,-209.8 225.42,-215.8 225.42,-221.8 225.42,-221.8 225.42,-239 225.42,-239 225.42,-245 219.42,-251 213.42,-251"></path>
+<text text-anchor="middle" x="156" y="-234.6" font-family="Helvetica,sans-Serif" font-size="14.00">Harvester</text>
+<text text-anchor="middle" x="156" y="-217.8" font-family="Helvetica,sans-Serif" font-size="14.00">Collect &amp; Normalise</text>
+</g>
+<!-- API&#45;&gt;HARV -->
+<g id="edge6" class="edge">
+<title>API-&gt;HARV</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M136.02,-329.32C139.82,-310.66 145.59,-282.39 149.96,-261.02"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="153.4,-261.65 151.97,-251.15 146.54,-260.25 153.4,-261.65"></polygon>
+<text text-anchor="middle" x="195.59" y="-296.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">offer metadata</text>
+</g>
+<!-- RIGHT_ANCHOR -->
+<!-- INDEX -->
+<g id="node9" class="node">
+<title>INDEX</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M297.24,-154.2C297.24,-154.2 98.76,-154.2 98.76,-154.2 92.76,-154.2 86.76,-148.2 86.76,-142.2 86.76,-142.2 86.76,-125 86.76,-125 86.76,-119 92.76,-113 98.76,-113 98.76,-113 297.24,-113 297.24,-113 303.24,-113 309.24,-119 309.24,-125 309.24,-125 309.24,-142.2 309.24,-142.2 309.24,-148.2 303.24,-154.2 297.24,-154.2"></path>
+<text text-anchor="middle" x="198" y="-137.8" font-family="Helvetica,sans-Serif" font-size="14.00">Indexer</text>
+<text text-anchor="middle" x="198" y="-121" font-family="Helvetica,sans-Serif" font-size="14.00">Search Index / Knowledge Graph</text>
+</g>
+<!-- HARV&#45;&gt;INDEX -->
+<g id="edge2" class="edge">
+<title>HARV-&gt;INDEX</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M143.66,-209.56C138.27,-198.2 134.44,-183.95 140.66,-172.4 142.88,-168.27 145.77,-164.52 149.07,-161.13"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="151.68,-163.5 156.86,-154.27 147.05,-158.25 151.68,-163.5"></polygon>
+<text text-anchor="middle" x="240.17" y="-177.2" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">provide harvested metadata</text>
+</g>
+<!-- INDEX&#45;&gt;PORTAL -->
+<g id="edge3" class="edge">
+<title>INDEX-&gt;PORTAL</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M178.54,-112.92C174.33,-107.48 170.47,-101.27 168.23,-94.8 165.43,-86.74 165.43,-83.66 168.23,-75.6 169.38,-72.26 170.97,-69 172.81,-65.87"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="175.79,-67.71 178.54,-57.48 170.01,-63.76 175.79,-67.71"></polygon>
+<text text-anchor="middle" x="254.39" y="-80.4" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">serve indexed metadata</text>
+</g>
+</g>
+</svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-metadata-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -455,7 +514,7 @@ Figure&nbsp;13.1: From Local Metadata to Discovery and Data Access
 </section>
 <section id="metadata-portals" class="level2">
 <h2 class="anchored" data-anchor-id="metadata-portals">Metadata Portals</h2>
-<p><strong>Metadata portals</strong> are platforms that provide human‑ and machine‑readable access to metadata records. They act as central entry points for discovering datasets, publications, software, and other research outputs.</p>
+<p>Metadata portals are platforms that provide human‑ and machine‑readable access to metadata records. They act as central entry points for discovering datasets, publications, software, and other research outputs.</p>
 <p>Portals typically:</p>
 <ul>
 <li>expose metadata through search interfaces<br>
@@ -471,20 +530,20 @@ Figure&nbsp;13.1: From Local Metadata to Discovery and Data Access
 <section id="examples" class="level3">
 <h3 class="anchored" data-anchor-id="examples">Examples</h3>
 <ul>
-<li><a href="https://support.datacite.org/docs/datacite-commons"><strong>DataCite Commons</strong></a> — aggregates metadata for DOIs assigned to datasets, software, and publications<br>
+<li><a href="https://support.datacite.org/docs/datacite-commons">DataCite Commons</a> — aggregates metadata for DOIs assigned to datasets, software, and publications<br>
 </li>
-<li><a href="https://explore.openaire.eu/"><strong>OpenAIRE Explore</strong></a> — integrates metadata from repositories across Europe<br>
+<li><a href="https://explore.openaire.eu/">OpenAIRE Explore</a> — integrates metadata from repositories across Europe<br>
 </li>
-<li><a href="https://fairsharing.org/"><strong>FAIRsharing</strong></a> — registry of metadata standards, databases, and policies<br>
+<li><a href="https://fairsharing.org/">FAIRsharing</a> — registry of metadata standards, databases, and policies<br>
 </li>
-<li><strong>Discipline‑specific portals</strong> (e.g., PANGAEA, GBIF, ICPSR)</li>
+<li>Discipline‑specific portals (e.g., PANGAEA, GBIF, ICPSR)</li>
 </ul>
 <p>Portals are the <em>public face</em> of metadata: they make research outputs discoverable and provide the context needed for reuse.</p>
 </section>
 </section>
 <section id="metadata-harvesters" class="level2">
 <h2 class="anchored" data-anchor-id="metadata-harvesters">Metadata Harvesters</h2>
-<p>Metadata harvesters solve the visibility problem by <strong>collecting metadata from many repositories</strong> and bringing it together into a unified index. They ensure that metadata created locally becomes part of a broader, interoperable ecosystem.</p>
+<p>Metadata harvesters solve the visibility problem by collecting metadata from many repositories and bringing it together into a unified index. They ensure that metadata created locally becomes part of a broader, interoperable ecosystem.</p>
 <p>Harvesters typically:</p>
 <ul>
 <li>poll repositories at regular intervals<br>
@@ -500,29 +559,29 @@ Figure&nbsp;13.1: From Local Metadata to Discovery and Data Access
 <section id="common-harvesting-protocols" class="level3">
 <h3 class="anchored" data-anchor-id="common-harvesting-protocols">Common harvesting protocols</h3>
 <ul>
-<li><p><strong>OAI‑PMH (Open Archives Initiative Protocol for Metadata Harvesting)</strong><br>
+<li><p>OAI‑PMH (Open Archives Initiative Protocol for Metadata Harvesting)<br>
 Widely used in repositories; supports incremental harvesting and multiple metadata formats.</p></li>
-<li><p><strong>ResourceSync</strong><br>
+<li><p>ResourceSync<br>
 A modern protocol for synchronising large collections of metadata and content.</p></li>
-<li><p><strong>REST APIs</strong><br>
+<li><p>REST APIs<br>
 Many repositories expose metadata through JSON‑based APIs.</p></li>
 </ul>
 </section>
 <section id="examples-of-harvesters" class="level3">
 <h3 class="anchored" data-anchor-id="examples-of-harvesters">Examples of harvesters</h3>
 <ul>
-<li><strong>OpenAIRE Harvester</strong> — collects metadata from thousands of repositories<br>
+<li>OpenAIRE Harvester — collects metadata from thousands of repositories<br>
 </li>
-<li><strong>DataCite OAI‑PMH service</strong> — exposes DOI metadata for harvesting<br>
+<li>DataCite OAI‑PMH service — exposes DOI metadata for harvesting<br>
 </li>
-<li><strong>Europeana Harvester</strong> — aggregates cultural heritage metadata</li>
+<li>Europeana Harvester — aggregates cultural heritage metadata</li>
 </ul>
 <p>Harvesters are the <em>connective tissue</em> of metadata infrastructure: they ensure that metadata does not remain siloed.</p>
 </section>
 </section>
 <section id="what-is-a-metadata-indexer" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-a-metadata-indexer">What Is a Metadata Indexer?</h2>
-<p>A <strong>metadata indexer</strong> is a service that takes harvested metadata and organises it into a <strong>searchable, structured index</strong>.</p>
+<p>A metadata indexer is a service that takes harvested metadata and organises it into a searchable, structured index.</p>
 <p>Indexers:</p>
 <ul>
 <li>parse metadata into fields<br>
@@ -538,19 +597,19 @@ Many repositories expose metadata through JSON‑based APIs.</p></li>
 <li>may generate knowledge graphs or entity‑resolution layers</li>
 </ul>
 <p>In short:<br>
-<strong>Harvesters collect metadata; indexers make it findable.</strong></p>
+Harvesters collect metadata; indexers make it findable.</p>
 <section id="examples-1" class="level3">
 <h3 class="anchored" data-anchor-id="examples-1">Examples</h3>
 <ul>
-<li><strong>OpenAIRE Graph</strong> — a large‑scale scholarly knowledge graph integrating publications, datasets, software, and projects<br>
+<li>OpenAIRE Graph — a large‑scale scholarly knowledge graph integrating publications, datasets, software, and projects<br>
 </li>
-<li><strong>DataCite Search Index</strong> — supports DOI discovery and metadata enrichment<br>
+<li>DataCite Search Index — supports DOI discovery and metadata enrichment<br>
 </li>
-<li><strong>Google Dataset Search</strong> — indexes structured metadata exposed on the web<br>
+<li>Google Dataset Search — indexes structured metadata exposed on the web<br>
 </li>
-<li><strong>Semantic indexes</strong> built on RDF triple stores (e.g., Blazegraph, GraphDB)</li>
+<li>Semantic indexes built on RDF triple stores (e.g., Blazegraph, GraphDB)</li>
 </ul>
-<p>Indexers turn metadata into <strong>actionable information</strong>, enabling discovery, analytics, and automated linking.</p>
+<p>Indexers turn metadata into actionable information, enabling discovery, analytics, and automated linking.</p>
 </section>
 </section>
 <section id="comparison-of-metadata-portals-harvesters-and-indexers" class="level2">
@@ -599,7 +658,7 @@ Many repositories expose metadata through JSON‑based APIs.</p></li>
 </section>
 <section id="metadata-serialisation-formats" class="level2">
 <h2 class="anchored" data-anchor-id="metadata-serialisation-formats">Metadata Serialisation Formats</h2>
-<p>To move metadata between systems, it must be expressed in <strong>serialisation formats</strong> that machines can read. These formats encode metadata according to schemas, ontologies, and controlled vocabularies.</p>
+<p>To move metadata between systems, it must be expressed in serialisation formats that machines can read. These formats encode metadata according to schemas, ontologies, and controlled vocabularies.</p>
 <p>Serialisation formats fall into two broad categories:</p>
 <section id="keyvalue-and-documentoriented-formats" class="level3">
 <h3 class="anchored" data-anchor-id="keyvalue-and-documentoriented-formats">1. Key–Value and Document‑Oriented Formats</h3>
@@ -617,17 +676,17 @@ Many repositories expose metadata through JSON‑based APIs.</p></li>
 </section>
 <section id="semantic-web-and-linked-data-formats" class="level3">
 <h3 class="anchored" data-anchor-id="semantic-web-and-linked-data-formats">2. Semantic Web and Linked Data Formats</h3>
-<p>These formats express metadata as <strong>graphs</strong>, enabling interoperability and machine reasoning.</p>
+<p>These formats express metadata as graphs, enabling interoperability and machine reasoning.</p>
 <ul>
-<li><strong>RDF/XML</strong><br>
+<li>RDF/XML<br>
 </li>
-<li><strong>Turtle (TTL)</strong><br>
+<li>Turtle (TTL)<br>
 </li>
-<li><strong>JSON‑LD</strong><br>
+<li>JSON‑LD<br>
 </li>
-<li><strong>N‑Triples / N‑Quads</strong></li>
+<li>N‑Triples / N‑Quads</li>
 </ul>
-<p>These formats encode metadata as <strong>subject–predicate–object triples</strong>, using URIs to identify entities. They are used in:</p>
+<p>These formats encode metadata as subject–predicate–object triples, using URIs to identify entities. They are used in:</p>
 <ul>
 <li>knowledge graphs<br>
 </li>
@@ -650,7 +709,7 @@ Many repositories expose metadata through JSON‑based APIs.</p></li>
 </li>
 <li>how well it integrates with harvesters and indexers</li>
 </ul>
-<p>In practice, repositories often support <strong>multiple serialisations</strong> to serve different use cases.</p>
+<p>In practice, repositories often support multiple serialisations to serve different use cases.</p>
 <p>Below we give an example of the same metadata expressed in different formats.</p>
 </section>
 <section id="example-the-same-metadata-in-json-xml-and-turtle" class="level3">
@@ -669,7 +728,7 @@ The metadata fields are:</p>
 <li><strong>subject</strong>: Soil Moisture</li>
 </ul>
 <section id="json-keyvalue-metadata" class="level4">
-<h4 class="anchored" data-anchor-id="json-keyvalue-metadata"><strong>JSON (Key–Value Metadata)</strong></h4>
+<h4 class="anchored" data-anchor-id="json-keyvalue-metadata">JSON (Key–Value Metadata)</h4>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"title"</span><span class="fu">:</span> <span class="st">"Soil Moisture Dataset 2020–2023"</span><span class="fu">,</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"creator"</span><span class="fu">:</span> <span class="st">"Anna Vermeer"</span><span class="fu">,</span></span>
@@ -677,14 +736,14 @@ The metadata fields are:</p>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"issued"</span><span class="fu">:</span> <span class="st">"2024"</span><span class="fu">,</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"subject"</span><span class="fu">:</span> <span class="st">"Soil Moisture"</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Characteristics:</strong><br>
+<p>Characteristics:<br>
 - Simple, human‑readable<br>
 - No explicit semantics<br>
 - Relationships are implicit</p>
 <hr>
 </section>
 <section id="xml-structured-schemadriven-metadata" class="level4">
-<h4 class="anchored" data-anchor-id="xml-structured-schemadriven-metadata"><strong>XML (Structured, Schema‑Driven Metadata)</strong></h4>
+<h4 class="anchored" data-anchor-id="xml-structured-schemadriven-metadata">XML (Structured, Schema‑Driven Metadata)</h4>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">resource</span>&gt;</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">title</span>&gt;Soil Moisture Dataset 2020–2023&lt;/<span class="kw">title</span>&gt;</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">creator</span>&gt;Anna Vermeer&lt;/<span class="kw">creator</span>&gt;</span>
@@ -692,13 +751,13 @@ The metadata fields are:</p>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">issued</span>&gt;2024&lt;/<span class="kw">issued</span>&gt;</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">subject</span>&gt;Soil Moisture&lt;/<span class="kw">subject</span>&gt;</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">resource</span>&gt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Characteristics:</strong><br>
+<p>Characteristics:<br>
 - Hierarchical structure<br>
 - Often validated with schemas (e.g., XSD)<br>
 - Still no explicit semantics unless combined with namespaces</p>
 </section>
 <section id="turtle-rdf-linked-data" class="level4">
-<h4 class="anchored" data-anchor-id="turtle-rdf-linked-data"><strong>Turtle (RDF / Linked Data)</strong></h4>
+<h4 class="anchored" data-anchor-id="turtle-rdf-linked-data">Turtle (RDF / Linked Data)</h4>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">@prefix</span> dc:     <span class="op">&lt;</span>http://purl.org/dc/elements/1.1/<span class="op">&gt;</span> .</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">@prefix</span> ex:     <span class="op">&lt;</span>http://example.org/<span class="op">&gt;</span> .</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">@prefix</span> xsd:    <span class="op">&lt;</span>http://www.w3.org/2001/XMLSchema#<span class="op">&gt;</span> .</span>
@@ -709,7 +768,7 @@ The metadata fields are:</p>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">dc:license</span> <span class="op">&lt;</span>https://creativecommons.org/licenses/by/4.0/<span class="op">&gt;</span> <span class="kw">;</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">dc:issued</span> <span class="st">"2024"</span>^^xsd:gYear <span class="kw">;</span></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">dc:subject</span> <span class="st">"Soil Moisture"</span> .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Characteristics:</strong><br>
+<p>Characteristics:<br>
 - Fully semantic<br>
 - Uses URIs for identifiers<br>
 - Machine‑interpretable relationships<br>
@@ -764,8 +823,8 @@ The metadata fields are:</p>
 <p><strong>XML</strong> is preferred when metadata must follow a strict schema and be validated against a formal structure. Many harvesting protocols (such as OAI‑PMH) and long‑standing metadata standards (like Dublin Core XML or DataCite XML) rely on XML because of its predictability and strong validation capabilities.</p>
 <p><strong>YAML</strong> works well for human‑authored metadata, such as workflow descriptions, lab templates, or configuration files. It is readable and concise, but less suitable for large‑scale automated processing.</p>
 <p><strong>CSV/TSV</strong> is the simplest option for tabular or variable‑level metadata. It is easy to create and edit, especially for researchers working in spreadsheets, but it cannot express hierarchical or semantic relationships.</p>
-<p><strong>RDF serialisations</strong> such as Turtle, JSON‑LD, and RDF/XML are the best choice when metadata needs to be <strong>interoperable, machine‑interpretable, and semantically rich</strong>. They allow metadata to be integrated into knowledge graphs, linked to ontologies, and connected across systems using globally unique identifiers. JSON‑LD is particularly useful for embedding semantic metadata on the web, while Turtle is preferred for human‑readable Linked Data.</p>
-<p>In practice, many repositories support <strong>multiple serialisations</strong>: a simple JSON or XML representation for APIs and harvesting, and a semantic RDF representation for Linked Data and FAIR interoperability. The choice depends on whether the priority is ease of use, strict validation, or semantic richness.</p>
+<p><strong>RDF serialisations</strong> such as Turtle, JSON‑LD, and RDF/XML are the best choice when metadata needs to be interoperable, machine‑interpretable, and semantically rich. They allow metadata to be integrated into knowledge graphs, linked to ontologies, and connected across systems using globally unique identifiers. JSON‑LD is particularly useful for embedding semantic metadata on the web, while Turtle is preferred for human‑readable Linked Data.</p>
+<p>In practice, many repositories support multiple serialisations: a simple JSON or XML representation for APIs and harvesting, and a semantic RDF representation for Linked Data and FAIR interoperability. The choice depends on whether the priority is ease of use, strict validation, or semantic richness.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -860,78 +919,132 @@ The metadata fields are:</p>
 </li>
 <li><strong>Discovery services</strong> make metadata findable across domains</li>
 </ol>
-<p>Together, these components form the <strong>metadata infrastructure</strong> that enables FAIR, interoperable, and reusable research data.</p>
+<p>Together, these components form the metadata infrastructure that enables FAIR, interoperable, and reusable research data.</p>
 </section>
 <section id="a-note-on-linked-data-triple-stores-and-combining-knowledge-graphs" class="level2">
 <h2 class="anchored" data-anchor-id="a-note-on-linked-data-triple-stores-and-combining-knowledge-graphs">A Note on Linked Data, Triple Stores, and Combining Knowledge Graphs</h2>
 <p>Linked Data changes how metadata is shared and connected across research infrastructures. Instead of exchanging whole records through harvesting protocols, repositories can publish their metadata directly as RDF using persistent identifiers (DOIs, ORCID iDs, ROR IDs) and shared vocabularies. This allows metadata to be expressed as a graph, where entities are nodes and their relationships are edges.</p>
 <p>Repositories can expose RDF in several ways:</p>
 <ul>
-<li><strong>Static RDF files</strong> (e.g., Turtle or JSON‑LD generated on demand or published as dumps)<br>
+<li>Static RDF files (e.g., Turtle or JSON‑LD generated on demand or published as dumps)<br>
 </li>
-<li><strong>Content negotiation</strong> (e.g., returning RDF when a client requests <code>text/turtle</code> or <code>application/ld+json</code>)<br>
+<li>Content negotiation (e.g., returning RDF when a client requests <code>text/turtle</code> or <code>application/ld+json</code>)<br>
 </li>
-<li><strong>API endpoints</strong> that output RDF serialisations<br>
+<li>API endpoints that output RDF serialisations<br>
 </li>
-<li><strong>SPARQL or Linked Data endpoints</strong> when the repository uses a graph‑based backend</li>
+<li>SPARQL or Linked Data endpoints when the repository uses a graph‑based backend</li>
 </ul>
 <p>Only the last option requires a triple store; the others simply generate RDF from the repository’s internal metadata model.</p>
-<p>A <strong>triple store</strong> is a specialised database designed to store and query RDF triples—statements in the form <em>subject–predicate–object</em>. It supports SPARQL queries, reasoning, and graph traversal, and can automatically merge graphs from different sources when they use the same identifiers. If two repositories describe the same dataset, person, or organisation using the same URI, a triple store treats them as the same node. No custom mapping or harmonisation layer is required; the semantics are embedded directly in the data model.</p>
+<p>A triple store is a specialised database designed to store and query RDF triples—statements in the form <em>subject–predicate–object</em>. It supports SPARQL queries, reasoning, and graph traversal, and can automatically merge graphs from different sources when they use the same identifiers. If two repositories describe the same dataset, person, or organisation using the same URI, a triple store treats them as the same node. No custom mapping or harmonisation layer is required; the semantics are embedded directly in the data model.</p>
 <p>This makes combining knowledge graphs remarkably straightforward. Multiple RDF sources can be loaded into the same triple store, and shared identifiers cause the graphs to interlink automatically. The infrastructure does not need to normalise formats, deduplicate records, or align schemas—the graph model handles this naturally.</p>
 <p>Because of this, Linked Data reduces the need for traditional metadata harvesters. A harvester normally collects XML or JSON from many repositories, normalises it, deduplicates it, and prepares it for indexing. In a Linked Data environment, much of this work disappears: repositories publish RDF, and the triple store ingests it directly. The infrastructure no longer needs to “fix” metadata during harvesting.</p>
 <p>However, this convenience for infrastructures shifts responsibility upstream. For Linked Data to work well, researchers and data stewards must provide clean identifiers, consistent vocabularies, and well‑structured RDF. Instead of the infrastructure harmonising metadata after the fact, the quality and interoperability of the combined graph depend on the metadata producers themselves.</p>
-<p>In short: <strong>triple stores make integration easier for infrastructures, but require more discipline and modelling effort from researchers</strong>. When done well, the result is a metadata ecosystem that is inherently connected, machine‑interpretable, and ready for reuse across systems.</p>
+<p>In short: triple stores make integration easier for infrastructures, but require more discipline and modelling effort from researchers. When done well, the result is a metadata ecosystem that is inherently connected, machine‑interpretable, and ready for reuse across systems.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-linkeddata-flow" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-linkeddata-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-linkeddata-flow">%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-
-flowchart TD
-
-    %% Consumer at the top
-    subgraph Consumer["Consumer"]
-        USER["Researchers and Machines"]
-    end
-
-    %% Repository
-    subgraph Repository["Repository"]
-        DATA["Data Files"]
-        RDF["RDF Metadata&lt;br&gt;(Turtle, JSON-LD, RDF/XML)"]
-        ENDPOINT["Expose RDF&lt;br&gt;via Content Negotiation / API"]
-        RDF --&gt;|"published as RDF"| ENDPOINT
-    end
-
-    %% Linked Data Service
-    subgraph LinkedDataService["Linked Data Service"]
-        TRIPLE["Triple Store&lt;br&gt;(GraphDB, Blazegraph, Fuseki)"]
-        SPARQL["SPARQL Endpoint&lt;br&gt;Query Interface"]
-        TRIPLE --&gt;|"query graph"| SPARQL
-    end
-
-    %% Metadata flow (Repository → Triple Store)
-    ENDPOINT --&gt;|"load RDF graphs"| TRIPLE
-
-    %% Consumer interactions
-    USER --&gt;|"query / explore"| SPARQL
-    USER --&gt;|"access and download"| DATA
-
-    %% Highlight nodes (light green fill, dark green text)
-    style USER fill:#d8f3dc,stroke:#1b4332,color:#1b4332
-    style DATA fill:#d8f3dc,stroke:#1b4332,color:#1b4332
-    style SPARQL fill:#d8f3dc,stroke:#1b4332,color:#1b4332
-
-    %% Link styles
-    linkStyle 0 labelPosition:0.5, align:top;
-    linkStyle 1 labelPosition:0.5, align:top;
-    linkStyle 2 labelPosition:0.5, align:top;
-    linkStyle 3 labelPosition:0.5, align:top;
-</pre>
+<svg width="672" height="480" viewbox="0.00 0.00 461.84 533.60" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 529.6)">
+<title>linkeddata_flow</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-529.6 457.84,-529.6 457.84,4 -4,4"></polygon>
+<g id="clust3" class="cluster">
+<title>cluster_linkeddata</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M111,-8C111,-8 315,-8 315,-8 321,-8 327,-14 327,-20 327,-20 327,-175.2 327,-175.2 327,-181.2 321,-187.2 315,-187.2 315,-187.2 111,-187.2 111,-187.2 105,-187.2 99,-181.2 99,-175.2 99,-175.2 99,-20 99,-20 99,-14 105,-8 111,-8"></path>
+<text text-anchor="middle" x="213" y="-170.6" font-family="Helvetica,sans-Serif" font-size="14.00">Linked Data Service</text>
+</g>
+<g id="clust1" class="cluster">
+<title>cluster_consumer</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M113,-440.8C113,-440.8 291,-440.8 291,-440.8 297,-440.8 303,-446.8 303,-452.8 303,-452.8 303,-505.6 303,-505.6 303,-511.6 297,-517.6 291,-517.6 291,-517.6 113,-517.6 113,-517.6 107,-517.6 101,-511.6 101,-505.6 101,-505.6 101,-452.8 101,-452.8 101,-446.8 107,-440.8 113,-440.8"></path>
+<text text-anchor="middle" x="202" y="-501" font-family="Helvetica,sans-Serif" font-size="14.00">Consumer</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_repository</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M20,-224.4C20,-224.4 308,-224.4 308,-224.4 314,-224.4 320,-230.4 320,-236.4 320,-236.4 320,-391.6 320,-391.6 320,-397.6 314,-403.6 308,-403.6 308,-403.6 20,-403.6 20,-403.6 14,-403.6 8,-397.6 8,-391.6 8,-391.6 8,-236.4 8,-236.4 8,-230.4 14,-224.4 20,-224.4"></path>
+<text text-anchor="middle" x="164" y="-387" font-family="Helvetica,sans-Serif" font-size="14.00">Repository</text>
+</g>
+<!-- TOP_ANCHOR -->
+<!-- USER -->
+<g id="node2" class="node">
+<title>USER</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M283.42,-484.8C283.42,-484.8 120.58,-484.8 120.58,-484.8 114.58,-484.8 108.58,-478.8 108.58,-472.8 108.58,-472.8 108.58,-460.8 108.58,-460.8 108.58,-454.8 114.58,-448.8 120.58,-448.8 120.58,-448.8 283.42,-448.8 283.42,-448.8 289.42,-448.8 295.42,-454.8 295.42,-460.8 295.42,-460.8 295.42,-472.8 295.42,-472.8 295.42,-478.8 289.42,-484.8 283.42,-484.8"></path>
+<text text-anchor="middle" x="202" y="-462.6" font-family="Helvetica,sans-Serif" font-size="14.00">Researchers and Machines</text>
+</g>
+<!-- DATA -->
+<g id="node4" class="node">
+<title>DATA</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M299.52,-368C299.52,-368 244.48,-368 244.48,-368 238.48,-368 232.48,-362 232.48,-356 232.48,-356 232.48,-344 232.48,-344 232.48,-338 238.48,-332 244.48,-332 244.48,-332 299.52,-332 299.52,-332 305.52,-332 311.52,-338 311.52,-344 311.52,-344 311.52,-356 311.52,-356 311.52,-362 305.52,-368 299.52,-368"></path>
+<text text-anchor="middle" x="272" y="-345.8" font-family="Helvetica,sans-Serif" font-size="14.00">Data Files</text>
+</g>
+<!-- USER&#45;&gt;DATA -->
+<g id="edge5" class="edge">
+<title>USER-&gt;DATA</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M186.63,-448.74C178.23,-437.28 171.17,-422.37 180.12,-411.6 192.51,-396.69 206.01,-412.94 223,-403.6 235.05,-396.98 245.8,-386.31 254.14,-376.32"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="257.11,-378.2 260.56,-368.18 251.62,-373.86 257.11,-378.2"></polygon>
+<text text-anchor="middle" x="257.94" y="-416.4" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">access and download</text>
+</g>
+<!-- SPARQL -->
+<g id="node9" class="node">
+<title>SPARQL</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M296.96,-57.4C296.96,-57.4 189.04,-57.4 189.04,-57.4 183.04,-57.4 177.04,-51.4 177.04,-45.4 177.04,-45.4 177.04,-28.2 177.04,-28.2 177.04,-22.2 183.04,-16.2 189.04,-16.2 189.04,-16.2 296.96,-16.2 296.96,-16.2 302.96,-16.2 308.96,-22.2 308.96,-28.2 308.96,-28.2 308.96,-45.4 308.96,-45.4 308.96,-51.4 302.96,-57.4 296.96,-57.4"></path>
+<text text-anchor="middle" x="243" y="-41" font-family="Helvetica,sans-Serif" font-size="14.00">SPARQL Endpoint</text>
+<text text-anchor="middle" x="243" y="-24.2" font-family="Helvetica,sans-Serif" font-size="14.00">Query Interface</text>
+</g>
+<!-- USER&#45;&gt;SPARQL -->
+<g id="edge4" class="edge">
+<title>USER-&gt;SPARQL</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M272.52,-448.78C302.68,-441.21 331.61,-433.41 334,-430.8 358.35,-404.27 348,-387.01 348,-351 348,-351 348,-351 348,-132.6 348,-104.38 339.96,-95.56 320,-75.6 315.19,-70.79 309.64,-66.49 303.78,-62.68"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="305.38,-59.56 295,-57.43 301.79,-65.57 305.38,-59.56"></polygon>
+<text text-anchor="middle" x="400.92" y="-248.4" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">query / explore</text>
+</g>
+<!-- LEFT_ANCHOR -->
+<!-- RDF -->
+<g id="node5" class="node">
+<title>RDF</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M202.01,-370.6C202.01,-370.6 27.99,-370.6 27.99,-370.6 21.99,-370.6 15.99,-364.6 15.99,-358.6 15.99,-358.6 15.99,-341.4 15.99,-341.4 15.99,-335.4 21.99,-329.4 27.99,-329.4 27.99,-329.4 202.01,-329.4 202.01,-329.4 208.01,-329.4 214.01,-335.4 214.01,-341.4 214.01,-341.4 214.01,-358.6 214.01,-358.6 214.01,-364.6 208.01,-370.6 202.01,-370.6"></path>
+<text text-anchor="middle" x="115" y="-354.2" font-family="Helvetica,sans-Serif" font-size="14.00">RDF Metadata</text>
+<text text-anchor="middle" x="115" y="-337.4" font-family="Helvetica,sans-Serif" font-size="14.00">(Turtle, JSON-LD, RDF/XML)</text>
+</g>
+<!-- ENDPOINT -->
+<g id="node6" class="node">
+<title>ENDPOINT</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M225.77,-273.8C225.77,-273.8 54.23,-273.8 54.23,-273.8 48.23,-273.8 42.23,-267.8 42.23,-261.8 42.23,-261.8 42.23,-244.6 42.23,-244.6 42.23,-238.6 48.23,-232.6 54.23,-232.6 54.23,-232.6 225.77,-232.6 225.77,-232.6 231.77,-232.6 237.77,-238.6 237.77,-244.6 237.77,-244.6 237.77,-261.8 237.77,-261.8 237.77,-267.8 231.77,-273.8 225.77,-273.8"></path>
+<text text-anchor="middle" x="140" y="-257.4" font-family="Helvetica,sans-Serif" font-size="14.00">Expose RDF</text>
+<text text-anchor="middle" x="140" y="-240.6" font-family="Helvetica,sans-Serif" font-size="14.00">via Content Negotiation / API</text>
+</g>
+<!-- RDF&#45;&gt;ENDPOINT -->
+<g id="edge1" class="edge">
+<title>RDF-&gt;ENDPOINT</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M120.18,-329.36C123.67,-316.14 128.33,-298.47 132.25,-283.59"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="135.66,-284.38 134.83,-273.82 128.89,-282.59 135.66,-284.38"></polygon>
+<text text-anchor="middle" x="193.59" y="-296.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">published as RDF</text>
+</g>
+<!-- TRIPLE -->
+<g id="node8" class="node">
+<title>TRIPLE</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M306.8,-154.2C306.8,-154.2 119.2,-154.2 119.2,-154.2 113.2,-154.2 107.2,-148.2 107.2,-142.2 107.2,-142.2 107.2,-125 107.2,-125 107.2,-119 113.2,-113 119.2,-113 119.2,-113 306.8,-113 306.8,-113 312.8,-113 318.8,-119 318.8,-125 318.8,-125 318.8,-142.2 318.8,-142.2 318.8,-148.2 312.8,-154.2 306.8,-154.2"></path>
+<text text-anchor="middle" x="213" y="-137.8" font-family="Helvetica,sans-Serif" font-size="14.00">Triple Store</text>
+<text text-anchor="middle" x="213" y="-121" font-family="Helvetica,sans-Serif" font-size="14.00">(GraphDB, Blazegraph, Fuseki)</text>
+</g>
+<!-- ENDPOINT&#45;&gt;TRIPLE -->
+<g id="edge3" class="edge">
+<title>ENDPOINT-&gt;TRIPLE</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M152.22,-232.52C164.01,-213.52 181.99,-184.56 195.34,-163.06"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="198.44,-164.69 200.74,-154.35 192.49,-161 198.44,-164.69"></polygon>
+<text text-anchor="middle" x="235.47" y="-200" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">load RDF graphs</text>
+</g>
+<!-- RIGHT_ANCHOR -->
+<!-- TRIPLE&#45;&gt;SPARQL -->
+<g id="edge2" class="edge">
+<title>TRIPLE-&gt;SPARQL</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M219.22,-112.96C223.4,-99.74 228.99,-82.07 233.7,-67.19"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="237.11,-68.01 236.79,-57.42 230.44,-65.9 237.11,-68.01"></polygon>
+<text text-anchor="middle" x="273.7" y="-80.4" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">query graph</text>
+</g>
+</g>
+</svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-linkeddata-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
