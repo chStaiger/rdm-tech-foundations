@@ -6,13 +6,13 @@ The definitions below provide the foundation for that discussion. They establish
 
 ### Research Data Management
 **Research Data Management (RDM)** refers to the coordinated activities that support the creation, organisation, documentation, storage, preservation, and sharing of digital research data.  
-It ensures that data remains **usable, trustworthy, and well‑governed** throughout its evolution, from volatile working files to curated, citable digital objects.
+It ensures that data remains usable, trustworthy, and well‑governed throughout its evolution, from volatile working files to curated, citable digital objects.
 
-**In this book** we align Research Data Management with the idea that data moves through **distinct operational states** (Active, Closed, Locked, Archived, Published), each requiring different services, metadata, and governance.
+In this book we align Research Data Management with the idea that data moves through distinct operational states (Active, Closed, Locked, Archived, Published), each requiring different services, metadata, and governance.
 
 ### Data Governance
 **Data Governance** is the organisational framework that defines how data is managed across its lifecycle.  
-It includes policies, roles, responsibilities, standards, and decision‑making processes that ensure data is handled **consistently, securely, and ethically**.
+It includes policies, roles, responsibilities, standards, and decision‑making processes that ensure data is handled consistently, securely, and ethically.
 
 In the context of the lifecycle, governance determines:
 
@@ -38,8 +38,6 @@ A **Data Steward** supports researchers by:
 
 In the context of this book, we will use the term Data Steward. However, professionals with the same specialisation and responsibilities may appear under a variety of job titles across institutes and countries. Regardless of naming conventions, the underlying competencies as supporting researchers, translating policy into practice, and enabling FAIR data remain consistent.
 
-Stewardship becomes increasingly important as data moves from **Active** to **Closed**, **Locked** to **Archived** and **Published** states.
-
 *References*
 
 - <https://web.archive.org/web/20220121022346/https://www.simplilearn.com/what-is-data-stewardship-article>
@@ -55,26 +53,18 @@ Although models vary, the lifecycle can be understood through the four conceptua
 3. **Archived** — digital objects under institutional stewardship  
 4. **Published** — curated, citable outputs for global reuse  
 
-These stages correspond directly to the **five operational data states** (Active → Closed → Locked → Archived → Published) described in the following chapter.
-
 *References*
 
 - <https://doi.org/10.1145/1378889.1378998>
 
 ### FAIR
 **FAIR** describes the *desired behaviour* of data and metadata so they can be discovered, accessed, combined, and reused by humans and machines.  
-It stands for **Findable, Accessible, Interoperable, Reusable**.
+It stands for Findable, Accessible, Interoperable, Reusable.
 
 FAIR is not a binary property and not limited to published data.  
-In this book we explain how FAIR applies differently across the lifecycle:
+In this book we explain how FAIR applies differently across the lifecycle.
 
-- **FAIR‑for‑Teams** in the Active/Closed stages  
-- **FAIR‑for‑Stewardship** in the Locked/Archived stages  
-- **FAIR‑for‑Reuse** in the Published stage  
-
-FAIRness grows as data matures and becomes more stable.
-
-We will dive deeper into the relationship between the FAIR principles and the Research Data Life Cycle in the next chapter.
+We will dive deeper into the relationship between the FAIR principles and the Research Data Life Cycle and what that means for infrastrcuture.
 
 *References*
 
@@ -106,7 +96,7 @@ Open data is one possible outcome of the lifecycle—specifically the **Publishe
 **Big Data** refers to datasets that are large, fast‑growing, or highly complex.  
 Their characteristics (volume, velocity, variety, etc.) influence:
 
-- storage choices in the **Active** and **Closed** states  
+- storage choices 
 - compute requirements  
 - metadata capture  
 - long‑term preservation strategies  
