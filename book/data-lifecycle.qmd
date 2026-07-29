@@ -38,30 +38,22 @@ Data should be richly described, licensed, and documented so it can be reused in
 The FAIR Principles are about maximising the value and usability of data, not necessarily making it open. It applies to all data, regardless of access level.
 
 
-## How FAIR and the RDM Life Cycle Fit Together
+## How do FAIR and the RDM Life Cycle relate to each other?
 
-The RDM life cycle describes the processes data goes through.  
-FAIR specifies the requirements for data to be useful to humans and machines.
+The RDM life cycle describes the processes data goes through, while FAIR specifies the requirements for data to be useful to humans and machines.
 
-A key insight is that the scope of FAIR changes as data moves through the life cycle.  
+A key insight is that the scope of FAIR changes as data moves through the stages of the data life cycle.  
 FAIR is not something that “switches on” only at publication. Instead, it applies throughout, but for different audiences and purposes.
 
 > **FAIR applies at every stage — the audience and purpose simply changes.**
 
 
-## Research Data Management Services Across the Life Cycle and How FAIR Evolves
+How do the FAIR principles now map onto the stages of the Research Data Life Cycle?  
+And what does that mean for  data infrastructure and services?
 
-How do the FAIR principles map onto the stages of the Research Data Life Cycle?  
-And how can data infrastructure and services support these shifting interpretations of FAIR?
+The RDM life cycle and the FAIR principles each describe essential aspects of data stewardship, but they operate at different levels. To connect these two perspectives in a way such tat it becomes clear which fetaures rdm systems and services must exhibit, we need an intermediate layer: data states. 
 
-The RDM life cycle and the FAIR principles each describe essential aspects of data stewardship, but they operate at different levels. The life cycle outlines conceptual stages of research activity, while FAIR defines the qualities that make data valuable and usable. To connect these two perspectives in a way that supports real systems and services, we need an intermediate layer: data states. Data states translate conceptual stages into operational conditions that storage systems, metadata services, and governance workflows can act upon.
-
-As research data moves from creation to long‑term preservation and publication, it passes through distinct data states. These states act as the operational link between the RDM life cycle and the FAIR principles:  
-- the **life cycle** describes how data *changes*,  
-- the **data states** describe how data is *managed*,  
-- and **FAIR** describes the *qualities* data should exhibit within each state.
-
-Understanding these states clarifies which RDM services, storage environments, and governance mechanisms are appropriate at each point.
+Data states translate conceptual stages into operational conditions that storage systems, metadata services, and governance workflows can act upon.
 
 We can distinguish five operational data states:
 
@@ -71,13 +63,19 @@ We can distinguish five operational data states:
 4. **Archived & Preserved** — data becomes a curated digital object; FAIR enables long‑term discovery, integrity, and interoperability.  
 5. **Published & Preserved** — selected objects enter the scholarly record; FAIR supports global findability, accessibility, and reuse.
 
-Together, these states provide the practical structure that allows the life cycle and FAIR to align in real workflows and infrastructures.
+As research data moves from creation to long‑term preservation and publication, it passes through those distinct data states. 
+
+Early in the project, FAIR is inward‑facing and pragmatic. This corresponds to the RDM life cycle stages Process & Analyse.  
+In mid‑life, FAIR becomes institutional and stewardship‑oriented, as in the Sharing and Archiving stage.
+At the end, FAIR becomes outward‑facing, enabling global discovery and reuse, as in the Publishing stage.
 
 The five states tie the life cycle and FAIR together: each life‑cycle stage corresponds to a data state, and each data state demands a different expression of FAIR.
 
-Early in the project, FAIR is inward‑facing and pragmatic.  
-In mid‑life, FAIR becomes institutional and stewardship‑oriented.  
-At the end, FAIR becomes outward‑facing, enabling global discovery and reuse.
+These states act as the operational link between the RDM life cycle and the FAIR principles:  
+- the **life cycle** describes how data *changes*,  
+- the **data states** describe how data is *managed*,  
+- and **FAIR** describes the *qualities* data should exhibit within each state.
+
 
 In this way, the data states form the conceptual hinge that connects the evolving nature of data (the life cycle) with the evolving expectations placed on it (FAIR).
 
@@ -96,7 +94,7 @@ digraph data_states {
         fontsize=14,
         ranksep=1.4,
         nodesep=0.8
-    ];
+    ]
 
     node [
         shape=box,
@@ -107,7 +105,7 @@ digraph data_states {
         fillcolor="#DAEAB4",
         penwidth=2,
         sketch=1
-    ];
+    ]
 
     edge [
         fontname="Helvetica",
@@ -115,130 +113,104 @@ digraph data_states {
         color="#528641",
         fontcolor="#528641",
         penwidth=2
-    ];
+    ]
 
     /* -------------------------
-       RDM LIFE CYCLE (TOP ROW)
+       TOP ROW — FAIR SCOPE NODES
        ------------------------- */
-    subgraph cluster_rdm {
-        label="RDM Life Cycle";
-        fontsize=14;
-        style="rounded";
-        color="#528641";
-        penwidth=2;
 
-        R1 [label="Process"];
-        R2 [label="Analyse"];
-        R3 [label="Transition"];
-        R4 [label="Archived"];
-        R5 [label="Published"];
+    FT [label="FAIR‑for‑Teams", fillcolor="white"];
+    FS [label="FAIR‑for‑Stewardship", fillcolor="white"];
+    FR [label="FAIR‑for‑Reuse", fillcolor="white"];
 
-        { rank = same; R1; R2; R3; R4; R5; }
-    }
+    { rank = min; FT; FS; FR }
 
     /* -------------------------
-       DATA STATES (MIDDLE ROW)
+       MIDDLE ROW — DATA STATES
        ------------------------- */
-    A [label="Active"];
-    C [label="Closed"];
-    L [label="Locked"];
-    R [label="Archived / Preserved"];
-    P [label="Published / Preserved"];
 
-    { rank = same; A; C; L; R; P; }
+    A [label="Active"]
+    C [label="Closed"]
+    L [label="Locked"]
+    R [label="Archived / Preserved"]
+    P [label="Published / Preserved"]
+
+    { rank = same; A; C; L; R; P }
 
     /* Flow of data states */
-    A -> C;
-    C -> L;
-    L -> R;
-    R -> P;
+    A -> C
+    C -> L
+    L -> R
+    R -> P
 
     /* -------------------------
-       FAIR SCOPES (BOTTOM ROW)
+       BOTTOM ROW — RDM LIFE CYCLE
        ------------------------- */
 
-    /* FAIR-for-Teams */
-    subgraph cluster_fair1 {
-        fontsize=14;
-        style="rounded";
-        color="#528641";
-        penwidth=2;
+subgraph cluster_rdm {
+    label="RDM Life Cycle"
+    fontsize=14
+    style="rounded"
+    color="#528641"
+    penwidth=2
 
+    /* Composite node for Active Research */
+    R_active [
+        shape=box,
+        style="rounded,filled",
+        fillcolor="white",
+        color="#528641",
+        penwidth=2,
         label=<
-            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
-                <TR><TD>FAIR‑for‑Teams</TD></TR>
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="4">
+                <TR><TD><B>Active Research</B></TD></TR>
+                <TR><TD>Process</TD></TR>
+                <TR><TD>Analyse</TD></TR>
             </TABLE>
-        >;
-        labelloc="b";
-        labeljust="c";
+        >
+    ]
 
-        FT1 [label="Active"];
-        FT2 [label="Closed"];
-
-        { rank = same; FT1; FT2; }
-    }
-
-    /* FAIR-for-Stewardship */
-    subgraph cluster_fair2 {
-        fontsize=14;
-        style="rounded";
-        color="#528641";
-        penwidth=2;
-
+    /* Composite node for Stabilised Research */
+    R_stabilised [
+        shape=box,
+        style="rounded,filled",
+        fillcolor="white",
+        color="#528641",
+        penwidth=2,
         label=<
-            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
-                <TR><TD>FAIR‑for‑Stewardship</TD></TR>
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="4">
+                <TR><TD><B>Stabilised Research</B></TD></TR>
+                <TR><TD>Archived</TD></TR>
+                <TR><TD>Published</TD></TR>
             </TABLE>
-        >;
-        labelloc="b";
-        labeljust="c";
+        >
+    ]
 
-        FS1 [label="Locked"];
-        FS2 [label="Archived"];
+    /* Transition stays a normal node */
+    R3 [label="Transition"]
+}
 
-        { rank = same; FS1; FS2; }
-    }
 
-    /* FAIR-for-Reuse */
-    subgraph cluster_fair3 {
-        fontsize=14;
-        style="rounded";
-        color="#528641";
-        penwidth=2;
-
-        label=<
-            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
-                <TR><TD>FAIR‑for‑Reuse</TD></TR>
-            </TABLE>
-        >;
-        labelloc="b";
-        labeljust="c";
-
-        FR1 [label="Published"];
-
-        { rank = same; FR1; }
-    }
-
+    
     /* -------------------------
-       ALIGNMENT LINES (no arrows)
-       Using ports to avoid crossing labels
+       ALIGNMENT LINES
        ------------------------- */
 
     /* RDM → Data States */
-    R1 -> A [dir=none];
-    R2 -> C [dir=none];
-    R3 -> L [dir=none];
-    R4 -> R [dir=none];
-    R5 -> P [dir=none];
+    A -> R_active [dir=none]
+    C -> R_active [dir=none]
+    L -> R3 [dir=none]
+    R -> R_stabilised [dir=none]
+    P -> R_stabilised [dir=none]
 
-    /* Data States → FAIR Scopes (top ports) */
-    A -> FT1:n [dir=none];
-    C -> FT2:n [dir=none];
+    /* Data States → FAIR Scopes */
+    A -> FT [dir=none]
+    C -> FT [dir=none]
 
-    L -> FS1:n [dir=none];
-    R -> FS2:n [dir=none];
+    L -> FS [dir=none]
+    R -> FS [dir=none]
 
-    P -> FR1:n [dir=none];
+    P -> FR [dir=none]
 }
 
 ```
