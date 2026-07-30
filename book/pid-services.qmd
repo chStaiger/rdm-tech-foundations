@@ -24,6 +24,7 @@ A PID should typically be assigned once data becomes a stable digital object. Co
 * Long-term data archiving
 * Creation of gold-standard datasets or reference datasets
 * When data is shared beyond the boundaries of a single research team
+* When entities (e.g. data, code or instruments) are necessary for replicability of your work 
 
 
 At this stage the digital object becomes part of the scholarly record and benefits from stable identification, discoverability, and citation.
@@ -31,7 +32,7 @@ At this stage the digital object becomes part of the scholarly record and benefi
 
 ## Persistent Identifier Systems and Services in the Research Ecosystem
 
-Multiple persistent identifier (PID) systems exist to uniquely identify entities within the research ecosystem. Some focus on research outputs such as datasets and publications, while others identify people, institutions, or research activities. Below we list several PID systems commonly used for referencing datasets and digital objects.
+Multiple persistent identifier (PID) systems exist to uniquely identify entities within the research ecosystem. Some focus on research outputs such as datasets and publications, while others identify people, institutions, instruments, physical objects or research activities. Below we list several PID systems commonly used for referencing datasets and digital objects.
 
 
 ### DOI (Digital Object Identifier)
@@ -58,15 +59,16 @@ Example DOI:
 10.5281/zenodo.3238330
 ```
 
-### EPIC (European Persistent Identifier Consortium)
+### ePIC (eScience Persistent Identifier Consortium)
 
-The European Persistent Identifier Consortium (EPIC) provides PID services based on the Handle System infrastructure. EPIC is widely used in European research infrastructures and data services.
+The eScience Persistent Identifier Consortium (ePIC) provides PID services based on the Handle System infrastructure. ePIC is widely used in European research infrastructures and data services and beyond.
 
-EPIC identifiers are typically used for:
+ePIC identifiers are typically used for:
 
 - identifying digital objects in research infrastructures  
 - supporting long-term access to research data  
-- linking datasets and research resources across distributed infrastructures  
+- linking datasets and research resources across distributed infrastructures 
+- identifying physical objects in heritage collections such as museums and archives
 
 Common users include:
 
@@ -87,7 +89,7 @@ The Handle System is a technical resolution infrastructure developed by the Corp
 The Handle System underpins:
 
 - the DOI system  
-- the EPIC PID service  
+- the ePIC PID service  
 
 It is widely used by:
 
@@ -106,7 +108,7 @@ ARKs are commonly used for identifying:
 - archival objects  
 - digitized cultural heritage materials  
 
-Unlike DOIs and EPIC identifiers, ARKs do not rely on the Handle System. They use their own resolution approach, typically through ARK-enabled service providers.
+Unlike DOIs and ePIC identifiers, ARKs do not rely on the Handle System. They use their own resolution approach, typically through ARK-enabled service providers.
 
 Example ARK:
 
@@ -114,9 +116,9 @@ Example ARK:
 ark:/12345/x54
 ```
 
-## Spotlight on Handles, EPICs, DOIs
+## Spotlight on Handles, ePICs, DOIs
 
-Persistent identifier (PID) infrastructures for digital resources are built on layered technical and governance frameworks. Systems such as the Digital Object Identifier (DOI), the Handle System, and services provided by EPIC operate within the broader conceptual framework of the Digital Object Network Architecture (DONA). Together they form an ecosystem that enables stable identification, management, and resolution of digital objects on the internet.
+Persistent identifier (PID) infrastructures for digital resources are built on layered technical and governance frameworks. Systems such as the Digital Object Identifier (DOI), the Handle System, and services provided by ePIC operate within the broader conceptual framework of the Digital Object Network Architecture (DONA). Together they form an ecosystem that enables stable identification, management, and resolution of digital objects on the internet.
 
 ```{dot}
 //| label: fig-dona-epic-doi
@@ -174,7 +176,7 @@ digraph pid_frameworks {
         DOI [label="DOI\n(Specialized identifier for scholarly outputs)"];
     }
 
-    /* --- EPIC Framework --- */
+    /* --- ePIC Framework --- */
     subgraph cluster_epic {
         label="EPIC Framework";
         fontsize=14;
@@ -182,7 +184,7 @@ digraph pid_frameworks {
         color="#528641";
         penwidth=2;
 
-        EPIC [label="EPIC\n(Persistent identifiers for European research)"];
+        EPIC [label="EPIC\n(Persistent identifiers for eScience research)"];
     }
 
     /* --- Global Framework --- */
@@ -215,25 +217,25 @@ Built on top of the Handle System is the Digital Object Identifier (DOI) system,
 
 Organizations such as International DOI Foundation oversee the DOI framework and coordinate registration agencies that assign DOIs to digital objects.
 
-The European Persistent Identifier Consortium (EPIC) is another major provider of persistent identifiers based on the Handle System. EPIC operates a handle registration service primarily aimed at research institutions, data infrastructures, and e-science projects in Europe. Unlike the DOI system, which focuses heavily on scholarly publishing workflows, 
+The eScience Persistent Identifier Consortium (ePIC) is another major provider of persistent identifiers based on the Handle System. ePIC operates a handle registration service primarily aimed at research institutions, data infrastructures, and e-science projects in Europe. Unlike the DOI system, which focuses heavily on scholarly publishing workflows, 
 
-> **EPIC provides a more general handle-based PID service that can be used for datasets, research infrastructures, software, and other digital assets.**
+> **EPIC provides a more general handle-based PID service that can be used for datasets, research infrastructures, software, archival objects and other digital assets.**
 
-At the architectural level, both DOI and EPIC-based handles operate within the principles of the Digital Object Network Architecture (DONA). 
+At the architectural level, both DOI and ePIC-based handles operate within the principles of the Digital Object Network Architecture (DONA). 
 
 > **DONA defines a global infrastructure for digital object management, including the assignment of identifier prefixes, governance of the handle registry, and operation of root resolution services.**
 
-Through DONA, different identifier communities—such as DOI registration agencies and EPIC handle services—can coexist while sharing the same global resolution infrastructure.
+Through DONA, different identifier communities—such as DOI registration agencies and ePIC handle services—can coexist while sharing the same global resolution infrastructure.
 
-In summary, DONA provides the overarching framework for managing digital object identifiers. The Handle System supplies the technical resolution mechanism within this framework. DOI represents a specialized, widely adopted identifier scheme built on handles, while EPIC operates as a consortium that provides handle-based persistent identifier services, particularly for European research infrastructures. This layered ecosystem enables long-term, interoperable identification and access to digital resources across diverse domains.
+In summary, DONA provides the overarching framework for managing digital object identifiers. The Handle System supplies the technical resolution mechanism within this framework. DOI represents a specialized, widely adopted identifier scheme built on handles, while rPIC operates as a consortium that provides handle-based persistent identifier services, particularly for European research infrastructures. This layered ecosystem enables long-term, interoperable identification and access to digital resources across diverse domains.
 
-## Different Use of the Handle System: EPIC vs DOI
+## Different Use of the Handle System: ePIC vs DOI
 
-Although both European Persistent Identifier Consortium (EPIC) and the Digital Object Identifier (DOI) system use the Handle System for identifier resolution, they use the Handle record in different ways.
+Although both eScience Persistent Identifier Consortium (ePIC) and the Digital Object Identifier (DOI) system use the Handle System for identifier resolution, they use the Handle record in different ways.
 
-### EPIC: Metadata in the Handle Record
+### ePIC: Metadata in the Handle Record
 
-EPIC uses the Handle System as a full PID infrastructure, meaning that the Handle record itself stores meaningful metadata about the object. EPIC follows the PID Information Types model, which standardizes how information is encoded in Handle records.
+ePIC uses the Handle System as a full PID infrastructure, meaning that the Handle record itself stores meaningful metadata about the object. ePIC follows the PID Information Types model, which standardizes how information is encoded in Handle records.
 
 Example Handle:
 
@@ -241,7 +243,7 @@ Example Handle:
 21.T11998/0000-001A-3905-F
 ```
 
-A Handle record in EPIC may include multiple typed entries such as:
+A Handle record in ePIC may include multiple typed entries such as:
 
 | Type             | Example Content                     | Purpose                        |
 | ---------------- | ----------------------------------- | ------------------------------ |
@@ -251,7 +253,7 @@ A Handle record in EPIC may include multiple typed entries such as:
 | `10320/LOC`      | Multiple URLs                       | Location-aware resolution      |
 | `PID_INFO_TYPES` | Reference schema                    | Declares metadata structure    |
 
-In this model, the Handle record itself functions as a lightweight metadata container, enabling machines to retrieve essential information directly from the Handle infrastructure.
+In this model, the Handle record itself functions as a lightweight metadata container, enabling machines to retrieve essential information directly from the Handle infrastructure. Although many communities also use the Handle record for resolution and not storing descriptive metadata, especially in when it has been integrated into other information management software.  
 
 
 ### DOI: Metadata Outside the Handle Record
@@ -290,14 +292,14 @@ The difference can be understood as two architectural approaches:
 | Resolution        | Directly from Handle record | Redirect to landing page     |
 | Example prefix    | `21.*`                      | `10.*`                       |
 
-Thus, EPIC uses the Handle System as a metadata‑aware PID infrastructure, designed to support interoperability across research infrastructures and to maintain actionable links between data objects, services, and workflows. In contrast, the DOI system uses the Handle System primarily as a resolution layer, while the descriptive metadata and publication‑oriented services are maintained in separate, domain‑specific registries such as DataCite and Crossref.
+Thus, ePIC uses the Handle System as a metadata‑aware PID infrastructure, designed to support interoperability across research infrastructures and to maintain actionable links between data objects, services, and workflows. In contrast, the DOI system uses the Handle System primarily as a resolution layer, while the descriptive metadata and publication‑oriented services are maintained in separate, domain‑specific registries such as DataCite and Crossref. Though ePIC users also sometimes set up the Handle system simimlarly to the DOI system, using it as a resolution layer, connected to their own data management software or internal infrastructures. 
 
-Whereas DOIs are embedded in the scholarly publishing ecosystem—complete with citation metadata, indexing in bibliographic databases, and integration with publication workflows—EPIC identifiers are optimized for technical interoperability, enabling research infrastructures to reference, connect, and manage data objects across distributed systems. In other words, DOI focuses on publication, discoverability, and metadata indexing, while EPIC focuses on infrastructure‑level persistence, machine‑actionable metadata, and cross‑system integration.
+Whereas DOIs are embedded in the scholarly publishing ecosystem—complete with citation metadata, indexing in bibliographic databases, and integration with publication workflows—ePIC identifiers are optimized for technical interoperability, enabling research infrastructures to reference, connect, and manage data objects across distributed systems. In other words, DOI focuses on publication, discoverability, and metadata indexing, while EPIC focuses on infrastructure‑level persistence, machine‑actionable metadata, and cross‑system integration.
 
 
 ```{dot}
 //| label: fig-comp-epic-doi
-//| fig-cap: Comaprison how EPIC and DOI use the Handle system differently.
+//| fig-cap: Comaprison how ePIC and DOI use the Handle system differently.
 //| fig-align: center
 //| fig-width: 8
 //| output: svg
@@ -336,7 +338,7 @@ digraph deeper_tech_orgs {
     HANDLE [label="Handle System\n(Identifier resolution infrastructure)"];
 
     /* --- Branches --- */
-    EPIC [label="EPIC Handle Services"];
+    EPIC [label="ePIC Handle Services"];
     DOI  [label="DOI System"];
 
     /* --- Handle record contents --- */
@@ -379,14 +381,14 @@ This record contains two standard fields:
 - HS_ADMIN — an administrative entry that defines 
 	- which Handle identity (usually the prefix administrator) controls the handle
 	- what permissions that identity has
-	- which operations they are allowed to perform. This entry is part of every Handle record, whether it belongs to EPIC, DOI, or another service.
+	- which operations they are allowed to perform. This entry is part of every Handle record, whether it belongs to ePIC, DOI, or another service.
 - URL — the target location the resolver redirects to when the handle is used.
 
 Every Handle record includes at least these two entries.
 
-Now let’s look at `11304/3185a834-5178-41bf-a849-b9ddbe4c5638` - an EPIC example:
+Now let’s look at `11304/3185a834-5178-41bf-a849-b9ddbe4c5638` - an ePIC example:
 
-![Example EPIC](img/pid-services/handle_entry_epic.png)
+![Example ePIC](img/pid-services/handle_entry_epic.png)
 
 Here we again see the mandatory HS_ADMIN and URL fields. In addition, the organisation responsible for this prefix has added extra information. These additional fields come from a custom PID profile used by [EUDAT](https://eudat.eu) for their B2SHARE data publishing service.
 
@@ -470,7 +472,7 @@ Persistent identifiers are only useful if they can be created, stored, and updat
 
 *Minting* a Handle means creating and registering a new persistent identifier for a digital object.
 
-Organisations participating in the Handle System receive a prefix (for example from EPIC). They then generate a unique suffix for each object they want to identify. Together, these form a globally unique Handle:
+Organisations participating in the Handle System receive a prefix (for example from ePIC). They then generate a unique suffix for each object they want to identify. Together, these form a globally unique Handle:
 
 ```
 prefix/suffix
@@ -495,7 +497,7 @@ Every Handle points to a Handle record, which stores the information needed for 
 - an `HS_ADMIN` entry, defining who controls the Handle and what permissions they have  
 
 Depending on the use case, additional entries may be included.  
-For example, EPIC Handles often store:
+For example, ePIC Handles often store:
 
 - checksums  
 - protocol information  
@@ -509,12 +511,12 @@ The identifier itself remains stable, ensuring persistent and reliable access ov
 The same is actually also true for all other information which is captured in the PID metadata.
 
 
-## Practical Example: Creating an EPIC Handle and Managing Its Metadata
+## Practical Example: Creating an ePIC Handle and Managing Its Metadata
 
 To demonstrate how Handle‑based PIDs are created and managed in practice, this example uses `pyhandle`, a Python library developed by EUDAT.  
 EUDAT maintains large‑scale European research data services, and `pyhandle` is their official client library for interacting with EPIC Handle services through the Handle REST API.
 
-Before you can mint Handles, you need credentials issued by your Handle service provider (for example, EPIC or a local institutional Handle server). These credentials typically include:
+Before you can mint Handles, you need credentials issued by your Handle service provider (for example, ePIC or a local institutional Handle server). These credentials typically include:
 
 - the Handle prefix assigned to your organisation  
 - a username associated with that prefix  
@@ -522,6 +524,8 @@ Before you can mint Handles, you need credentials issued by your Handle service 
 - optional permissions for reverse lookup or administrative actions  
 
 They are usually delivered as a small JSON file (often named `credentials.json`) that `pyhandle` can read directly.
+
+Most Handle service providers also provide a test prefix for expermimenting and testing.
 
 With that context in place, the following steps show how to mint a Handle, add metadata, update its target location, and manage non‑HTTP resources.
 
@@ -596,9 +600,9 @@ client.delete_handle_value(handle, "checksum")
 
 ---
 
-### 7. Minting EPIC Handles for Non‑HTTP Resources
+### 7. Minting ePIC Handles for Non‑HTTP Resources
 
-EPIC allows Handles to describe resources that are not directly accessible via HTTP, such as iRODS paths or WebDAV collections. In such cases, the Handle may include protocol‑specific metadata and a `URL` that points to a resolver landing page rather than the resource itself.
+ePIC allows Handles to describe resources that are not directly accessible via HTTP, such as iRODS paths or WebDAV collections. In such cases, the Handle may include protocol‑specific metadata and a `URL` that points to a resolver landing page rather than the resource itself.
 
 ```python
 handle2 = client.generate_PID_name(cred.get_prefix())
