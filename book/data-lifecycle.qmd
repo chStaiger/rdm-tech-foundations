@@ -305,7 +305,7 @@ FAIR here is practical and inward‑facing: clear naming, shared access points, 
 
 - **Focus**: efficient collaboration and early capture of provenance
 
-### Locked
+### FAIR for Stewardship (Locked)
 
 During the Closed stage, data becomes sufficiently stable for structured organisation and description, but it is not yet ready for full stewardship. FAIR begins to support both sides: researchers consolidate provenance, and stewards gain the context needed for future decisions.
 
@@ -317,7 +317,7 @@ The Locked state then acts as a buffer. Stabilised data is frozen in a read‑on
 
 - **Focus**: stabilising data and consolidating provenance, safeguarding inactive data
 
-### FAIR for Stewardship
+### FAIR for Stewardship (Archived)
 
 At this stage, data becomes a managed digital object. Files are packaged with structured metadata, assigned persistent identifiers, and placed in systems designed for long‑term integrity and accessibility. Provenance gathered earlier provides the context needed for authenticity, appraisal, and future reuse.
 
@@ -352,7 +352,7 @@ This chapter began by presenting the RDM life cycle and FAIR as separate framewo
 - The FAIR principles describe how data should behave, with their emphasis shifting as data matures:
 
 	- FAIR for Teams in the Active and Closed states
-	- FAIR‑for‑Stewardship in the Locked and Archived states
+	- FAIR for Stewardship in the Locked and Archived states
 	- FAIR for Reuse in the Published state
 
 Together, these elements form a unified framework for managing data from creation to long‑term reuse.
