@@ -59,7 +59,7 @@ We can distinguish five operational data states:
 
 These states define how data is stored, who is responsible for it, and how richly it must be described.
 
-The table below summarises how storage, permissions, and metadata evolve as data moves through the states. As data moves from creation to long‑term preservation and publication, it passes through those distinct data states.
+The table below summarises how storage, permissions, and metadata evolve across the data states as data moves from creation to long‑term preservation and publication.
 
 <table style="border-collapse: collapse; width: 100%;">
   <thead>
@@ -170,9 +170,9 @@ digraph data_states {
        TOP ROW — FAIR SCOPE NODES
        ------------------------- */
 
-    FT [label="FAIR‑for‑Teams", fillcolor="white"];
-    FS [label="FAIR‑for‑Stewardship", fillcolor="white"];
-    FR [label="FAIR‑for‑Reuse", fillcolor="white"];
+    FT [label="FAIR for Teams", fillcolor="white"];
+    FS [label="FAIR for Stewardship", fillcolor="white"];
+    FR [label="FAIR for Reuse", fillcolor="white"];
 
     { rank = min; FT; FS; FR }
 
@@ -294,63 +294,62 @@ The following sections describe how FAIR manifests in each data state and how th
 
 ### FAIR for Teams
 
-- **Typical services**: HPC scratch, project storage, ELNs, version control.
-
 In the Active state, rapid iteration and collaboration dominate. Files change frequently, so the priority is capturing provenance — records of how data was collected, processed, and transformed. At this point, provenance is often the only reliable account of what happened, when, and why.
 
 FAIR here is practical and inward‑facing: clear naming, shared access points, open formats, and well‑maintained notebooks that support reproducible teamwork.
+
+- **Typical services**: HPC scratch, project storage, ELNs, version control.
 
 - **Audience**: research team
 
 - **Focus**: efficient collaboration and early capture of provenance
 
-### Closed — Analyse Stage — FAIR‑for‑Teams transitioning to FAIR‑for‑Stewardship
-
-**Typical services**: project storage with lifecycle rules, workflow engines, metadata templates.
-
+### FAIR for Stewardship
 As data stabilises, the emphasis shifts from exploration to consolidation. Cleaned datasets, finalised scripts, and derived outputs emerge, and the provenance captured earlier is structured and standardised. Workflow engines help record parameters, software versions, and transformation steps.
 
 FAIR now begins to serve both researchers and stewards: files become easier to locate, access is controlled, and formats and vocabularies are standardised in preparation for long‑term retention.
 
-**Audience**: research team + institutional stewards
+- **Typical services**: project storage with lifecycle rules, workflow engines, metadata templates.
 
-**Focus**: stabilising data and consolidating provenance
+- **Audience**: research team + institutional stewards
 
-### Locked — Transition Stage —FAIR‑for‑Stewardship (Light)
+- **Focus**: stabilising data and consolidating provenance
 
-**Typical services**: tape libraries, cold storage, retention systems.
+### FAIR for Stewardship (Light)
 
 The Locked state acts as a buffer. Data is frozen in a read‑only condition to prevent accidental modification while retention decisions are made. Because the data no longer changes, provenance becomes especially valuable for appraisal and assessment.
 
 FAIR here is minimal but essential: stable locations, read‑only access, and preservation‑friendly formats.
 
-**Audience**: research team + institutional stewards
+- **Typical services**: tape libraries, cold storage, retention systems.
 
-**Focus**: safeguarding inactive data and supporting appraisal
+- **Audience**: research team + institutional stewards
 
-### Archived / Preserved — Archived Stage — FAIR‑for‑Stewardship
+- **Focus**: safeguarding inactive data and supporting appraisal
 
-**Typical services**: institutional repositories, preservation systems.
+### FAIR for Stewardship
 
 At this stage, data becomes a managed digital object. Files are packaged with structured metadata, assigned persistent identifiers, and placed in systems designed for long‑term integrity and accessibility. Provenance gathered earlier provides the context needed for authenticity, appraisal, and future reuse.
 
 FAIR now operates at the level of institutional governance: persistent identifiers, controlled access, preservation metadata, and versioning.
 
-**Audience**: institutional stewards and selected collaborators
+- **Typical services**: institutional repositories, preservation systems.
 
-**Focus**: long‑term integrity and contextual understanding
+- **Audience**: institutional stewards and selected collaborators
+
+- **Focus**: long‑term integrity and contextual understanding
 
 ### Published / Preserved — Published Stage — FAIR‑for‑Reuse
-
-**Typical services**: public repositories, DOI registration services, discovery portals.
 
 Selected digital objects are curated for dissemination. They receive rich descriptive metadata, globally resolvable identifiers, and are indexed in discovery portals. Provenance becomes critical for external users assessing quality and fitness for reuse.
 
 Here FAIR reaches full scope: discoverability, standardised access, community vocabularies, licensing, and documentation that supports meaningful reuse.
 
-**Audience**: global research community
+- **Typical services**: public repositories, DOI registration services, discovery portals.
 
-**Focus**: discovery, citation, and reuse
+- **Audience**: global research community
+
+- **Focus**: discovery, citation, and reuse
 
 ## Summary
 
