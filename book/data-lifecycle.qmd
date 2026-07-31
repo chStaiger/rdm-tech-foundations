@@ -28,7 +28,7 @@ A subset of digital objects is curated for dissemination. They receive rich desc
 
 ## The FAIR Data Principles
 
-FAIR — Findable, Accessible, Interoperable, Reusable — provides a framework for making data usable by humans and machines.
+The FAIR Principles — _Findable, Accessible, Interoperable, Reusable_ — provide a framework for making data usable by humans and machines.
 
 **Findable**: Data is described with rich metadata and assigned persistent identifiers.
 
