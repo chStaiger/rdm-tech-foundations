@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -41,10 +44,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cf0050852a9c63670f6fa6682ef45fa9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-fa421f92889290bbe30b9de16d0ad08f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -380,15 +383,15 @@ Figure&nbsp;5.1: The Digital Object
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 268)">
 <title>combined_relations</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-268 822,-268 822,4 -4,4"></polygon>
-<g id="clust1" class="cluster">
-<title>cluster_1</title>
-<path fill="white" stroke="#528641" stroke-width="2" d="M20,-8C20,-8 376,-8 376,-8 382,-8 388,-14 388,-20 388,-20 388,-244 388,-244 388,-250 382,-256 376,-256 376,-256 20,-256 20,-256 14,-256 8,-250 8,-244 8,-244 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
-<text text-anchor="middle" x="198" y="-239.4" font-family="Helvetica,sans-Serif" font-size="14.00">Pattern 1</text>
-</g>
 <g id="clust3" class="cluster">
 <title>cluster_2</title>
 <path fill="white" stroke="#528641" stroke-width="2" d="M442,-8C442,-8 798,-8 798,-8 804,-8 810,-14 810,-20 810,-20 810,-244 810,-244 810,-250 804,-256 798,-256 798,-256 442,-256 442,-256 436,-256 430,-250 430,-244 430,-244 430,-20 430,-20 430,-14 436,-8 442,-8"></path>
 <text text-anchor="middle" x="620" y="-239.4" font-family="Helvetica,sans-Serif" font-size="14.00">Pattern 2</text>
+</g>
+<g id="clust1" class="cluster">
+<title>cluster_1</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M20,-8C20,-8 376,-8 376,-8 382,-8 388,-14 388,-20 388,-20 388,-244 388,-244 388,-250 382,-256 376,-256 376,-256 20,-256 20,-256 14,-256 8,-250 8,-244 8,-244 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
+<text text-anchor="middle" x="198" y="-239.4" font-family="Helvetica,sans-Serif" font-size="14.00">Pattern 1</text>
 </g>
 <!-- P1 -->
 <g id="node1" class="node">
@@ -407,7 +410,7 @@ Figure&nbsp;5.1: The Digital Object
 <title>P1-&gt;F1</title>
 <path fill="none" stroke="#528641" stroke-width="2" d="M283.96,-187.05C266.54,-157.28 230.63,-95.89 210.16,-60.91"></path>
 <polygon fill="#528641" stroke="#528641" stroke-width="2" points="213.14,-59.06 205.06,-52.2 207.09,-62.6 213.14,-59.06"></polygon>
-<text text-anchor="middle" x="277.24" y="-114.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">points to</text>
+<text text-anchor="middle" x="278.24" y="-114.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">points to</text>
 </g>
 <!-- M1 -->
 <g id="node2" class="node">
@@ -427,7 +430,7 @@ Figure&nbsp;5.1: The Digital Object
 <title>F1-&gt;M1</title>
 <path fill="none" stroke="#528641" stroke-width="2" d="M180.56,-52.2C155.34,-82.26 103.15,-144.44 73.95,-179.24"></path>
 <polygon fill="#528641" stroke="#528641" stroke-width="2" points="71.14,-177.14 67.4,-187.05 76.51,-181.64 71.14,-177.14"></polygon>
-<text text-anchor="middle" x="158.24" y="-114.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">points to</text>
+<text text-anchor="middle" x="159.24" y="-114.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">points to</text>
 </g>
 <!-- F2 -->
 <g id="node4" class="node">
@@ -518,6 +521,11 @@ This includes relationships such as <em>raw data → processed data → analysed
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 393)">
 <title>data_lineage</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-393 514,-393 514,4 -4,4"></polygon>
+<g id="clust3" class="cluster">
+<title>cluster_analysis</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M363,-8C363,-8 490,-8 490,-8 496,-8 502,-14 502,-20 502,-20 502,-369 502,-369 502,-375 496,-381 490,-381 490,-381 363,-381 363,-381 357,-381 351,-375 351,-369 351,-369 351,-20 351,-20 351,-14 357,-8 363,-8"></path>
+<text text-anchor="middle" x="426.5" y="-364.4" font-family="Helvetica,sans-Serif" font-size="14.00">Analysed Data Object</text>
+</g>
 <g id="clust1" class="cluster">
 <title>cluster_raw</title>
 <path fill="white" stroke="#528641" stroke-width="2" d="M20,-8C20,-8 117,-8 117,-8 123,-8 129,-14 129,-20 129,-20 129,-369 129,-369 129,-375 123,-381 117,-381 117,-381 20,-381 20,-381 14,-381 8,-375 8,-369 8,-369 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
@@ -527,11 +535,6 @@ This includes relationships such as <em>raw data → processed data → analysed
 <title>cluster_proc</title>
 <path fill="white" stroke="#528641" stroke-width="2" d="M167,-8C167,-8 302,-8 302,-8 308,-8 314,-14 314,-20 314,-20 314,-369 314,-369 314,-375 308,-381 302,-381 302,-381 167,-381 167,-381 161,-381 155,-375 155,-369 155,-369 155,-20 155,-20 155,-14 161,-8 167,-8"></path>
 <text text-anchor="middle" x="234.5" y="-364.4" font-family="Helvetica,sans-Serif" font-size="14.00">Processed Data Object</text>
-</g>
-<g id="clust3" class="cluster">
-<title>cluster_analysis</title>
-<path fill="white" stroke="#528641" stroke-width="2" d="M363,-8C363,-8 490,-8 490,-8 496,-8 502,-14 502,-20 502,-20 502,-369 502,-369 502,-375 496,-381 490,-381 490,-381 363,-381 363,-381 357,-381 351,-375 351,-369 351,-369 351,-20 351,-20 351,-14 357,-8 363,-8"></path>
-<text text-anchor="middle" x="426.5" y="-364.4" font-family="Helvetica,sans-Serif" font-size="14.00">Analysed Data Object</text>
 </g>
 <!-- R_F -->
 <g id="node1" class="node">
