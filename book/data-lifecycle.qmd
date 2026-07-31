@@ -44,7 +44,7 @@ FAIR is not a technology or standard. It applies to all data, regardless of acce
 
 The RDM life cycle describes how data evolves, while the FAIR principles describe the qualities data must exhibit to remain usable by humans and machines. These two perspectives are complementary: one focuses on change, the other on usability.
 
-A key insight is that FAIR does not “switch on” only at publication. Its scope shifts as data matures. Early on, FAIR supports collaboration and internal organisation; later, it supports stewardship, preservation, and ultimately global reuse.
+A key insight is that FAIR does not “switch on” only at publication. Its scope shifts as data matures. Initially, FAIR supports collaboration and internal organisation. Later, it supports stewardship, preservation, and ultimately global reuse.
 
 > FAIR applies at every stage — the audience and purpose simply changes.
 
