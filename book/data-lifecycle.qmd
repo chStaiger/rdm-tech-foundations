@@ -46,7 +46,7 @@ The RDM life cycle describes how data evolves, while the FAIR principles describ
 
 A key insight is that FAIR does not “switch on” only at publication. Its scope shifts as data matures. Early on, FAIR supports collaboration and internal organisation; later, it supports stewardship, preservation, and ultimately global reuse.
 
-> **FAIR applies at every stage — the audience and purpose simply changes.**
+> FAIR applies at every stage — the audience and purpose simply changes.
 
 To understand how FAIR maps onto the life cycle, and what this implies for infrastructure and services, we need an intermediate layer: data states.
 Data states translate conceptual life‑cycle stages into operational conditions that storage systems, metadata services, and governance workflows can act upon. 
