@@ -6,9 +6,10 @@ execute:
 
 ## The Research Data Life Cycle
 
-![Example Data Life Cycle by [UK Data Service](https://dam.ukdataservice.ac.uk/media/132177/data_lifecycle_recolour.png)](img/data_lifecycle.png){width=60%}
-
 The Research Data Management (RDM) life cycle describes how research data evolves from its initial creation to its long‑term preservation and potential reuse. It emphasises that data is not static: it moves through stages of increasing stability, documentation, and governance. Although terminology varies across models, four stages are widely recognised.
+
+![Example Data Life Cycle by [UK Data Service](https://dam.ukdataservice.ac.uk/media/132177/data_lifecycle_recolour.png)](img/data_lifecycle.png){width=50%}
+
 
 **Process**
 
@@ -315,7 +316,7 @@ FAIR now begins to serve both researchers and stewards: files become easier to l
 
 - **Focus**: stabilising data and consolidating provenance
 
-### FAIR for Stewardship (Light)
+### Locked
 
 The Locked state acts as a buffer. Data is frozen in a read‑only condition to prevent accidental modification while retention decisions are made. Because the data no longer changes, provenance becomes especially valuable for appraisal and assessment.
 
@@ -339,7 +340,7 @@ FAIR now operates at the level of institutional governance: persistent identifie
 
 - **Focus**: long‑term integrity and contextual understanding
 
-### Published / Preserved — Published Stage — FAIR‑for‑Reuse
+### FAIR for Reuse
 
 Selected digital objects are curated for dissemination. They receive rich descriptive metadata, globally resolvable identifiers, and are indexed in discovery portals. Provenance becomes critical for external users assessing quality and fitness for reuse.
 
