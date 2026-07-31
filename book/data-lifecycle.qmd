@@ -353,7 +353,7 @@ This chapter began by presenting the RDM life cycle and FAIR as separate framewo
 
 	- FAIR for Teams in the Active and Closed states
 	- FAIR‑for‑Stewardship in the Locked and Archived states
-	- FAIR‑for‑Reuse in the Published state
+	- FAIR for Reuse in the Published state
 
 Together, these elements form a unified framework for managing data from creation to long‑term reuse.
 
