@@ -272,8 +272,8 @@ subgraph cluster_rdm {
 The five states tie the life cycle and FAIR together: each life‑cycle stage corresponds to a data state, and each data state demands a different expression of FAIR.
  
 - the _life cycle_ describes how data changes,  
-- the **data states** describe how data is *managed*,  
-- and **FAIR** describes the *qualities* data should exhibit within each state.
+- the _data states_ describe how data is managed,  
+- and _FAIR_ describes the qualities data should exhibit within each state.
 
 In this way, the data states form the conceptual hinge that connects the evolving nature of data (the life cycle) with the evolving expectations placed on it (FAIR).
 
