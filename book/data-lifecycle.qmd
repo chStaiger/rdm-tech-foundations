@@ -48,7 +48,7 @@ A key insight is that FAIR does not “switch on” only at publication. Its sco
 
 > FAIR applies at every stage — the audience and purpose simply changes.
 
-To understand how FAIR maps onto the life cycle, and what this implies for infrastructure and services, we need an intermediate layer: data states.
+To understand how FAIR maps onto the life cycle, and what this implies for infrastructure and services, we need an intermediate layer: _data states_.
 Data states translate conceptual life‑cycle stages into operational conditions that storage systems, metadata services, and governance workflows can act upon. 
 
 We can distinguish five operational data states:
