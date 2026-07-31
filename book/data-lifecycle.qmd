@@ -1,10 +1,14 @@
-# The RDM Life Cycle and FAIR
+---
+title: "The RDM Life Cycle and FAIR"
+execute:
+  enabled: true
+---
 
 ## The Research Data Life Cycle
 
 ![Example Data Life Cycle by [UK Data Service](https://dam.ukdataservice.ac.uk/media/132177/data_lifecycle_recolour.png)](img/data_lifecycle.png){width=60%}
 
-Research data evolves from volatile working files into curated, citable outputs. The Research Data Management (RDM) life cycle describes this evolution and highlights that data is never static: it matures, stabilises, and becomes increasingly governed as a project progresses. Although terminology varies across models, four stages are widely recognised.
+The Research Data Management (RDM) life cycle describes how research data evolves from its initial creation to its long‑term preservation and potential reuse. It emphasises that data is not static: it moves through stages of increasing stability, documentation, and governance. Although terminology varies across models, four stages are widely recognised.
 
 **Process**
 
@@ -59,13 +63,68 @@ These states define how data is stored, who is responsible for it, and how richl
 
 The table below summarises how storage, permissions, and metadata evolve as data moves through the states.
 
-| **Aspect** | **Active** | **Closed** | **Locked** *(Closed & Inactive)* | **Archived / Preserved** | **Published / Preserved** |
-|-----------|------------|------------|----------------------------------|---------------------------|----------------------------|
-| **Storage** | Quick read & write operations | Quick read operations | No immediate read operations (data is offline) | Both quick read and offline access | Publication‑oriented formats and limits |
-|  | *e.g., scratch on an HPC* | *e.g., Object store via S3 interface* | *e.g., tape library* | *e.g., local repository* | *e.g., Dataverse* |
-| **Permissions (Responsibility)** | Read & write permissions | Read permissions | Read permissions only | Read permissions only | Read permission to all (with possible embargo) |
-|  | Scientist grants ad hoc access | Scientist grants ad hoc access | Scientist grants ad hoc access | Steward grants access | Embargoes and controlled release |
-| **Metadata (Context)** | Provenance<br> Descriptive | Provenance<br> Descriptive |  Provenance<br> Descriptive |  Collections<br> Limited descriptive |  Publication metadata |
+<table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #ccc; padding: 6px; text-align: center;">Aspect</th>
+      <th style="border: 1px solid #ccc; padding: 6px; text-align: center;">Active</th>
+      <th style="border: 1px solid #ccc; padding: 6px; text-align: center;">Closed</th>
+      <th style="border: 1px solid #ccc; padding: 6px; text-align: center;">Locked (Closed &amp; Inactive)</th>
+      <th style="border: 1px solid #ccc; padding: 6px; text-align: center;">Archived / Preserved</th>
+      <th style="border: 1px solid #ccc; padding: 6px; text-align: center;">Published / Preserved</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <th rowspan="2" style="border: 1px solid #ccc; padding: 6px; text-align: center;">Storage</th>
+      <td style="border: 1px solid #ccc; padding: 6px;">Quick read &amp; write operations</td>
+      <td style="border: 1px solid #ccc; padding: 6px;">Quick read operations</td>
+      <td style="border: 1px solid #ccc; padding: 6px;">No immediate read operations</td>
+      <td style="border: 1px solid #ccc; padding: 6px;">Both quick read and offline access</td>
+      <td style="border: 1px solid #ccc; padding: 6px;">Publication‑oriented formats</td>
+    </tr>
+
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 6px;"><em>e.g., scratch on an HPC</em></td>
+      <td style="border: 1px solid #ccc; padding: 6px;"><em>e.g., S3 object store</em></td>
+      <td style="border: 1px solid #ccc; padding: 6px;"><em>e.g., tape library</em></td>
+      <td style="border: 1px solid #ccc; padding: 6px;"><em>e.g., local repository</em></td>
+      <td style="border: 1px solid #ccc; padding: 6px;"><em>e.g., Dataverse</em></td>
+    </tr>
+  </tbody>
+  
+  <tbody>
+    <tr>
+      <th rowspan="2" style="border: 1px solid #ccc; padding: 6px; text-align: center;">Permissions (Responsibility)</th>
+      <td style="border: 1px solid #ccc; padding: 6px;">Read &amp; write permissions</td>
+      <td style="border: 1px solid #ccc; padding: 6px;">Read permissions</td>
+      <td style="border: 1px solid #ccc; padding: 6px;">Read permissions only</td>
+      <td style="border: 1px solid #ccc; padding: 6px;">Read permissions only</td>
+      <td style="border: 1px solid #ccc; padding: 6px;">Read permission to all (with possible embargo)</td>
+    </tr>
+
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 6px;"><em>Scientist grants ad hoc access</em></td>
+      <td style="border: 1px solid #ccc; padding: 6px;"><em>Scientist grants ad hoc access</em></td>
+      <td style="border: 1px solid #ccc; padding: 6px;"><em>Scientist grants ad hoc access</em></td>
+      <td style="border: 1px solid #ccc; padding: 6px;"><em>Steward grants access</em></td>
+      <td style="border: 1px solid #ccc; padding: 6px;"><em>Embargoes and controlled release</em></td>
+    </tr>
+  </tbody>
+  
+  <tbody>
+    <tr>
+       <th style="border: 1px solid #ccc; padding: 6px; text-align: center;">Metadata (Context)</th>
+      <td style="border: 1px solid #ccc; padding: 6px;">Provenance<br>Descriptive</td>
+      <td style="border: 1px solid #ccc; padding: 6px;">Provenance<br>Descriptive</td>
+      <td style="border: 1px solid #ccc; padding: 6px;">Provenance<br>Descriptive</td>
+      <td style="border: 1px solid #ccc; padding: 6px;">Collections<br>Limited descriptive</td>
+      <td style="border: 1px solid #ccc; padding: 6px;">Publication metadata</td>
+    </tr>
+  </tbody>
+  
+</table>
 
 As data moves from creation to long‑term preservation and publication, it passes through those distinct data states.
 
