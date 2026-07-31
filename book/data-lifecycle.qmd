@@ -286,15 +286,14 @@ In this way, the data states form the conceptual hinge that connects the evolvin
 | **Archived** | Archived / Preserved | Manage digital objects under stewardship |
 | **Published** | Published / Preserved | Disseminate curated digital objects |
 
-This mapping makes clear that data states are not an alternative to the life cycle but the mechanism through which the life cycle becomes actionable.
+This mapping makes clear that data states are not an alternative to the life cycle but the mechanism through which the life cycle becomes actionable. It shows how conceptual stages translate into concrete metadata, services, and storage systems.
 
-The mapping shows how conceptual stages translate into concrete metadata, services, and storage systems.
 
 ## FAIR Across the RDM Life Cycle
 
 *Putting it all together*
 
-The following sections describe how FAIR manifests in each data state and how tthis aligns with the stages of the RDM Life Cycle.
+The following sections describe how FAIR manifests in each data state and how this aligns with the stages of the RDM Life Cycle.
 
 ### Active — Process Stage — FAIR‑for‑Teams
 
@@ -358,7 +357,7 @@ Here FAIR reaches full scope: discoverability, standardised access, community vo
 
 ## Summary
 
-This chapter began by presenting the life cycle and FAIR as separate frameworks. By following data through its states, we can now see how they converge into a single, coherent model of stewardship.
+This chapter began by presenting the RDM life cycle and FAIR as separate frameworks. By following data through its states, we can now see how they converge into a single, coherent model of stewardship.
 
 - The RDM life cycle describes how data evolves from volatile working files to curated, citable outputs.
 
