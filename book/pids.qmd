@@ -1,8 +1,8 @@
 # Persistent Identifiers
 
-Persistent Identifiers (PIDs) are long-lasting references used to uniquely identify digital objects such as research papers, datasets, software, or even researchers. Unlike regular web links that may break or change over time, PIDs are designed to remain stable and consistently point to the correct resource location, even if its location on the internet changes.
+Persistent Identifiers (PIDs) are long-lasting references used to uniquely identify digital objects such as research papers, datasets, or software as well as digital representations of physical objects such a paintings, researchers and instruments and concepts like research projects, grants or institutions. Unlike regular web links that may break or change over time, PIDs are designed to remain stable and consistently point to the correct resource location, even if its location on the internet changes.
 
-A PID works by assigning a unique identifier to an object and linking it to a record that stores important information about that object, such as its title, creator, and most importantly its  current location. You can think of the so-called PID entry as an ID card or at least an address book for the object.
+A PID works by assigning a unique identifier to an object and linking it to a record that stores important information about that object, such as its title, creator, and most importantly its current location. You can think of the so-called PID entry as an ID card or at least an address book for the object.
 Like with your own ID card, you need to update that metadata. For example, if the object moves to a different website or repository, the metadata behind the PID needs to be updated so that the identifier continues to point to the correct place.
 
 By providing stable, machine-readable references, PIDs help ensure that digital resources remain accessible, traceable, and properly attributed over time.
@@ -31,7 +31,7 @@ A URL (Uniform Resource Locator) is a specific kind of URI that points to the cu
 
 
 ::: {.callout-tip title="PIDs in a nutshell"}
-The *persistent* aspect of a PID is the identifier, it MUST NOT change. The location even the content of the object it identifies can change over time. Also when the object is deleted, the PID continues to exist.
+The *persistent* aspect of a PID is the identifier, it MUST NOT change. The location and even the content of the object it identifies can change over time. Also when the object is deleted, the PID continues to exist.
 :::
 
 ## How does a PID work?
@@ -40,7 +40,7 @@ A PID typically works through a resolution system or resolver:
 
 1. The PID uniquely identifies the object.
 2. The PID resolves through an infrastructure service.
-3. The service redirects the user to the current URL where the object is located or, if the object itself is not reachable through the __http__, a metadata entry that provides more information like  the landing page of a data repository.
+3. The service redirects the user to the current URL where the object is located or, if the object itself is not reachable through the __http__, a metadata entry that provides more information like the landing page of a data repository.
 
 For example, a Digital Object Identifier (DOI) such as `10.1000/182` identifies a publication. When you access it via <https://doi.org/10.1000/182>, the DOI service resolves the identifier and redirects you to the current URL of the article on a publisher or repository website. In this example, the DOI is an identifier for The DOI Handbook. The DOI service resolves the identifier to the current URL which, as of writing this, is <https://www.doi.org/the-identifier/resources/handbook/>.
 
@@ -108,9 +108,9 @@ digraph resolver {
 ```
 
 
-This separation is what makes PIDs persistent. If the resource moves to a different website, the URL can be updated in the PID record, while the identifier itself remains the same, ensuring that citations and references continue to work over time.
+This separation is what makes PIDs persistent. If the resource moves to a different website, the URL can be updated in the PID record, while the identifier itself remains the same, ensuring that citations and references to the resource continue to work over time.
 
-A notable update of the location is the so-called tombstone. If the object an identifier points to is deleted, the identifier still continues to exist and should be redirected to a [tombstone page](https://servicedesk.surf.nl/wiki/spaces/WIKI/pages/102827225/PIDs+Setting+up+your+PID+structure#PIDs%3ASettingupyourPIDstructure-Tombstoning).
+A notable update of the location is the so-called "tombstone". If the object an identifier points to is deleted or retracted, the identifier still continues to exist and should be redirected to a [tombstone page](https://servicedesk.surf.nl/wiki/spaces/WIKI/pages/102827225/PIDs+Setting+up+your+PID+structure#PIDs%3ASettingupyourPIDstructure-Tombstoning).
 
 PIDs help to prevent Link Rot.
 
@@ -267,7 +267,7 @@ This layered approach allows billions of objects to receive unique identifiers w
 
 ## Minting Persistent Identifiers (PIDs)
 
-Minting a Persistent Identifier (PID) refers to the process of creating and registering a new, globally unique identifier for a digital object. This object can be a research article, dataset, software package, researcher, organization, or other scholarly resource.
+Minting a Persistent Identifier (PID) refers to the process of creating and registering a new, globally unique identifier for a digital object. This object can be a research article, dataset, software package, researcher, organization, instrument, research project, grant or other scholarly resource.
 
 Minting a PID ensures that the object can be consistently identified, cited, and discovered over time, regardless of where the object is stored.
 
@@ -349,7 +349,7 @@ EUDAT does not implement a standard for PID profiles and information types. PID 
 Persistent Identifiers are often accessed through resolvers (for example `https://doi.org/...`), directing to a resource which can be accessed through http.
 However, some resources on the internet are not accessible through http, or are sensitive and only accessible after a successful authorisation. This includes offline data, restricted datasets, physical samples, or resources stored in systems without web access. In those cases the resolver will not be able to serve the resource.  
 
-In those cases it is advised to create a landing page with information for users and machines how to access the data. In the chapter [PID services](pid-services.qmd#practical-example-creating-a-handle-and-managing-its-metadata) we show how the PID entry itself can serve as a landing page.
+In those cases it is advised to create a landing page with information for users and machines on how to access the data. In the chapter [PID services](pid-services.qmd#practical-example-creating-a-handle-and-managing-its-metadata) we show how the PID entry itself can serve as a landing page.
 
 The key principle is that a PID identifies the object, not necessarily its downloadable location.
 
@@ -442,7 +442,7 @@ Some identifier schemes are designed primarily for identification rather than we
 A PID does not require the underlying object to be directly accessible online. Instead, the PID provides a stable identifier and a metadata record, ensuring that the object can still be found, cited, and described, even when access is restricted or occurs outside the web.
 :::
 
-Assigning a PID marks the moment when a dataset enters the scholarly record. From here, the responsibility shifts to the systems that keep that identifier usable over time. In the following chapter, we look at the [PID services](pid-services.qmd) that mint identifiers, store their metadata, and ensure that they continue to resolve even as data and infrastructures evolve.
+Assigning a PID marks the moment when a dataset enters the scholarly record. In the following chapter, we look at the [PID services](pid-services.qmd) that mint identifiers, store their metadata, and ensure that they continue to resolve even as data and infrastructures evolve.
 
 
 ## How PIDs and Metadata Complement Each Other
