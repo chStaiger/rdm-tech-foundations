@@ -38,8 +38,6 @@ FAIR — Findable, Accessible, Interoperable, Reusable — provides a framework 
 
 **Reusable**: Data is richly described, licensed, and documented, with clear provenance and quality information.
 
-FAIR is not a technology or standard. It applies to all data, regardless of access level.
-
 ## Connecting FAIR and the RDM Life Cycle
 
 The RDM life cycle describes how data evolves, while the FAIR principles describe the qualities data must exhibit to remain usable by humans and machines. These two perspectives are complementary: one focuses on change, the other on usability.
@@ -61,7 +59,7 @@ We can distinguish five operational data states:
 
 These states define how data is stored, who is responsible for it, and how richly it must be described.
 
-The table below summarises how storage, permissions, and metadata evolve as data moves through the states.
+The table below summarises how storage, permissions, and metadata evolve as data moves through the states. As data moves from creation to long‑term preservation and publication, it passes through those distinct data states.
 
 <table style="border-collapse: collapse; width: 100%;">
   <thead>
@@ -125,8 +123,6 @@ The table below summarises how storage, permissions, and metadata evolve as data
   </tbody>
   
 </table>
-
-As data moves from creation to long‑term preservation and publication, it passes through those distinct data states.
 
 In the early stages, FAIR is inward‑facing and pragmatic — supporting the Process and Analyse phases and the Active state, where data and metadata change frequently.
 
@@ -208,6 +204,7 @@ subgraph cluster_rdm {
     style="rounded"
     color="#528641"
     penwidth=2
+    labelloc="b"
 
     /* Composite node for Active Research */
     R_active [
@@ -275,7 +272,7 @@ The five states tie the life cycle and FAIR together: each life‑cycle stage co
 - the **data states** describe how data is *managed*,  
 - and **FAIR** describes the *qualities* data should exhibit within each state.
 
-In this way, the data states form the conceptual hinge that connects the evolving nature of data (the life cycle) with the evolving expectations placed on it (FAIR).
+In this way, the data states form the conceptual bridge that connects the evolving states of data (the life cycle) with the expectations placed on it (FAIR).
 
 
 | **RDM Stage** | **Data State(s)** | **Purpose** |
@@ -296,17 +293,17 @@ The mapping shows how conceptual stages translate into concrete metadata, servic
 
 The following sections describe how FAIR manifests in each data state and how tthis aligns with the stages of the RDM Life Cycle.
 
-### Active — Process Stage — FAIR‑for‑Teams
+### FAIR for Teams
 
-**Typical services**: HPC scratch, project storage, ELNs, version control.
+- **Typical services**: HPC scratch, project storage, ELNs, version control.
 
 In the Active state, rapid iteration and collaboration dominate. Files change frequently, so the priority is capturing provenance — records of how data was collected, processed, and transformed. At this point, provenance is often the only reliable account of what happened, when, and why.
 
 FAIR here is practical and inward‑facing: clear naming, shared access points, open formats, and well‑maintained notebooks that support reproducible teamwork.
 
-**Audience**: research team
+- **Audience**: research team
 
-**Focus**: efficient collaboration and early capture of provenance
+- **Focus**: efficient collaboration and early capture of provenance
 
 ### Closed — Analyse Stage — FAIR‑for‑Teams transitioning to FAIR‑for‑Stewardship
 
