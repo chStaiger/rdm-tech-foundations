@@ -227,7 +227,7 @@ At the architectural level, both DOI and ePIC-based handles operate within the p
 
 Through DONA, different identifier communities—such as DOI registration agencies and ePIC handle services—can coexist while sharing the same global resolution infrastructure.
 
-In summary, DONA provides the overarching framework for managing digital object identifiers. The Handle System supplies the technical resolution mechanism within this framework. DOI represents a specialized, widely adopted identifier scheme built on handles, while rPIC operates as a consortium that provides handle-based persistent identifier services, particularly for European research infrastructures. This layered ecosystem enables long-term, interoperable identification and access to digital resources across diverse domains.
+In summary, DONA provides the overarching framework for managing digital object identifiers. The Handle System supplies the technical resolution mechanism within this framework. DOI represents a specialized, widely adopted identifier scheme built on handles, while ePIC operates as a consortium that provides handle-based persistent identifier services, particularly for European research infrastructures. This layered ecosystem enables long-term, interoperable identification and access to digital resources across diverse domains.
 
 ## Different Use of the Handle System: ePIC vs DOI
 
