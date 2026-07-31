@@ -305,28 +305,17 @@ FAIR here is practical and inward‑facing: clear naming, shared access points, 
 
 - **Focus**: efficient collaboration and early capture of provenance
 
-### FAIR for Stewardship
-As data stabilises, the emphasis shifts from exploration to consolidation. Cleaned datasets, finalised scripts, and derived outputs emerge, and the provenance captured earlier is structured and standardised. Workflow engines help record parameters, software versions, and transformation steps.
-
-FAIR now begins to serve both researchers and stewards: files become easier to locate, access is controlled, and formats and vocabularies are standardised in preparation for long‑term retention.
-
-- **Typical services**: project storage with lifecycle rules, workflow engines, metadata templates.
-
-- **Audience**: research team + institutional stewards
-
-- **Focus**: stabilising data and consolidating provenance
-
 ### Locked
 
-The Locked state acts as a buffer. Data is frozen in a read‑only condition to prevent accidental modification while retention decisions are made. Because the data no longer changes, provenance becomes especially valuable for appraisal and assessment.
+During the Closed stage, data becomes sufficiently stable for structured organisation and description, but it is not yet ready for full stewardship. FAIR begins to support both sides: researchers consolidate provenance, and stewards gain the context needed for future decisions.
 
-FAIR here is minimal but essential: stable locations, read‑only access, and preservation‑friendly formats.
+The Locked state then acts as a buffer. Stabilised data is frozen in a read‑only condition, protected against accidental changes while retention and appraisal take place. FAIR remains minimal but essential, ensuring the data stays intelligible and manageable even in inactivity.
 
-- **Typical services**: tape libraries, cold storage, retention systems.
+- **Typical services**: tape libraries, cold storage, retention systems, workflow engines, metadata templates.
 
 - **Audience**: research team + institutional stewards
 
-- **Focus**: safeguarding inactive data and supporting appraisal
+- **Focus**: stabilising data and consolidating provenance, safeguarding inactive data
 
 ### FAIR for Stewardship
 
