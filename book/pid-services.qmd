@@ -219,7 +219,7 @@ Organizations such as International DOI Foundation oversee the DOI framework and
 
 The eScience Persistent Identifier Consortium (ePIC) is another major provider of persistent identifiers based on the Handle System. ePIC operates a handle registration service primarily aimed at research institutions, data infrastructures, and e-science projects in Europe. Unlike the DOI system, which focuses heavily on scholarly publishing workflows, 
 
-> **EPIC provides a more general handle-based PID service that can be used for datasets, research infrastructures, software, archival objects and other digital assets.**
+> **ePIC provides a more general handle-based PID service that can be used for datasets, research infrastructures, software, archival objects and other digital assets.**
 
 At the architectural level, both DOI and ePIC-based handles operate within the principles of the Digital Object Network Architecture (DONA). 
 
