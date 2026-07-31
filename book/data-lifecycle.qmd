@@ -28,7 +28,7 @@ A subset of digital objects is curated for dissemination. They receive rich desc
 
 ## The FAIR Data Principles
 
-FAIR — Findable, Accessible, Interoperable, Reusable — provides a framework for making data usable by humans and machines.
+The FAIR Principles — _Findable, Accessible, Interoperable, Reusable_ — provide a framework for making data usable by humans and machines.
 
 **Findable**: Data is described with rich metadata and assigned persistent identifiers.
 
@@ -42,20 +42,20 @@ FAIR — Findable, Accessible, Interoperable, Reusable — provides a framework 
 
 The RDM life cycle describes how data evolves, while the FAIR principles describe the qualities data must exhibit to remain usable by humans and machines. These two perspectives are complementary: one focuses on change, the other on usability.
 
-A key insight is that FAIR does not “switch on” only at publication. Its scope shifts as data matures. Early on, FAIR supports collaboration and internal organisation; later, it supports stewardship, preservation, and ultimately global reuse.
+A key insight is that FAIR does not “switch on” only at publication. Its scope shifts as data matures. Initially, FAIR supports collaboration and internal organisation. Later, it supports stewardship, preservation, and ultimately global reuse.
 
-> **FAIR applies at every stage — the audience and purpose simply changes.**
+> FAIR applies at every stage — the audience and purpose simply changes.
 
-To understand how FAIR maps onto the life cycle, and what this implies for infrastructure and services, we need an intermediate layer: data states.
+To understand how FAIR maps onto the life cycle, and what this implies for infrastructure and services, we need an intermediate layer: _data states_.
 Data states translate conceptual life‑cycle stages into operational conditions that storage systems, metadata services, and governance workflows can act upon. 
 
 We can distinguish five operational data states:
 
 1. **Active** — data is being created and modified; FAIR supports internal organisation and team‑level reuse.  
 2. **Closed** — data stabilises; FAIR begins to support institutional stewardship and future interpretation.  
-3. **Locked** *(Closed & Inactive)* — data is no longer in use and protected against accidental change; FAIR ensures it remains intelligible and manageable beyond the project, although responsibility has not yet transferred to a data steward.
-4. **Archived & Preserved** — data becomes a curated digital object, the responsibility is transferred to a datas steward; FAIR enables long‑term discovery, integrity, and interoperability.  
-5. **Published & Preserved** — selected objects enter the scholarly record; FAIR supports global findability, accessibility, and reuse.
+3. **Locked** — data is inactive and protected against accidental change; FAIR ensures it remains intelligible and manageable beyond the project, although responsibility has not yet transferred to a data steward.
+4. **Archived & Preserved** — data becomes a curated digital object, the responsibility is transferred to a data steward; FAIR enables long‑term discovery, integrity, and interoperability.  
+5. **Published** — selected objects enter the scholarly record; FAIR supports global findability, accessibility, and reuse.
 
 These states define how data is stored, who is responsible for it, and how richly it must be described.
 
@@ -268,9 +268,9 @@ subgraph cluster_rdm {
 ```
 The five states tie the life cycle and FAIR together: each life‑cycle stage corresponds to a data state, and each data state demands a different expression of FAIR.
  
-- the **life cycle** describes how data *changes*,  
-- the **data states** describe how data is *managed*,  
-- and **FAIR** describes the *qualities* data should exhibit within each state.
+- the _life cycle_ describes how data changes,  
+- the _data states_ describe how data is managed,  
+- and _FAIR_ describes the qualities data should exhibit within each state.
 
 In this way, the data states form the conceptual bridge that connects the evolving states of data (the life cycle) with the expectations placed on it (FAIR).
 
@@ -283,15 +283,14 @@ In this way, the data states form the conceptual bridge that connects the evolvi
 | **Archived** | Archived / Preserved | Manage digital objects under stewardship |
 | **Published** | Published / Preserved | Disseminate curated digital objects |
 
-This mapping makes clear that data states are not an alternative to the life cycle but the mechanism through which the life cycle becomes actionable.
+This mapping makes clear that data states are not an alternative to the life cycle but the mechanism through which the life cycle becomes actionable. It shows how conceptual stages translate into concrete metadata, services, and storage systems.
 
-The mapping shows how conceptual stages translate into concrete metadata, services, and storage systems.
 
 ## FAIR Across the RDM Life Cycle
 
 *Putting it all together*
 
-The following sections describe how FAIR manifests in each data state and how tthis aligns with the stages of the RDM Life Cycle.
+The following sections describe how FAIR manifests in each data state and how this aligns with the stages of the RDM Life Cycle.
 
 ### FAIR for Teams
 
@@ -355,7 +354,7 @@ Here FAIR reaches full scope: discoverability, standardised access, community vo
 
 ## Summary
 
-This chapter began by presenting the life cycle and FAIR as separate frameworks. By following data through its states, we can now see how they converge into a single, coherent model of stewardship.
+This chapter began by presenting the RDM life cycle and FAIR as separate frameworks. By following data through its states, we can now see how they converge into a single, coherent model of stewardship.
 
 - The RDM life cycle describes how data evolves from volatile working files to curated, citable outputs.
 
