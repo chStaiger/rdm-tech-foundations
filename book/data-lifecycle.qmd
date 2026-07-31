@@ -2,7 +2,7 @@
 
 ## The Research Data Life Cycle
 
-![Example Data Life Cycle by [UK Data Service]([https://www.pasteur.fr/en/ceris/library/managing-and-sharing-your-research-data)](img/data_lifecycle.png)
+![Example Data Life Cycle by [UK Data Service](https://dam.ukdataservice.ac.uk/media/132177/data_lifecycle_recolour.png)](img/data_lifecycle.png)
 
 Research data evolves from volatile working files into curated, citable outputs. The Research Data Management (RDM) life cycle describes this evolution and highlights that data is never static: it matures, stabilises, and becomes increasingly governed as a project progresses. Although terminology varies across models, four stages are widely recognised.
 
