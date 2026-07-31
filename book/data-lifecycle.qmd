@@ -56,7 +56,7 @@ We can distinguish five operational data states:
 1. **Active** — data is being created and modified; FAIR supports internal organisation and team‑level reuse.  
 2. **Closed** — data stabilises; FAIR begins to support institutional stewardship and future interpretation.  
 3. **Locked** — data is inactive and protected against accidental change; FAIR ensures it remains intelligible and manageable beyond the project, although responsibility has not yet transferred to a data steward.
-4. **Archived & Preserved** — data becomes a curated digital object, the responsibility is transferred to a datas steward; FAIR enables long‑term discovery, integrity, and interoperability.  
+4. **Archived & Preserved** — data becomes a curated digital object, the responsibility is transferred to a data steward; FAIR enables long‑term discovery, integrity, and interoperability.  
 5. **Published & Preserved** — selected objects enter the scholarly record; FAIR supports global findability, accessibility, and reuse.
 
 These states define how data is stored, who is responsible for it, and how richly it must be described.
