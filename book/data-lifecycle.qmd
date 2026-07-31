@@ -351,7 +351,7 @@ This chapter began by presenting the RDM life cycle and FAIR as separate framewo
 
 - The FAIR principles describe how data should behave, with their emphasis shifting as data matures:
 
-	- FAIR‑for‑Teams in the Active and Closed states
+	- FAIR for Teams in the Active and Closed states
 	- FAIR‑for‑Stewardship in the Locked and Archived states
 	- FAIR‑for‑Reuse in the Published state
 
