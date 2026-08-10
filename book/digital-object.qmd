@@ -325,11 +325,15 @@ digraph data_lineage {
 ### Summary
 
 A digital object is content + context + identity.  
-The bitstreams supply the content, the metadata provides the meaning needed to interpret and manage that content, and the persistent identifier anchors a stable, durable identity.
+The files (bitstreams) supply the content, the metadata provides the meaning needed to interpret and manage that content, and the persistent identifier anchors a stable, durable identity.
 Together, these components make digital information portable across systems, understandable over time, and resilient to changes in storage or technology.
-The chapters that follow examine each of these elements in depth, along with the infrastructure that enables them to function as a coherent whole.
 
-In the following chapters we will dive into the single components which constitute a digital object.
+Although these three parts form a single conceptual unit, they differ fundamentally in how they behave and how they are managed. Files evolve across the research workflow and may stabilise at different moments. Metadata spans descriptive, structural, technical, and provenance layers, each with its own standards and responsibilities. Persistent identifiers rely on external resolution infrastructures and govern how digital objects are referenced, cited, and linked.
+Because each component plays a distinct role, each requires its own chapter.
+
+It is also important to recognise that digital objects are conceptually unified but operationally distributed. Files live in storage systems; metadata lives in catalogues and registries; persistent identifiers live in resolver infrastructures. The coherence of the digital object emerges from the relationships between these components, not from their physical co‑location. Understanding each part individually is therefore essential before examining how repositories and data services bind them together.
+
+The following chapters explore these components in depth, first Files, then Metadata, then Persistent Identifiers. Once these foundations are established, we will return to the question of how digital objects are assembled, managed, and preserved across research infrastructures.
 
 ## References
 
