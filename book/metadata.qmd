@@ -28,7 +28,7 @@ In short, metadata provides the context needed to interpret and reuse data beyon
 | Field            | Example Value                                                                                                                          |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | **Title**               | Soil Moisture Dataset 2020–2023                                                                                                        |
-| **Creator**             | Anna Vermeer                                                                                                                           |
+| **Creator**             | Anna Vermeer, Jeroen de Vries                                                                                                                           |
 | **Affiliation**         | Utrecht University                                                                                                                     |
 | **Publication Year**    | 2024                                                                                                                                   |
 | **Description**         | Measurements of soil moisture across multiple sites in the Netherlands over three years.                                               |
@@ -52,7 +52,7 @@ In short, metadata provides the context needed to interpret and reuse data beyon
 | Field             | Example Value                                                                                                                                            |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Title**                    | Soil Moisture Data Cleaning Script                                                                                                                       |
-| **Creator / Author**         | Anna Vermeer, Jeroen de Vries                                                                                                                                             |
+| **Creator / Author**         | Anna Vermeer                                                                                                                                             |
 | **Affiliation**              | Utrecht University                                                                                                                                       |
 | **Version**                  | 1.0.2                                                                                                                                                    |
 | **Programming Language**     | R                                                                                                                                                        |
@@ -89,6 +89,8 @@ They:
 
 When a metadata field requires a *subject keyword*, a controlled vocabulary ensures that everyone uses the same term for the same concept.
 
+Controlled vocabularies give us a shared set of terms. Ontologies build on this foundation by adding structure — showing how those terms relate to one another and how they fit into a broader conceptual model.
+
 ##  Ontologies
 
 Ontologies extend controlled vocabularies by not only defining terms, but also specifying the relationships between them.
@@ -98,6 +100,8 @@ They:
 * Provide a formal, machine-readable model of concepts
 * Define hierarchies (e.g., “soil moisture” is a type of “hydrological variable”)
 * Enable reasoning and automated linking between datasets
+
+Ontologies often incorporate controlled vocabularies as their lexical foundation, enriching those standardised terms with formal relationships that give them semantic structure.
 
 #### Examples
 
@@ -199,14 +203,16 @@ digraph do_mesh {
 
 Together, the two representations show how controlled vocabularies provide stable terminology, while ontologies add semantic structure that enables richer connections between concepts and datasets.
 
+While ontologies describe the meaning of concepts and the relationships between them, metadata schemas address a different question: which pieces of information should be captured when describing a digital object.
+
 ## Metadata Schemas
 
-A metadata schema defines *which fields* are used to describe a digital object and *how* those fields should be structured.
+A metadata schema defines which fields are used to describe a digital object and how those fields should be structured.
 
 They:
 
 * Specify required and optional fields
-* Define field types (e.g., text, date, identifier)
+* Define field types (e.g. text, date, identifier)
 * Ensure consistency across repositories and disciplines
 
 #### Examples
@@ -225,7 +231,9 @@ A metadata schema tells you *what information to provide*, such as:
 * License
 * Persistent identifier
 
-Importantly, it does not define which terms to use—that is the role of controlled vocabularies.
+Importantly, it does not define which terms to use. That is the role of controlled vocabularies.
+
+Schemas define the structure of metadata, but researchers rarely interact with schemas directly. Templates translate these definitions into practical forms and interfaces that guide real‑world data entry.
 
 ## Metadata Templates
 
@@ -272,42 +280,49 @@ When uploading a dataset to Zenodo:
 3. Controlled vocabularies may guide keyword selection.
 4. Ontologies may link your dataset to related concepts behind the scenes.
 
+Templates shape how metadata is created, but the underlying representation can vary. Some metadata remains simple and tabular, while other forms adopt richer, semantic structures. This leads us to two complementary approaches: key–value metadata and Linked Data.
+
 ## Linked Data and Key–Value Metadata
 
 Metadata can range from simple structures to fully semantic representations. Two key approaches are key–value metadata and Linked Data.
 
-## Key–Value Metadata
+### Key–Value Metadata
 
-Key–value metadata is the simplest and most widely used format. It consists of pairs:
+A common way to record metadata is as a simple list of key–value pairs. It consists of pairs:
 
 * Key → the field name
 * Value → the content
 
-##### Examples
+#### Examples
 
 * `title: Soil Moisture Dataset 2020–2023`
 * `creator: Anna Vermeer`
 * `license: CC BY 4.0`
 
-##### Characteristics
+#### Characteristics
 
 * Easy to create and understand
 * Common in spreadsheets, JSON, YAML, and repository forms
 * Human-readable, but limited in machine interpretation
 
-### How it fits
+#### How it fits
 
 * Schemas define the keys
 * Controlled vocabularies constrain the values
 * Templates present both to the user
 
-Key–value metadata forms the foundation of most metadata practices.
+Key–value metadata remains the most common way to record basic descriptive information.
+It provides a straightforward way to describe digital objects, but it offers limited support for expressing relationships or deeper semantics. Linked Data addresses these limitations by representing information as interconnected statements.
 
-## Linked Data
+### Linked Data
 
 Linked Data is a more advanced, semantic approach that represents metadata as interconnected statements.
+It is most useful when metadata needs to express relationships, connect to external vocabularies, or grow without restructuring. Key–value formats work well for simple descriptions, but Linked Data supports richer semantics, interoperability, and long‑term extensibility.
+This richer structure allows metadata to be connected across systems, enabling more powerful discovery and integration.
 
-### Core idea
+This would strengthen the mot
+
+#### Core idea
 
 Information is expressed as subject–predicate–object triples:
 
@@ -316,15 +331,16 @@ Information is expressed as subject–predicate–object triples:
 * Soil Moisture — *is a* → Hydrological Variable
 
 Each element is identified by a URI (Uniform Resource Identifier), ensuring global uniqueness through a standard web‑style identifier.
+In addition to being globally unique, URIs can be looked up, allowing software to retrieve the description of a concept when needed.
 
-###### Characteristics
+##### Characteristics
 
 * Highly interoperable
 * Machine-interpretable
 * Enables automated reasoning
 * Connects datasets across systems
 
-### How it fits
+#### How it fits
 
 * Ontologies define relationships
 * Controlled vocabularies provide globally unique identifiers for the concepts and terms used
@@ -333,7 +349,10 @@ Each element is identified by a URI (Uniform Resource Identifier), ensuring glob
 
 Linked Data turns metadata into a network of meaning, rather than a collection of fields.
 
-## A Simple Comparison
+To see how these approaches differ in practice, it helps to compare how they describe the same object using different levels of structure and meaning.
+
+
+### A Simple Comparison
 
 Describing a book:
 
@@ -358,12 +377,12 @@ Describing a book:
 
 ### Key–value pairs versus Linked Data
 
-Metadata often begins its life as a simple list of key–value pairs. This is the format most researchers encounter in spreadsheets, repository submission forms, or lightweight JSON/YAML files.
+The table below shows key–value metadata in its familiar tabular form.
 
 | **Field (Key)**  | **Value**                       |
 | ---------------- | ------------------------------- |
 | Title            | Soil Moisture Dataset 2020–2023 |
-| Creator          | Anna Vermeer                    |
+| Creator          | Anna Vermeer, Jeroen de Vries                    |
 | Affiliation      | Utrecht University              |
 | Publication Year | 2024                            |
 | Subject          | Soil moisture                   |
@@ -372,18 +391,18 @@ Metadata often begins its life as a simple list of key–value pairs. This is th
 In this representation:
 
 - Each row stands alone as an independent field–value pair  
-- Relationships (e.g., that *Anna Vermeer* is affiliated with *Utrecht University*) are implicit  
+- Relationships (e.g., that *Anna Vermeer* and *Jeroen de Vries* are affiliated with *Utrecht University*) are implicit, meaning they are only suggested by the text and not formally expressed in a way that software can interpret  
 - Values are plain text, without global identifiers or machine‑interpretable meaning  
 
-Such metadata is typically serialised as CSV or TSV files: simple, familiar, and easy to edit, but limited in how much structure or semantics they can express.
+When serialised as CSV or TSV, this kind of metadata remains flat and easy to handle, but it cannot express richer structure or semantics.
 
-In the diagram below, the *same metadata* is expressed as a small knowledge graph. Instead of isolated fields, we now have entities (dataset, person, organisation, concept) connected by explicit relationships.
+In @fig-2 below, the *same metadata* is expressed as a small knowledge graph. Instead of isolated fields, we now have entities (dataset, person, organisation, concept) connected by explicit relationships.
 
 ```{dot}
 //| label: fig-2
 //| fig-cap: Knowledge Graph
 //| fig-align: center
-//| fig-width: 8
+//| fig-width: 9
 //| output: svg
 
 digraph knowledge_graph {
@@ -420,8 +439,9 @@ digraph knowledge_graph {
     D   [label="Dataset"];
     T   [label="Soil Moisture Dataset 2020–2023"];
     Y   [label="2024"];
-    L   [label="CC BY 4.0 (URI)"];
-    P   [label="Person: Anna Vermeer"];
+    L   [label="CC BY 4.0"];
+    P1   [label="Person: Anna Vermeer"];
+    P2   [label="Person: Jeroen de Vries"];
     S   [label="Concept: Soil Moisture"];
     O   [label="Organisation: Utrecht University"];
 
@@ -429,10 +449,12 @@ digraph knowledge_graph {
     D -> T [label="dc:title"];
     D -> Y [label="dc:issued"];
     D -> L [label="dc:license"];
-    D -> P [label="dc:creator"];
+    D -> P1 [label="dc:creator"];
+    D -> P2 [label="dc:creator"];
     D -> S [label="dc:subject"];
 
-    P -> O [label="schema:affiliation"];
+    P1 -> O [label="schema:affiliation"];
+    P2 -> O [label="schema:affiliation"];
 }
 ```
 
@@ -443,10 +465,12 @@ Compared to the table:
 - The person, organisation, and subject become first‑class nodes  
 - Relationships such as `creator` and `affiliation` are explicit and machine‑interpretable
 
-This is the essential shift: from *fields with values* to *entities with relationships*.
+This moves us from *fields with values* to *entities with relationships*.
+An RDF graph — the Resource Description Framework — represents metadata as a network of interconnected entities, where each connection is expressed as a triple linking a subject, predicate, and object. Once metadata is expressed in this way, it can be serialised using a Linked Data format such as Turtle.
 
+::: {.callout-tip collapse="true"}
 
-To serialise such a graph, we use a Linked Data format such as Turtle:
+### The knowledge graph above written down in Turtle. 
 
 ```turtle
 @prefix dc:     <http://purl.org/dc/elements/1.1/> .
@@ -484,32 +508,33 @@ To serialise such a graph, we use a Linked Data format such as Turtle:
     skos:definition "The amount of water contained in soil, typically expressed as a percentage."@en .
 ```
 
-In this Turtle serialisation, the RDF graph not only describes the dataset, the creator, and the organisation, but also provides a stable identifier for the subject concept (“Soil Moisture”). This makes the metadata interoperable: other datasets can refer to the same concept, and machines can follow the URI to retrieve its meaning.
+:::
 
-At the top of the file, we declare the ontologies and vocabularies we use. For example:
+In this serialisation, the RDF graph not only describes the dataset, the creator, and the organisation, but also provides a stable identifier for the subject concept (“Soil Moisture”). This makes the metadata interoperable: other datasets can refer to the same concept, and machines can follow the URI to retrieve its meaning.
+
+The prefixes at the top of the file indicate which vocabularies and ontologies the graph draws on, allowing each property and class to be referenced unambiguously. For example:
 
 ```
 @prefix dc:     <http://purl.org/dc/elements/1.1/> .
 ```
 
-This tells us that `dc:title` is shorthand for the full URI  
-<http://purl.org/dc/elements/1.1/title>,  
-which is the authoritative definition of the Dublin Core `title` property.
+This prefix simply states that `dc:title` refers to the full URI <http://purl.org/dc/elements/1.1/title>,  
+the authoritative definition of the Dublin Core `title` property.
 
 By giving each entity, i.e. dataset, person, organisation and concept its own URI, the graph becomes a reusable and extensible structure. Machines can infer relationships, merge graphs, or enrich them with external knowledge. While it is technically possible to use URIs as keys in key–value metadata, such formats lack the semantics and inference capabilities that RDF provides.
 
 We explore metadata serialisation and metadata infrastructure in more detail in the chapter [Metadata Infrastructure](metadata-portals.qmd).
 
-
 ## Bringing It All Together
+
+The layers described above build on one another, moving from simple descriptions to richer semantic structures. Seeing how they connect helps clarify how different metadata standards work together in practice.
 
 * Key–value metadata is the practical starting point
 * Linked Data is the semantic, interoperable extension
 * Controlled vocabularies and ontologies provide meaning and standardisation of terms
 * Schemas and templates provide structure
 
-Together, they form the foundation of FAIR, reusable research metadata.
-
+Together, these elements give us a coherent picture of how metadata can be structured and enriched. With this broader view in place, we can look more closely at specific metadata standards and how they complement one another across different domains.
 
 ## Understanding and Combining Metadata Standards
 
@@ -655,7 +680,11 @@ Role: Provides deep, field-specific context.
 | Provenance          | How was it created?           | PROV-O                                     |
 | Domain detail       | What does it mean in context? | DDI (social sciences), ISA (life sciences) |
 
-Together, these layers create rich, FAIR, and interoperable metadata.
+Together, these layers create rich, FAIR, and interoperable metadata. With them in place, metadata becomes both meaningful within its discipline and interoperable across the wider research landscape.
+
+In this chapter we introduced URIs as globally unique identifiers for concepts, properties, and relationships within semantic metadata. These identifiers help machines understand what a term refers to and how different entities are connected.
+To make research objects themselves—datasets, software, publications, instruments, samples—equally stable and unambiguous, we need identifiers that serve the same purpose at the data object level and remain reliable over time, even as locations or infrastructures change.
+This is the role of Persistent Identifiers. They apply the principle of stable, globally unique identification to the objects that metadata describes, ensuring that those objects can be cited, discovered, and linked long after their storage or access conditions evolve.
 
 ## References
 - https://www.w3.org/wiki/LinkedData
