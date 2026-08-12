@@ -1,8 +1,8 @@
 # Storage Infrastructure
 
-Now that we have explored the three conceptual pillars of research data management — files, metadata, and persistent identifiers — we can turn to the technical foundation that supports them.
+Having established the three conceptual pillars of research data management — files, metadata, and persistent identifiers — we can turn to the technical foundation that supports them.
 
-**Storage infrastructure** is the environment in which files physically reside and persist over time. It keeps the underlying bits (bitstream) safe, but it does not create or manage digital objects. That role belongs to repositories and policy engines, which operate above storage and use metadata and PIDs to give files identity, structure, and meaning.
+Storage infrastructure is the environment in which files physically reside and persist over time. It keeps the underlying bits (bitstream) safe, but it does not create or manage digital objects. That work is done by repositories and policy engines, which operate above storage and use metadata and PIDs to give files identity, structure, and meaning.
 
 Storage systems ensure that:
 
@@ -11,8 +11,8 @@ Storage systems ensure that:
 - files remain **secure** (access control and encryption)  
 - files remain **usable** (format migration and media refresh)  
 
-Storage is therefore the **technical substrate** of preservation. It keeps the bits safe.  
-But it does **not**:
+Storage is therefore the technical substrate of preservation. It protects the bits.  
+But it does not:
 
 - assign or manage persistent identifiers  
 - maintain metadata  
@@ -20,9 +20,11 @@ But it does **not**:
 - enforce access policies  
 - implement preservation workflows  
 
-Those functions belong to **repository software** or other **policy engines**, which sit *above* storage and configure files into **digital objects**.
+Those responsibilities belong to repositories and policy engines, which build on storage to assemble files, metadata, and PIDs into coherent digital objects.
 
 ## Storage Types Commonly Used in RDM
+
+Different storage systems provide different guarantees for durability, speed, cost, and resilience.
 
 | Storage Type | Characteristics | Typical Use |
 |--------------|----------------|-------------|
@@ -31,14 +33,14 @@ Those functions belong to **repository software** or other **policy engines**, w
 | **Tape archives** | Low cost, long retention, slower access | Long‑term preservation of files |
 | **Distributed networks** (LOCKSS) | Multi‑site replication, federation | High‑resilience preservation of file copies |
 
-Each storage type has different strengths. Most institutions use a **tiered storage model**, combining fast storage for active use with slower, cheaper storage such as **tape** for long‑term retention.
+Each storage type has different strengths. Most institutions use a tiered storage model, combining fast storage for active use with slower, cheaper storage such as tape for long‑term retention.
 
 Across all tiers, the principle remains the same:  
-**Storage systems store files. They do not manage digital objects.**
+Storage systems store files. They do not manage digital objects.
 
 ## Why Storage Infrastructure Matters
 
-Storage infrastructure underpins the **durability** and **trustworthiness** of research files. It enables:
+Storage infrastructure underpins the durability and trustworthiness of research files. It enables:
 
 - **fixity checking** — detecting corruption or tampering  
 - **redundant copies** — protecting against hardware failure or disasters  
@@ -49,64 +51,114 @@ Storage infrastructure underpins the **durability** and **trustworthiness** of r
 Without robust storage, even the best‑described digital objects are at risk of loss or degradation.
 
 But storage alone is not enough.  
-To become a **digital object**, a file must be:
+To become a digital object, a file must be:
 
 - registered in a repository or policy engine  
 - associated with metadata  
 - assigned a persistent identifier  
 - managed through defined workflows  
 
-Storage provides the **where**; repositories provide the **what**, **how**, and **why**.
-
+Storage provides the where; repositories and policy engines provide the what, how, and why.
 
 ## A Simple Analogy
 
-- **Files** → the pages of a book  
-- **Storage infrastructure** → the shelves, vaults, and climate‑controlled rooms that keep the pages safe  
-- **Repository / policy engine** → the library system that catalogues the book, assigns a call number, and manages loans  
-- **Metadata and PIDs** → the catalogue record and call number  
+To make the separation between storage and repositories more intuitive, consider the following analogy.
+
+- Files → the pages of a book  
+- Storage infrastructure → the shelves, vaults, and climate‑controlled rooms that keep the pages safe  
+- Repository / policy engine → the library system that catalogues the book, assigns a call number, and manages loans  
+- Metadata and PIDs → the catalogue record and call number  
 
 Storage protects the content; repositories provide the meaning, identity, and governance.
 
 
 ## A Diagrammatic View
 
-```{mermaid}
-%%| label: fig-1
-%%| fig-cap: Files reside across multiple storage layers, but only repositories and policy engines turn them into digital objects.
-%%| fig-align: center
-%%{init: {
-  "look": "handDrawn",
-  "flowchart": { "htmlLabels": false }
-}}%%
-flowchart TB
+```{dot}
+//| label: fig-1
+//| fig-cap: Files reside across multiple storage layers, but only repositories and policy engines turn them into digital objects.
+//| fig-align: center
 
-    F["Files (bitstreams)"]
-    S1["Active Storage<br/>(fast, local)"]
-    S2["Archive Storage<br/>(tape, cold storage)"]
-    S3["Replicated Storage<br/>(cloud, distributed networks)"]
+digraph storage_infra {
 
-    R["Repository / Policy Engine<br/>(metadata + PID + workflows)"]
-    DO["Digital Object<br/>(files + metadata + PID)"]
+     graph [
+        rankdir=TB,
+        bgcolor="white",
+        fontname="Helvetica",
+        fontsize=14,
+        nodesep=0.8,
+        ranksep=1.0
+    ];
 
-    F --- |"stored on"| S1
-    F --- |"stored on"| S2
-    F --- |"stored on"| S3
+    node [
+        shape=box,
+        style="rounded,filled",
+        fontname="Helvetica",
+        fontsize=14,
+        color="#528641",
+        fillcolor="#DAEAB4",
+        penwidth=2,
+        sketch=1
+    ];
 
-    R --- |"manages"| DO
-    DO --- |"contains"| F
+    edge [
+        fontname="Helvetica",
+        fontsize=16,
+        color="#528641",
+        fontcolor="#528641",
+        penwidth=2
+    ];
+
+    // -------------------------------
+    // Storage Layers
+    // -------------------------------
+    subgraph cluster_storage {
+        label="Storage Infrastructure";
+        style="rounded";
+
+        S1 [label="Active Storage\n(fast, local)"];
+        S2 [label="Archive Storage\n(tape, cold storage)"];
+        S3 [label="Replicated Storage\n(cloud, distributed networks)"];
+    }
+
+    // -------------------------------
+    // Files
+    // -------------------------------
+    F [label="Files (bitstreams)"];
+
+    // -------------------------------
+    // Repository / Policy Engine
+    // -------------------------------
+    subgraph cluster_repo {
+        label="Repository / Policy Engine";
+        style="rounded";
+
+        R  [label="Repository / Policy Engine\n(metadata + PID + workflows)"];
+        DO [label="Digital Object\n(files + metadata + PID)"];
+    }
+
+    // -------------------------------
+    // Edges
+    // -------------------------------
+    F  -> S1 [label="stored on"];
+    F  -> S2 [label="stored on"];
+    F  -> S3 [label="stored on"];
+
+    R  -> DO [label="manages"];
+    DO -> F  [label="contains"];
+}
 ```
 
 This illustrates the essential separation:
 
-- **Storage layers hold files.**  
-- **Repositories configure files into digital objects.**
+- Storage layers hold files.  
+- Repositories configure files into digital objects.
 
 
 ## Bringing It All Together
 
-- **Storage systems manage files**, ensuring durability, integrity, and security.  
-- **Repositories and policy engines manage digital objects**, providing metadata, identifiers, workflows, and lifecycle governance.  
+- Storage systems manage files, ensuring durability, integrity, and security.  
+- Repositories and policy engines manage digital objects, providing metadata, identifiers, workflows, and lifecycle governance.  
 - Storage ensures the persistence of bits; repositories ensure the persistence of meaning.
 
 This separation of responsibilities is fundamental to modern research data management.
