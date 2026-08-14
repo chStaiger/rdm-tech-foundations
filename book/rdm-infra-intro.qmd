@@ -1,6 +1,10 @@
 # Research Data Management Infrastructure
 
-Modern research data management relies not only on digital objects, i.e. the combination of files, metadata, and persistent identifiers, but also on the infrastructure that enables those objects to be managed across their entire lifecycle.
+Digital objects give us a clear conceptual model of what research data is: a combination of files, metadata, and persistent identifiers that together form a coherent, citable, and preservable unit. Storage infrastructure explains how the underlying bitstreams are kept safe over time, but it does not yet assemble or manage digital objects.
+
+The next step is to understand the infrastructure that acts on digital objects—the systems that curate them, govern them, expose them, identify them, and move them through the research lifecycle.
+
+Modern research data management relies not only on digital objects, but also on the infrastructure that enables those objects to be managed across their entire lifecycle.
 
 RDM infrastructure is the ecosystem of systems that ensures digital objects remain:
 
@@ -30,12 +34,13 @@ Just as a digital object consists of three interdependent components, the infras
 digraph rdm_layers {
 
     graph [
-        rankdir=LR,
+        rankdir=TB,
         bgcolor="white",
         fontname="Helvetica",
         fontsize=18,
         nodesep=0.8,
-        ranksep=1.4
+        ranksep=1.4,
+        compound=True
     ];
 
     node [
@@ -56,92 +61,90 @@ digraph rdm_layers {
         penwidth=2
     ];
 
-    // ----------------------------------------------------
-    // Top: Digital Objects
-    // ----------------------------------------------------
-    DO [label="Digital Objects\n(files + metadata + PID)"];
-
-    // ----------------------------------------------------
-    // Exposure Layer
-    // ----------------------------------------------------
-    subgraph cluster_exposure {
-        label="";
+    subgraph cluster_compute {
         color="#528641";
         penwidth=2;
         style="rounded";
+        label="Usage"
 
-        ExposureHeader [
-            label="Exposure and Interoperability Layer",
-            shape=box,
-            style="rounded",
-            color="#528641",
-            fillcolor="white",
-            penwidth=2,
-            fontsize=20
-        ];
-
-        M [label="Metadata Portals"];
-        P [label="PID Services"];
-
-        // Vertical stacking
-        ExposureHeader -> M [style=invis, weight=50];
-        ExposureHeader -> P [style=invis, weight=50];
+        U [label="Scientist"];
+        W [label=<
+            <TABLE BORDER="0" CELLBORDER="0">
+            <TR><TD>Compute</TD></TR>
+            <TR><TD>environment</TD></TR>
+        </TABLE>
+        >];
+        Integration [label=<
+            <TABLE BORDER="0" CELLBORDER="0">
+            <TR><TD>Integration</TD></TR>
+            <TR><TD>Workflow</TD></TR>
+        </TABLE>
+        >];
     }
 
-    // ----------------------------------------------------
-    // Management Layer
-    // ----------------------------------------------------
-    subgraph cluster_management {
-        label="";
+    subgraph cluster_do {
         color="#528641";
         penwidth=2;
         style="rounded";
+        label="Digital Object"
 
-        ManagementHeader [
-            label="Digital Object Formation and Management Layer",
-            shape=box,
-            style="rounded",
-            color="#528641",
-            fillcolor="white",
-            penwidth=2,
-            fontsize=20
-        ];
+        F [label="File(s)"];
+        meta [label="Metadata"];
+        I [label="PID"]
+
+    }
+
+    subgraph cluster_storage {
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+        label="Storage Layer"
+
+        S1 [label="Replicated"];
+        S2 [label="Archive"];
+        S3 [label="Active"]
+    }
+
+    subgraph cluster_management {
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+        label="Digital Object Formation and Management Layer"
 
         R  [label="Data Repositories"];
+        spacer_m  [label="", style=invis, shape=point, width=0]
         PE [label="Policy Engines"];
-
-        // Vertical stacking
-        ManagementHeader -> R  [style=invis, weight=50];
-        ManagementHeader -> PE [style=invis, weight=50];
     }
 
-    // ----------------------------------------------------
-    // Storage Layer
-    // ----------------------------------------------------
-    S [label="Storage Infrastructure"];
+    subgraph cluster_exposure {
+        color="#528641";
+        penwidth=2;
+        style="rounded";
+        label="Exposure and Interoperability Layer"
 
-    // ----------------------------------------------------
-    // Compute Interoperability (side)
-    // ----------------------------------------------------
-    C [label="Compute Interoperability"];
+        M [label="Metadata Portals"];
+        spacer_e  [label="", style=invis, shape=point, width=0]
+        P [label="PID Services"];
+    }
 
-    // ----------------------------------------------------
-    // Align clusters horizontally (BT mode)
-    // ----------------------------------------------------
-    ExposureHeader   -> ManagementHeader [style=invis, weight=200];
+    W -> spacer_e [label="Discover", ltail="cluster_compute", lhead="cluster_exposure", style="dashed,rounded"];
+    W -> meta [label="Identify", ltail="cluster_compute", lhead="cluster_do", style="dashed,rounded"];
+    W -> spacer_m [label="Retrieve", ltail="cluster_compute", lhead="cluster_management", style="dashed,rounded"];
+    meta -> spacer_m [label="Created by", ltail="cluster_do", lhead="cluster_management"];
+    spacer_m -> spacer_e [label="Exports Metadata", ltail="cluster_management", lhead="cluster_exposure"];
+    spacer_m -> S2 [
+        label="Manages Storage of Files",
+        ltail="cluster_management",
+        lhead="cluster_storage",
+        labeldistance=1.5,
+        labelangle=180
+    ];
 
-    // ----------------------------------------------------
-    // Visible edges
-    // ----------------------------------------------------
-    S          -> PE [label="Managed by"];
-    S          -> R [label="Managed by"];
-    ManagementHeader -> ExposureHeader [label="Export Metadata"];
-    ManagementHeader -> DO             [label="Create"];
-    C          -> DO                   [label="Discover and use"];
 }
-
-
 ```
+@fig-rdm-layers illustrates how the components of a digital object and the surrounding RDM infrastructure interact. Solid edges show how the digital object is formed and distributed across the infrastructure: files, metadata, and persistent identifiers are created, governed, stored, and exposed through repositories, policy engines, storage systems, and metadata portals. Dashed edges represent how scientists, compute environments, and integration workflows interact with these components—discovering metadata, identifying digital objects, and retrieving files for analysis. Together, these flows show both the internal cohesion of the digital object and the external interoperability that enables its use in computational research.
+
+Among these layers, compute interoperability represents the most forward‑looking capability.
 
 ## Interoperability with Compute Systems
 
