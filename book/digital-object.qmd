@@ -1,8 +1,8 @@
 # The Digital Object
 
-In the previous chapter we saw that data must be managed as structured digital objects. This chapter defines what those objects are.
+In the previous chapter, we learnt that data should be managed as structured digital objects. This chapter describes these digital objects in more detail.
 
-A digital (or data) object is a self‑contained, structured unit of information that exists in electronic form. It is more than just raw bits: it is a combination of **content**, **context**, and **identity** that allows computers and humans to store, interpret, preserve, and reuse information reliably.
+A digital (or data) object is a self‑contained, structured unit of information that exists in electronic form. It is more than just raw bits: it is a combination of _content_, _context_, and _identity_ that allows computers and humans to store, interpret, preserve, and reuse information reliably.
 
 At its core, a digital object consists of three interdependent components:
 
@@ -161,9 +161,10 @@ digraph combined_relations {
     }
 }
 ```
-In the first pattern, the persistent identifier resolves directly to a file, which then contains or links to the relevant metadata. An example are images formats like JPEG and TIFF or sequencing file formats like FASTA or FASTQ.
 
-In the second pattern, the persistent identifier resolves to a metadata record or landing page, which provides the information needed to locate and access the file(s).This approach is used by data publishing services.
+In the first pattern, the persistent identifier resolves directly to a file, which then contains or links to the relevant metadata. An example are image formats like JPEG and TIFF or sequencing file formats like FASTA or FASTQ.
+
+In the second pattern, the persistent identifier resolves to a metadata record or landing page, which provides the information needed to locate and access the file(s). This approach is used by data publishing services.
 
 Both approaches are widely used; the choice depends on the use cases the data supports, the data repository design and access requirements.
 
@@ -191,13 +192,13 @@ Additional lifecycle functions include:
 - **Versioning** — recording updates or corrections while keeping earlier states accessible and citable.  
 - **Fixity** — verifying file integrity through checksums or hashes to detect corruption or tampering.  
 - **Provenance** — documenting how data came to be, including transformations and dependencies.  
-  This includes relationships such as *raw data → processed data → analysed data*, making the object’s history transparent and reproducible.
+  This includes relationships such as _raw data → processed data → analysed data_, making the object’s history transparent and reproducible.
 
 ## Data Lineage Across the Data States
 
 Digital objects form a natural progression as research unfolds. Each transformation produces a new object with its own files, metadata, and persistent identifier, while retaining a link to the object(s) it was derived from. The figure @fig-4 illustrates this chain: raw experimental data, a cleaned dataset derived from it, and an analysed dataset that becomes part of the archival or published record.
 
-This progression aligns with the data states without needing to restate the full model. The raw and processed objects sit in the Active and Closed states, where change is expected and provenance captures how one object leads to the next. The analysed object represents the point where the workflow stabilises: it moves into Locked and then Archived/Published, becoming a fixed, citable outcome.
+This progression aligns with the data states without needing to restate the full model. The raw and processed objects sit in the _Active_ and _Closed_ states, where change is expected and provenance captures how one object leads to the next. The analysed object represents the point where the workflow stabilises: it moves into _Locked_ and then _Archived/Published_, becoming a fixed, citable outcome.
 
 The lineage is documented in the metadata (derived_from: PID_A, derived_from: PID_B). This ensures that the digital objects remain connected even as they mature. Each object stands on its own, but together they form a traceable path from initial measurement to final result, a path that preservation systems can manage and that future users can understand.
 
@@ -324,16 +325,15 @@ digraph data_lineage {
 
 ### Summary
 
-A digital object is content + context + identity.  
-The files (bitstreams) supply the content, the metadata provides the meaning needed to interpret and manage that content, and the persistent identifier anchors a stable, durable identity.
+A digital object is content + context + identity. The files (bitstreams) supply the content, the metadata provides the meaning needed to interpret and manage that content, and the persistent identifier anchors a stable, durable identity.
 Together, these components make digital information portable across systems, understandable over time, and resilient to changes in storage or technology.
 
 Although these three parts form a single conceptual unit, they differ fundamentally in how they behave and how they are managed. Files evolve across the research workflow and may stabilise at different moments. Metadata spans descriptive, structural, technical, and provenance layers, each with its own standards and responsibilities. Persistent identifiers rely on external resolution infrastructures and govern how digital objects are referenced, cited, and linked.
 Because each component plays a distinct role, each requires its own chapter.
 
-It is also important to recognise that digital objects are conceptually unified but operationally distributed. Files live in storage systems; metadata lives in catalogues and registries; persistent identifiers live in resolver infrastructures. The coherence of the digital object emerges from the relationships between these components, not from their physical co‑location. Understanding each part individually is therefore essential before examining how repositories and data services bind them together.
+It is also important to recognise that digital objects are conceptually unified, but operationally distributed. Files live in storage systems; metadata lives in catalogues and registries; persistent identifiers live in resolver infrastructures. The coherence of the digital object emerges from the relationships between these components, not from their physical co‑location. Understanding each part individually is therefore essential before examining how repositories and data services bind them together.
 
-The following chapters explore these components in depth, first Files, then Metadata, then Persistent Identifiers. Once these foundations are established, we will return to the question of how digital objects are assembled, managed, and preserved across research infrastructures.
+The following chapters explore these components in depth, first [Files](files.qmd), then [Metadata](metadata.qmd), then [Persistent Identifiers](pids.qmd). Once these foundations are established, we will return to the question of how digital objects are assembled, managed, and preserved across research infrastructures.
 
 ## References
 
