@@ -200,10 +200,10 @@ Digital objects form a natural progression as research unfolds. Each transformat
 
 This progression aligns with the data states without needing to restate the full model. The raw and processed objects sit in the _Active_ and _Closed_ states, where change is expected and provenance captures how one object leads to the next. The analysed object represents the point where the workflow stabilises: it moves into _Locked_ and then _Archived/Published_, becoming a fixed, citable outcome.
 
-@fig-4 shows the how the lineage is documented in the metadata (derived_from: PID_A, derived_from: PID_B). This ensures that the digital objects remain connected even as they mature. Each object stands on its own, but together they form a traceable path from initial measurement to final result, a path that preservation systems can manage and that future users can understand.
+@fig-do-lineage shows the how the lineage is documented in the metadata (derived_from: PID_A, derived_from: PID_B). This ensures that the digital objects remain connected even as they mature. Each object stands on its own, but together they form a traceable path from initial measurement to final result, a path that preservation systems can manage and that future users can understand.
 
 ```{dot}
-//| label: fig-4
+//| label: fig-do-lineage
 //| fig-cap: Data lineage represented as a chain of Digital Objects linking from raw expreimental data to cleaned and processed data to the final analysed data.
 //| fig-align: center
 //| fig-width: 8
