@@ -511,12 +511,12 @@ This includes relationships such as <em>raw data → processed data → analysed
 <h2 class="anchored" data-anchor-id="data-lineage-across-the-data-states">Data Lineage Across the Data States</h2>
 <p>Digital objects form a natural progression as research unfolds. Each transformation produces a new object with its own files, metadata, and persistent identifier, while retaining a link to the object(s) it was derived from. The figure <a href="policy-engines.html#fig-4" class="quarto-xref">Figure&nbsp;<span>13.4</span></a> illustrates this chain: raw experimental data, a cleaned dataset derived from it, and an analysed dataset that becomes part of the archival or published record.</p>
 <p>This progression aligns with the data states without needing to restate the full model. The raw and processed objects sit in the <em>Active</em> and <em>Closed</em> states, where change is expected and provenance captures how one object leads to the next. The analysed object represents the point where the workflow stabilises: it moves into <em>Locked</em> and then <em>Archived/Published</em>, becoming a fixed, citable outcome.</p>
-<p><a href="policy-engines.html#fig-4" class="quarto-xref">Figure&nbsp;<span>13.4</span></a> shows the how the lineage is documented in the metadata (derived_from: PID_A, derived_from: PID_B). This ensures that the digital objects remain connected even as they mature. Each object stands on its own, but together they form a traceable path from initial measurement to final result, a path that preservation systems can manage and that future users can understand.</p>
+<p><a href="#fig-do-lineage" class="quarto-xref">Figure&nbsp;<span>5.3</span></a> shows the how the lineage is documented in the metadata (derived_from: PID_A, derived_from: PID_B). This ensures that the digital objects remain connected even as they mature. Each object stands on its own, but together they form a traceable path from initial measurement to final result, a path that preservation systems can manage and that future users can understand.</p>
 <div class="cell" data-fig-width="8" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-do-lineage" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-do-lineage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
 <svg width="768" height="480" viewbox="0.00 0.00 721.00 446.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 442.8)">
@@ -527,15 +527,15 @@ This includes relationships such as <em>raw data → processed data → analysed
 <path fill="white" stroke="#528641" stroke-width="2" d="M513,-8C513,-8 693,-8 693,-8 699,-8 705,-14 705,-20 705,-20 705,-418.8 705,-418.8 705,-424.8 699,-430.8 693,-430.8 693,-430.8 513,-430.8 513,-430.8 507,-430.8 501,-424.8 501,-418.8 501,-418.8 501,-20 501,-20 501,-14 507,-8 513,-8"></path>
 <text text-anchor="middle" x="603" y="-414.2" font-family="Helvetica,sans-Serif" font-size="14.00">Analysed Data</text>
 </g>
-<g id="clust1" class="cluster">
-<title>cluster_raw</title>
-<path fill="white" stroke="#528641" stroke-width="2" d="M20,-8C20,-8 174,-8 174,-8 180,-8 186,-14 186,-20 186,-20 186,-418.8 186,-418.8 186,-424.8 180,-430.8 174,-430.8 174,-430.8 20,-430.8 20,-430.8 14,-430.8 8,-424.8 8,-418.8 8,-418.8 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
-<text text-anchor="middle" x="97" y="-414.2" font-family="Helvetica,sans-Serif" font-size="14.00">Raw Data</text>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_proc</title>
 <path fill="white" stroke="#528641" stroke-width="2" d="M254,-8C254,-8 434,-8 434,-8 440,-8 446,-14 446,-20 446,-20 446,-418.8 446,-418.8 446,-424.8 440,-430.8 434,-430.8 434,-430.8 254,-430.8 254,-430.8 248,-430.8 242,-424.8 242,-418.8 242,-418.8 242,-20 242,-20 242,-14 248,-8 254,-8"></path>
 <text text-anchor="middle" x="344" y="-414.2" font-family="Helvetica,sans-Serif" font-size="14.00">Processed Data</text>
+</g>
+<g id="clust1" class="cluster">
+<title>cluster_raw</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M20,-8C20,-8 174,-8 174,-8 180,-8 186,-14 186,-20 186,-20 186,-418.8 186,-418.8 186,-424.8 180,-430.8 174,-430.8 174,-430.8 20,-430.8 20,-430.8 14,-430.8 8,-424.8 8,-418.8 8,-418.8 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
+<text text-anchor="middle" x="97" y="-414.2" font-family="Helvetica,sans-Serif" font-size="14.00">Raw Data</text>
 </g>
 <!-- R_F -->
 <g id="node1" class="node">
@@ -622,7 +622,7 @@ This includes relationships such as <em>raw data → processed data → analysed
 </svg>
 </div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-do-lineage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;5.3: Data lineage represented as a chain of Digital Objects linking from raw expreimental data to cleaned and processed data to the final analysed data.
 </figcaption>
 </figure>
