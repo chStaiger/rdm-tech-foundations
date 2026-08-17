@@ -47,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-fa421f92889290bbe30b9de16d0ad08f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-6dc2c6ce8841d2c96625bdf5dfd1d3f0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -264,7 +264,10 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#how-these-components-work-together" id="toc-how-these-components-work-together" class="nav-link active" data-scroll-target="#how-these-components-work-together">How These Components Work Together</a></li>
   <li><a href="#why-digital-objects-matter" id="toc-why-digital-objects-matter" class="nav-link" data-scroll-target="#why-digital-objects-matter">Why Digital Objects Matter</a></li>
-  <li><a href="#in-essence" id="toc-in-essence" class="nav-link" data-scroll-target="#in-essence">In essence</a></li>
+  <li><a href="#data-lineage-across-the-data-states" id="toc-data-lineage-across-the-data-states" class="nav-link" data-scroll-target="#data-lineage-across-the-data-states">Data Lineage Across the Data States</a>
+  <ul class="collapse">
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
@@ -291,64 +294,56 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>A digital (or data) object is a self‑contained, structured unit of information that exists in electronic form. It is more than just raw bits: it is a combination of <strong>content</strong>, <strong>context</strong>, and <strong>identity</strong> that allows computers and humans to store, interpret, preserve, and reuse information reliably.</p>
+<p>In the previous chapter, we learnt that data should be managed as structured digital objects. This chapter describes these digital objects in more detail.</p>
+<p>A digital (or data) object is a self‑contained, structured unit of information that exists in electronic form. It is more than just raw bits: it is a combination of <em>content</em>, <em>context</em>, and <em>identity</em> that allows computers and humans to store, interpret, preserve, and reuse information reliably.</p>
 <p>At its core, a digital object consists of three interdependent components:</p>
 <ul>
 <li><p><a href="./files.html"><strong>Bitstream(s) or File(s)</strong></a> — the actual digital content, stored as one or more files. These may be documents, images, audio recordings, videos, datasets, software packages, or any other digital material. On their own, files are simply encoded data; they require context to be meaningful.</p></li>
 <li><p><a href="./metadata.html"><strong>Metadata</strong></a> — the descriptive, structural, and technical information that explains how to interpret the files and how the object should be managed. Metadata identifies what the object is, how it is organized, who created it, when it was produced, and how it can be rendered or preserved. It provides the essential context that turns raw bits into understandable content.</p></li>
-<li><p><a href="./pids.html"><strong>Persistent Identifier (PID)</strong></a> — a stable, globally unique reference (such as a DOI, Handle, or ARK) that ensures the object can be identified, found, cited, and linked over time, even if its storage location changes. The PID anchors the object’s identity in a durable way.</p></li>
+<li><p><a href="./pids.html"><strong>Persistent Identifier (PID)</strong></a> — a stable, globally unique reference (such as a DOI, Handle, or ARK) that ensures the object can be identified, found, cited, and linked over time, even if its storage location changes. The persistent identifier anchors the object’s identity in a durable way.</p></li>
 </ul>
-<div class="cell" data-fig-width="6" data-layout-align="center">
+<div class="cell" data-fig-width="3" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<svg width="576" height="480" viewbox="0.00 0.00 387.92 152.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<svg width="288" height="480" viewbox="0.00 0.00 195.63 152.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 148)">
-<title>digital_object</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-148 383.92,-148 383.92,4 -4,4"></polygon>
-<!-- A -->
-<g id="node1" class="node">
-<title>A</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M186.76,-144C186.76,-144 111.24,-144 111.24,-144 105.24,-144 99.24,-138 99.24,-132 99.24,-132 99.24,-120 99.24,-120 99.24,-114 105.24,-108 111.24,-108 111.24,-108 186.76,-108 186.76,-108 192.76,-108 198.76,-114 198.76,-120 198.76,-120 198.76,-132 198.76,-132 198.76,-138 192.76,-144 186.76,-144"></path>
-<text text-anchor="middle" x="149" y="-121.8" font-family="Helvetica,sans-Serif" font-size="14.00">Digital Object</text>
-</g>
+<title>Triangle</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-148 191.63,-148 191.63,4 -4,4"></polygon>
 <!-- B -->
-<g id="node2" class="node">
+<g id="node1" class="node">
 <title>B</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M42,-36C42,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 42,0 42,0 48,0 54,-6 54,-12 54,-12 54,-24 54,-24 54,-30 48,-36 42,-36"></path>
-<text text-anchor="middle" x="27" y="-13.8" font-family="Helvetica,sans-Serif" font-size="14.00">Files</text>
-</g>
-<!-- A&#45;&gt;B -->
-<g id="edge1" class="edge">
-<title>A-&gt;B</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M129.4,-107.97C109.15,-90.38 77.39,-62.78 54.61,-42.99"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="56.8,-40.26 46.96,-36.34 52.21,-45.54 56.8,-40.26"></polygon>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M42.82,-144C42.82,-144 12.06,-144 12.06,-144 6.06,-144 0.06,-138 0.06,-132 0.06,-132 0.06,-120 0.06,-120 0.06,-114 6.06,-108 12.06,-108 12.06,-108 42.82,-108 42.82,-108 48.82,-108 54.82,-114 54.82,-120 54.82,-120 54.82,-132 54.82,-132 54.82,-138 48.82,-144 42.82,-144"></path>
+<text text-anchor="middle" x="27.44" y="-121.8" font-family="Helvetica,sans-Serif" font-size="14.00">File(s)</text>
 </g>
 <!-- C -->
-<g id="node3" class="node">
+<g id="node2" class="node">
 <title>C</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M174.37,-36C174.37,-36 123.63,-36 123.63,-36 117.63,-36 111.63,-30 111.63,-24 111.63,-24 111.63,-12 111.63,-12 111.63,-6 117.63,0 123.63,0 123.63,0 174.37,0 174.37,0 180.37,0 186.37,-6 186.37,-12 186.37,-12 186.37,-24 186.37,-24 186.37,-30 180.37,-36 174.37,-36"></path>
-<text text-anchor="middle" x="149" y="-13.8" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M175.81,-144C175.81,-144 125.07,-144 125.07,-144 119.07,-144 113.07,-138 113.07,-132 113.07,-132 113.07,-120 113.07,-120 113.07,-114 119.07,-108 125.07,-108 125.07,-108 175.81,-108 175.81,-108 181.81,-108 187.81,-114 187.81,-120 187.81,-120 187.81,-132 187.81,-132 187.81,-138 181.81,-144 175.81,-144"></path>
+<text text-anchor="middle" x="150.44" y="-121.8" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata</text>
 </g>
-<!-- A&#45;&gt;C -->
-<g id="edge2" class="edge">
-<title>A-&gt;C</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M149,-107.97C149,-91.38 149,-65.88 149,-46.43"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="152.5,-46.34 149,-36.34 145.5,-46.34 152.5,-46.34"></polygon>
+<!-- B&#45;&#45;C -->
+<g id="edge1" class="edge">
+<title>B--C</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M54.83,-126C74.25,-126 93.67,-126 113.09,-126"></path>
 </g>
 <!-- D -->
-<g id="node4" class="node">
+<g id="node3" class="node">
 <title>D</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M367.83,-36C367.83,-36 256.17,-36 256.17,-36 250.17,-36 244.17,-30 244.17,-24 244.17,-24 244.17,-12 244.17,-12 244.17,-6 250.17,0 256.17,0 256.17,0 367.83,0 367.83,0 373.83,0 379.83,-6 379.83,-12 379.83,-12 379.83,-24 379.83,-24 379.83,-30 373.83,-36 367.83,-36"></path>
-<text text-anchor="middle" x="312" y="-13.8" font-family="Helvetica,sans-Serif" font-size="14.00">Persistent Identifier</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M144.28,-36C144.28,-36 32.61,-36 32.61,-36 26.61,-36 20.61,-30 20.61,-24 20.61,-24 20.61,-12 20.61,-12 20.61,-6 26.61,0 32.61,0 32.61,0 144.28,0 144.28,0 150.28,0 156.28,-6 156.28,-12 156.28,-12 156.28,-24 156.28,-24 156.28,-30 150.28,-36 144.28,-36"></path>
+<text text-anchor="middle" x="88.44" y="-13.8" font-family="Helvetica,sans-Serif" font-size="14.00">Persistent Identifier</text>
 </g>
-<!-- A&#45;&gt;D -->
+<!-- C&#45;&#45;D -->
+<g id="edge2" class="edge">
+<title>C--D</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M140.48,-107.97C128.98,-88.31 110.16,-56.13 98.58,-36.34"></path>
+</g>
+<!-- D&#45;&#45;B -->
 <g id="edge3" class="edge">
-<title>A-&gt;D</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M175.19,-107.97C202.79,-90.02 246.42,-61.65 276.97,-41.78"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="279.13,-44.55 285.61,-36.16 275.31,-38.68 279.13,-44.55"></polygon>
+<title>D--B</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M78.46,-36.34C67.07,-56.13 48.56,-88.31 37.24,-107.97"></path>
 </g>
 </g>
 </svg>
@@ -372,45 +367,45 @@ Figure&nbsp;5.1: The Digital Object
 <li>The <strong>persistent identifier</strong> ensures the object can always be located and referenced.</li>
 </ul>
 <p>If any one of these components is missing, the digital object becomes incomplete. Files without metadata are uninterpretable; metadata without files is empty description; and neither files nor metadata are useful if they cannot be reliably identified and located.</p>
-<p>The diagrams below illustrate two common patterns for connecting a PID, the underlying files, and their metadata.</p>
+<p>The diagrams below illustrate two common patterns for connecting a persistent identifier, the underlying files, and their metadata.</p>
 <div class="cell" data-fig-width="8" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-do-implementation" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-do-implementation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<svg width="768" height="480" viewbox="0.00 0.00 826.00 272.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<svg width="768" height="480" viewbox="0.00 0.00 754.00 272.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 268)">
 <title>combined_relations</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-268 822,-268 822,4 -4,4"></polygon>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-268 750,-268 750,4 -4,4"></polygon>
 <g id="clust1" class="cluster">
 <title>cluster_1</title>
-<path fill="white" stroke="#528641" stroke-width="2" d="M20,-8C20,-8 376,-8 376,-8 382,-8 388,-14 388,-20 388,-20 388,-244 388,-244 388,-250 382,-256 376,-256 376,-256 20,-256 20,-256 14,-256 8,-250 8,-244 8,-244 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
-<text text-anchor="middle" x="198" y="-239.4" font-family="Helvetica,sans-Serif" font-size="14.00">Pattern 1</text>
+<path fill="white" stroke="#528641" stroke-width="2" d="M20,-8C20,-8 340,-8 340,-8 346,-8 352,-14 352,-20 352,-20 352,-244 352,-244 352,-250 346,-256 340,-256 340,-256 20,-256 20,-256 14,-256 8,-250 8,-244 8,-244 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
+<text text-anchor="middle" x="180" y="-239.4" font-family="Helvetica,sans-Serif" font-size="14.00">Pattern 1</text>
 </g>
 <g id="clust3" class="cluster">
 <title>cluster_2</title>
-<path fill="white" stroke="#528641" stroke-width="2" d="M442,-8C442,-8 798,-8 798,-8 804,-8 810,-14 810,-20 810,-20 810,-244 810,-244 810,-250 804,-256 798,-256 798,-256 442,-256 442,-256 436,-256 430,-250 430,-244 430,-244 430,-20 430,-20 430,-14 436,-8 442,-8"></path>
-<text text-anchor="middle" x="620" y="-239.4" font-family="Helvetica,sans-Serif" font-size="14.00">Pattern 2</text>
+<path fill="white" stroke="#528641" stroke-width="2" d="M406,-8C406,-8 726,-8 726,-8 732,-8 738,-14 738,-20 738,-20 738,-244 738,-244 738,-250 732,-256 726,-256 726,-256 406,-256 406,-256 400,-256 394,-250 394,-244 394,-244 394,-20 394,-20 394,-14 400,-8 406,-8"></path>
+<text text-anchor="middle" x="566" y="-239.4" font-family="Helvetica,sans-Serif" font-size="14.00">Pattern 2</text>
 </g>
 <!-- P1 -->
 <g id="node1" class="node">
 <title>P1</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M368.39,-223.2C368.39,-223.2 219.61,-223.2 219.61,-223.2 213.61,-223.2 207.61,-217.2 207.61,-211.2 207.61,-211.2 207.61,-199.2 207.61,-199.2 207.61,-193.2 213.61,-187.2 219.61,-187.2 219.61,-187.2 368.39,-187.2 368.39,-187.2 374.39,-187.2 380.39,-193.2 380.39,-199.2 380.39,-199.2 380.39,-211.2 380.39,-211.2 380.39,-217.2 374.39,-223.2 368.39,-223.2"></path>
-<text text-anchor="middle" x="294" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00">Persistent Identifier (PID)</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M331.83,-223.2C331.83,-223.2 220.17,-223.2 220.17,-223.2 214.17,-223.2 208.17,-217.2 208.17,-211.2 208.17,-211.2 208.17,-199.2 208.17,-199.2 208.17,-193.2 214.17,-187.2 220.17,-187.2 220.17,-187.2 331.83,-187.2 331.83,-187.2 337.83,-187.2 343.83,-193.2 343.83,-199.2 343.83,-199.2 343.83,-211.2 343.83,-211.2 343.83,-217.2 337.83,-223.2 331.83,-223.2"></path>
+<text text-anchor="middle" x="276" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00">Persistent Identifier</text>
 </g>
 <!-- F1 -->
 <g id="node3" class="node">
 <title>F1</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M210,-52C210,-52 180,-52 180,-52 174,-52 168,-46 168,-40 168,-40 168,-28 168,-28 168,-22 174,-16 180,-16 180,-16 210,-16 210,-16 216,-16 222,-22 222,-28 222,-28 222,-40 222,-40 222,-46 216,-52 210,-52"></path>
-<text text-anchor="middle" x="195" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Files</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M199,-52C199,-52 169,-52 169,-52 163,-52 157,-46 157,-40 157,-40 157,-28 157,-28 157,-22 163,-16 169,-16 169,-16 199,-16 199,-16 205,-16 211,-22 211,-28 211,-28 211,-40 211,-40 211,-46 205,-52 199,-52"></path>
+<text text-anchor="middle" x="184" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Files</text>
 </g>
 <!-- P1&#45;&gt;F1 -->
 <g id="edge1" class="edge">
 <title>P1-&gt;F1</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M283.96,-187.05C266.54,-157.28 230.63,-95.89 210.16,-60.91"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="213.14,-59.06 205.06,-52.2 207.09,-62.6 213.14,-59.06"></polygon>
-<text text-anchor="middle" x="277.24" y="-114.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">points to</text>
+<path fill="none" stroke="#528641" stroke-width="2" d="M266.67,-187.05C250.55,-157.4 217.39,-96.41 198.33,-61.35"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="201.2,-59.31 193.35,-52.2 195.05,-62.66 201.2,-59.31"></polygon>
+<text text-anchor="middle" x="262.24" y="-114.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">points to</text>
 </g>
 <!-- M1 -->
 <g id="node2" class="node">
@@ -421,71 +416,71 @@ Figure&nbsp;5.1: The Digital Object
 <!-- M1&#45;&gt;P1 -->
 <g id="edge3" class="edge">
 <title>M1-&gt;P1</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M90.39,-205.2C119.09,-205.2 160.06,-205.2 197.74,-205.2"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="197.75,-208.7 207.75,-205.2 197.75,-201.7 197.75,-208.7"></polygon>
-<text text-anchor="middle" x="149" y="-213" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">contains</text>
+<path fill="none" stroke="#528641" stroke-width="2" d="M90.33,-205.2C119.57,-205.2 161.26,-205.2 197.73,-205.2"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="197.87,-208.7 207.87,-205.2 197.87,-201.7 197.87,-208.7"></polygon>
+<text text-anchor="middle" x="149.13" y="-213" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">contains</text>
 </g>
 <!-- F1&#45;&gt;M1 -->
 <g id="edge2" class="edge">
 <title>F1-&gt;M1</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M180.56,-52.2C155.34,-82.26 103.15,-144.44 73.95,-179.24"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="71.14,-177.14 67.4,-187.05 76.51,-181.64 71.14,-177.14"></polygon>
-<text text-anchor="middle" x="158.24" y="-114.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">points to</text>
+<path fill="none" stroke="#528641" stroke-width="2" d="M170.68,-52.2C147.51,-82.13 99.68,-143.91 72.67,-178.79"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="69.64,-177 66.28,-187.05 75.17,-181.28 69.64,-177"></polygon>
+<text text-anchor="middle" x="151.8" y="-114.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">contains</text>
 </g>
 <!-- F2 -->
 <g id="node4" class="node">
 <title>F2</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M511,-52C511,-52 481,-52 481,-52 475,-52 469,-46 469,-40 469,-40 469,-28 469,-28 469,-22 475,-16 481,-16 481,-16 511,-16 511,-16 517,-16 523,-22 523,-28 523,-28 523,-40 523,-40 523,-46 517,-52 511,-52"></path>
-<text text-anchor="middle" x="496" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Files</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M475,-52C475,-52 445,-52 445,-52 439,-52 433,-46 433,-40 433,-40 433,-28 433,-28 433,-22 439,-16 445,-16 445,-16 475,-16 475,-16 481,-16 487,-22 487,-28 487,-28 487,-40 487,-40 487,-46 481,-52 475,-52"></path>
+<text text-anchor="middle" x="460" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Files</text>
 </g>
 <!-- M2 -->
 <g id="node5" class="node">
 <title>M2</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M500.37,-223.2C500.37,-223.2 449.63,-223.2 449.63,-223.2 443.63,-223.2 437.63,-217.2 437.63,-211.2 437.63,-211.2 437.63,-199.2 437.63,-199.2 437.63,-193.2 443.63,-187.2 449.63,-187.2 449.63,-187.2 500.37,-187.2 500.37,-187.2 506.37,-187.2 512.37,-193.2 512.37,-199.2 512.37,-199.2 512.37,-211.2 512.37,-211.2 512.37,-217.2 506.37,-223.2 500.37,-223.2"></path>
-<text text-anchor="middle" x="475" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M464.37,-223.2C464.37,-223.2 413.63,-223.2 413.63,-223.2 407.63,-223.2 401.63,-217.2 401.63,-211.2 401.63,-211.2 401.63,-199.2 401.63,-199.2 401.63,-193.2 407.63,-187.2 413.63,-187.2 413.63,-187.2 464.37,-187.2 464.37,-187.2 470.37,-187.2 476.37,-193.2 476.37,-199.2 476.37,-199.2 476.37,-211.2 476.37,-211.2 476.37,-217.2 470.37,-223.2 464.37,-223.2"></path>
+<text text-anchor="middle" x="439" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata</text>
 </g>
 <!-- M2&#45;&gt;F2 -->
 <g id="edge7" class="edge">
 <title>M2-&gt;F2</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M477.13,-187.05C480.78,-157.66 488.25,-97.45 492.62,-62.26"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="496.11,-62.56 493.87,-52.2 489.16,-61.69 496.11,-62.56"></polygon>
-<text text-anchor="middle" x="550.04" y="-114.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">has access info to</text>
+<path fill="none" stroke="#528641" stroke-width="2" d="M441.13,-187.05C444.78,-157.66 452.25,-97.45 456.62,-62.26"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="460.11,-62.56 457.87,-52.2 453.16,-61.69 460.11,-62.56"></polygon>
+<text text-anchor="middle" x="514.04" y="-114.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">has access info to</text>
 </g>
 <!-- P2 -->
 <g id="node6" class="node">
 <title>P2</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M790.39,-223.2C790.39,-223.2 641.61,-223.2 641.61,-223.2 635.61,-223.2 629.61,-217.2 629.61,-211.2 629.61,-211.2 629.61,-199.2 629.61,-199.2 629.61,-193.2 635.61,-187.2 641.61,-187.2 641.61,-187.2 790.39,-187.2 790.39,-187.2 796.39,-187.2 802.39,-193.2 802.39,-199.2 802.39,-199.2 802.39,-211.2 802.39,-211.2 802.39,-217.2 796.39,-223.2 790.39,-223.2"></path>
-<text text-anchor="middle" x="716" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00">Persistent Identifier (PID)</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M717.83,-223.2C717.83,-223.2 606.17,-223.2 606.17,-223.2 600.17,-223.2 594.17,-217.2 594.17,-211.2 594.17,-211.2 594.17,-199.2 594.17,-199.2 594.17,-193.2 600.17,-187.2 606.17,-187.2 606.17,-187.2 717.83,-187.2 717.83,-187.2 723.83,-187.2 729.83,-193.2 729.83,-199.2 729.83,-199.2 729.83,-211.2 729.83,-211.2 729.83,-217.2 723.83,-223.2 717.83,-223.2"></path>
+<text text-anchor="middle" x="662" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00">Persistent Identifier</text>
 </g>
 <!-- M2&#45;&gt;P2 -->
 <!-- M2&#45;&gt;P2 -->
 <g id="edge5" class="edge">
 <title>M2-&gt;P2</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M512.27,-190.36C521.57,-187.32 531.63,-184.56 541.2,-183 572.26,-177.93 606.58,-180.52 636.53,-185.43"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="636.05,-188.9 646.51,-187.18 637.26,-182.01 636.05,-188.9"></polygon>
-<text text-anchor="middle" x="571" y="-187.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">contains</text>
+<path fill="none" stroke="#528641" stroke-width="2" d="M476.35,-190.36C485.67,-187.32 495.75,-184.56 505.34,-183 531.91,-178.67 561.09,-180.91 586.99,-185.32"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="586.65,-188.82 597.12,-187.18 587.92,-181.93 586.65,-188.82"></polygon>
+<text text-anchor="middle" x="535.13" y="-187.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">contains</text>
 </g>
 <!-- P2&#45;&gt;M2 -->
 <g id="edge6" class="edge">
 <title>P2-&gt;M2</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M629.75,-205.2C593.73,-205.2 553.26,-205.2 522.75,-205.2"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="522.39,-201.7 512.39,-205.2 522.39,-208.7 522.39,-201.7"></polygon>
-<text text-anchor="middle" x="571" y="-213" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">points to</text>
+<path fill="none" stroke="#528641" stroke-width="2" d="M593.87,-205.2C559.14,-205.2 517.76,-205.2 486.51,-205.2"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="486.33,-201.7 476.33,-205.2 486.33,-208.7 486.33,-201.7"></polygon>
+<text text-anchor="middle" x="535.13" y="-213" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">points to</text>
 </g>
 </g>
 </svg>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-do-implementation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.2: Two common PID–File–Metadata relationship patterns.
+Figure&nbsp;5.2: Two common Persistent Identifier – File – Metadata relationship patterns.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>In the first pattern, the PID resolves directly to a file, which then contains or links to the relevant metadata.</p>
-<p>In the second pattern, the PID resolves to a metadata record or landing page, which provides the information needed to locate and access the file(s).<br>
-Both approaches are widely used; the choice depends on repository design and access requirements.</p>
+<p>In the first pattern, the persistent identifier resolves directly to a file, which then contains or links to the relevant metadata. An example are image formats like JPEG and TIFF or sequencing file formats like FASTA or FASTQ.</p>
+<p>In the second pattern, the persistent identifier resolves to a metadata record or landing page, which provides the information needed to locate and access the file(s). This approach is used by data publishing services.</p>
+<p>Both approaches are widely used; the choice depends on the use cases the data supports, the data repository design and access requirements.</p>
 </section>
 <section id="why-digital-objects-matter" class="level3">
 <h3 class="anchored" data-anchor-id="why-digital-objects-matter">Why Digital Objects Matter</h3>
@@ -498,7 +493,7 @@ Content, metadata, and identifiers travel together, preserving meaning across sy
 <li><p><strong>Reusability and sharing</strong> — supporting research, education, and collaboration.<br>
 Clear metadata, stable identifiers, and standardized structures make digital objects easy to understand and integrate into new workflows.</p></li>
 <li><p><strong>Reliable citation and tracking</strong> — through persistent identifiers that remain valid even as files move or metadata changes.<br>
-PIDs support accurate citation, versioning, provenance tracking, and automated linking.</p></li>
+Persistent identifiers support accurate citation, versioning, provenance tracking, and automated linking.</p></li>
 <li><p><strong>Robust storage strategies</strong> — enabling multiple replicas across diverse storage environments while maintaining a single, consistent identity.<br>
 Replicas of files on different storage systems improve resilience and performance without compromising citation or access.</p></li>
 </ul>
@@ -511,103 +506,116 @@ Replicas of files on different storage systems improve resilience and performanc
 <li><strong>Provenance</strong> — documenting how data came to be, including transformations and dependencies.<br>
 This includes relationships such as <em>raw data → processed data → analysed data</em>, making the object’s history transparent and reproducible.</li>
 </ul>
+</section>
+<section id="data-lineage-across-the-data-states" class="level2">
+<h2 class="anchored" data-anchor-id="data-lineage-across-the-data-states">Data Lineage Across the Data States</h2>
+<p>Digital objects form a natural progression as research unfolds. Each transformation produces a new object with its own files, metadata, and persistent identifier, while retaining a link to the object(s) it was derived from. The figure <a href="policy-engines.html#fig-4" class="quarto-xref">Figure&nbsp;<span>13.4</span></a> illustrates this chain: raw experimental data, a cleaned dataset derived from it, and an analysed dataset that becomes part of the archival or published record.</p>
+<p>This progression aligns with the data states without needing to restate the full model. The raw and processed objects sit in the <em>Active</em> and <em>Closed</em> states, where change is expected and provenance captures how one object leads to the next. The analysed object represents the point where the workflow stabilises: it moves into <em>Locked</em> and then <em>Archived/Published</em>, becoming a fixed, citable outcome.</p>
+<p><a href="policy-engines.html#fig-4" class="quarto-xref">Figure&nbsp;<span>13.4</span></a> shows the how the lineage is documented in the metadata (derived_from: PID_A, derived_from: PID_B). This ensures that the digital objects remain connected even as they mature. Each object stands on its own, but together they form a traceable path from initial measurement to final result, a path that preservation systems can manage and that future users can understand.</p>
 <div class="cell" data-fig-width="8" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<svg width="768" height="480" viewbox="0.00 0.00 518.00 397.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 393)">
+<svg width="768" height="480" viewbox="0.00 0.00 721.00 446.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 442.8)">
 <title>data_lineage</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-393 514,-393 514,4 -4,4"></polygon>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-442.8 717,-442.8 717,4 -4,4"></polygon>
 <g id="clust3" class="cluster">
 <title>cluster_analysis</title>
-<path fill="white" stroke="#528641" stroke-width="2" d="M363,-8C363,-8 490,-8 490,-8 496,-8 502,-14 502,-20 502,-20 502,-369 502,-369 502,-375 496,-381 490,-381 490,-381 363,-381 363,-381 357,-381 351,-375 351,-369 351,-369 351,-20 351,-20 351,-14 357,-8 363,-8"></path>
-<text text-anchor="middle" x="426.5" y="-364.4" font-family="Helvetica,sans-Serif" font-size="14.00">Analysed Data Object</text>
+<path fill="white" stroke="#528641" stroke-width="2" d="M513,-8C513,-8 693,-8 693,-8 699,-8 705,-14 705,-20 705,-20 705,-418.8 705,-418.8 705,-424.8 699,-430.8 693,-430.8 693,-430.8 513,-430.8 513,-430.8 507,-430.8 501,-424.8 501,-418.8 501,-418.8 501,-20 501,-20 501,-14 507,-8 513,-8"></path>
+<text text-anchor="middle" x="603" y="-414.2" font-family="Helvetica,sans-Serif" font-size="14.00">Analysed Data</text>
 </g>
 <g id="clust1" class="cluster">
 <title>cluster_raw</title>
-<path fill="white" stroke="#528641" stroke-width="2" d="M20,-8C20,-8 117,-8 117,-8 123,-8 129,-14 129,-20 129,-20 129,-369 129,-369 129,-375 123,-381 117,-381 117,-381 20,-381 20,-381 14,-381 8,-375 8,-369 8,-369 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
-<text text-anchor="middle" x="68.5" y="-364.4" font-family="Helvetica,sans-Serif" font-size="14.00">Raw Data Object</text>
+<path fill="white" stroke="#528641" stroke-width="2" d="M20,-8C20,-8 174,-8 174,-8 180,-8 186,-14 186,-20 186,-20 186,-418.8 186,-418.8 186,-424.8 180,-430.8 174,-430.8 174,-430.8 20,-430.8 20,-430.8 14,-430.8 8,-424.8 8,-418.8 8,-418.8 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
+<text text-anchor="middle" x="97" y="-414.2" font-family="Helvetica,sans-Serif" font-size="14.00">Raw Data</text>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_proc</title>
-<path fill="white" stroke="#528641" stroke-width="2" d="M167,-8C167,-8 302,-8 302,-8 308,-8 314,-14 314,-20 314,-20 314,-369 314,-369 314,-375 308,-381 302,-381 302,-381 167,-381 167,-381 161,-381 155,-375 155,-369 155,-369 155,-20 155,-20 155,-14 161,-8 167,-8"></path>
-<text text-anchor="middle" x="234.5" y="-364.4" font-family="Helvetica,sans-Serif" font-size="14.00">Processed Data Object</text>
+<path fill="white" stroke="#528641" stroke-width="2" d="M254,-8C254,-8 434,-8 434,-8 440,-8 446,-14 446,-20 446,-20 446,-418.8 446,-418.8 446,-424.8 440,-430.8 434,-430.8 434,-430.8 254,-430.8 254,-430.8 248,-430.8 242,-424.8 242,-418.8 242,-418.8 242,-20 242,-20 242,-14 248,-8 254,-8"></path>
+<text text-anchor="middle" x="344" y="-414.2" font-family="Helvetica,sans-Serif" font-size="14.00">Processed Data</text>
 </g>
 <!-- R_F -->
 <g id="node1" class="node">
 <title>R_F</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M83,-348.2C83,-348.2 53,-348.2 53,-348.2 47,-348.2 41,-342.2 41,-336.2 41,-336.2 41,-324.2 41,-324.2 41,-318.2 47,-312.2 53,-312.2 53,-312.2 83,-312.2 83,-312.2 89,-312.2 95,-318.2 95,-324.2 95,-324.2 95,-336.2 95,-336.2 95,-342.2 89,-348.2 83,-348.2"></path>
-<text text-anchor="middle" x="68" y="-326" font-family="Helvetica,sans-Serif" font-size="14.00">Files</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M140.14,-398C140.14,-398 53.86,-398 53.86,-398 47.86,-398 41.86,-392 41.86,-386 41.86,-386 41.86,-374 41.86,-374 41.86,-368 47.86,-362 53.86,-362 53.86,-362 140.14,-362 140.14,-362 146.14,-362 152.14,-368 152.14,-374 152.14,-374 152.14,-386 152.14,-386 152.14,-392 146.14,-398 140.14,-398"></path>
+<text text-anchor="middle" x="97" y="-375.8" font-family="Helvetica,sans-Serif" font-size="14.00">experiment.csv</text>
 </g>
 <!-- R_M -->
 <g id="node2" class="node">
 <title>R_M</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M93.37,-209.2C93.37,-209.2 42.63,-209.2 42.63,-209.2 36.63,-209.2 30.63,-203.2 30.63,-197.2 30.63,-197.2 30.63,-185.2 30.63,-185.2 30.63,-179.2 36.63,-173.2 42.63,-173.2 42.63,-173.2 93.37,-173.2 93.37,-173.2 99.37,-173.2 105.37,-179.2 105.37,-185.2 105.37,-185.2 105.37,-197.2 105.37,-197.2 105.37,-203.2 99.37,-209.2 93.37,-209.2"></path>
-<text text-anchor="middle" x="68" y="-187" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M166,-261C166,-261 28,-261 28,-261 22,-261 16,-255 16,-249 16,-249 16,-165 16,-165 16,-159 22,-153 28,-153 28,-153 166,-153 166,-153 172,-153 178,-159 178,-165 178,-165 178,-249 178,-249 178,-255 172,-261 166,-261"></path>
+<text text-anchor="start" x="66.66" y="-239.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">Metadata</text>
+<text text-anchor="start" x="29.69" y="-214.4" font-family="Helvetica,sans-Serif" font-size="14.00">Measuring instrument</text>
+<text text-anchor="start" x="70.53" y="-190.4" font-family="Helvetica,sans-Serif" font-size="14.00">Location</text>
+<text text-anchor="start" x="91.17" y="-166.4" font-family="Helvetica,sans-Serif" font-size="14.00">...</text>
 </g>
 <!-- R_F&#45;&gt;R_M -->
 <!-- R_P -->
 <g id="node3" class="node">
 <title>R_P</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M96,-52C96,-52 66,-52 66,-52 60,-52 54,-46 54,-40 54,-40 54,-28 54,-28 54,-22 60,-16 66,-16 66,-16 96,-16 96,-16 102,-16 108,-22 108,-28 108,-28 108,-40 108,-40 108,-46 102,-52 96,-52"></path>
-<text text-anchor="middle" x="81" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">PID</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M147.04,-52C147.04,-52 84.96,-52 84.96,-52 78.96,-52 72.96,-46 72.96,-40 72.96,-40 72.96,-28 72.96,-28 72.96,-22 78.96,-16 84.96,-16 84.96,-16 147.04,-16 147.04,-16 153.04,-16 159.04,-22 159.04,-28 159.04,-28 159.04,-40 159.04,-40 159.04,-46 153.04,-52 147.04,-52"></path>
+<text text-anchor="middle" x="116" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">identifier_A</text>
 </g>
 <!-- R_M&#45;&gt;R_P -->
 <!-- P_F -->
 <g id="node4" class="node">
 <title>P_F</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M245,-348.2C245,-348.2 215,-348.2 215,-348.2 209,-348.2 203,-342.2 203,-336.2 203,-336.2 203,-324.2 203,-324.2 203,-318.2 209,-312.2 215,-312.2 215,-312.2 245,-312.2 245,-312.2 251,-312.2 257,-318.2 257,-324.2 257,-324.2 257,-336.2 257,-336.2 257,-342.2 251,-348.2 245,-348.2"></path>
-<text text-anchor="middle" x="230" y="-326" font-family="Helvetica,sans-Serif" font-size="14.00">Files</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M415.47,-398C415.47,-398 272.53,-398 272.53,-398 266.53,-398 260.53,-392 260.53,-386 260.53,-386 260.53,-374 260.53,-374 260.53,-368 266.53,-362 272.53,-362 272.53,-362 415.47,-362 415.47,-362 421.47,-362 427.47,-368 427.47,-374 427.47,-374 427.47,-386 427.47,-386 427.47,-392 421.47,-398 415.47,-398"></path>
+<text text-anchor="middle" x="344" y="-375.8" font-family="Helvetica,sans-Serif" font-size="14.00">cleaned_experiment.csv</text>
 </g>
 <!-- P_M -->
 <g id="node5" class="node">
 <title>P_M</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M255.37,-209.2C255.37,-209.2 204.63,-209.2 204.63,-209.2 198.63,-209.2 192.63,-203.2 192.63,-197.2 192.63,-197.2 192.63,-185.2 192.63,-185.2 192.63,-179.2 198.63,-173.2 204.63,-173.2 204.63,-173.2 255.37,-173.2 255.37,-173.2 261.37,-173.2 267.37,-179.2 267.37,-185.2 267.37,-185.2 267.37,-197.2 267.37,-197.2 267.37,-203.2 261.37,-209.2 255.37,-209.2"></path>
-<text text-anchor="middle" x="230" y="-187" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M425.5,-261C425.5,-261 262.5,-261 262.5,-261 256.5,-261 250.5,-255 250.5,-249 250.5,-249 250.5,-165 250.5,-165 250.5,-159 256.5,-153 262.5,-153 262.5,-153 425.5,-153 425.5,-153 431.5,-153 437.5,-159 437.5,-165 437.5,-165 437.5,-249 437.5,-249 437.5,-255 431.5,-261 425.5,-261"></path>
+<text text-anchor="start" x="314.16" y="-239.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">Metadata</text>
+<text text-anchor="start" x="281.08" y="-214.4" font-family="Helvetica,sans-Serif" font-size="14.00">Imputation algorithm</text>
+<text text-anchor="start" x="264.74" y="-190.4" font-family="Helvetica,sans-Serif" font-size="14.00">derived_from: identifier_A</text>
+<text text-anchor="start" x="338.67" y="-166.4" font-family="Helvetica,sans-Serif" font-size="14.00">...</text>
 </g>
 <!-- P_F&#45;&gt;P_M -->
 <!-- P_M&#45;&gt;R_P -->
 <g id="edge7" class="edge">
 <title>P_M-&gt;R_P</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M199.49,-173.03C179.35,-160.67 153.25,-142.63 134.19,-122.2 117.19,-103.98 102.83,-79.49 93.33,-61.1"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="96.43,-59.48 88.82,-52.11 90.17,-62.62 96.43,-59.48"></polygon>
-<text text-anchor="middle" x="179.91" y="-107.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">created from</text>
+<path fill="none" stroke="#528641" stroke-width="2" d="M273.11,-152.83C248.08,-134.06 219.81,-112.85 194.21,-93.66"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="196.1,-90.7 186,-87.5 191.9,-96.3 196.1,-90.7"></polygon>
 </g>
 <!-- P_P -->
 <g id="node6" class="node">
 <title>P_P</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M281,-52C281,-52 251,-52 251,-52 245,-52 239,-46 239,-40 239,-40 239,-28 239,-28 239,-22 245,-16 251,-16 251,-16 281,-16 281,-16 287,-16 293,-22 293,-28 293,-28 293,-40 293,-40 293,-46 287,-52 281,-52"></path>
-<text text-anchor="middle" x="266" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">PID</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M400.04,-52C400.04,-52 337.96,-52 337.96,-52 331.96,-52 325.96,-46 325.96,-40 325.96,-40 325.96,-28 325.96,-28 325.96,-22 331.96,-16 337.96,-16 337.96,-16 400.04,-16 400.04,-16 406.04,-16 412.04,-22 412.04,-28 412.04,-28 412.04,-40 412.04,-40 412.04,-46 406.04,-52 400.04,-52"></path>
+<text text-anchor="middle" x="369" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">identifier_B</text>
 </g>
 <!-- P_M&#45;&gt;P_P -->
 <!-- A_F -->
 <g id="node7" class="node">
 <title>A_F</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M428,-348.2C428,-348.2 398,-348.2 398,-348.2 392,-348.2 386,-342.2 386,-336.2 386,-336.2 386,-324.2 386,-324.2 386,-318.2 392,-312.2 398,-312.2 398,-312.2 428,-312.2 428,-312.2 434,-312.2 440,-318.2 440,-324.2 440,-324.2 440,-336.2 440,-336.2 440,-342.2 434,-348.2 428,-348.2"></path>
-<text text-anchor="middle" x="413" y="-326" font-family="Helvetica,sans-Serif" font-size="14.00">Files</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M646.44,-398C646.44,-398 559.56,-398 559.56,-398 553.56,-398 547.56,-392 547.56,-386 547.56,-386 547.56,-374 547.56,-374 547.56,-368 553.56,-362 559.56,-362 559.56,-362 646.44,-362 646.44,-362 652.44,-362 658.44,-368 658.44,-374 658.44,-374 658.44,-386 658.44,-386 658.44,-392 652.44,-398 646.44,-398"></path>
+<text text-anchor="middle" x="603" y="-375.8" font-family="Helvetica,sans-Serif" font-size="14.00">figure_data.csv</text>
 </g>
 <!-- A_M -->
 <g id="node8" class="node">
 <title>A_M</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M438.37,-209.2C438.37,-209.2 387.63,-209.2 387.63,-209.2 381.63,-209.2 375.63,-203.2 375.63,-197.2 375.63,-197.2 375.63,-185.2 375.63,-185.2 375.63,-179.2 381.63,-173.2 387.63,-173.2 387.63,-173.2 438.37,-173.2 438.37,-173.2 444.37,-173.2 450.37,-179.2 450.37,-185.2 450.37,-185.2 450.37,-197.2 450.37,-197.2 450.37,-203.2 444.37,-209.2 438.37,-209.2"></path>
-<text text-anchor="middle" x="413" y="-187" font-family="Helvetica,sans-Serif" font-size="14.00">Metadata</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M684.5,-261C684.5,-261 521.5,-261 521.5,-261 515.5,-261 509.5,-255 509.5,-249 509.5,-249 509.5,-165 509.5,-165 509.5,-159 515.5,-153 521.5,-153 521.5,-153 684.5,-153 684.5,-153 690.5,-153 696.5,-159 696.5,-165 696.5,-165 696.5,-249 696.5,-249 696.5,-255 690.5,-261 684.5,-261"></path>
+<text text-anchor="start" x="573.16" y="-239.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">Metadata</text>
+<text text-anchor="start" x="537.36" y="-214.4" font-family="Helvetica,sans-Serif" font-size="14.00">Regression algorithm</text>
+<text text-anchor="start" x="523.74" y="-190.4" font-family="Helvetica,sans-Serif" font-size="14.00">derived_from: identifier_B</text>
+<text text-anchor="start" x="597.67" y="-166.4" font-family="Helvetica,sans-Serif" font-size="14.00">...</text>
 </g>
 <!-- A_F&#45;&gt;A_M -->
 <!-- A_M&#45;&gt;P_P -->
 <g id="edge8" class="edge">
 <title>A_M-&gt;P_P</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M375.79,-173.31C353.29,-161.58 325.35,-144.14 306.19,-122.2 290.83,-104.61 280.25,-80.17 273.81,-61.63"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="277.1,-60.44 270.66,-52.03 270.45,-62.62 277.1,-60.44"></polygon>
-<text text-anchor="middle" x="350.91" y="-107.8" font-family="Helvetica,sans-Serif" font-size="16.00" fill="#528641">created from</text>
+<path fill="none" stroke="#528641" stroke-width="2" d="M530.24,-152.83C506.21,-135.27 479.25,-115.56 454.35,-97.37"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="456.14,-94.34 446,-91.27 452.01,-99.99 456.14,-94.34"></polygon>
 </g>
 <!-- A_P -->
 <g id="node9" class="node">
 <title>A_P</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M431,-52C431,-52 401,-52 401,-52 395,-52 389,-46 389,-40 389,-40 389,-28 389,-28 389,-22 395,-16 401,-16 401,-16 431,-16 431,-16 437,-16 443,-22 443,-28 443,-28 443,-40 443,-40 443,-46 437,-52 431,-52"></path>
-<text text-anchor="middle" x="416" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">PID</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M634.31,-52C634.31,-52 571.69,-52 571.69,-52 565.69,-52 559.69,-46 559.69,-40 559.69,-40 559.69,-28 559.69,-28 559.69,-22 565.69,-16 571.69,-16 571.69,-16 634.31,-16 634.31,-16 640.31,-16 646.31,-22 646.31,-28 646.31,-28 646.31,-40 646.31,-40 646.31,-46 640.31,-52 634.31,-52"></path>
+<text text-anchor="middle" x="603" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">identifier_C</text>
 </g>
 <!-- A_M&#45;&gt;A_P -->
 </g>
@@ -615,24 +623,26 @@ This includes relationships such as <em>raw data → processed data → analysed
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.3: Data lineage represented as a chain of Digital Objects (raw → processed → analysed).
+Figure&nbsp;5.3: Data lineage represented as a chain of Digital Objects linking from raw expreimental data to cleaned and processed data to the final analysed data.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
+<section id="summary" class="level3">
+<h3 class="anchored" data-anchor-id="summary">Summary</h3>
+<p>A digital object is content + context + identity. The files (bitstreams) supply the content, the metadata provides the meaning needed to interpret and manage that content, and the persistent identifier anchors a stable, durable identity. Together, these components make digital information portable across systems, understandable over time, and resilient to changes in storage or technology.</p>
+<p>Although these three parts form a single conceptual unit, they differ fundamentally in how they behave and how they are managed. Files evolve across the research workflow and may stabilise at different moments. Metadata spans descriptive, structural, technical, and provenance layers, each with its own standards and responsibilities. Persistent identifiers rely on external resolution infrastructures and govern how digital objects are referenced, cited, and linked. Because each component plays a distinct role, each requires its own chapter.</p>
+<p>It is also important to recognise that digital objects are conceptually unified, but operationally distributed. Files live in storage systems; metadata lives in catalogues and registries; persistent identifiers live in resolver infrastructures. The coherence of the digital object emerges from the relationships between these components, not from their physical co‑location. Understanding each part individually is therefore essential before examining how repositories and data services bind them together.</p>
+<p>The following chapters explore these components in depth, first <a href="./files.html">Files</a>, then <a href="./metadata.html">Metadata</a>, then <a href="./pids.html">Persistent Identifiers</a>. Once these foundations are established, we will return to the question of how digital objects are assembled, managed, and preserved across research infrastructures.</p>
 </section>
-<section id="in-essence" class="level3">
-<h3 class="anchored" data-anchor-id="in-essence">In essence</h3>
-<p>A digital object is content + context + identity.<br>
-The bitstreams supply the content, the metadata provides the meaning needed to interpret and manage that content, and the persistent identifier anchors a stable, durable identity. Together, these components make digital information portable across systems, understandable over time, and resilient to changes in storage or technology. The chapters that follow examine each of these elements in depth, along with the infrastructure that enables them to function as a coherent whole.</p>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <ul>
-<li>https://www.lisedunetwork.com/what-is-a-digital-object/?utm_source=copilot.com</li>
-<li>https://wiki.dpconline.org/index.php?title=4.2.1.3.1_Representation_Information_Types&amp;utm_source=copilot.com</li>
-<li>https://archive.rd-alliance.org/sites/default/files/2-kahn-do-talk.pdf?utm_source=copilot.com</li>
+<li>https://www.lisedunetwork.com/what-is-a-digital-object</li>
+<li>https://wiki.dpconline.org/index.php?title=4.2.1.3.1_Representation_Information_Types</li>
+<li>https://archive.rd-alliance.org/sites/default/files/2-kahn-do-talk.pdf</li>
 <li>DOI 10.1007/s00799-005-0128-x</li>
 </ul>
 
