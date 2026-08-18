@@ -303,14 +303,15 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Files are the <em>content</em> component of a digital object. This chapter examines how they behave and evolve across the research data life cycle.</p>
 <section id="what-are-files-in-research-data-management" class="level2">
 <h2 class="anchored" data-anchor-id="what-are-files-in-research-data-management">What Are Files in Research Data Management?</h2>
-<p>Every digital research project begins with files. They are the most immediate and tangible artefacts researchers work with: a CSV exported from an instrument, a TIFF image from a microscope, a NetCDF model output, a PDF protocol, or a collection of scripts and notebooks. In Research Data Management (RDM), files are the basic units of digital content — the raw material from which more structured research outputs are eventually created.</p>
+<p>Every digital research project begins with files. They are the most immediate and tangible artefacts that researchers work with: a CSV exported from an instrument, a TIFF image from a microscope, a NetCDF model output, a PDF protocol, or a collection of scripts and notebooks. In Research Data Management (RDM), files are the basic units of digital content and the raw material from which more structured research outputs are eventually created.</p>
 <p>At this early stage, files function simply as containers of information. They are produced quickly, modified frequently, and organised in ways that suit the researcher’s workflow. Their purpose is to support active work rather than long‑term preservation. As a result:</p>
 <ul>
 <li>their organisation reflects workflow convenience,<br>
 </li>
-<li>they rarely have persistent identifiers,<br>
+<li>they rarely have persistent identifiers (PIDs),<br>
 </li>
 <li>they are not yet accompanied by curated metadata,<br>
 </li>
@@ -356,7 +357,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>Each file plays a different role. Some — such as raw data or calibration metadata — may have value on their own. Others only make sense in combination with the rest.</p>
+<p>Each file plays a different role. Some may have value on their own, e.g.&nbsp;raw data or calibration metadata. Others only make sense in combination with the rest, e.g.&nbsp;code for data analysis.</p>
 <p>Depending on the stage of the research data life cycle, these files may be treated as:</p>
 <ul>
 <li>separate digital objects, each with its own metadata and persistent identifier, or<br>
@@ -375,54 +376,74 @@ ul.task-list li input[type="checkbox"] {
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<svg width="768" height="480" viewbox="0.00 0.00 785.04 76.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 72)">
+<svg width="768" height="480" viewbox="0.00 0.00 328.00 350.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 346)">
 <title>progression</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-72 781.04,-72 781.04,4 -4,4"></polygon>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-346 324,-346 324,4 -4,4"></polygon>
 <g id="clust1" class="cluster">
 <title>cluster_flow</title>
 </g>
 <!-- A -->
 <g id="node1" class="node">
 <title>A</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M58,-52C58,-52 28,-52 28,-52 22,-52 16,-46 16,-40 16,-40 16,-28 16,-28 16,-22 22,-16 28,-16 28,-16 58,-16 58,-16 64,-16 70,-22 70,-28 70,-28 70,-40 70,-40 70,-46 64,-52 58,-52"></path>
-<text text-anchor="middle" x="43" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Files</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M176,-326C176,-326 146,-326 146,-326 140,-326 134,-320 134,-314 134,-314 134,-302 134,-302 134,-296 140,-290 146,-290 146,-290 176,-290 176,-290 182,-290 188,-296 188,-302 188,-302 188,-314 188,-314 188,-320 182,-326 176,-326"></path>
+<text text-anchor="middle" x="161" y="-303.8" font-family="Helvetica,sans-Serif" font-size="14.00">Files</text>
 </g>
 <!-- B -->
 <g id="node2" class="node">
 <title>B</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M269.23,-52C269.23,-52 182.92,-52 182.92,-52 176.92,-52 170.92,-46 170.92,-40 170.92,-40 170.92,-28 170.92,-28 170.92,-22 176.92,-16 182.92,-16 182.92,-16 269.23,-16 269.23,-16 275.23,-16 281.23,-22 281.23,-28 281.23,-28 281.23,-40 281.23,-40 281.23,-46 275.23,-52 269.23,-52"></path>
-<text text-anchor="middle" x="226.08" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Stabilised Files</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M114.15,-189C114.15,-189 27.85,-189 27.85,-189 21.85,-189 15.85,-183 15.85,-177 15.85,-177 15.85,-165 15.85,-165 15.85,-159 21.85,-153 27.85,-153 27.85,-153 114.15,-153 114.15,-153 120.15,-153 126.15,-159 126.15,-165 126.15,-165 126.15,-177 126.15,-177 126.15,-183 120.15,-189 114.15,-189"></path>
+<text text-anchor="middle" x="71" y="-166.8" font-family="Helvetica,sans-Serif" font-size="14.00">Stabilised Files</text>
 </g>
 <!-- A&#45;&gt;B -->
 <g id="edge1" class="edge">
 <title>A-&gt;B</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M70.33,-34C93.86,-34 129.31,-34 160.34,-34"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="160.68,-37.5 170.68,-34 160.68,-30.5 160.68,-37.5"></polygon>
+<path fill="none" stroke="#528641" stroke-width="2" d="M133.89,-292.55C108.12,-270.26 77.82,-227.11 66.87,-198.94"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="70.16,-197.74 63.76,-189.3 63.5,-199.9 70.16,-197.74"></polygon>
 </g>
 <!-- C -->
 <g id="node3" class="node">
 <title>C</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M476.53,-52C476.53,-52 394.02,-52 394.02,-52 388.02,-52 382.02,-46 382.02,-40 382.02,-40 382.02,-28 382.02,-28 382.02,-22 388.02,-16 394.02,-16 394.02,-16 476.53,-16 476.53,-16 482.53,-16 488.53,-22 488.53,-28 488.53,-28 488.53,-40 488.53,-40 488.53,-46 482.53,-52 476.53,-52"></path>
-<text text-anchor="middle" x="435.28" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Digital Objects</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M292.26,-189C292.26,-189 209.74,-189 209.74,-189 203.74,-189 197.74,-183 197.74,-177 197.74,-177 197.74,-165 197.74,-165 197.74,-159 203.74,-153 209.74,-153 209.74,-153 292.26,-153 292.26,-153 298.26,-153 304.26,-159 304.26,-165 304.26,-165 304.26,-177 304.26,-177 304.26,-183 298.26,-189 292.26,-189"></path>
+<text text-anchor="middle" x="251" y="-166.8" font-family="Helvetica,sans-Serif" font-size="14.00">Digital Objects</text>
+</g>
+<!-- A&#45;&gt;C -->
+<!-- B&#45;&gt;A -->
+<g id="edge6" class="edge">
+<title>B-&gt;A</title>
+<path fill="none" stroke="#528641" stroke-width="2" stroke-dasharray="5,2" d="M101.41,-189.39C126.48,-212.44 154.82,-253.33 165.23,-280.31"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="161.91,-281.44 168.29,-289.9 168.58,-279.31 161.91,-281.44"></polygon>
 </g>
 <!-- B&#45;&gt;C -->
 <g id="edge2" class="edge">
 <title>B-&gt;C</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M281.25,-34C308.9,-34 342.7,-34 371.5,-34"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="371.86,-37.5 381.86,-34 371.86,-30.5 371.86,-37.5"></polygon>
+<path fill="none" stroke="#528641" stroke-width="2" d="M126.2,-159.52C146.72,-157.14 167.25,-156.86 187.78,-158.7"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="187.55,-162.19 197.86,-159.76 188.29,-155.23 187.55,-162.19"></polygon>
 </g>
 <!-- D -->
 <g id="node4" class="node">
 <title>D</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M748.86,-52C748.86,-52 601.59,-52 601.59,-52 595.59,-52 589.59,-46 589.59,-40 589.59,-40 589.59,-28 589.59,-28 589.59,-22 595.59,-16 601.59,-16 601.59,-16 748.86,-16 748.86,-16 754.86,-16 760.86,-22 760.86,-28 760.86,-28 760.86,-40 760.86,-40 760.86,-46 754.86,-52 748.86,-52"></path>
-<text text-anchor="middle" x="675.22" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Published Digital Objects</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M233.63,-52C233.63,-52 86.37,-52 86.37,-52 80.37,-52 74.37,-46 74.37,-40 74.37,-40 74.37,-28 74.37,-28 74.37,-22 80.37,-16 86.37,-16 86.37,-16 233.63,-16 233.63,-16 239.63,-16 245.63,-22 245.63,-28 245.63,-28 245.63,-40 245.63,-40 245.63,-46 239.63,-52 233.63,-52"></path>
+<text text-anchor="middle" x="160" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Published Digital Objects</text>
+</g>
+<!-- B&#45;&gt;D -->
+<!-- C&#45;&gt;A -->
+<g id="edge4" class="edge">
+<title>C-&gt;A</title>
+<path fill="none" stroke="#528641" stroke-width="2" stroke-dasharray="5,2" d="M258.24,-189.3C252.26,-213.88 222.79,-258.88 195.68,-285.55"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="193.07,-283.19 188.11,-292.55 197.83,-288.33 193.07,-283.19"></polygon>
+</g>
+<!-- C&#45;&gt;B -->
+<g id="edge5" class="edge">
+<title>C-&gt;B</title>
+<path fill="none" stroke="#528641" stroke-width="2" stroke-dasharray="5,2" d="M197.86,-182.24C177.33,-184.76 156.8,-185.17 136.27,-183.48"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="136.49,-179.99 126.2,-182.48 135.8,-186.95 136.49,-179.99"></polygon>
 </g>
 <!-- C&#45;&gt;D -->
 <g id="edge3" class="edge">
 <title>C-&gt;D</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M488.5,-34C515.04,-34 548.15,-34 579.03,-34"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="579.4,-37.5 589.4,-34 579.4,-30.5 579.4,-37.5"></polygon>
+<path fill="none" stroke="#528641" stroke-width="2" d="M239.47,-152.9C223.83,-129.7 195.75,-88.04 177.5,-60.96"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="180.21,-58.72 171.72,-52.39 174.41,-62.63 180.21,-58.72"></polygon>
 </g>
 </g>
 </svg>
@@ -435,6 +456,9 @@ Figure&nbsp;6.1: Conceptual progression from working files to stabilised files, 
 </div>
 </div>
 </div>
+<p>This progression is not strictly linear. Files can be demoted back to an earlier stage — for example, when an experiment fails or a result is invalidated. Likewise, multiple copies of the same file may diverge, leading to different paths through the progression as they are cleaned, analysed, or curated in different ways.</p>
+<p>Research, therefore, moves through the data life cycle not only in a forward direction. Each stage can connect back to earlier stages, reflecting the iterative, exploratory, and corrective nature of research practice.</p>
+<p>The exception is the <em>published</em> Digital Object: once published, it must remain persistently available, citable, and resolvable. Publication policies prevent the object itself from being demoted or withdrawn from the life cycle. However, its content may still change through updates, corrections, or new versions, and its persistent identifier may continue to resolve even if the underlying files are removed or replaced. In such cases, the PID acts as a “tombstone” - ensuring that the published object’s identity and citation remain intact even when its content is no longer available. <a href="./pids.html#how-does-a-pid-work">Later chapters</a> discuss how <em>tombstoning</em>, and PID policies support this guarantee.</p>
 <section id="process-active-research-and-working-copies" class="level3">
 <h3 class="anchored" data-anchor-id="process-active-research-and-working-copies">Process — Active Research and Working Copies</h3>
 <p>During the Process stage, researchers generate and modify files rapidly: raw instrument outputs, logs, temporary results, scripts, and notebooks. These files typically live on local machines, lab servers, or compute systems such as HPC clusters or cloud VMs.</p>
@@ -552,8 +576,7 @@ Figure&nbsp;6.1: Conceptual progression from working files to stabilised files, 
 <h2 class="anchored" data-anchor-id="a-note-on-terminology-from-files-to-digital-objects">A Note on Terminology: From Files to Digital Objects</h2>
 <p>Although this chapter focuses on files, the discussion naturally expands into the broader concept of digital objects. This shift is intentional. In research practice, files rarely exist in isolation: once they stabilise, are moved to durable storage, or enter archival workflows, they become part of a digital object.</p>
 <p>During the <em>Process</em> and <em>Analyse</em> stages, it is appropriate to speak primarily about files, because researchers interact with them as working artefacts. But once these files are stabilised, preserved, or prepared for dissemination, they transition into digital objects.</p>
-<p>This conceptual shift reflects the reality of the research data life cycle:<br>
-files are the raw materials; digital objects are the curated, managed, and preservable units that persist beyond the immediate research workflow.</p>
+<p>This conceptual shift reflects the reality of the research data life cycle: files are the raw materials; digital objects are the curated, managed, and preservable units that persist beyond the immediate research workflow.</p>
 <p>By acknowledging this transition, the chapter can describe both the practical handling of files during research and their later role as components of durable, citable digital objects.</p>
 </section>
 <section id="summary" class="level2">
@@ -565,6 +588,7 @@ files are the raw materials; digital objects are the curated, managed, and prese
 <li><strong>Published</strong> → Files with distinct roles or reuse potential are released as separate digital objects, while tightly interdependent files are published together as a coherent bundle.</li>
 </ul>
 <p>This perspective clarifies when a file is simply a component of a dataset, and when it should be recognised as a digital object in its own right, complete with metadata, identity, and long‑term value.</p>
+<p>As files take on this more durable role, their meaning increasingly depends on the descriptive information that accompanies them. This includes information how they were created, what they contain, and how they relate to other research outputs. The next chapter explores this descriptive layer: the <a href="./metadata.html">metadata</a> that makes digital objects findable, understandable, and reusable across the research data life cycle.</p>
 
 
 </section>
