@@ -290,7 +290,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Modern research data management relies not only on digital objects, i.e.&nbsp;the combination of files, metadata, and persistent identifiers, but also on the infrastructure that enables those objects to be managed across their entire lifecycle.</p>
+<p>Digital objects give us a clear conceptual model of research data: a combination of files, metadata, and persistent identifiers that together form a coherent, citable, and preservable unit. Storage infrastructure explains how the underlying bitstreams are kept safe over time, but it does not yet assemble or manage digital objects.</p>
+<p>The next step is to understand the infrastructure that acts on digital objects — the systems that curate them, govern them, expose them, identify them, and move them through the research lifecycle.</p>
+<p>Modern research data management relies not only on digital objects, but also on the infrastructure that enables those objects to be managed across their entire lifecycle.</p>
 <p>RDM infrastructure is the ecosystem of systems that ensures digital objects remain:</p>
 <ul>
 <li>durable (stored safely across time and technologies)<br>
@@ -326,112 +328,158 @@ ul.task-list li input[type="checkbox"] {
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-rdm-layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<svg width="864" height="480" viewbox="0.00 0.00 1484.29 473.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 469)">
+<svg width="864" height="480" viewbox="0.00 0.00 851.00 612.40" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 608.4)">
 <title>rdm_layers</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-469 1480.29,-469 1480.29,4 -4,4"></polygon>
-<g id="clust1" class="cluster">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-608.4 847,-608.4 847,4 -4,4"></polygon>
+<g id="clust5" class="cluster">
 <title>cluster_exposure</title>
-<path fill="white" stroke="#528641" stroke-width="2" d="M20,-86C20,-86 877.52,-86 877.52,-86 883.52,-86 889.52,-92 889.52,-98 889.52,-98 889.52,-220 889.52,-220 889.52,-226 883.52,-232 877.52,-232 877.52,-232 20,-232 20,-232 14,-232 8,-226 8,-220 8,-220 8,-98 8,-98 8,-92 14,-86 20,-86"></path>
+<path fill="white" stroke="#528641" stroke-width="2" d="M443,-8C443,-8 823,-8 823,-8 829,-8 835,-14 835,-20 835,-20 835,-77.6 835,-77.6 835,-83.6 829,-89.6 823,-89.6 823,-89.6 443,-89.6 443,-89.6 437,-89.6 431,-83.6 431,-77.6 431,-77.6 431,-20 431,-20 431,-14 437,-8 443,-8"></path>
+<text text-anchor="middle" x="633" y="-69.4" font-family="Helvetica,sans-Serif" font-size="18.00">Exposure and Interoperability Layer</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_storage</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M20,-8C20,-8 372,-8 372,-8 378,-8 384,-14 384,-20 384,-20 384,-77.6 384,-77.6 384,-83.6 378,-89.6 372,-89.6 372,-89.6 20,-89.6 20,-89.6 14,-89.6 8,-83.6 8,-77.6 8,-77.6 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
+<text text-anchor="middle" x="196" y="-69.4" font-family="Helvetica,sans-Serif" font-size="18.00">Storage Layer</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_management</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M74,-167.6C74,-167.6 476,-167.6 476,-167.6 482,-167.6 488,-173.6 488,-179.6 488,-179.6 488,-237.2 488,-237.2 488,-243.2 482,-249.2 476,-249.2 476,-249.2 74,-249.2 74,-249.2 68,-249.2 62,-243.2 62,-237.2 62,-237.2 62,-179.6 62,-179.6 62,-173.6 68,-167.6 74,-167.6"></path>
+<text text-anchor="middle" x="275" y="-229" font-family="Helvetica,sans-Serif" font-size="18.00">Digital Object Formation and Management Layer</text>
+</g>
+<g id="clust1" class="cluster">
+<title>cluster_compute</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M242,-486.8C242,-486.8 667,-486.8 667,-486.8 673,-486.8 679,-492.8 679,-498.8 679,-498.8 679,-584.4 679,-584.4 679,-590.4 673,-596.4 667,-596.4 667,-596.4 242,-596.4 242,-596.4 236,-596.4 230,-590.4 230,-584.4 230,-584.4 230,-498.8 230,-498.8 230,-492.8 236,-486.8 242,-486.8"></path>
+<text text-anchor="middle" x="454.5" y="-576.2" font-family="Helvetica,sans-Serif" font-size="18.00">Usage</text>
 </g>
 <g id="clust2" class="cluster">
-<title>cluster_management</title>
-<path fill="white" stroke="#528641" stroke-width="2" d="M585.82,-270C585.82,-270 1448.79,-270 1448.79,-270 1454.79,-270 1460.79,-276 1460.79,-282 1460.79,-282 1460.79,-404 1460.79,-404 1460.79,-410 1454.79,-416 1448.79,-416 1448.79,-416 585.82,-416 585.82,-416 579.82,-416 573.82,-410 573.82,-404 573.82,-404 573.82,-282 573.82,-282 573.82,-276 579.82,-270 585.82,-270"></path>
+<title>cluster_do</title>
+<path fill="white" stroke="#528641" stroke-width="2" d="M27,-327.2C27,-327.2 347,-327.2 347,-327.2 353,-327.2 359,-333.2 359,-339.2 359,-339.2 359,-396.8 359,-396.8 359,-402.8 353,-408.8 347,-408.8 347,-408.8 27,-408.8 27,-408.8 21,-408.8 15,-402.8 15,-396.8 15,-396.8 15,-339.2 15,-339.2 15,-333.2 21,-327.2 27,-327.2"></path>
+<text text-anchor="middle" x="187" y="-388.6" font-family="Helvetica,sans-Serif" font-size="18.00">Digital Object</text>
 </g>
-<!-- DO -->
+<!-- U -->
 <g id="node1" class="node">
-<title>DO</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M1464.33,-85.7C1464.33,-85.7 1282.17,-85.7 1282.17,-85.7 1276.17,-85.7 1270.17,-79.7 1270.17,-73.7 1270.17,-73.7 1270.17,-46.3 1270.17,-46.3 1270.17,-40.3 1276.17,-34.3 1282.17,-34.3 1282.17,-34.3 1464.33,-34.3 1464.33,-34.3 1470.33,-34.3 1476.33,-40.3 1476.33,-46.3 1476.33,-46.3 1476.33,-73.7 1476.33,-73.7 1476.33,-79.7 1470.33,-85.7 1464.33,-85.7"></path>
-<text text-anchor="middle" x="1373.25" y="-65.4" font-family="Helvetica,sans-Serif" font-size="18.00">Digital Objects</text>
-<text text-anchor="middle" x="1373.25" y="-43.8" font-family="Helvetica,sans-Serif" font-size="18.00">(files + metadata + PID)</text>
+<title>U</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M659.03,-544.8C659.03,-544.8 598.97,-544.8 598.97,-544.8 592.97,-544.8 586.97,-538.8 586.97,-532.8 586.97,-532.8 586.97,-520.8 586.97,-520.8 586.97,-514.8 592.97,-508.8 598.97,-508.8 598.97,-508.8 659.03,-508.8 659.03,-508.8 665.03,-508.8 671.03,-514.8 671.03,-520.8 671.03,-520.8 671.03,-532.8 671.03,-532.8 671.03,-538.8 665.03,-544.8 659.03,-544.8"></path>
+<text text-anchor="middle" x="629" y="-521.4" font-family="Helvetica,sans-Serif" font-size="18.00">Scientist</text>
 </g>
-<!-- ExposureHeader -->
+<!-- W -->
 <g id="node2" class="node">
-<title>ExposureHeader</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M335.61,-224C335.61,-224 28.13,-224 28.13,-224 22.13,-224 16.13,-218 16.13,-212 16.13,-212 16.13,-200 16.13,-200 16.13,-194 22.13,-188 28.13,-188 28.13,-188 335.61,-188 335.61,-188 341.61,-188 347.61,-194 347.61,-200 347.61,-200 347.61,-212 347.61,-212 347.61,-218 341.61,-224 335.61,-224"></path>
-<text text-anchor="middle" x="181.87" y="-200" font-family="Helvetica,sans-Serif" font-size="20.00">Exposure and Interoperability Layer</text>
+<title>W</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M516.5,-558.8C516.5,-558.8 417.5,-558.8 417.5,-558.8 411.5,-558.8 405.5,-552.8 405.5,-546.8 405.5,-546.8 405.5,-506.8 405.5,-506.8 405.5,-500.8 411.5,-494.8 417.5,-494.8 417.5,-494.8 516.5,-494.8 516.5,-494.8 522.5,-494.8 528.5,-500.8 528.5,-506.8 528.5,-506.8 528.5,-546.8 528.5,-546.8 528.5,-552.8 522.5,-558.8 516.5,-558.8"></path>
+<text text-anchor="start" x="430.98" y="-534.6" font-family="Helvetica,sans-Serif" font-size="18.00">Compute</text>
+<text text-anchor="start" x="417.97" y="-507.6" font-family="Helvetica,sans-Serif" font-size="18.00">environment</text>
 </g>
-<!-- M -->
-<g id="node3" class="node">
-<title>M</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M869.55,-130C869.55,-130 741.41,-130 741.41,-130 735.41,-130 729.41,-124 729.41,-118 729.41,-118 729.41,-106 729.41,-106 729.41,-100 735.41,-94 741.41,-94 741.41,-94 869.55,-94 869.55,-94 875.55,-94 881.55,-100 881.55,-106 881.55,-106 881.55,-118 881.55,-118 881.55,-124 875.55,-130 869.55,-130"></path>
-<text text-anchor="middle" x="805.48" y="-106.6" font-family="Helvetica,sans-Serif" font-size="18.00">Metadata Portals</text>
-</g>
-<!-- ExposureHeader&#45;&gt;M -->
-<!-- P -->
-<g id="node4" class="node">
-<title>P</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M853.51,-224C853.51,-224 757.45,-224 757.45,-224 751.45,-224 745.45,-218 745.45,-212 745.45,-212 745.45,-200 745.45,-200 745.45,-194 751.45,-188 757.45,-188 757.45,-188 853.51,-188 853.51,-188 859.51,-188 865.51,-194 865.51,-200 865.51,-200 865.51,-212 865.51,-212 865.51,-218 859.51,-224 853.51,-224"></path>
-<text text-anchor="middle" x="805.48" y="-200.6" font-family="Helvetica,sans-Serif" font-size="18.00">PID Services</text>
-</g>
-<!-- ExposureHeader&#45;&gt;P -->
-<!-- ManagementHeader -->
+<!-- meta -->
 <g id="node5" class="node">
-<title>ManagementHeader</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M1017.31,-318C1017.31,-318 593.65,-318 593.65,-318 587.65,-318 581.65,-312 581.65,-306 581.65,-306 581.65,-294 581.65,-294 581.65,-288 587.65,-282 593.65,-282 593.65,-282 1017.31,-282 1017.31,-282 1023.31,-282 1029.31,-288 1029.31,-294 1029.31,-294 1029.31,-306 1029.31,-306 1029.31,-312 1023.31,-318 1017.31,-318"></path>
-<text text-anchor="middle" x="805.48" y="-294" font-family="Helvetica,sans-Serif" font-size="20.00">Digital Object Formation and Management Layer</text>
+<title>meta</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M214.55,-371.2C214.55,-371.2 147.45,-371.2 147.45,-371.2 141.45,-371.2 135.45,-365.2 135.45,-359.2 135.45,-359.2 135.45,-347.2 135.45,-347.2 135.45,-341.2 141.45,-335.2 147.45,-335.2 147.45,-335.2 214.55,-335.2 214.55,-335.2 220.55,-335.2 226.55,-341.2 226.55,-347.2 226.55,-347.2 226.55,-359.2 226.55,-359.2 226.55,-365.2 220.55,-371.2 214.55,-371.2"></path>
+<text text-anchor="middle" x="181" y="-347.8" font-family="Helvetica,sans-Serif" font-size="18.00">Metadata</text>
 </g>
-<!-- ExposureHeader&#45;&gt;ManagementHeader -->
-<!-- ManagementHeader&#45;&gt;DO -->
-<g id="edge9" class="edge">
-<title>ManagementHeader-&gt;DO</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M904.59,-281.95C944.01,-273.23 989.42,-261.29 1029.14,-246 1139.82,-203.41 1259.53,-132.12 1324.2,-91.28"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="1326.38,-94.04 1332.95,-85.72 1322.63,-88.13 1326.38,-94.04"></polygon>
-<text text-anchor="middle" x="1149.68" y="-226.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">Create</text>
+<!-- W&#45;&gt;meta -->
+<g id="edge2" class="edge">
+<title>W-&gt;meta</title>
+<path fill="none" stroke="#528641" stroke-width="2" stroke-dasharray="5,2" d="M391.42,-486.8C353.3,-466.46 306.43,-440.42 264.75,-414.33"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="266.32,-411.18 256,-408.8 262.58,-417.1 266.32,-411.18"></polygon>
+<text text-anchor="middle" x="341.02" y="-427.6" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">Identify</text>
 </g>
-<!-- ManagementHeader&#45;&gt;ExposureHeader -->
-<g id="edge8" class="edge">
-<title>ManagementHeader-&gt;ExposureHeader</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M718.52,-281.97C674.91,-272.29 621.27,-259.57 573.82,-246 554.41,-240.45 550.6,-235.41 530.82,-231.4 475.21,-220.12 413.72,-213.7 358.09,-210.08"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="357.97,-206.57 347.77,-209.44 357.53,-213.56 357.97,-206.57"></polygon>
-<text text-anchor="middle" x="464.78" y="-236.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">Export Metadata</text>
+<!-- spacer_m -->
+<!-- W&#45;&gt;spacer_m -->
+<g id="edge3" class="edge">
+<title>W-&gt;spacer_m</title>
+<path fill="none" stroke="#528641" stroke-width="2" stroke-dasharray="5,2" d="M457.7,-486.8C441.73,-428.63 403.38,-319.84 329,-262.6 318.02,-254.15 309.41,-257.75 299.8,-254.4"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="301.39,-251.28 291,-249.2 297.83,-257.3 301.39,-251.28"></polygon>
+<text text-anchor="middle" x="462.51" y="-347.8" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">Retrieve</text>
+</g>
+<!-- spacer_e -->
+<!-- W&#45;&gt;spacer_e -->
+<g id="edge1" class="edge">
+<title>W-&gt;spacer_e</title>
+<path fill="none" stroke="#528641" stroke-width="2" stroke-dasharray="5,2" d="M482.15,-486.8C490.73,-464.17 501.44,-435.04 510,-408.8 545.12,-301.2 580.14,-174.19 600.12,-99.35"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="603.53,-100.16 602.72,-89.6 596.76,-98.36 603.53,-100.16"></polygon>
+<text text-anchor="middle" x="589.01" y="-268" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">Discover</text>
+</g>
+<!-- Integration -->
+<g id="node3" class="node">
+<title>Integration</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M335.5,-558.8C335.5,-558.8 250.5,-558.8 250.5,-558.8 244.5,-558.8 238.5,-552.8 238.5,-546.8 238.5,-546.8 238.5,-506.8 238.5,-506.8 238.5,-500.8 244.5,-494.8 250.5,-494.8 250.5,-494.8 335.5,-494.8 335.5,-494.8 341.5,-494.8 347.5,-500.8 347.5,-506.8 347.5,-506.8 347.5,-546.8 347.5,-546.8 347.5,-552.8 341.5,-558.8 335.5,-558.8"></path>
+<text text-anchor="start" x="250.97" y="-534.6" font-family="Helvetica,sans-Serif" font-size="18.00">Integration</text>
+<text text-anchor="start" x="256.5" y="-507.6" font-family="Helvetica,sans-Serif" font-size="18.00">Workflow</text>
+</g>
+<!-- F -->
+<g id="node4" class="node">
+<title>F</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M338.99,-371.2C338.99,-371.2 297.01,-371.2 297.01,-371.2 291.01,-371.2 285.01,-365.2 285.01,-359.2 285.01,-359.2 285.01,-347.2 285.01,-347.2 285.01,-341.2 291.01,-335.2 297.01,-335.2 297.01,-335.2 338.99,-335.2 338.99,-335.2 344.99,-335.2 350.99,-341.2 350.99,-347.2 350.99,-347.2 350.99,-359.2 350.99,-359.2 350.99,-365.2 344.99,-371.2 338.99,-371.2"></path>
+<text text-anchor="middle" x="318" y="-347.8" font-family="Helvetica,sans-Serif" font-size="18.00">File(s)</text>
+</g>
+<!-- meta&#45;&gt;spacer_m -->
+<g id="edge4" class="edge">
+<title>meta-&gt;spacer_m</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M193.85,-327.2C203.4,-308.61 216.89,-282.37 229.34,-258.14"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="232.48,-259.69 233.94,-249.2 226.25,-256.49 232.48,-259.69"></polygon>
+<text text-anchor="middle" x="271.02" y="-268" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">Created by</text>
+</g>
+<!-- I -->
+<g id="node6" class="node">
+<title>I</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M65,-371.2C65,-371.2 35,-371.2 35,-371.2 29,-371.2 23,-365.2 23,-359.2 23,-359.2 23,-347.2 23,-347.2 23,-341.2 29,-335.2 35,-335.2 35,-335.2 65,-335.2 65,-335.2 71,-335.2 77,-341.2 77,-347.2 77,-347.2 77,-359.2 77,-359.2 77,-365.2 71,-371.2 65,-371.2"></path>
+<text text-anchor="middle" x="50" y="-347.8" font-family="Helvetica,sans-Serif" font-size="18.00">PID</text>
+</g>
+<!-- S1 -->
+<g id="node7" class="node">
+<title>S1</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M363.55,-52C363.55,-52 286.45,-52 286.45,-52 280.45,-52 274.45,-46 274.45,-40 274.45,-40 274.45,-28 274.45,-28 274.45,-22 280.45,-16 286.45,-16 286.45,-16 363.55,-16 363.55,-16 369.55,-16 375.55,-22 375.55,-28 375.55,-28 375.55,-40 375.55,-40 375.55,-46 369.55,-52 363.55,-52"></path>
+<text text-anchor="middle" x="325" y="-28.6" font-family="Helvetica,sans-Serif" font-size="18.00">Replicated</text>
+</g>
+<!-- S2 -->
+<g id="node8" class="node">
+<title>S2</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M204.02,-52C204.02,-52 151.98,-52 151.98,-52 145.98,-52 139.98,-46 139.98,-40 139.98,-40 139.98,-28 139.98,-28 139.98,-22 145.98,-16 151.98,-16 151.98,-16 204.02,-16 204.02,-16 210.02,-16 216.02,-22 216.02,-28 216.02,-28 216.02,-40 216.02,-40 216.02,-46 210.02,-52 204.02,-52"></path>
+<text text-anchor="middle" x="178" y="-28.6" font-family="Helvetica,sans-Serif" font-size="18.00">Archive</text>
+</g>
+<!-- S3 -->
+<g id="node9" class="node">
+<title>S3</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M69.52,-52C69.52,-52 28.48,-52 28.48,-52 22.48,-52 16.48,-46 16.48,-40 16.48,-40 16.48,-28 16.48,-28 16.48,-22 22.48,-16 28.48,-16 28.48,-16 69.52,-16 69.52,-16 75.52,-16 81.52,-22 81.52,-28 81.52,-28 81.52,-40 81.52,-40 81.52,-46 75.52,-52 69.52,-52"></path>
+<text text-anchor="middle" x="49" y="-28.6" font-family="Helvetica,sans-Serif" font-size="18.00">Active</text>
 </g>
 <!-- R -->
-<g id="node6" class="node">
+<g id="node10" class="node">
 <title>R</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M1440.82,-408C1440.82,-408 1305.69,-408 1305.69,-408 1299.69,-408 1293.69,-402 1293.69,-396 1293.69,-396 1293.69,-384 1293.69,-384 1293.69,-378 1299.69,-372 1305.69,-372 1305.69,-372 1440.82,-372 1440.82,-372 1446.82,-372 1452.82,-378 1452.82,-384 1452.82,-384 1452.82,-396 1452.82,-396 1452.82,-402 1446.82,-408 1440.82,-408"></path>
-<text text-anchor="middle" x="1373.25" y="-384.6" font-family="Helvetica,sans-Serif" font-size="18.00">Data Repositories</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M467.57,-211.6C467.57,-211.6 332.43,-211.6 332.43,-211.6 326.43,-211.6 320.43,-205.6 320.43,-199.6 320.43,-199.6 320.43,-187.6 320.43,-187.6 320.43,-181.6 326.43,-175.6 332.43,-175.6 332.43,-175.6 467.57,-175.6 467.57,-175.6 473.57,-175.6 479.57,-181.6 479.57,-187.6 479.57,-187.6 479.57,-199.6 479.57,-199.6 479.57,-205.6 473.57,-211.6 467.57,-211.6"></path>
+<text text-anchor="middle" x="400" y="-188.2" font-family="Helvetica,sans-Serif" font-size="18.00">Data Repositories</text>
 </g>
-<!-- ManagementHeader&#45;&gt;R -->
-<!-- PE -->
-<g id="node7" class="node">
-<title>PE</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M1428.32,-314C1428.32,-314 1318.19,-314 1318.19,-314 1312.19,-314 1306.19,-308 1306.19,-302 1306.19,-302 1306.19,-290 1306.19,-290 1306.19,-284 1312.19,-278 1318.19,-278 1318.19,-278 1428.32,-278 1428.32,-278 1434.32,-278 1440.32,-284 1440.32,-290 1440.32,-290 1440.32,-302 1440.32,-302 1440.32,-308 1434.32,-314 1428.32,-314"></path>
-<text text-anchor="middle" x="1373.25" y="-290.6" font-family="Helvetica,sans-Serif" font-size="18.00">Policy Engines</text>
-</g>
-<!-- ManagementHeader&#45;&gt;PE -->
-<!-- S -->
-<g id="node8" class="node">
-<title>S</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M888.56,-465C888.56,-465 722.39,-465 722.39,-465 716.39,-465 710.39,-459 710.39,-453 710.39,-453 710.39,-441 710.39,-441 710.39,-435 716.39,-429 722.39,-429 722.39,-429 888.56,-429 888.56,-429 894.56,-429 900.56,-435 900.56,-441 900.56,-441 900.56,-453 900.56,-453 900.56,-459 894.56,-465 888.56,-465"></path>
-<text text-anchor="middle" x="805.48" y="-441.6" font-family="Helvetica,sans-Serif" font-size="18.00">Storage Infrastructure</text>
-</g>
-<!-- S&#45;&gt;R -->
-<g id="edge7" class="edge">
-<title>S-&gt;R</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M900.74,-437.75C940.39,-433.85 987.01,-429.23 1029.14,-425 1115.6,-416.32 1214.29,-406.23 1283.56,-399.13"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="1283.97,-402.6 1293.56,-398.1 1283.26,-395.64 1283.97,-402.6"></polygon>
-<text text-anchor="middle" x="1149.68" y="-424.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">Managed by</text>
-</g>
-<!-- S&#45;&gt;PE -->
+<!-- spacer_m&#45;&gt;S2 -->
 <g id="edge6" class="edge">
-<title>S-&gt;PE</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M900.73,-452.27C942.01,-450.98 989.88,-444.4 1029.14,-425 1058.91,-410.29 1051.57,-387.31 1080.14,-370.4 1146.91,-330.88 1234.3,-312.18 1296.05,-303.44"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="1296.68,-306.89 1306.11,-302.08 1295.73,-299.95 1296.68,-306.89"></polygon>
-<text text-anchor="middle" x="1149.68" y="-375.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">Managed by</text>
+<title>spacer_m-&gt;S2</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M233,-167.6C205.71,-146.81 185.04,-154.87 168.89,-124.6 164.82,-116.97 162.93,-108.45 162.48,-99.79"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="165.98,-99.62 162.55,-89.6 158.98,-99.57 165.98,-99.62"></polygon>
+<text text-anchor="middle" x="271.56" y="-108.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">Manages Storage of Files</text>
 </g>
-<!-- C -->
-<g id="node9" class="node">
-<title>C</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M899.58,-36C899.58,-36 711.38,-36 711.38,-36 705.38,-36 699.38,-30 699.38,-24 699.38,-24 699.38,-12 699.38,-12 699.38,-6 705.38,0 711.38,0 711.38,0 899.58,0 899.58,0 905.58,0 911.58,-6 911.58,-12 911.58,-12 911.58,-24 911.58,-24 911.58,-30 905.58,-36 899.58,-36"></path>
-<text text-anchor="middle" x="805.48" y="-12.6" font-family="Helvetica,sans-Serif" font-size="18.00">Compute Interoperability</text>
+<!-- spacer_m&#45;&gt;spacer_e -->
+<g id="edge5" class="edge">
+<title>spacer_m-&gt;spacer_e</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M291,-167.6C298.49,-162.86 428.34,-105.22 436.93,-103 466.5,-95.37 543.48,-105.86 578.56,-94.03"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="580.43,-97.02 588,-89.6 577.46,-90.68 580.43,-97.02"></polygon>
+<text text-anchor="middle" x="506.54" y="-108.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">Exports Metadata</text>
 </g>
-<!-- C&#45;&gt;DO -->
-<g id="edge10" class="edge">
-<title>C-&gt;DO</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M911.57,-25.8C1010.59,-33.15 1158.49,-44.13 1259.83,-51.65"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="1259.88,-55.17 1270.11,-52.42 1260.39,-48.19 1259.88,-55.17"></polygon>
-<text text-anchor="middle" x="1149.68" y="-53.4" font-family="Helvetica,sans-Serif" font-size="18.00" fill="#528641">Discover and use</text>
+<!-- PE -->
+<g id="node12" class="node">
+<title>PE</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M192.06,-211.6C192.06,-211.6 81.94,-211.6 81.94,-211.6 75.94,-211.6 69.94,-205.6 69.94,-199.6 69.94,-199.6 69.94,-187.6 69.94,-187.6 69.94,-181.6 75.94,-175.6 81.94,-175.6 81.94,-175.6 192.06,-175.6 192.06,-175.6 198.06,-175.6 204.06,-181.6 204.06,-187.6 204.06,-187.6 204.06,-199.6 204.06,-199.6 204.06,-205.6 198.06,-211.6 192.06,-211.6"></path>
+<text text-anchor="middle" x="137" y="-188.2" font-family="Helvetica,sans-Serif" font-size="18.00">Policy Engines</text>
+</g>
+<!-- M -->
+<g id="node13" class="node">
+<title>M</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M815.07,-52C815.07,-52 686.93,-52 686.93,-52 680.93,-52 674.93,-46 674.93,-40 674.93,-40 674.93,-28 674.93,-28 674.93,-22 680.93,-16 686.93,-16 686.93,-16 815.07,-16 815.07,-16 821.07,-16 827.07,-22 827.07,-28 827.07,-28 827.07,-40 827.07,-40 827.07,-46 821.07,-52 815.07,-52"></path>
+<text text-anchor="middle" x="751" y="-28.6" font-family="Helvetica,sans-Serif" font-size="18.00">Metadata Portals</text>
+</g>
+<!-- P -->
+<g id="node15" class="node">
+<title>P</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M547.03,-52C547.03,-52 450.97,-52 450.97,-52 444.97,-52 438.97,-46 438.97,-40 438.97,-40 438.97,-28 438.97,-28 438.97,-22 444.97,-16 450.97,-16 450.97,-16 547.03,-16 547.03,-16 553.03,-16 559.03,-22 559.03,-28 559.03,-28 559.03,-40 559.03,-40 559.03,-46 553.03,-52 547.03,-52"></path>
+<text text-anchor="middle" x="499" y="-28.6" font-family="Helvetica,sans-Serif" font-size="18.00">PID Services</text>
 </g>
 </g>
 </svg>
@@ -444,6 +492,10 @@ Figure&nbsp;10.1: Core RDM infrastructure layers and how they contribute to form
 </div>
 </div>
 </div>
+<p><a href="#fig-rdm-layers" class="quarto-xref">Figure&nbsp;<span>10.1</span></a> illustrates how the components of a digital object and the surrounding RDM infrastructure interact.</p>
+<p>Solid edges show how the digital object is formed and distributed across the infrastructure: files, metadata, and persistent identifiers are created, governed, stored, and exposed through repositories, policy engines, storage systems, and metadata portals.</p>
+<p>Dashed edges represent how scientists, compute environments, and integration workflows interact with these components—discovering metadata, identifying digital objects, and retrieving files for analysis. Together, these flows show both the internal cohesion of the digital object and the external interoperability that enables its use in computational research.</p>
+<p>Among these layers, compute interoperability represents the most forward‑looking capability.</p>
 <section id="interoperability-with-compute-systems" class="level2">
 <h2 class="anchored" data-anchor-id="interoperability-with-compute-systems">Interoperability with Compute Systems</h2>
 <p>In the context of the book we define:</p>
