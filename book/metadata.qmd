@@ -1,6 +1,6 @@
 # Metadata
 
-As digital objects take shape, they require more than stable files and durable storage. They need structured information that makes them discoverable and intelligible beyond the immediate research context. This is the role of metadata.
+As digital objects take shape, they require more than stable files and durable storage. They need structured information that makes them discoverable and intelligible beyond the immediate research context. This is the role of metadata, which we will explore in this chapter.
 
 ## What Is Metadata in Research Data Management?
 
@@ -62,7 +62,7 @@ In short, metadata provides the context needed to interpret and reuse data beyon
 | **Dependencies**             | R packages: tidyverse 1.4.3, lubridate 1.9.0                                                                                                             |
 | **Provenance**               | Developed as part of Soil Moisture Project 2020–2023; tested on dataset version 3; last updated March 2024                                               |
 | **Domain Detail (CodeMeta)** | `softwareRequirements`: R 4.2; `programmingLanguage`: R; `codeRepository`: GitHub; `maintainer`: Anna Vermeer                                            |
-| **Domain Detail (ISA)**      | If linked to experimental workflows: script applied to **assay-level data** (sensor readings), preserving measurement protocols and calibration details. |
+| **Domain Detail (ISA)**      | If linked to experimental workflows: script applied to *assay-level data* (sensor readings), preserving measurement protocols and calibration details. |
 
 
 ## Ontologies, Controlled Vocabularies, Metadata Schemas, and Templates
@@ -199,11 +199,12 @@ digraph do_mesh {
     ];
 }
 ```
+
 @fig-mesh-vs-do highlights how controlled vocabularies and ontologies differ in the way they structure knowledge. In MeSH, “Coronary Disease” appears in a straightforward hierarchical tree under “Heart Diseases,” reflecting its role as a curated list of terms designed for consistent indexing and retrieval. The Disease Ontology, in contrast, represents “Coronary artery disease” as a formal class with multiple parents and additional relations to anatomical and pathological entities. These relations express biological context such as the involvement of the coronary artery or the role of atherosclerosis and support machine‑interpretable reasoning.
 
-Together, the two representations show how controlled vocabularies provide stable terminology, while ontologies add semantic structure that enables richer connections between concepts and datasets.
+Together, these representations show how controlled vocabularies provide stable terminology, while ontologies add semantic structure that enables richer connections between concepts and datasets.
 
-While ontologies describe the meaning of concepts and the relationships between them, metadata schemas address a different question: which pieces of information should be captured when describing a digital object.
+If ontologies describe the meaning of concepts and the relationships between them, metadata schemas address a different question: which pieces of information should be captured when describing a digital object.
 
 ## Metadata Schemas
 
@@ -233,7 +234,7 @@ A metadata schema tells you *what information to provide*, such as:
 
 Importantly, it does not define which terms to use. That is the role of controlled vocabularies.
 
-Schemas define the structure of metadata, but researchers rarely interact with schemas directly. Templates translate these definitions into practical forms and interfaces that guide real‑world data entry.
+Schemas define the structure of metadata, but researchers rarely interact with schemas directly. Templates translate these definitions into practical (web)forms and interfaces that guide real‑world data entry.
 
 ## Metadata Templates
 
@@ -319,8 +320,6 @@ It provides a straightforward way to describe digital objects, but it offers lim
 Linked Data is a more advanced, semantic approach that represents metadata as interconnected statements.
 It is most useful when metadata needs to express relationships, connect to external vocabularies, or grow without restructuring. Key–value formats work well for simple descriptions, but Linked Data supports richer semantics, interoperability, and long‑term extensibility.
 This richer structure allows metadata to be connected across systems, enabling more powerful discovery and integration.
-
-This would strengthen the mot
 
 #### Core idea
 
