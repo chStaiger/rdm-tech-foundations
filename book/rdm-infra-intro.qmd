@@ -1,8 +1,8 @@
 # Research Data Management Infrastructure
 
-Digital objects give us a clear conceptual model of what research data is: a combination of files, metadata, and persistent identifiers that together form a coherent, citable, and preservable unit. Storage infrastructure explains how the underlying bitstreams are kept safe over time, but it does not yet assemble or manage digital objects.
+Digital objects give us a clear conceptual model of research data: a combination of files, metadata, and persistent identifiers that together form a coherent, citable, and preservable unit. Storage infrastructure explains how the underlying bitstreams are kept safe over time, but it does not yet assemble or manage digital objects.
 
-The next step is to understand the infrastructure that acts on digital objects—the systems that curate them, govern them, expose them, identify them, and move them through the research lifecycle.
+The next step is to understand the infrastructure that acts on digital objects — the systems that curate them, govern them, expose them, identify them, and move them through the research lifecycle.
 
 Modern research data management relies not only on digital objects, but also on the infrastructure that enables those objects to be managed across their entire lifecycle.
 
@@ -142,7 +142,12 @@ digraph rdm_layers {
 
 }
 ```
-@fig-rdm-layers illustrates how the components of a digital object and the surrounding RDM infrastructure interact. Solid edges show how the digital object is formed and distributed across the infrastructure: files, metadata, and persistent identifiers are created, governed, stored, and exposed through repositories, policy engines, storage systems, and metadata portals. Dashed edges represent how scientists, compute environments, and integration workflows interact with these components—discovering metadata, identifying digital objects, and retrieving files for analysis. Together, these flows show both the internal cohesion of the digital object and the external interoperability that enables its use in computational research.
+
+@fig-rdm-layers illustrates how the components of a digital object and the surrounding RDM infrastructure interact. 
+
+Solid edges show how the digital object is formed and distributed across the infrastructure: files, metadata, and persistent identifiers are created, governed, stored, and exposed through repositories, policy engines, storage systems, and metadata portals. 
+
+Dashed edges represent how scientists, compute environments, and integration workflows interact with these components—discovering metadata, identifying digital objects, and retrieving files for analysis. Together, these flows show both the internal cohesion of the digital object and the external interoperability that enables its use in computational research.
 
 Among these layers, compute interoperability represents the most forward‑looking capability.
 
