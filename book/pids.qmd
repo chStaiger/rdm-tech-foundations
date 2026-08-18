@@ -4,7 +4,7 @@ Metadata gives digital objects structure and meaning; Persistent Identifiers giv
 
 ## What are Persistent Identifiers
 
-Persistent Identifiers (PIDs) are long‑lasting references used to uniquely identify digital objects such as research papers, datasets, or software, as well as digital representations of physical objects such as paintings, researchers, instruments, and concepts like research projects, grants, or institutions. Unlike regular web links that may break or change over time, PIDs are designed to remain stable and consistently point to the correct resource, even if its location on the internet changes.
+Persistent Identifiers (PIDs) are long‑lasting references used to uniquely identify digital objects such as research papers, datasets, or software. PIDs can also be applied to digital representations of physical objects such as paintings, researchers, instruments, and concepts like research projects, grants, or institutions. Unlike regular web links that may break or change over time, PIDs are designed to remain stable and consistently point to the correct resource, even if its location on the internet changes.
 
 A PID works by assigning a unique identifier to an object and linking it to a record that stores important information about that object, such as its title, creator, and most importantly its current location. You can think of the so-called PID entry as an ID card or at least an address book for the object.
 Like with your own ID card, you need to update that metadata. For example, if the object moves to a different website or repository, the metadata behind the PID needs to be updated so that the identifier continues to point to the correct place.
@@ -114,7 +114,7 @@ This separation between the identifier and the current location is what makes PI
 
 A notable update of the location is the so-called "tombstone". If the object an identifier points to is deleted or retracted, the identifier still continues to exist and should be redirected to a [tombstone page](https://servicedesk.surf.nl/wiki/spaces/WIKI/pages/102827225/PIDs+Setting+up+your+PID+structure#PIDs%3ASettingupyourPIDstructure-Tombstoning).
 
-PIDs help to prevent link rot, the gradual decay of ordinary URLs as websites are reorganised, content is moved, or services disappear. A direct URL only works as long as the underlying location remains unchanged. Once that location moves, the link breaks often silently leaving users with the familiar 404: Not Found error.
+PIDs help to prevent link rot, which is the gradual decay of ordinary URLs as websites are reorganised, content is moved, or services disappear. A direct URL only works as long as the underlying location remains unchanged. Once that location moves, the link breaks often silently leaving users with the familiar "404: Not Found" error.
 This is the core fragility of location‑based linking: the identifier is the location.
 
 Persistent Identifiers solve this by separating identity from location.
@@ -454,17 +454,17 @@ Assigning a PID marks the moment when a dataset enters the scholarly record. In 
 
 ## How PIDs and Metadata Complement Each Other
 
-Persistent Identifiers and metadata serve different but tightly connected purposes. A PID provides a stable, globally unique reference to a digital object, while metadata describes that object in detail. The PID record contains only the minimal information needed for the identifier to function—its current location, administrative details, checksums, or links to richer metadata. The full descriptive metadata lives outside the PID system in repositories, catalogues, or metadata stores.
+Persistent Identifiers and metadata serve different but tightly connected purposes. A PID provides a stable, globally unique reference to a digital object, while metadata describes that object in detail. The PID record contains only the minimal information needed for the identifier to function — its current location, administrative details, checksums, or links to richer metadata. The full descriptive metadata lives outside the PID system in repositories, catalogues, or metadata stores.
 
 In practice, the two are inseparable: a PID without metadata is meaningless, and metadata without a PID is difficult to reference reliably. The PID anchors the object in a stable identity, and the metadata builds the descriptive structure around that identity. Together, they form a reliable, machine‑actionable scholarly record.
 
 ## From Principles to Platforms
 
-With the holy trinity of RDM—files, metadata, and persistent identifiers—we can describe and identify digital objects with clarity and stability. These three elements define what a digital object is.
+With the holy trinity of RDM — files, metadata, and persistent identifiers — we can describe and identify digital objects with clarity and stability. These three elements define what a digital object is.
 The next step is to understand where these elements live and how they are supported in practice. Digital objects do not exist in isolation: they depend on technical environments that store their files (bitstreams), systems that manage their metadata and identifiers, and services that preserve their continuity over time.
 
 We now turn to the components of research data management infrastructure.
-The first of these is storage infrastructure, the environment that keeps files safe before repositories, policy engines, and metadata services can organise them into fully managed digital objects.
+The first of these is [storage infrastructure](storage-infrastructure.qmd), the environment that keeps files safe before repositories, policy engines, and metadata services can organise them into fully managed digital objects.
 
 ## References
 ### General
