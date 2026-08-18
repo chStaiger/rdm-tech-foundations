@@ -262,7 +262,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#why-not-simply-use-uniform-resource-locations-urls" id="toc-why-not-simply-use-uniform-resource-locations-urls" class="nav-link active" data-scroll-target="#why-not-simply-use-uniform-resource-locations-urls">Why not simply use Uniform Resource Locations (URLs)?</a></li>
+  <li><a href="#what-are-persistent-identifiers" id="toc-what-are-persistent-identifiers" class="nav-link active" data-scroll-target="#what-are-persistent-identifiers">What are Persistent Identifiers</a></li>
+  <li><a href="#why-not-simply-use-uniform-resource-locations-urls" id="toc-why-not-simply-use-uniform-resource-locations-urls" class="nav-link" data-scroll-target="#why-not-simply-use-uniform-resource-locations-urls">Why not simply use Uniform Resource Locations (URLs)?</a></li>
   <li><a href="#how-does-a-pid-work" id="toc-how-does-a-pid-work" class="nav-link" data-scroll-target="#how-does-a-pid-work">How does a PID work?</a></li>
   <li><a href="#how-do-we-ensure-that-pids-are-globally-unique" id="toc-how-do-we-ensure-that-pids-are-globally-unique" class="nav-link" data-scroll-target="#how-do-we-ensure-that-pids-are-globally-unique">How do we ensure that PIDs are globally unique?</a>
   <ul class="collapse">
@@ -275,8 +276,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#pid-information-types" id="toc-pid-information-types" class="nav-link" data-scroll-target="#pid-information-types">PID Information Types</a></li>
   <li><a href="#how-pid-profiles-and-information-types-work-together" id="toc-how-pid-profiles-and-information-types-work-together" class="nav-link" data-scroll-target="#how-pid-profiles-and-information-types-work-together">How PID Profiles and Information Types Work Together</a></li>
   </ul></li>
-  <li><a href="#using-persistent-identifiers-pids-for-non-resolvable-or-sensitive-data" id="toc-using-persistent-identifiers-pids-for-non-resolvable-or-sensitive-data" class="nav-link" data-scroll-target="#using-persistent-identifiers-pids-for-non-resolvable-or-sensitive-data">Using Persistent Identifiers (PIDs) for Non-Resolvable or Sensitive Data</a></li>
+  <li><a href="#using-pids-for-non-resolvable-or-sensitive-data" id="toc-using-pids-for-non-resolvable-or-sensitive-data" class="nav-link" data-scroll-target="#using-pids-for-non-resolvable-or-sensitive-data">Using PIDs for Non-Resolvable or Sensitive Data</a></li>
   <li><a href="#how-pids-and-metadata-complement-each-other" id="toc-how-pids-and-metadata-complement-each-other" class="nav-link" data-scroll-target="#how-pids-and-metadata-complement-each-other">How PIDs and Metadata Complement Each Other</a></li>
+  <li><a href="#from-principles-to-platforms" id="toc-from-principles-to-platforms" class="nav-link" data-scroll-target="#from-principles-to-platforms">From Principles to Platforms</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a>
   <ul class="collapse">
   <li><a href="#general" id="toc-general" class="nav-link" data-scroll-target="#general">General</a></li>
@@ -307,7 +309,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Persistent Identifiers (PIDs) are long-lasting references used to uniquely identify digital objects such as research papers, datasets, or software as well as digital representations of physical objects such a paintings, researchers and instruments and concepts like research projects, grants or institutions. Unlike regular web links that may break or change over time, PIDs are designed to remain stable and consistently point to the correct resource location, even if its location on the internet changes.</p>
+<p>Metadata gives digital objects structure and meaning; Persistent Identifiers give those objects a stable identity that can be referenced over time.</p>
+<section id="what-are-persistent-identifiers" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-persistent-identifiers">What are Persistent Identifiers</h2>
+<p>Persistent Identifiers (PIDs) are long‑lasting references used to uniquely identify digital objects such as research papers, datasets, or software. PIDs can also be applied to digital representations of physical objects such as paintings, researchers, instruments, and concepts like research projects, grants, or institutions. Unlike regular web links that may break or change over time, PIDs are designed to remain stable and consistently point to the correct resource, even if its location on the internet changes.</p>
 <p>A PID works by assigning a unique identifier to an object and linking it to a record that stores important information about that object, such as its title, creator, and most importantly its current location. You can think of the so-called PID entry as an ID card or at least an address book for the object. Like with your own ID card, you need to update that metadata. For example, if the object moves to a different website or repository, the metadata behind the PID needs to be updated so that the identifier continues to point to the correct place.</p>
 <p>By providing stable, machine-readable references, PIDs help ensure that digital resources remain accessible, traceable, and properly attributed over time.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Examples">
@@ -325,10 +330,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Institutions: <a href="https://ror.org/">Research Organisation Registry (ROR)</a></p>
 </div>
 </div>
+</section>
 <section id="why-not-simply-use-uniform-resource-locations-urls" class="level2">
 <h2 class="anchored" data-anchor-id="why-not-simply-use-uniform-resource-locations-urls">Why not simply use Uniform Resource Locations (URLs)?</h2>
-<p>In the context of Persistent Identifiers (PIDs), the distinction between URLs and URIs becomes important because PIDs are designed to identify digital objects in a stable way, even if their location changes.</p>
-<p>A URL (Uniform Resource Locator) is a specific kind of URI that points to the current location of a resource on the web. The URI (Uniform Resource Identifier) is a broader concept: it is any identifier used to uniquely identify a resource. Many PIDs are implemented as URIs because they provide a stable identity for an object without tying it permanently to a specific location.</p>
+<p>In the context of Persistent Identifiers, the distinction between URLs and URIs becomes important. A URL (Uniform Resource Locator) points to the current location of a resource on the web. A URI (Uniform Resource Identifier) is broader: it identifies a resource without necessarily specifying where it is located. Many PIDs are implemented as URIs because they provide a stable identity for an object, even when its location changes.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -434,9 +439,11 @@ Figure&nbsp;8.1: The Resolver
 </div>
 </div>
 </div>
-<p>This separation is what makes PIDs persistent. If the resource moves to a different website, the URL can be updated in the PID record, while the identifier itself remains the same, ensuring that citations and references to the resource continue to work over time.</p>
+<p>This separation between the identifier and the current location is what makes PIDs persistent. If the resource moves, the URL in the PID record can be updated while the identifier itself remains unchanged. Citations, references, and links continue to work because they rely on the PID, not the underlying URL.</p>
 <p>A notable update of the location is the so-called “tombstone”. If the object an identifier points to is deleted or retracted, the identifier still continues to exist and should be redirected to a <a href="https://servicedesk.surf.nl/wiki/spaces/WIKI/pages/102827225/PIDs+Setting+up+your+PID+structure#PIDs%3ASettingupyourPIDstructure-Tombstoning">tombstone page</a>.</p>
-<p>PIDs help to prevent Link Rot.</p>
+<p>PIDs help to prevent link rot, which is the gradual decay of ordinary URLs as websites are reorganised, content is moved, or services disappear. A direct URL only works as long as the underlying location remains unchanged. Once that location moves, the link breaks often silently leaving users with the familiar “404: Not Found” error. This is the core fragility of location‑based linking: the identifier is the location.</p>
+<p>Persistent Identifiers solve this by separating identity from location. The PID remains stable, while its associated URL can be updated whenever the resource moves. Instead of breaking, the PID continues to resolve correctly, ensuring that citations, workflows, and automated systems remain functional over time.</p>
+<p>The diagram below contrasts these two lifecycles: the brittle path of a direct URL ending in a 404, and the resilient path of a PID that can be updated as the resource evolves.</p>
 <div class="cell" data-fig-width="8" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-nopid" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -640,7 +647,7 @@ Figure&nbsp;8.2: No‑PID Lifecycle (Direct URL → Link Rot) vs PID Lifecycle (
 </section>
 <section id="minting-persistent-identifiers-pids" class="level2">
 <h2 class="anchored" data-anchor-id="minting-persistent-identifiers-pids">Minting Persistent Identifiers (PIDs)</h2>
-<p>Minting a Persistent Identifier (PID) refers to the process of creating and registering a new, globally unique identifier for a digital object. This object can be a research article, dataset, software package, researcher, organization, instrument, research project, grant or other scholarly resource.</p>
+<p>Minting a PID is not only the act of creating an identifier. It also involves registering the identifier, supplying metadata, and maintaining the information that allows the PID to function reliably over time.</p>
 <p>Minting a PID ensures that the object can be consistently identified, cited, and discovered over time, regardless of where the object is stored.</p>
 <section id="how-pid-minting-works" class="level4">
 <h4 class="anchored" data-anchor-id="how-pid-minting-works">How PID Minting Works</h4>
@@ -660,7 +667,7 @@ The PID record must include a URL or landing page where the digital object can c
 </section>
 <section id="pid-profiles-and-pid-information-types" class="level2">
 <h2 class="anchored" data-anchor-id="pid-profiles-and-pid-information-types">PID Profiles and PID Information Types</h2>
-<p>To make Persistent Identifiers truly useful in digital infrastructures, it is not enough to simply create the identifier itself. Systems also need a clear way to define what information is associated with a PID and how that information should be structured and interpreted. This is where PID profiles and PID information types play an important role.</p>
+<p>To make Persistent Identifiers truly useful, it is not enough to create the identifier itself. PID infrastructures also need a clear way to define what information is associated with an identifier and how that information should be interpreted. PID profiles and PID information types provide this structure.</p>
 <section id="pid-profiles" class="level3">
 <h3 class="anchored" data-anchor-id="pid-profiles">PID Profiles</h3>
 <p>A PID profile defines how a specific type of PID should be implemented and used within a community or infrastructure. It describes the expected structure, metadata, and relationships associated with identifiers for a particular type of object.</p>
@@ -702,9 +709,9 @@ The PID record must include a URL or landing page where the digital object can c
 <p>Infrastructures that implement PIDs with PID profiles and PID information types are <a href="https://docs.coscine.de/en/">Coscine (Collaborative Scientific Integration Environment)</a> and <a href="https://eudat.eu/service-catalogue/b2handle">EUDAT (European Data Infrastructure)</a>. Coscine implements the PID kernel information as defined by the Research Data Alliance (RDA) in their <a href="https://doi.org/10.15497/rda00031">Recommendations</a>. EUDAT does not implement a standard for PID profiles and information types. PID profiles in EUDAT are customised to community needs and include timestamps, checksums and data classification.</p>
 </section>
 </section>
-<section id="using-persistent-identifiers-pids-for-non-resolvable-or-sensitive-data" class="level2">
-<h2 class="anchored" data-anchor-id="using-persistent-identifiers-pids-for-non-resolvable-or-sensitive-data">Using Persistent Identifiers (PIDs) for Non-Resolvable or Sensitive Data</h2>
-<p>Persistent Identifiers are often accessed through resolvers (for example <code>https://doi.org/...</code>), directing to a resource which can be accessed through http. However, some resources on the internet are not accessible through http, or are sensitive and only accessible after a successful authorisation. This includes offline data, restricted datasets, physical samples, or resources stored in systems without web access. In those cases the resolver will not be able to serve the resource.</p>
+<section id="using-pids-for-non-resolvable-or-sensitive-data" class="level2">
+<h2 class="anchored" data-anchor-id="using-pids-for-non-resolvable-or-sensitive-data">Using PIDs for Non-Resolvable or Sensitive Data</h2>
+<p>Not all resources identified by PIDs are directly accessible on the web. Some are offline, restricted, or require authorisation. In these cases, the PID still identifies the object, but the resolver directs users to a landing page that explains how the object can be accessed.</p>
 <p>In those cases it is advised to create a landing page with information for users and machines on how to access the data. In the chapter <a href="./pid-services.html#practical-example-creating-a-handle-and-managing-its-metadata">PID services</a> we show how the PID entry itself can serve as a landing page.</p>
 <p>The key principle is that a PID identifies the object, not necessarily its downloadable location.</p>
 <section id="use-the-pid-to-identify-the-object" class="level4">
@@ -815,8 +822,13 @@ Figure&nbsp;8.3: PIDs for non-resolvable resources.
 </section>
 <section id="how-pids-and-metadata-complement-each-other" class="level2">
 <h2 class="anchored" data-anchor-id="how-pids-and-metadata-complement-each-other">How PIDs and Metadata Complement Each Other</h2>
-<p>Persistent Identifiers and metadata serve different but tightly connected purposes. A PID identifies a digital object, while metadata describes it. The PID is the stable, globally unique reference that allows systems to point to the same digital object over time, even as its location or access conditions change. The metadata stored inside a PID record is intentionally minimal: it contains only the information needed for the PID infrastructure to function, such as the current URL, administrative details, checksums, or links to richer metadata. This is sometimes called PID kernel information. In contrast, the full descriptive metadata of a digital object lives outside the PID system in repositories, catalogs, or metadata stores. In practice, the two are inseparable: a PID without metadata is meaningless, and metadata without a PID is difficult to track or reference reliably.</p>
-<p>The PID anchors the digital object in a stable identity, and the metadata builds the descriptive structure around that identity. Only when the two are linked do we get a reliable, machine‑actionable scholarly record.</p>
+<p>Persistent Identifiers and metadata serve different but tightly connected purposes. A PID provides a stable, globally unique reference to a digital object, while metadata describes that object in detail. The PID record contains only the minimal information needed for the identifier to function — its current location, administrative details, checksums, or links to richer metadata. The full descriptive metadata lives outside the PID system in repositories, catalogues, or metadata stores.</p>
+<p>In practice, the two are inseparable: a PID without metadata is meaningless, and metadata without a PID is difficult to reference reliably. The PID anchors the object in a stable identity, and the metadata builds the descriptive structure around that identity. Together, they form a reliable, machine‑actionable scholarly record.</p>
+</section>
+<section id="from-principles-to-platforms" class="level2">
+<h2 class="anchored" data-anchor-id="from-principles-to-platforms">From Principles to Platforms</h2>
+<p>With the holy trinity of RDM — files, metadata, and persistent identifiers — we can describe and identify digital objects with clarity and stability. These three elements define what a digital object is. The next step is to understand where these elements live and how they are supported in practice. Digital objects do not exist in isolation: they depend on technical environments that store their files (bitstreams), systems that manage their metadata and identifiers, and services that preserve their continuity over time.</p>
+<p>We now turn to the components of research data management infrastructure. The first of these is <a href="./storage-infrastructure.html">storage infrastructure</a>, the environment that keeps files safe before repositories, policy engines, and metadata services can organise them into fully managed digital objects.</p>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
