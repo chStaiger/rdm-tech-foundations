@@ -1,21 +1,19 @@
-
 # Files
 
-Files are the content component of a digital object, and this chapter examines how they behave and evolve across the research data life cycle.
+Files are the _content_ component of a digital object. This chapter examines how they behave and evolve across the research data life cycle.
 
 ## What Are Files in Research Data Management?
 
-Every digital research project begins with files. They are the most immediate and tangible artefacts researchers work with: a CSV exported from an instrument, a TIFF image from a microscope, a NetCDF model output, a PDF protocol, or a collection of scripts and notebooks. In Research Data Management (RDM), files are the basic units of digital content and the raw material from which more structured research outputs are eventually created.
+Every digital research project begins with files. They are the most immediate and tangible artefacts that researchers work with: a CSV exported from an instrument, a TIFF image from a microscope, a NetCDF model output, a PDF protocol, or a collection of scripts and notebooks. In Research Data Management (RDM), files are the basic units of digital content and the raw material from which more structured research outputs are eventually created.
 
 At this early stage, files function simply as containers of information. They are produced quickly, modified frequently, and organised in ways that suit the researcher’s workflow. Their purpose is to support active work rather than long‑term preservation. As a result:
 
 - their organisation reflects workflow convenience,  
-- they rarely have persistent identifiers,  
+- they rarely have persistent identifiers (PIDs),  
 - they are not yet accompanied by curated metadata,  
 - metadata and provenance still need to be captured from the start.
 
-This is where FAIR already matters. 
-Early decisions about naming, formats, folder structures, and documentation directly influence how findable, accessible, interoperable, and reusable the data will be later when files are eventually curated and published.
+This is where FAIR already matters. Early decisions about naming, formats, folder structures, and documentation directly influence how findable, accessible, interoperable, and reusable the data will be later when files are eventually curated and published.
 
 ## A Fictive Example of a Dataset’s File Components
 
@@ -107,8 +105,11 @@ digraph progression {
 }
 ```
 
-This progression is not strictly linear. Files can be demoted back to an earlier stage — for example, when an experiment fails or a result is invalidated. Likewise, multiple copies of the same file may diverge, leading to different paths through the progression as they are cleaned, analysed, or curated in different ways. Research, therefore, moves through the data life cycle not only in a forward direction. Each stage can connect back to earlier stages, reflecting the iterative, exploratory, and corrective nature of research practice.
-The exception is the Published Digital Object: once published, it must remain persistently available, citable, and resolvable. Publication policies prevent the object itself from being demoted or withdrawn from the life cycle. However, its content may still change through updates, corrections, or new versions, and its persistent identifier may continue to resolve even if the underlying files are removed or replaced. In such cases, the PID acts as a tombstone, ensuring that the published object’s identity and citation remain intact even when its content is no longer available. [Later chapters](pids.qmd#how-does-a-pid-work) discuss hows tombstoning, and PID policies support this guarantee.
+This progression is not strictly linear. Files can be demoted back to an earlier stage — for example, when an experiment fails or a result is invalidated. Likewise, multiple copies of the same file may diverge, leading to different paths through the progression as they are cleaned, analysed, or curated in different ways. 
+
+Research, therefore, moves through the data life cycle not only in a forward direction. Each stage can connect back to earlier stages, reflecting the iterative, exploratory, and corrective nature of research practice.
+
+The exception is the _published_ Digital Object: once published, it must remain persistently available, citable, and resolvable. Publication policies prevent the object itself from being demoted or withdrawn from the life cycle. However, its content may still change through updates, corrections, or new versions, and its persistent identifier may continue to resolve even if the underlying files are removed or replaced. In such cases, the PID acts as a "tombstone" - ensuring that the published object’s identity and citation remain intact even when its content is no longer available. [Later chapters](pids.qmdf#how-does-a-pid-work) discuss how _tombstoning_, and PID policies support this guarantee.
 
 ### Process — Active Research and Working Copies
 
@@ -169,7 +170,7 @@ At this point:
 
 - FAIR principles guide the final structure and metadata,  
 - digital objects receive globally resolvable persistent identifiers (often DOIs),  
-- components with independent value *may* be published as separate digital objects,  
+- components with independent value _may_ be published as separate digital objects,  
 - datasets are typically released as coherent bundles,  
 - relationships between digital objects are made explicit.
 
@@ -212,10 +213,9 @@ Here, the files collectively represent one conceptual unit and are best deposite
 
 Although this chapter focuses on files, the discussion naturally expands into the broader concept of digital objects. This shift is intentional. In research practice, files rarely exist in isolation: once they stabilise, are moved to durable storage, or enter archival workflows, they become part of a digital object.
 
-During the *Process* and *Analyse* stages, it is appropriate to speak primarily about files, because researchers interact with them as working artefacts. But once these files are stabilised, preserved, or prepared for dissemination, they transition into digital objects.
+During the _Process_ and _Analyse_ stages, it is appropriate to speak primarily about files, because researchers interact with them as working artefacts. But once these files are stabilised, preserved, or prepared for dissemination, they transition into digital objects.
 
-This conceptual shift reflects the reality of the research data life cycle:  
-files are the raw materials; digital objects are the curated, managed, and preservable units that persist beyond the immediate research workflow.
+This conceptual shift reflects the reality of the research data life cycle: files are the raw materials; digital objects are the curated, managed, and preservable units that persist beyond the immediate research workflow.
 
 By acknowledging this transition, the chapter can describe both the practical handling of files during research and their later role as components of durable, citable digital objects.
 
@@ -226,4 +226,5 @@ By acknowledging this transition, the chapter can describe both the practical ha
 - **Published** → Files with distinct roles or reuse potential are released as separate digital objects, while tightly interdependent files are published together as a coherent bundle.
 
 This perspective clarifies when a file is simply a component of a dataset, and when it should be recognised as a digital object in its own right, complete with metadata, identity, and long‑term value.
-As files take on this more durable role, their meaning increasingly depends on the descriptive information that accompanies them. This includes information how they were created, what they contain, and how they relate to other research outputs. The next chapter explores this descriptive layer: the metadata that makes digital objects findable, understandable, and reusable across the research data life cycle.
+
+As files take on this more durable role, their meaning increasingly depends on the descriptive information that accompanies them. This includes information how they were created, what they contain, and how they relate to other research outputs. The next chapter explores this descriptive layer: the [metadata](metadata.qmd) that makes digital objects findable, understandable, and reusable across the research data life cycle.
