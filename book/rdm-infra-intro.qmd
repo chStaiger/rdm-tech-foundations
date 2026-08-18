@@ -207,4 +207,3 @@ the systems that actively manage digital objects during research and prepare the
 This leads us to the next chapter:
 
 [Data Repositories and Policy Engines](data-repositories.qmd) which describes the complementary systems that curate, govern, and orchestrate digital objects across different stages of the research lifecycle.
-
