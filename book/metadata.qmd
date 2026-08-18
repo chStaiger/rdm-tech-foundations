@@ -155,11 +155,11 @@ digraph do_mesh {
         style="rounded";
 
         DOID_CVD [label="Cardiovascular system disease"];
-        DOID_HD  [label="Heart disease"];
-        DOID_VD  [label="Vascular disease"];
-        DOID_Ath [label="Atherosclerosis"];
-        DOID_CA  [label="Coronary artery"];
-        DOID_CAD [label="Coronary artery disease"];
+        DOID_HD  [label="Heart disease (DOID:114)"];
+        DOID_VD  [label="Vascular disease (DOID:178)"];
+        DOID_Ath [label="Atherosclerosis (DOID:1936)"];
+        DOID_CA  [label="Coronary artery (UBERON:0001621)"];
+        DOID_CAD [label="Coronary artery disease (DOID:3393)"];
 
         // Ontology hierarchy (is_a)
         DOID_CVD -> DOID_HD[label="is_a"];
@@ -167,7 +167,7 @@ digraph do_mesh {
 
         // Ontology logical relations
         DOID_CAD -> DOID_Ath [label="has_material_basis_in", style=dotted];
-        DOID_CAD -> DOID_CA  [label="occurs_in", style=dotted];
+        DOID_CAD -> DOID_CA  [label="disease_has_location / finding_site", style=dotted];
 
         // Multiple inheritance example
         DOID_HD -> DOID_CAD[label="is_a"];
@@ -181,9 +181,9 @@ digraph do_mesh {
         label="MeSH";
         style="rounded";
 
-        MeSH_CVD [label="Cardiovascular Diseases"];
-        MeSH_HD  [label="Heart Diseases"];
-        MeSH_CAD [label="Coronary Disease"];
+        MeSH_CVD [label="Cardiovascular Diseases (D002318)"];
+        MeSH_HD  [label="Heart Diseases (D006331)"];
+        MeSH_CAD [label="Coronary Artery Disease (D003324)"];
 
         // Strict tree structure
         MeSH_CVD -> MeSH_HD;
@@ -200,7 +200,7 @@ digraph do_mesh {
 }
 ```
 
-@fig-mesh-vs-do highlights how controlled vocabularies and ontologies differ in the way they structure knowledge. In MeSH, “Coronary Disease” appears in a straightforward hierarchical tree under “Heart Diseases,” reflecting its role as a curated list of terms designed for consistent indexing and retrieval. The Disease Ontology, in contrast, represents “Coronary artery disease” as a formal class with multiple parents and additional relations to anatomical and pathological entities. These relations express biological context such as the involvement of the coronary artery or the role of atherosclerosis and support machine‑interpretable reasoning.
+@fig-mesh-vs-do highlights how controlled vocabularies and ontologies differ in the way they structure knowledge. In MeSH, “Coronary Artery Disease” appears in a straightforward hierarchical tree under “Heart Diseases,” reflecting its role as a curated list of terms designed for consistent indexing and retrieval. The Disease Ontology, in contrast, represents “Coronary artery disease” as a formal class with multiple parents and additional relations to anatomical and pathological entities. These relations express biological context such as the involvement of the coronary artery or the role of atherosclerosis and support machine‑interpretable reasoning.
 
 Together, these representations show how controlled vocabularies provide stable terminology, while ontologies add semantic structure that enables richer connections between concepts and datasets.
 
