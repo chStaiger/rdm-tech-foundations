@@ -109,7 +109,7 @@ This progression is not strictly linear. Files can be demoted back to an earlier
 
 Research, therefore, moves through the data life cycle not only in a forward direction. Each stage can connect back to earlier stages, reflecting the iterative, exploratory, and corrective nature of research practice.
 
-The exception is the _published_ Digital Object: once published, it must remain persistently available, citable, and resolvable. Publication policies prevent the object itself from being demoted or withdrawn from the life cycle. However, its content may still change through updates, corrections, or new versions, and its persistent identifier may continue to resolve even if the underlying files are removed or replaced. In such cases, the PID acts as a "tombstone" - ensuring that the published object’s identity and citation remain intact even when its content is no longer available. [Later chapters](pids.qmdf#how-does-a-pid-work) discuss how _tombstoning_, and PID policies support this guarantee.
+The exception is the _published_ Digital Object: once published, it must remain persistently available, citable, and resolvable. Publication policies prevent the object itself from being demoted or withdrawn from the life cycle. However, its content may still change through updates, corrections, or new versions, and its persistent identifier may continue to resolve even if the underlying files are removed or replaced. In such cases, the PID acts as a "tombstone" - ensuring that the published object’s identity and citation remain intact even when its content is no longer available. [Later chapters](pids.qmd#how-does-a-pid-work) discuss how _tombstoning_, and PID policies support this guarantee.
 
 ### Process — Active Research and Working Copies
 
