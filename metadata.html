@@ -270,18 +270,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#ontologies" id="toc-ontologies" class="nav-link" data-scroll-target="#ontologies">Ontologies</a></li>
   <li><a href="#metadata-schemas" id="toc-metadata-schemas" class="nav-link" data-scroll-target="#metadata-schemas">Metadata Schemas</a></li>
   <li><a href="#metadata-templates" id="toc-metadata-templates" class="nav-link" data-scroll-target="#metadata-templates">Metadata Templates</a></li>
-  <li><a href="#linked-data-and-keyvalue-metadata" id="toc-linked-data-and-keyvalue-metadata" class="nav-link" data-scroll-target="#linked-data-and-keyvalue-metadata">Linked Data and Key–Value Metadata</a></li>
-  <li><a href="#keyvalue-metadata" id="toc-keyvalue-metadata" class="nav-link" data-scroll-target="#keyvalue-metadata">Key–Value Metadata</a>
+  <li><a href="#linked-data-and-keyvalue-metadata" id="toc-linked-data-and-keyvalue-metadata" class="nav-link" data-scroll-target="#linked-data-and-keyvalue-metadata">Linked Data and Key–Value Metadata</a>
   <ul class="collapse">
-  <li><a href="#how-it-fits" id="toc-how-it-fits" class="nav-link" data-scroll-target="#how-it-fits">How it fits</a></li>
-  </ul></li>
-  <li><a href="#linked-data" id="toc-linked-data" class="nav-link" data-scroll-target="#linked-data">Linked Data</a>
-  <ul class="collapse">
-  <li><a href="#core-idea" id="toc-core-idea" class="nav-link" data-scroll-target="#core-idea">Core idea</a></li>
-  <li><a href="#how-it-fits-1" id="toc-how-it-fits-1" class="nav-link" data-scroll-target="#how-it-fits-1">How it fits</a></li>
-  </ul></li>
-  <li><a href="#a-simple-comparison" id="toc-a-simple-comparison" class="nav-link" data-scroll-target="#a-simple-comparison">A Simple Comparison</a>
-  <ul class="collapse">
+  <li><a href="#keyvalue-metadata" id="toc-keyvalue-metadata" class="nav-link" data-scroll-target="#keyvalue-metadata">Key–Value Metadata</a></li>
+  <li><a href="#linked-data" id="toc-linked-data" class="nav-link" data-scroll-target="#linked-data">Linked Data</a></li>
+  <li><a href="#a-simple-comparison" id="toc-a-simple-comparison" class="nav-link" data-scroll-target="#a-simple-comparison">A Simple Comparison</a></li>
   <li><a href="#keyvalue-pairs-versus-linked-data" id="toc-keyvalue-pairs-versus-linked-data" class="nav-link" data-scroll-target="#keyvalue-pairs-versus-linked-data">Key–value pairs versus Linked Data</a></li>
   </ul></li>
   <li><a href="#bringing-it-all-together" id="toc-bringing-it-all-together" class="nav-link" data-scroll-target="#bringing-it-all-together">Bringing It All Together</a></li>
@@ -319,13 +312,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>As digital objects take shape, they require more than stable files and durable storage. They need structured information that makes them discoverable and intelligible beyond the immediate research context. This is the role of metadata, which we will explore in this chapter.</p>
 <section id="what-is-metadata-in-research-data-management" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-metadata-in-research-data-management">What Is Metadata in Research Data Management?</h2>
-<p>In the context of Research Data Management (RDM), metadata is structured information that describes, explains, and contextualises a digital object—such as a dataset, document, image, or software file. It acts as a layer of documentation that makes a digital object findable, understandable, and reusable, both now and in the future.</p>
+<p>In the context of Research Data Management, metadata is structured information that describes, explains, and contextualises a digital object such as a dataset, document, image, or software file. It acts as a layer of documentation that makes a digital object findable, understandable, and reusable, both now and in the future.</p>
 <p>Metadata typically captures:</p>
 <ul>
 <li>Content information — what the object contains</li>
-<li>Provenance — how, when, and by whom it was created</li>
+<li>Provenance — how, when, and by whom it was created or modified</li>
 <li>Technical characteristics — file formats, structures, and software requirements</li>
 <li>Administrative information — rights, licences, and access conditions</li>
 <li>Relationships — links to other versions, datasets, or publications</li>
@@ -357,7 +351,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td><strong>Creator</strong></td>
-<td>Anna Vermeer</td>
+<td>Anna Vermeer, Jeroen de Vries</td>
 </tr>
 <tr class="odd">
 <td><strong>Affiliation</strong></td>
@@ -460,7 +454,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td><strong>Domain Detail (ISA)</strong></td>
-<td>If linked to experimental workflows: script applied to <strong>assay-level data</strong> (sensor readings), preserving measurement protocols and calibration details.</td>
+<td>If linked to experimental workflows: script applied to <em>assay-level data</em> (sensor readings), preserving measurement protocols and calibration details.</td>
 </tr>
 </tbody>
 </table>
@@ -489,6 +483,7 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://www.earthdata.nasa.gov/data/tools/gcmd-keyword-viewer">GCMD keywords</a> (Earth science)</li>
 </ul>
 <p>When a metadata field requires a <em>subject keyword</em>, a controlled vocabulary ensures that everyone uses the same term for the same concept.</p>
+<p>Controlled vocabularies give us a shared set of terms. Ontologies build on this foundation by adding structure — showing how those terms relate to one another and how they fit into a broader conceptual model.</p>
 </section>
 </section>
 </section>
@@ -501,6 +496,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Define hierarchies (e.g., “soil moisture” is a type of “hydrological variable”)</li>
 <li>Enable reasoning and automated linking between datasets</li>
 </ul>
+<p>Ontologies often incorporate controlled vocabularies as their lexical foundation, enriching those standardised terms with formal relationships that give them semantic structure.</p>
 <section id="examples-1" class="level4">
 <h4 class="anchored" data-anchor-id="examples-1">Examples</h4>
 <ul>
@@ -509,15 +505,164 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://www.w3.org/TR/prov-o/">PROV-O</a> (Provenance Ontology)</li>
 </ul>
 <p>Ontologies allow machines to understand that terms like “precipitation” and “rainfall” are related, enabling more intelligent search and data integration.</p>
+<div class="cell" data-fig-width="8" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-mesh-vs-do" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mesh-vs-do-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<svg width="768" height="480" viewbox="0.00 0.00 887.00 517.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 513.2)">
+<title>do_mesh</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-513.2 883,-513.2 883,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>cluster_DOID</title>
+<path fill="white" stroke="black" d="M20,-8C20,-8 523,-8 523,-8 529,-8 535,-14 535,-20 535,-20 535,-489.2 535,-489.2 535,-495.2 529,-501.2 523,-501.2 523,-501.2 20,-501.2 20,-501.2 14,-501.2 8,-495.2 8,-489.2 8,-489.2 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
+<text text-anchor="middle" x="271.5" y="-484.6" font-family="Helvetica,sans-Serif" font-size="14.00">Disease Ontology (DOID)</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_MeSH</title>
+<path fill="white" stroke="black" d="M627,-8C627,-8 859,-8 859,-8 865,-8 871,-14 871,-20 871,-20 871,-350.4 871,-350.4 871,-356.4 865,-362.4 859,-362.4 859,-362.4 627,-362.4 627,-362.4 621,-362.4 615,-356.4 615,-350.4 615,-350.4 615,-20 615,-20 615,-14 621,-8 627,-8"></path>
+<text text-anchor="middle" x="743" y="-345.8" font-family="Helvetica,sans-Serif" font-size="14.00">MeSH</text>
+</g>
+<!-- DOID_CVD -->
+<g id="node1" class="node">
+<title>DOID_CVD</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M366.74,-468.4C366.74,-468.4 181.26,-468.4 181.26,-468.4 175.26,-468.4 169.26,-462.4 169.26,-456.4 169.26,-456.4 169.26,-444.4 169.26,-444.4 169.26,-438.4 175.26,-432.4 181.26,-432.4 181.26,-432.4 366.74,-432.4 366.74,-432.4 372.74,-432.4 378.74,-438.4 378.74,-444.4 378.74,-444.4 378.74,-456.4 378.74,-456.4 378.74,-462.4 372.74,-468.4 366.74,-468.4"></path>
+<text text-anchor="middle" x="274" y="-446.2" font-family="Helvetica,sans-Serif" font-size="14.00">Cardiovascular system disease</text>
+</g>
+<!-- DOID_HD -->
+<g id="node2" class="node">
+<title>DOID_HD</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M221.84,-329.6C221.84,-329.6 68.16,-329.6 68.16,-329.6 62.16,-329.6 56.16,-323.6 56.16,-317.6 56.16,-317.6 56.16,-305.6 56.16,-305.6 56.16,-299.6 62.16,-293.6 68.16,-293.6 68.16,-293.6 221.84,-293.6 221.84,-293.6 227.84,-293.6 233.84,-299.6 233.84,-305.6 233.84,-305.6 233.84,-317.6 233.84,-317.6 233.84,-323.6 227.84,-329.6 221.84,-329.6"></path>
+<text text-anchor="middle" x="145" y="-307.4" font-family="Helvetica,sans-Serif" font-size="14.00">Heart disease (DOID:114)</text>
+</g>
+<!-- DOID_CVD&#45;&gt;DOID_HD -->
+<g id="edge1" class="edge">
+<title>DOID_CVD-&gt;DOID_HD</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M257.92,-432.35C235.33,-408.39 194.05,-364.61 168.15,-337.15"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="170.69,-334.74 161.28,-329.86 165.59,-339.54 170.69,-334.74"></polygon>
+<text text-anchor="middle" x="230.84" y="-376.8" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">is_a</text>
+</g>
+<!-- DOID_VD -->
+<g id="node3" class="node">
+<title>DOID_VD</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M492.08,-329.6C492.08,-329.6 317.92,-329.6 317.92,-329.6 311.92,-329.6 305.92,-323.6 305.92,-317.6 305.92,-317.6 305.92,-305.6 305.92,-305.6 305.92,-299.6 311.92,-293.6 317.92,-293.6 317.92,-293.6 492.08,-293.6 492.08,-293.6 498.08,-293.6 504.08,-299.6 504.08,-305.6 504.08,-305.6 504.08,-317.6 504.08,-317.6 504.08,-323.6 498.08,-329.6 492.08,-329.6"></path>
+<text text-anchor="middle" x="405" y="-307.4" font-family="Helvetica,sans-Serif" font-size="14.00">Vascular disease (DOID:178)</text>
+</g>
+<!-- DOID_CVD&#45;&gt;DOID_VD -->
+<g id="edge2" class="edge">
+<title>DOID_CVD-&gt;DOID_VD</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M290.33,-432.35C313.27,-408.39 355.19,-364.61 381.49,-337.15"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="384.08,-339.51 388.47,-329.86 379.02,-334.67 384.08,-339.51"></polygon>
+<text text-anchor="middle" x="360.84" y="-376.8" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">is_a</text>
+</g>
+<!-- DOID_CAD -->
+<g id="node6" class="node">
+<title>DOID_CAD</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M422.15,-190.8C422.15,-190.8 197.85,-190.8 197.85,-190.8 191.85,-190.8 185.85,-184.8 185.85,-178.8 185.85,-178.8 185.85,-166.8 185.85,-166.8 185.85,-160.8 191.85,-154.8 197.85,-154.8 197.85,-154.8 422.15,-154.8 422.15,-154.8 428.15,-154.8 434.15,-160.8 434.15,-166.8 434.15,-166.8 434.15,-178.8 434.15,-178.8 434.15,-184.8 428.15,-190.8 422.15,-190.8"></path>
+<text text-anchor="middle" x="310" y="-168.6" font-family="Helvetica,sans-Serif" font-size="14.00">Coronary artery disease (DOID:3393)</text>
+</g>
+<!-- DOID_HD&#45;&gt;DOID_CAD -->
+<g id="edge5" class="edge">
+<title>DOID_HD-&gt;DOID_CAD</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M165.56,-293.55C194.79,-269.32 248.46,-224.82 281.51,-197.42"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="283.97,-199.93 289.44,-190.85 279.5,-194.54 283.97,-199.93"></polygon>
+<text text-anchor="middle" x="250.84" y="-238" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">is_a</text>
+</g>
+<!-- DOID_VD&#45;&gt;DOID_CAD -->
+<g id="edge6" class="edge">
+<title>DOID_VD-&gt;DOID_CAD</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M393.16,-293.55C376.73,-269.9 346.9,-226.93 327.79,-199.41"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="330.57,-197.28 321.99,-191.06 324.82,-201.27 330.57,-197.28"></polygon>
+<text text-anchor="middle" x="376.84" y="-238" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">is_a</text>
+</g>
+<!-- DOID_Ath -->
+<g id="node4" class="node">
+<title>DOID_Ath</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M198.45,-52C198.45,-52 27.55,-52 27.55,-52 21.55,-52 15.55,-46 15.55,-40 15.55,-40 15.55,-28 15.55,-28 15.55,-22 21.55,-16 27.55,-16 27.55,-16 198.45,-16 198.45,-16 204.45,-16 210.45,-22 210.45,-28 210.45,-28 210.45,-40 210.45,-40 210.45,-46 204.45,-52 198.45,-52"></path>
+<text text-anchor="middle" x="113" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Atherosclerosis (DOID:1936)</text>
+</g>
+<!-- DOID_CA -->
+<g id="node5" class="node">
+<title>DOID_CA</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M515.26,-52C515.26,-52 294.74,-52 294.74,-52 288.74,-52 282.74,-46 282.74,-40 282.74,-40 282.74,-28 282.74,-28 282.74,-22 288.74,-16 294.74,-16 294.74,-16 515.26,-16 515.26,-16 521.26,-16 527.26,-22 527.26,-28 527.26,-28 527.26,-40 527.26,-40 527.26,-46 521.26,-52 515.26,-52"></path>
+<text text-anchor="middle" x="405" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Coronary artery (UBERON:0001621)</text>
+</g>
+<!-- DOID_CAD&#45;&gt;DOID_Ath -->
+<g id="edge3" class="edge">
+<title>DOID_CAD-&gt;DOID_Ath</title>
+<path fill="none" stroke="#528641" stroke-width="2" stroke-dasharray="1,5" d="M207.75,-154.75C180.96,-145.87 154.16,-132.35 134.7,-111.8 122.12,-98.51 116.74,-78.5 114.49,-62.23"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="117.96,-61.76 113.41,-52.19 110.99,-62.5 117.96,-61.76"></polygon>
+<text text-anchor="middle" x="204.65" y="-99.2" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">has_material_basis_in</text>
+</g>
+<!-- DOID_CAD&#45;&gt;DOID_CA -->
+<g id="edge4" class="edge">
+<title>DOID_CAD-&gt;DOID_CA</title>
+<path fill="none" stroke="#528641" stroke-width="2" stroke-dasharray="1,5" d="M300.93,-154.75C293.56,-138.36 286.01,-113.42 296.85,-95 306.82,-78.06 323.49,-65.57 340.79,-56.5"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="342.42,-59.6 349.87,-52.07 339.35,-53.31 342.42,-59.6"></polygon>
+<text text-anchor="middle" x="405.58" y="-99.2" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">disease_has_location / finding_site</text>
+</g>
+<!-- MeSH_CAD -->
+<g id="node9" class="node">
+<title>MeSH_CAD</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M850.82,-52C850.82,-52 635.18,-52 635.18,-52 629.18,-52 623.18,-46 623.18,-40 623.18,-40 623.18,-28 623.18,-28 623.18,-22 629.18,-16 635.18,-16 635.18,-16 850.82,-16 850.82,-16 856.82,-16 862.82,-22 862.82,-28 862.82,-28 862.82,-40 862.82,-40 862.82,-46 856.82,-52 850.82,-52"></path>
+<text text-anchor="middle" x="743" y="-29.8" font-family="Helvetica,sans-Serif" font-size="14.00">Coronary Artery Disease (D003324)</text>
+</g>
+<!-- DOID_CAD&#45;&gt;MeSH_CAD -->
+<g id="edge9" class="edge">
+<title>DOID_CAD-&gt;MeSH_CAD</title>
+<path fill="none" stroke="#528641" stroke-width="2" stroke-dasharray="5,2" d="M377.17,-154.7C420.46,-143.33 477.84,-127.64 528,-111.8 583.34,-94.33 645.72,-71.72 688.97,-55.56"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="690.31,-58.8 698.44,-52.01 687.85,-52.24 690.31,-58.8"></polygon>
+<text text-anchor="middle" x="642.53" y="-99.2" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">same clinical concept</text>
+</g>
+<!-- MeSH_CVD -->
+<g id="node7" class="node">
+<title>MeSH_CVD</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M851.38,-329.6C851.38,-329.6 634.62,-329.6 634.62,-329.6 628.62,-329.6 622.62,-323.6 622.62,-317.6 622.62,-317.6 622.62,-305.6 622.62,-305.6 622.62,-299.6 628.62,-293.6 634.62,-293.6 634.62,-293.6 851.38,-293.6 851.38,-293.6 857.38,-293.6 863.38,-299.6 863.38,-305.6 863.38,-305.6 863.38,-317.6 863.38,-317.6 863.38,-323.6 857.38,-329.6 851.38,-329.6"></path>
+<text text-anchor="middle" x="743" y="-307.4" font-family="Helvetica,sans-Serif" font-size="14.00">Cardiovascular Diseases (D002318)</text>
+</g>
+<!-- MeSH_HD -->
+<g id="node8" class="node">
+<title>MeSH_HD</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M821.74,-190.8C821.74,-190.8 664.26,-190.8 664.26,-190.8 658.26,-190.8 652.26,-184.8 652.26,-178.8 652.26,-178.8 652.26,-166.8 652.26,-166.8 652.26,-160.8 658.26,-154.8 664.26,-154.8 664.26,-154.8 821.74,-154.8 821.74,-154.8 827.74,-154.8 833.74,-160.8 833.74,-166.8 833.74,-166.8 833.74,-178.8 833.74,-178.8 833.74,-184.8 827.74,-190.8 821.74,-190.8"></path>
+<text text-anchor="middle" x="743" y="-168.6" font-family="Helvetica,sans-Serif" font-size="14.00">Heart Diseases (D006331)</text>
+</g>
+<!-- MeSH_CVD&#45;&gt;MeSH_HD -->
+<g id="edge7" class="edge">
+<title>MeSH_CVD-&gt;MeSH_HD</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M743,-293.55C743,-270.41 743,-228.78 743,-201.22"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="746.5,-201.06 743,-191.06 739.5,-201.06 746.5,-201.06"></polygon>
+</g>
+<!-- MeSH_HD&#45;&gt;MeSH_CAD -->
+<g id="edge8" class="edge">
+<title>MeSH_HD-&gt;MeSH_CAD</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M743,-154.75C743,-131.61 743,-89.98 743,-62.42"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="746.5,-62.26 743,-52.26 739.5,-62.26 746.5,-62.26"></polygon>
+</g>
+</g>
+</svg>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mesh-vs-do-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.1: Illustration of how a controlled vocabulary (MeSH) and an ontology (Disease Ontology) represent the same clinical concept, coronary artery disease, using different structural principles. MeSH organises terms in a single‑inheritance hierarchy for indexing, whereas the Disease Ontology models the concept with multiple inheritance and typed relations that capture biological meaning.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-mesh-vs-do" class="quarto-xref">Figure&nbsp;<span>7.1</span></a> highlights how controlled vocabularies and ontologies differ in the way they structure knowledge. In MeSH, “Coronary Artery Disease” appears in a straightforward hierarchical tree under “Heart Diseases,” reflecting its role as a curated list of terms designed for consistent indexing and retrieval. The Disease Ontology, in contrast, represents “Coronary artery disease” as a formal class with multiple parents and additional relations to anatomical and pathological entities. These relations express biological context such as the involvement of the coronary artery or the role of atherosclerosis and support machine‑interpretable reasoning.</p>
+<p>Together, these representations show how controlled vocabularies provide stable terminology, while ontologies add semantic structure that enables richer connections between concepts and datasets.</p>
+<p>If ontologies describe the meaning of concepts and the relationships between them, metadata schemas address a different question: which pieces of information should be captured when describing a digital object.</p>
 </section>
 </section>
 <section id="metadata-schemas" class="level2">
 <h2 class="anchored" data-anchor-id="metadata-schemas">Metadata Schemas</h2>
-<p>A metadata schema defines <em>which fields</em> are used to describe a digital object and <em>how</em> those fields should be structured.</p>
+<p>A metadata schema defines which fields are used to describe a digital object and how those fields should be structured.</p>
 <p>They:</p>
 <ul>
 <li>Specify required and optional fields</li>
-<li>Define field types (e.g., text, date, identifier)</li>
+<li>Define field types (e.g.&nbsp;text, date, identifier)</li>
 <li>Ensure consistency across repositories and disciplines</li>
 </ul>
 <section id="examples-2" class="level4">
@@ -537,7 +682,8 @@ ul.task-list li input[type="checkbox"] {
 <li>License</li>
 <li>Persistent identifier</li>
 </ul>
-<p>Importantly, it does not define which terms to use—that is the role of controlled vocabularies.</p>
+<p>Importantly, it does not define which terms to use. That is the role of controlled vocabularies.</p>
+<p>Schemas define the structure of metadata, but researchers rarely interact with schemas directly. Templates translate these definitions into practical (web)forms and interfaces that guide real‑world data entry.</p>
 </section>
 </section>
 <section id="metadata-templates" class="level2">
@@ -614,60 +760,60 @@ ul.task-list li input[type="checkbox"] {
 <li>Controlled vocabularies may guide keyword selection.</li>
 <li>Ontologies may link your dataset to related concepts behind the scenes.</li>
 </ol>
+<p>Templates shape how metadata is created, but the underlying representation can vary. Some metadata remains simple and tabular, while other forms adopt richer, semantic structures. This leads us to two complementary approaches: key–value metadata and Linked Data.</p>
 </section>
 </section>
 </section>
 <section id="linked-data-and-keyvalue-metadata" class="level2">
 <h2 class="anchored" data-anchor-id="linked-data-and-keyvalue-metadata">Linked Data and Key–Value Metadata</h2>
 <p>Metadata can range from simple structures to fully semantic representations. Two key approaches are key–value metadata and Linked Data.</p>
-</section>
-<section id="keyvalue-metadata" class="level2">
-<h2 class="anchored" data-anchor-id="keyvalue-metadata">Key–Value Metadata</h2>
-<p>Key–value metadata is the simplest and most widely used format. It consists of pairs:</p>
+<section id="keyvalue-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="keyvalue-metadata">Key–Value Metadata</h3>
+<p>A common way to record metadata is as a simple list of key–value pairs. It consists of pairs:</p>
 <ul>
 <li>Key → the field name</li>
 <li>Value → the content</li>
 </ul>
-<section id="examples-4" class="level5">
-<h5 class="anchored" data-anchor-id="examples-4">Examples</h5>
+<section id="examples-4" class="level4">
+<h4 class="anchored" data-anchor-id="examples-4">Examples</h4>
 <ul>
 <li><code>title: Soil Moisture Dataset 2020–2023</code></li>
 <li><code>creator: Anna Vermeer</code></li>
 <li><code>license: CC BY 4.0</code></li>
 </ul>
 </section>
-<section id="characteristics" class="level5">
-<h5 class="anchored" data-anchor-id="characteristics">Characteristics</h5>
+<section id="characteristics" class="level4">
+<h4 class="anchored" data-anchor-id="characteristics">Characteristics</h4>
 <ul>
 <li>Easy to create and understand</li>
 <li>Common in spreadsheets, JSON, YAML, and repository forms</li>
 <li>Human-readable, but limited in machine interpretation</li>
 </ul>
 </section>
-<section id="how-it-fits" class="level3">
-<h3 class="anchored" data-anchor-id="how-it-fits">How it fits</h3>
+<section id="how-it-fits" class="level4">
+<h4 class="anchored" data-anchor-id="how-it-fits">How it fits</h4>
 <ul>
 <li>Schemas define the keys</li>
 <li>Controlled vocabularies constrain the values</li>
 <li>Templates present both to the user</li>
 </ul>
-<p>Key–value metadata forms the foundation of most metadata practices.</p>
+<p>Key–value metadata remains the most common way to record basic descriptive information. It provides a straightforward way to describe digital objects, but it offers limited support for expressing relationships or deeper semantics. Linked Data addresses these limitations by representing information as interconnected statements.</p>
 </section>
 </section>
-<section id="linked-data" class="level2">
-<h2 class="anchored" data-anchor-id="linked-data">Linked Data</h2>
-<p>Linked Data is a more advanced, semantic approach that represents metadata as interconnected statements.</p>
-<section id="core-idea" class="level3">
-<h3 class="anchored" data-anchor-id="core-idea">Core idea</h3>
+<section id="linked-data" class="level3">
+<h3 class="anchored" data-anchor-id="linked-data">Linked Data</h3>
+<p>Linked Data is a more advanced, semantic approach that represents metadata as interconnected statements. It is most useful when metadata needs to express relationships, connect to external vocabularies, or grow without restructuring. Key–value formats work well for simple descriptions, but Linked Data supports richer semantics, interoperability, and long‑term extensibility. This richer structure allows metadata to be connected across systems, enabling more powerful discovery and integration.</p>
+<section id="core-idea" class="level4">
+<h4 class="anchored" data-anchor-id="core-idea">Core idea</h4>
 <p>Information is expressed as subject–predicate–object triples:</p>
 <ul>
 <li>Dataset — <em>hasCreator</em> → Anna Vermeer</li>
 <li>Dataset — <em>hasSubject</em> → Soil Moisture</li>
 <li>Soil Moisture — <em>is a</em> → Hydrological Variable</li>
 </ul>
-<p>Each element is identified by a URI (Uniform Resource Identifier), ensuring global uniqueness through a standard web‑style identifier.</p>
-<section id="characteristics-1" class="level6">
-<h6 class="anchored" data-anchor-id="characteristics-1">Characteristics</h6>
+<p>Each element is identified by a URI (Uniform Resource Identifier), ensuring global uniqueness through a standard web‑style identifier. In addition to being globally unique, URIs can be looked up, allowing software to retrieve the description of a concept when needed.</p>
+<section id="characteristics-1" class="level5">
+<h5 class="anchored" data-anchor-id="characteristics-1">Characteristics</h5>
 <ul>
 <li>Highly interoperable</li>
 <li>Machine-interpretable</li>
@@ -676,8 +822,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
-<section id="how-it-fits-1" class="level3">
-<h3 class="anchored" data-anchor-id="how-it-fits-1">How it fits</h3>
+<section id="how-it-fits-1" class="level4">
+<h4 class="anchored" data-anchor-id="how-it-fits-1">How it fits</h4>
 <ul>
 <li>Ontologies define relationships</li>
 <li>Controlled vocabularies provide globally unique identifiers for the concepts and terms used</li>
@@ -685,10 +831,11 @@ ul.task-list li input[type="checkbox"] {
 <li>Templates may generate Linked Data automatically</li>
 </ul>
 <p>Linked Data turns metadata into a network of meaning, rather than a collection of fields.</p>
+<p>To see how these approaches differ in practice, it helps to compare how they describe the same object using different levels of structure and meaning.</p>
 </section>
 </section>
-<section id="a-simple-comparison" class="level2">
-<h2 class="anchored" data-anchor-id="a-simple-comparison">A Simple Comparison</h2>
+<section id="a-simple-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="a-simple-comparison">A Simple Comparison</h3>
 <p>Describing a book:</p>
 <ul>
 <li><p>Key–value metadata</p>
@@ -708,9 +855,10 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Template → the form</p></li>
 <li><p>Linked Data → a connected network (knowledge graph) of relationships</p></li>
 </ul>
+</section>
 <section id="keyvalue-pairs-versus-linked-data" class="level3">
 <h3 class="anchored" data-anchor-id="keyvalue-pairs-versus-linked-data">Key–value pairs versus Linked Data</h3>
-<p>Metadata often begins its life as a simple list of key–value pairs. This is the format most researchers encounter in spreadsheets, repository submission forms, or lightweight JSON/YAML files.</p>
+<p>The table below shows key–value metadata in its familiar tabular form.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -725,7 +873,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>Creator</td>
-<td>Anna Vermeer</td>
+<td>Anna Vermeer, Jeroen de Vries</td>
 </tr>
 <tr class="odd">
 <td>Affiliation</td>
@@ -749,27 +897,27 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Each row stands alone as an independent field–value pair<br>
 </li>
-<li>Relationships (e.g., that <em>Anna Vermeer</em> is affiliated with <em>Utrecht University</em>) are implicit<br>
+<li>Relationships (e.g., that <em>Anna Vermeer</em> and <em>Jeroen de Vries</em> are affiliated with <em>Utrecht University</em>) are implicit, meaning they are only suggested by the text and not formally expressed in a way that software can interpret<br>
 </li>
 <li>Values are plain text, without global identifiers or machine‑interpretable meaning</li>
 </ul>
-<p>Such metadata is typically serialised as CSV or TSV files: simple, familiar, and easy to edit, but limited in how much structure or semantics they can express.</p>
-<p>In the diagram below, the <em>same metadata</em> is expressed as a small knowledge graph. Instead of isolated fields, we now have entities (dataset, person, organisation, concept) connected by explicit relationships.</p>
-<div class="cell" data-fig-width="8" data-layout-align="center">
+<p>When serialised as CSV or TSV, this kind of metadata remains flat and easy to handle, but it cannot express richer structure or semantics.</p>
+<p>In <a href="policy-engines.html#fig-2" class="quarto-xref">Figure&nbsp;<span>13.2</span></a> below, the <em>same metadata</em> is expressed as a small knowledge graph. Instead of isolated fields, we now have entities (dataset, person, organisation, concept) connected by explicit relationships.</p>
+<div class="cell" data-fig-width="9" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<svg width="768" height="480" viewbox="0.00 0.00 955.87 293.60" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<svg width="864" height="480" viewbox="0.00 0.00 1141.87 293.60" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 289.6)">
 <title>knowledge_graph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-289.6 951.87,-289.6 951.87,4 -4,4"></polygon>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-289.6 1137.87,-289.6 1137.87,4 -4,4"></polygon>
 <!-- D -->
 <g id="node1" class="node">
 <title>D</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M476.7,-285.6C476.7,-285.6 436.2,-285.6 436.2,-285.6 430.2,-285.6 424.2,-279.6 424.2,-273.6 424.2,-273.6 424.2,-261.6 424.2,-261.6 424.2,-255.6 430.2,-249.6 436.2,-249.6 436.2,-249.6 476.7,-249.6 476.7,-249.6 482.7,-249.6 488.7,-255.6 488.7,-261.6 488.7,-261.6 488.7,-273.6 488.7,-273.6 488.7,-279.6 482.7,-285.6 476.7,-285.6"></path>
-<text text-anchor="middle" x="456.45" y="-263.4" font-family="Helvetica,sans-Serif" font-size="14.00">Dataset</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M546.7,-285.6C546.7,-285.6 506.2,-285.6 506.2,-285.6 500.2,-285.6 494.2,-279.6 494.2,-273.6 494.2,-273.6 494.2,-261.6 494.2,-261.6 494.2,-255.6 500.2,-249.6 506.2,-249.6 506.2,-249.6 546.7,-249.6 546.7,-249.6 552.7,-249.6 558.7,-255.6 558.7,-261.6 558.7,-261.6 558.7,-273.6 558.7,-273.6 558.7,-279.6 552.7,-285.6 546.7,-285.6"></path>
+<text text-anchor="middle" x="526.45" y="-263.4" font-family="Helvetica,sans-Serif" font-size="14.00">Dataset</text>
 </g>
 <!-- T -->
 <g id="node2" class="node">
@@ -780,9 +928,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- D&#45;&gt;T -->
 <g id="edge1" class="edge">
 <title>D-&gt;T</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M424.18,-255.05C366.09,-234.25 243.2,-190.25 170.58,-164.25"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="171.71,-160.94 161.12,-160.86 169.35,-167.53 171.71,-160.94"></polygon>
-<text text-anchor="middle" x="326.68" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">dc:title</text>
+<path fill="none" stroke="#528641" stroke-width="2" d="M494.23,-260.42C450,-251.62 368.2,-234.25 299.99,-213.6 253.2,-199.44 201.21,-179.63 164.02,-164.73"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="165,-161.36 154.42,-160.86 162.39,-167.85 165,-161.36"></polygon>
+<text text-anchor="middle" x="320.68" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">dc:title</text>
 </g>
 <!-- Y -->
 <g id="node3" class="node">
@@ -793,68 +941,88 @@ ul.task-list li input[type="checkbox"] {
 <!-- D&#45;&gt;Y -->
 <g id="edge2" class="edge">
 <title>D-&gt;Y</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M431.06,-249.55C416.67,-239.56 398.55,-226.41 383.31,-213.6 366.34,-199.34 348.47,-181.99 334.79,-168.15"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="337.15,-165.56 327.65,-160.87 332.15,-170.46 337.15,-165.56"></polygon>
-<text text-anchor="middle" x="413.02" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">dc:issued</text>
+<path fill="none" stroke="#528641" stroke-width="2" d="M494.04,-260.28C461.69,-252.88 411.58,-238.37 374.31,-213.6 356.59,-201.83 340.62,-183.94 329.2,-169.22"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="331.83,-166.89 323.03,-160.99 326.23,-171.09 331.83,-166.89"></polygon>
+<text text-anchor="middle" x="404.02" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">dc:issued</text>
 </g>
 <!-- L -->
 <g id="node4" class="node">
 <title>L</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M504.41,-160.8C504.41,-160.8 408.49,-160.8 408.49,-160.8 402.49,-160.8 396.49,-154.8 396.49,-148.8 396.49,-148.8 396.49,-136.8 396.49,-136.8 396.49,-130.8 402.49,-124.8 408.49,-124.8 408.49,-124.8 504.41,-124.8 504.41,-124.8 510.41,-124.8 516.41,-130.8 516.41,-136.8 516.41,-136.8 516.41,-148.8 516.41,-148.8 516.41,-154.8 510.41,-160.8 504.41,-160.8"></path>
-<text text-anchor="middle" x="456.45" y="-138.6" font-family="Helvetica,sans-Serif" font-size="14.00">CC BY 4.0 (URI)</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M466.59,-160.8C466.59,-160.8 408.31,-160.8 408.31,-160.8 402.31,-160.8 396.31,-154.8 396.31,-148.8 396.31,-148.8 396.31,-136.8 396.31,-136.8 396.31,-130.8 402.31,-124.8 408.31,-124.8 408.31,-124.8 466.59,-124.8 466.59,-124.8 472.59,-124.8 478.59,-130.8 478.59,-136.8 478.59,-136.8 478.59,-148.8 478.59,-148.8 478.59,-154.8 472.59,-160.8 466.59,-160.8"></path>
+<text text-anchor="middle" x="437.45" y="-138.6" font-family="Helvetica,sans-Serif" font-size="14.00">CC BY 4.0</text>
 </g>
 <!-- D&#45;&gt;L -->
 <g id="edge3" class="edge">
 <title>D-&gt;L</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M456.45,-249.53C456.45,-229.29 456.45,-195.32 456.45,-171.35"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="459.95,-171.13 456.45,-161.13 452.95,-171.13 459.95,-171.13"></polygon>
-<text text-anchor="middle" x="487.58" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">dc:license</text>
+<path fill="none" stroke="#528641" stroke-width="2" d="M494.39,-249.48C480.44,-240.52 465.06,-228.33 455.2,-213.6 446.8,-201.06 442.37,-184.82 440.04,-171.17"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="443.46,-170.3 438.59,-160.89 436.52,-171.28 443.46,-170.3"></polygon>
+<text text-anchor="middle" x="486.58" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">dc:license</text>
 </g>
-<!-- P -->
+<!-- P1 -->
 <g id="node5" class="node">
-<title>P</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M720.86,-160.8C720.86,-160.8 586.04,-160.8 586.04,-160.8 580.04,-160.8 574.04,-154.8 574.04,-148.8 574.04,-148.8 574.04,-136.8 574.04,-136.8 574.04,-130.8 580.04,-124.8 586.04,-124.8 586.04,-124.8 720.86,-124.8 720.86,-124.8 726.86,-124.8 732.86,-130.8 732.86,-136.8 732.86,-136.8 732.86,-148.8 732.86,-148.8 732.86,-154.8 726.86,-160.8 720.86,-160.8"></path>
-<text text-anchor="middle" x="653.45" y="-138.6" font-family="Helvetica,sans-Serif" font-size="14.00">Person: Anna Vermeer</text>
+<title>P1</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M682.86,-160.8C682.86,-160.8 548.04,-160.8 548.04,-160.8 542.04,-160.8 536.04,-154.8 536.04,-148.8 536.04,-148.8 536.04,-136.8 536.04,-136.8 536.04,-130.8 542.04,-124.8 548.04,-124.8 548.04,-124.8 682.86,-124.8 682.86,-124.8 688.86,-124.8 694.86,-130.8 694.86,-136.8 694.86,-136.8 694.86,-148.8 694.86,-148.8 694.86,-154.8 688.86,-160.8 682.86,-160.8"></path>
+<text text-anchor="middle" x="615.45" y="-138.6" font-family="Helvetica,sans-Serif" font-size="14.00">Person: Anna Vermeer</text>
 </g>
-<!-- D&#45;&gt;P -->
+<!-- D&#45;&gt;P1 -->
 <g id="edge4" class="edge">
-<title>D-&gt;P</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M483.84,-249.53C518.59,-227.87 578.61,-190.45 617.15,-166.43"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="619.34,-169.19 625.97,-160.93 615.64,-163.25 619.34,-169.19"></polygon>
-<text text-anchor="middle" x="598.58" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">dc:creator</text>
+<title>D-&gt;P1</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M538.83,-249.53C553.89,-228.75 579.45,-193.47 596.88,-169.43"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="599.86,-171.28 602.89,-161.13 594.19,-167.17 599.86,-171.28"></polygon>
+<text text-anchor="middle" x="607.58" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">dc:creator</text>
+</g>
+<!-- P2 -->
+<g id="node6" class="node">
+<title>P2</title>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M906.64,-160.8C906.64,-160.8 764.26,-160.8 764.26,-160.8 758.26,-160.8 752.26,-154.8 752.26,-148.8 752.26,-148.8 752.26,-136.8 752.26,-136.8 752.26,-130.8 758.26,-124.8 764.26,-124.8 764.26,-124.8 906.64,-124.8 906.64,-124.8 912.64,-124.8 918.64,-130.8 918.64,-136.8 918.64,-136.8 918.64,-148.8 918.64,-148.8 918.64,-154.8 912.64,-160.8 906.64,-160.8"></path>
+<text text-anchor="middle" x="835.45" y="-138.6" font-family="Helvetica,sans-Serif" font-size="14.00">Person: Jeroen de Vries</text>
+</g>
+<!-- D&#45;&gt;P2 -->
+<g id="edge5" class="edge">
+<title>D-&gt;P2</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M558.65,-253.81C611.87,-232.65 718.7,-190.2 782.96,-164.66"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="784.5,-167.81 792.51,-160.87 781.92,-161.31 784.5,-167.81"></polygon>
+<text text-anchor="middle" x="731.58" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">dc:creator</text>
 </g>
 <!-- S -->
-<g id="node6" class="node">
+<g id="node7" class="node">
 <title>S</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M935.79,-160.8C935.79,-160.8 803.11,-160.8 803.11,-160.8 797.11,-160.8 791.11,-154.8 791.11,-148.8 791.11,-148.8 791.11,-136.8 791.11,-136.8 791.11,-130.8 797.11,-124.8 803.11,-124.8 803.11,-124.8 935.79,-124.8 935.79,-124.8 941.79,-124.8 947.79,-130.8 947.79,-136.8 947.79,-136.8 947.79,-148.8 947.79,-148.8 947.79,-154.8 941.79,-160.8 935.79,-160.8"></path>
-<text text-anchor="middle" x="869.45" y="-138.6" font-family="Helvetica,sans-Serif" font-size="14.00">Concept: Soil Moisture</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M1121.79,-160.8C1121.79,-160.8 989.11,-160.8 989.11,-160.8 983.11,-160.8 977.11,-154.8 977.11,-148.8 977.11,-148.8 977.11,-136.8 977.11,-136.8 977.11,-130.8 983.11,-124.8 989.11,-124.8 989.11,-124.8 1121.79,-124.8 1121.79,-124.8 1127.79,-124.8 1133.79,-130.8 1133.79,-136.8 1133.79,-136.8 1133.79,-148.8 1133.79,-148.8 1133.79,-154.8 1127.79,-160.8 1121.79,-160.8"></path>
+<text text-anchor="middle" x="1055.45" y="-138.6" font-family="Helvetica,sans-Serif" font-size="14.00">Concept: Soil Moisture</text>
 </g>
 <!-- D&#45;&gt;S -->
-<g id="edge5" class="edge">
+<g id="edge6" class="edge">
 <title>D-&gt;S</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M488.61,-257.73C525.92,-247.38 589.26,-229.65 643.45,-213.6 698.29,-197.36 760.36,-178.13 805.55,-163.97"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="806.72,-167.27 815.22,-160.94 804.63,-160.59 806.72,-167.27"></polygon>
-<text text-anchor="middle" x="724.97" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">dc:subject</text>
+<path fill="none" stroke="#528641" stroke-width="2" d="M558.9,-260.11C606.65,-250.48 698.64,-231.58 776.45,-213.6 845.75,-197.59 924.31,-177.79 980.37,-163.37"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="981.41,-166.71 990.22,-160.83 979.66,-159.94 981.41,-166.71"></polygon>
+<text text-anchor="middle" x="877.97" y="-201" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">dc:subject</text>
 </g>
 <!-- O -->
-<g id="node7" class="node">
+<g id="node8" class="node">
 <title>O</title>
-<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M748.08,-36C748.08,-36 558.82,-36 558.82,-36 552.82,-36 546.82,-30 546.82,-24 546.82,-24 546.82,-12 546.82,-12 546.82,-6 552.82,0 558.82,0 558.82,0 748.08,0 748.08,0 754.08,0 760.08,-6 760.08,-12 760.08,-12 760.08,-24 760.08,-24 760.08,-30 754.08,-36 748.08,-36"></path>
-<text text-anchor="middle" x="653.45" y="-13.8" font-family="Helvetica,sans-Serif" font-size="14.00">Organisation: Utrecht University</text>
+<path fill="#daeab4" stroke="#528641" stroke-width="2" d="M819.08,-36C819.08,-36 629.82,-36 629.82,-36 623.82,-36 617.82,-30 617.82,-24 617.82,-24 617.82,-12 617.82,-12 617.82,-6 623.82,0 629.82,0 629.82,0 819.08,0 819.08,0 825.08,0 831.08,-6 831.08,-12 831.08,-12 831.08,-24 831.08,-24 831.08,-30 825.08,-36 819.08,-36"></path>
+<text text-anchor="middle" x="724.45" y="-13.8" font-family="Helvetica,sans-Serif" font-size="14.00">Organisation: Utrecht University</text>
 </g>
-<!-- P&#45;&gt;O -->
-<g id="edge6" class="edge">
-<title>P-&gt;O</title>
-<path fill="none" stroke="#528641" stroke-width="2" d="M653.45,-124.73C653.45,-104.49 653.45,-70.52 653.45,-46.55"></path>
-<polygon fill="#528641" stroke="#528641" stroke-width="2" points="656.95,-46.33 653.45,-36.33 649.95,-46.33 656.95,-46.33"></polygon>
-<text text-anchor="middle" x="707.53" y="-76.2" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">schema:affiliation</text>
+<!-- P1&#45;&gt;O -->
+<g id="edge7" class="edge">
+<title>P1-&gt;O</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M618.83,-124.78C622.53,-109.62 629.68,-87.52 642.29,-72 652.12,-59.91 665.46,-49.67 678.54,-41.51"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="680.69,-44.31 687.51,-36.2 677.12,-38.29 680.69,-44.31"></polygon>
+<text text-anchor="middle" x="696.53" y="-76.2" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">schema:affiliation</text>
+</g>
+<!-- P2&#45;&gt;O -->
+<g id="edge8" class="edge">
+<title>P2-&gt;O</title>
+<path fill="none" stroke="#528641" stroke-width="2" d="M820.02,-124.73C801.07,-103.77 768.79,-68.05 747.05,-44"></path>
+<polygon fill="#528641" stroke="#528641" stroke-width="2" points="749.41,-41.4 740.11,-36.33 744.22,-46.09 749.41,-41.4"></polygon>
+<text text-anchor="middle" x="841.53" y="-76.2" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#528641">schema:affiliation</text>
 </g>
 </g>
 </svg>
 </div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.1: Knowledge Graph
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.2: Knowledge Graph
 </figcaption>
 </figure>
 </div>
@@ -870,8 +1038,19 @@ Figure&nbsp;7.1: Knowledge Graph
 </li>
 <li>Relationships such as <code>creator</code> and <code>affiliation</code> are explicit and machine‑interpretable</li>
 </ul>
-<p>This is the essential shift: from <em>fields with values</em> to <em>entities with relationships</em>.</p>
-<p>To serialise such a graph, we use a Linked Data format such as Turtle:</p>
+<p>This moves us from <em>fields with values</em> to <em>entities with relationships</em>. An RDF graph — the Resource Description Framework — represents metadata as a network of interconnected entities, where each connection is expressed as a triple linking a subject, predicate, and object. Once metadata is expressed in this way, it can be serialised using a Linked Data format such as Turtle.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>The knowledge graph above written down in Turtle.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <pre class="turtle"><code>@prefix dc:     &lt;http://purl.org/dc/elements/1.1/&gt; .
 @prefix dct:    &lt;http://purl.org/dc/terms/&gt; .
 @prefix schema: &lt;http://schema.org/&gt; .
@@ -905,25 +1084,28 @@ Figure&nbsp;7.1: Knowledge Graph
     a skos:Concept ;
     skos:prefLabel "Soil Moisture"@en ;
     skos:definition "The amount of water contained in soil, typically expressed as a percentage."@en .</code></pre>
-<p>In this Turtle serialisation, the RDF graph not only describes the dataset, the creator, and the organisation, but also provides a stable identifier for the subject concept (“Soil Moisture”). This makes the metadata interoperable: other datasets can refer to the same concept, and machines can follow the URI to retrieve its meaning.</p>
-<p>At the top of the file, we declare the ontologies and vocabularies we use. For example:</p>
+</div>
+</div>
+</div>
+<p>In this serialisation, the RDF graph not only describes the dataset, the creator, and the organisation, but also provides a stable identifier for the subject concept (“Soil Moisture”). This makes the metadata interoperable: other datasets can refer to the same concept, and machines can follow the URI to retrieve its meaning.</p>
+<p>The prefixes at the top of the file indicate which vocabularies and ontologies the graph draws on, allowing each property and class to be referenced unambiguously. For example:</p>
 <pre><code>@prefix dc:     &lt;http://purl.org/dc/elements/1.1/&gt; .</code></pre>
-<p>This tells us that <code>dc:title</code> is shorthand for the full URI<br>
-<a href="http://purl.org/dc/elements/1.1/title" class="uri">http://purl.org/dc/elements/1.1/title</a>,<br>
-which is the authoritative definition of the Dublin Core <code>title</code> property.</p>
+<p>This prefix simply states that <code>dc:title</code> refers to the full URI <a href="http://purl.org/dc/elements/1.1/title" class="uri">http://purl.org/dc/elements/1.1/title</a>,<br>
+the authoritative definition of the Dublin Core <code>title</code> property.</p>
 <p>By giving each entity, i.e.&nbsp;dataset, person, organisation and concept its own URI, the graph becomes a reusable and extensible structure. Machines can infer relationships, merge graphs, or enrich them with external knowledge. While it is technically possible to use URIs as keys in key–value metadata, such formats lack the semantics and inference capabilities that RDF provides.</p>
 <p>We explore metadata serialisation and metadata infrastructure in more detail in the chapter <a href="./metadata-portals.html">Metadata Infrastructure</a>.</p>
 </section>
 </section>
 <section id="bringing-it-all-together" class="level2">
 <h2 class="anchored" data-anchor-id="bringing-it-all-together">Bringing It All Together</h2>
+<p>The layers described above build on one another, moving from simple descriptions to richer semantic structures. Seeing how they connect helps clarify how different metadata standards work together in practice.</p>
 <ul>
 <li>Key–value metadata is the practical starting point</li>
 <li>Linked Data is the semantic, interoperable extension</li>
 <li>Controlled vocabularies and ontologies provide meaning and standardisation of terms</li>
 <li>Schemas and templates provide structure</li>
 </ul>
-<p>Together, they form the foundation of FAIR, reusable research metadata.</p>
+<p>Together, these elements give us a coherent picture of how metadata can be structured and enriched. With this broader view in place, we can look more closely at specific metadata standards and how they complement one another across different domains.</p>
 </section>
 <section id="understanding-and-combining-metadata-standards" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-and-combining-metadata-standards">Understanding and Combining Metadata Standards</h2>
@@ -1135,7 +1317,8 @@ which is the authoritative definition of the Dublin Core <code>title</code> prop
 </tr>
 </tbody>
 </table>
-<p>Together, these layers create rich, FAIR, and interoperable metadata.</p>
+<p>Together, these layers create rich, FAIR, and interoperable metadata. With them in place, metadata becomes both meaningful within its discipline and interoperable across the wider research landscape.</p>
+<p>In this chapter we introduced URIs as globally unique identifiers for concepts, properties, and relationships within semantic metadata. These identifiers help machines understand what a term refers to and how different entities are connected. To make research objects themselves—datasets, software, publications, instruments, samples—equally stable and unambiguous, we need identifiers that serve the same purpose at the data object level and remain reliable over time, even as locations or infrastructures change. This is the role of Persistent Identifiers. They apply the principle of stable, globally unique identification to the objects that metadata describes, ensuring that those objects can be cited, discovered, and linked long after their storage or access conditions evolve.</p>
 </section>
 </section>
 <section id="references" class="level2">
