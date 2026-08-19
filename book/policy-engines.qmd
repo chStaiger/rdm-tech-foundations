@@ -56,20 +56,20 @@ Both models aim to provide consistent governance across distributed storage, but
 ## Policy Engine Architecture
 
 ```{dot}
-//| label: fig-1
+//| label: fig-policy-engines
 //| fig-cap: Policy engines coordinate storage, enabling metadata‑driven automation and consistent digital‑object management across distributed systems.
 //| fig-align: center
-//| fig-width: 10
+//| fig-width: 8
 
 digraph policy_engines {
 
     graph [
-        rankdir=LR,
+        rankdir=TB,
         bgcolor="white",
         fontname="Helvetica",
         fontsize=18,
-        nodesep=0.8,
-        ranksep=1.2
+        ranksep=1.5,
+        compound=True
     ];
 
     node [
@@ -90,42 +90,23 @@ digraph policy_engines {
         penwidth=2
     ];
 
-    // ----------------------------------------------------
-    // User node
-    // ----------------------------------------------------
-    User [label="User\n(commands, queries)"];
+    User [label="Scientist or Compute Workflow"];
 
     // ----------------------------------------------------
     // Policy Engine cluster with vertical stacking
     // ----------------------------------------------------
     subgraph cluster_policy {
-        label="";
+        label="Policy Engine";
         color="#528641";
         penwidth=2;
         style="rounded";
 
-        // Header node (no fill)
-        PolicyHeader [
-            label="Policy Engine",
-            shape=box,
-            style="rounded",
-            color="#528641",
-            fillcolor="white",
-            penwidth=2,
-            fontsize=20
-        ];
 
         // Cluster nodes
         Rules         [label="Policy Rules\n(placement, replication, retention)"];
         Catalog       [label="Metadata Catalog\n(checksums, replicas, provenance)"];
-        Orchestration [label="Data Orchestration\n(movement, triggers, automation)"];
-
-        PolicyHeader -> Rules         [style=invis, weight=50];
-        PolicyHeader -> Catalog       [style=invis, weight=50];
-        PolicyHeader -> Orchestration [style=invis, weight=50];
         
-        TopPolicyAnchor [shape=point, width=0, height=0, label="", style=invis];
-		TopPolicyAnchor -> PolicyHeader [style=invis, weight=500];
+        Orchestration [label="Data Orchestration\n(movement, triggers, automation)"];
 
     }
 
@@ -133,48 +114,24 @@ digraph policy_engines {
     // Storage Systems cluster with vertical stacking
     // ----------------------------------------------------
     subgraph cluster_storage {
-        label="";
+        label="Storage Systems";
         color="#528641";
         penwidth=2;
         style="rounded";
 
-        // Header node (no fill)
-        StorageHeader [
-            label="Storage Systems",
-            shape=box,
-            style="rounded",
-            color="#528641",
-            fillcolor="white",
-            penwidth=2,
-            fontsize=20
-        ];
-
         // Cluster nodes
-        POSIX      [label="POSIX File Systems"];
-        Object     [label="Object Stores"];
+        File     [label="File System"];
         Tape       [label="Tape / Cold Storage"];
         CloudStore [label="Cloud Storage"];
-
-        // ⭐ Invisible vertical chain (forces stacking)
-        StorageHeader -> POSIX      [style=invis, weight=50];
-        StorageHeader -> Object      [style=invis, weight=50];
-       StorageHeader -> Tape        [style=invis, weight=50];
-        StorageHeader -> CloudStore  [style=invis, weight=50];
-        TopStorageAnchor [shape=point, width=0, height=0, label="", style=invis];
-		TopStorageAnchor -> StorageHeader [style=invis, weight=500];
-
     }
 
     // ----------------------------------------------------
     // Edges between clusters via header nodes
     // ----------------------------------------------------
-    User -> PolicyHeader;
-
-    PolicyHeader -> StorageHeader;
-    TopPolicyAnchor -> TopStorageAnchor [style=invis, weight=1000];
+    User -> Catalog [label="Search, Upload and Retrieve Data ", lhead="cluster_policy",];
+    Catalog -> Tape [label="Store and Fetch files", ltail="cluster_policy", lhead="cluster_storage"];
 
 }
-
 ```
 
 Policy engines sit between the user or compute system and the storage, coordinating metadata, rules, and data movement across active research environments. Their core role is to ensure that files become digital objects—with metadata, identifiers, provenance, and policies—at the right moment in the research lifecycle.
@@ -378,8 +335,7 @@ digraph data_aging_flow {
         bgcolor="white",
         fontname="Helvetica",
         fontsize=18,
-        nodesep=0.8,
-        ranksep=1.2
+        compound=True
     ];
 
     node [
@@ -400,78 +356,42 @@ digraph data_aging_flow {
         penwidth=2
     ];
 
-    // ----------------------------------------------------
-    // Policy Engine cluster (vertical stacking)
-    // ----------------------------------------------------
-    subgraph cluster_policy_engine {
-        label="";
-        color="#528641";
-        penwidth=2;
-        style="rounded";
-
-        PEHeader [
-            label="Policy Engine",
-            shape=box,
-            style="rounded",
-            color="#528641",
-            fillcolor="white",
-            penwidth=2,
-            fontsize=20
-        ];
-
-        Monitor   [label="Monitor Metadata\n(timestamps, access times)"];
-        AgePolicy [label="Data-Aging Policy\n(move after X days)"];
-        Catalog   [label="Metadata Catalog\n(location, timestamps)"];
-
-        // Invisible vertical chain
-        PEHeader  -> Monitor   [style=invis, weight=50];
-        Monitor   -> AgePolicy [style=invis, weight=50];
-        AgePolicy -> Catalog   [style=invis, weight=50];
-    }
-
-    // ----------------------------------------------------
-    // Storage Systems cluster (vertical stacking)
-    // ----------------------------------------------------
     subgraph cluster_storage {
-        label="";
+        label="Storage Systems";
         color="#528641";
         penwidth=2;
         style="rounded";
 
-        StorageHeader [
-            label="Storage Systems",
-            shape=box,
-            style="rounded",
-            color="#528641",
-            fillcolor="white",
-            penwidth=2,
-            fontsize=20
+        Spacer [
+        shape=point,
+        width=0,
+        height=0,
+        label="",
+        style=invis
         ];
 
         Hot  [label="Online Storage"];
         Cold [label="Cold Storage"];
-
-        // Invisible vertical chain
-        StorageHeader -> Hot  [style=invis, weight=50];
-        Hot           -> Cold [style=invis, weight=50];
     }
 
-    // ----------------------------------------------------
-    // Align clusters vertically (TB mode)
-    // ----------------------------------------------------
-    PEHeader -> StorageHeader [style=invis, weight=200];
+    subgraph cluster_policy_engine {
+        label="Policy Engine \n Aging Policy";
+        color="#528641";
+        penwidth=2;
+        style="rounded";
 
-    // ----------------------------------------------------
-    // Visible edges (actual flow)
-    // ----------------------------------------------------
-    Monitor   -> Catalog;
-    Catalog   -> AgePolicy [label="aging policy triggers"];
-    AgePolicy -> StorageHeader [label="send trigger to migrate"];
+        AgePolicy [label="Data-Aging Policy\n(move after X days)"];
+        Catalog   [label="Metadata Catalog\n(location, timestamps)"];
 
-    // Migration cue (dotted)
-    Hot -> Cold [style=dotted, label="migrate aged data"];
+    
+        Catalog   -> AgePolicy [label="Timestamp\ntriggers"];
+        AgePolicy -> Hot [label="send trigger \n to migrate", lhead="cluster_storage"];
+    }
+    
+    Hot -> Cold [style=dotted, label="migrate \n aged data"];
+
+
 }
-
 ```
 
 The policy engine monitors metadata such as access and modification times. When a file exceeds the threshold defined by a data‑aging rule, the engine moves it from online storage to a cold tier and updates the catalog.
@@ -614,7 +534,8 @@ digraph workflow_generated_data {
         fontname="Helvetica",
         fontsize=18,
         nodesep=0.8,
-        ranksep=1.2
+        ranksep=1.2,
+        compound=true
     ];
 
     node [
@@ -639,45 +560,22 @@ digraph workflow_generated_data {
     // Compute Environment cluster
     // ----------------------------------------------------
     subgraph cluster_compute {
-        label="";
+        label="Compute Environment";
         color="#528641";
         penwidth=2;
         style="rounded";
 
-        ComputeHeader [
-            label="Compute Environment",
-            shape=box,
-            style="rounded",
-            color="#528641",
-            fillcolor="white",
-            penwidth=2,
-            fontsize=20
-        ];
-
         WF [label="Workflow\n(input data + output file + parameters)"];
-
-        // Vertical stacking
-        ComputeHeader -> WF [style=invis, weight=50];
     }
 
     // ----------------------------------------------------
     // Policy Engine cluster
     // ----------------------------------------------------
     subgraph cluster_policy_engine {
-        label="";
+        label="Policy Engine";
         color="#528641";
         penwidth=2;
         style="rounded";
-
-        PEHeader [
-            label="Policy Engine",
-            shape=box,
-            style="rounded",
-            color="#528641",
-            fillcolor="white",
-            penwidth=2,
-            fontsize=20
-        ];
 
         NewObj  [label="Create New Digital Object\n(output file)"];
         Extract [label="Extract metadata from output file\n(checksum, timestamps, filetype)"];
@@ -685,7 +583,6 @@ digraph workflow_generated_data {
         ID      [label="Assign Identifier\n(PID or local ID)"];
 
         // Vertical stacking
-        PEHeader -> NewObj  [style=invis, weight=50];
         NewObj   -> Extract [style=invis, weight=50];
         Extract  -> Catalog [style=invis, weight=50];
         Catalog  -> ID      [style=invis, weight=50];
@@ -695,42 +592,25 @@ digraph workflow_generated_data {
     // Storage Systems cluster
     // ----------------------------------------------------
     subgraph cluster_storage {
-        label="";
+        label="Storage Systems";
         color="#528641";
         penwidth=2;
         style="rounded";
 
-        StorageHeader [
-            label="Storage Systems",
-            shape=box,
-            style="rounded",
-            color="#528641",
-            fillcolor="white",
-            penwidth=2,
-            fontsize=20
-        ];
-
-        Store [label="Storage Backend\n(POSIX / Object / Tape)"];
-
-        // Vertical stacking
-        StorageHeader -> Store [style=invis, weight=50];
+        Store1 [label="File System"];
+        Store2 [label="Cloud"];
+        Store3 [label="Tape/Cold"];
     }
 
-    // ----------------------------------------------------
-    // Align clusters horizontally (TB mode)
-    // ----------------------------------------------------
-    ComputeHeader -> PEHeader     [style=invis, weight=200];
-    PEHeader      -> StorageHeader [style=invis, weight=200];
 
     // ----------------------------------------------------
     // Visible edges (actual workflow)
     // ----------------------------------------------------
-    WF      -> PEHeader [label="Upload file and metadata"];
-    PEHeader -> StorageHeader [label="Store file"];
-
-    PEHeader -> NewObj [label="Triggers workflow"];
-    NewObj  -> Extract;
-    ID      -> NewObj;
+    WF      -> NewObj [label="Upload files and metadata", lhead="cluster_policy_engine"]; 
+    NewObj  -> Extract [label="Triggers workflow"];
+    NewObj  -> Store1 [label="Store File", ltail="cluster_policy_engine", lhead="cluster_storage"]
+    NewObj  -> ID;
+    ID -> Catalog;
     Extract -> Catalog;
 }    
 ```
@@ -747,12 +627,13 @@ When a workflow produces an output file, it uploads the file together with metad
 digraph metadata_query_flow {
 
     graph [
-        rankdir=LR,
+        rankdir=TB,
         bgcolor="white",
         fontname="Helvetica",
         fontsize=18,
         nodesep=0.8,
-        ranksep=1.2
+        ranksep=1.2,
+        compound=true
     ];
 
     node [
@@ -777,102 +658,56 @@ digraph metadata_query_flow {
     // Storage Systems cluster
     // ----------------------------------------------------
     subgraph cluster_storage {
-        label="";
+        label="Storage Systems";
         color="#528641";
         penwidth=2;
         style="rounded";
 
-        StorageHeader [
-            label="Storage Systems",
-            shape=box,
-            style="rounded",
-            color="#528641",
-            fillcolor="white",
-            penwidth=2,
-            fontsize=20
-        ];
-
-        S1 [label="Storage Backend 1"];
-        S2 [label="Storage Backend 2"];
-
-        // Vertical stacking
-        StorageHeader -> S1 [style=invis, weight=50];
-        S1           -> S2 [style=invis, weight=50];
+        S1 [label="Cloud"];
+        dummy [style=invis]
+        S2 [label="Tape"];
     }
 
     // ----------------------------------------------------
     // Policy Engine cluster
     // ----------------------------------------------------
     subgraph cluster_policy_engine {
-        label="";
+        label="Policy Engine";
         color="#528641";
         penwidth=2;
         style="rounded";
 
-        PEHeader [
-            label="Policy Engine",
-            shape=box,
-            style="rounded",
-            color="#528641",
-            fillcolor="white",
-            penwidth=2,
-            fontsize=20
-        ];
-
         Catalog [label="Metadata Catalog\n(provenance, tags, arrival time)"];
-
-        // Vertical stacking
-        PEHeader -> Catalog [style=invis, weight=50];
     }
 
     // ----------------------------------------------------
     // Compute Environment cluster
     // ----------------------------------------------------
     subgraph cluster_compute {
-        label="";
+        label="Compute Environment";
         color="#528641";
         penwidth=2;
         style="rounded";
 
-        ComputeHeader [
-            label="Compute Environment",
-            shape=box,
-            style="rounded",
-            color="#528641",
-            fillcolor="white",
-            penwidth=2,
-            fontsize=20
-        ];
-
         User   [label="User / Workflow\n(query metadata)"];
         Stream [label="Workflow A\n(stream content)"];
         Copy   [label="Workflow B\n(stage working copy)"];
-
-        // Vertical stacking
-        ComputeHeader -> User   [style=invis, weight=50];
-        User          -> Stream [style=invis, weight=50];
-        Stream        -> Copy   [style=invis, weight=50];
     }
 
-    // ----------------------------------------------------
-    // Align clusters horizontally (TB mode)
-    // ----------------------------------------------------
-    ComputeHeader -> PEHeader      [style=invis, weight=200];
-    PEHeader      -> StorageHeader [style=invis, weight=200];
 
     // ----------------------------------------------------
     // Visible edges (actual interactions)
     // ----------------------------------------------------
-    User   -> Catalog [label="query metadata"];
-    Catalog -> User   [label="return location + access info"];
+    User   -> Catalog [label="1. Query metadata", lhead="cluster_policy_engine"];
+    Catalog -> User   [label="2. Return location + access info"];
 
-    User   -> Stream  [label="ingest access info"];
-    User   -> Copy    [label="ingest access info"];
+    User   -> Stream  [label="3. Pass\naccess location"];
+    User   -> Copy ;
 
-    Stream -> Catalog [label="request data"];
-    Copy   -> Catalog [label="request data"];
+    Stream -> Catalog [label="4. Request data", lhead="cluster_policy_engine"];
+    Copy   -> Catalog [lhead="cluster_policy_engine"]
 
-    Catalog -> S1     [label="fetch data"];
+    Catalog -> dummy     [label="5. fetch data", lhead="cluster_storage"];
 }
 
 
