@@ -125,9 +125,9 @@ Figshare focuses on ease of deposit and broad dissemination. It supports many ou
 - embargoes and controlled access  
 - ORCID integration  
 
-Figshare focusses on sharing of research output,  [provides integrations](https://info.figshare.com/user-guide/list-of-figshare-integrations/) and offers [OAI-PMH](https://info.figshare.com/user-guide/how-to-use-figshares-oai-pmh-service/).
+Figshare focusses on sharing of research output, [provides integrations](https://info.figshare.com/user-guide/list-of-figshare-integrations/) and offers tools to expose metadata to metadata portals through [OAI-PMH](https://info.figshare.com/user-guide/how-to-use-figshares-oai-pmh-service/).
 
-Figshare is ideal when the goal is to make research outputs easy to publish and easy to find.
+The software and service is ideal when the goal is to make research outputs easy to publish and easy to find.
 
 ### Invenio / Zenodo
 
