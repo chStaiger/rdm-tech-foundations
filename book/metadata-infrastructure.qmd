@@ -48,7 +48,8 @@ digraph metadata_flow {
         rankdir=TB,
         bgcolor="white",
         fontname="Helvetica",
-        fontsize=14
+        fontsize=14,
+        compound=true
     ];
 
     node [
@@ -83,7 +84,9 @@ digraph metadata_flow {
         penwidth=2;
         sketch=1;
 
-        USER [label="Researchers and Machines"];
+        USER [label="Scientist"];
+        MACHINE [label="Workflow"];
+        AGG [label="Metadata\nAggregator"];
     }
 
     /* --- Repository (bottom-left) --- */
@@ -98,10 +101,18 @@ digraph metadata_flow {
         penwidth=2;
         sketch=1;
 
-        DATA [label="Data Files"];
         META [label="Local Metadata\n(JSON, XML, RDF)"];
-        API  [label="Expose Metadata\nvia OAI-PMH / REST API"];
-        META -> API [label="offered through"];
+        API  [label=<
+                    <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="1">
+                        <TR><TD><B>OAI-PMH Endpoint</B></TD></TR>
+                        <TR><TD ALIGN="CENTER">Expose Metadata</TD></TR>
+                        <TR><TD ALIGN="CENTER">REST API</TD></TR>
+                    </TABLE>
+                    >,
+                fillcolor="white",
+                ];
+        DATA [label="Data Files"];
+        META -> API [label="offered through", style=dashed];
     }
 
     /* --- Metadata Service (bottom-right) --- */
@@ -114,27 +125,45 @@ digraph metadata_flow {
         style="rounded";
         color="#528641";
         penwidth=2;
-        sketch=1;
 
-        HARV  [label="Harvester\nCollect & Normalise"];
-        INDEX [label="Indexer\nSearch Index / Knowledge Graph"];
-        PORTAL [label="Metadata Portal\nDiscovery Interface"];
-        HARV  -> INDEX  [label="provide harvested metadata"];
-        INDEX -> PORTAL [label="serve indexed metadata"];
+        HARV    [label=<
+                    <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="1">
+                        <TR><TD><B>Harvester</B></TD></TR>
+                        <TR><TD ALIGN="CENTER">Collect and Normalise</TD></TR>
+                    </TABLE>
+                    >,
+                fillcolor="white",
+                ];
+        PORTAL  [label=<
+                    <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="1">
+                        <TR><TD><B>Metadata Portal</B></TD></TR>
+                        <TR><TD ALIGN="CENTER">Discovery Interface</TD></TR>
+                    </TABLE>
+                    >,
+                fillcolor="white",
+                ];
+        INDEX  [label=<
+                <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="1">
+                    <TR><TD><B>Indexer</B></TD></TR>
+                    <TR><TD ALIGN="CENTER">Search Index</TD></TR>
+                    <TR><TD ALIGN="CENTER">Knowledge Graph</TD></TR>
+                </TABLE>
+            >,
+            fillcolor="white",
+        ];
+        
+        { rank = same; HARV; INDEX; }
+        { rank = min; PORTAL; }
+
+        HARV  -> INDEX  [label="provide\nharvested metadata", style=dashed];
+        INDEX -> PORTAL [label="serve\nindexed metadata", style=dashed];
+        PORTAL -> HARV [style=invis]
     }
 
-    /* --- Triangle layout --- */
-
-    /* Top rank: Consumer */
-    { rank = same; TOP_ANCHOR; }
-
-    /* Bottom rank: Repository + Metadata Service */
-    { rank = same; LEFT_ANCHOR; RIGHT_ANCHOR; }
-
     /* --- Edges --- */
-    USER -> PORTAL [label="search / explore"];
-    USER -> DATA   [label="access & download"];
-    API  -> HARV   [label="offer metadata"];
+    AGG -> PORTAL [label="Search / Explore", ltail="cluster_consumer",];
+    MACHINE -> DATA   [label="Access & Download", ltail="cluster_consumer"];
+    API  -> HARV   [label="offer metadata", style=dashed];
 }
 ```
 
@@ -430,7 +459,8 @@ digraph linkeddata_flow {
         rankdir=TB,
         bgcolor="white",
         fontname="Helvetica",
-        fontsize=14
+        fontsize=14,
+        compound=true
     ];
 
     node [
@@ -462,7 +492,9 @@ digraph linkeddata_flow {
         color="#528641";
         penwidth=2;
 
-        USER [label="Researchers and Machines"];
+        USER [label="Scientist"];
+        MACHINE [label="Workflow"];
+        AGG [label="Metadata\nAggregator"];
     }
 
     /* --- Repository (bottom-left) --- */
@@ -475,18 +507,26 @@ digraph linkeddata_flow {
         style="rounded";
         color="#528641";
         penwidth=2;
+        sketch=1;
 
-        DATA     [label="Data Files"];
-        RDF      [label="RDF Metadata\n(Turtle, JSON-LD, RDF/XML)"];
-        ENDPOINT [label="Expose RDF\nvia Content Negotiation / API"];
-
-        RDF -> ENDPOINT [label="published as RDF"];
+        META [label="RDF Metadata\n(JSON-LD, Turtle, RDF/XML)"];
+        API  [label=<
+                    <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="1">
+                        <TR><TD><B>Content Negotiation</B></TD></TR>
+                        <TR><TD ALIGN="CENTER">Expose Linked Data</TD></TR>
+                        <TR><TD ALIGN="CENTER">REST API</TD></TR>
+                    </TABLE>
+                    >,
+                fillcolor="white",
+                ];
+        DATA [label="Data Files"];
+        META -> API [label="offered through", style=dashed];
     }
 
     /* --- Linked Data Service (bottom-right) --- */
     subgraph cluster_linkeddata {
 
-        RIGHT_ANCHOR [shape=point, width=0, label="", style=invis];
+        //RIGHT_ANCHOR [shape=point, width=0, label="", style=invis];
 
         label="Linked Data Service";
         fontsize=14;
@@ -494,25 +534,37 @@ digraph linkeddata_flow {
         color="#528641";
         penwidth=2;
 
-        TRIPLE [label="Triple Store\n(GraphDB, Blazegraph, Fuseki)"];
-        SPARQL [label="SPARQL Endpoint\nQuery Interface"];
-
-        TRIPLE -> SPARQL [label="query graph"];
+        TRIPLE [label=<
+                    <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="1">
+                        <TR><TD><B>Triple Store</B></TD></TR>
+                        <TR><TD ALIGN="CENTER">GraphDB, Blazegraph, Fuseki</TD></TR>
+                    </TABLE>
+                    >,
+                fillcolor="white",
+                ];
+        
+        SPARQL [label=<
+                    <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="1">
+                        <TR><TD><B>SPARQL Endpoint</B></TD></TR>
+                        <TR><TD ALIGN="CENTER">Query Interface</TD></TR>
+                    </TABLE>
+                    >,
+                fillcolor="white",
+                ];
+        { rank = min; SPARQL; }        
+        TRIPLE -> SPARQL [label="query graph", style=dashed];
     }
 
     /* --- Triangle layout --- */
 
-    /* Top rank: Consumer */
-    { rank = same; TOP_ANCHOR; }
-
     /* Bottom rank: Repository + Linked Data Service */
-    { rank = same; LEFT_ANCHOR; RIGHT_ANCHOR; }
+
 
     /* --- Metadata flow (Repository → Triple Store) --- */
-    ENDPOINT -> TRIPLE [label="load RDF graphs"];
+    API -> TRIPLE [label="load RDF graphs", style=dashed];
 
     /* --- Consumer interactions --- */
-    USER -> SPARQL [label="query / explore"];
-    USER -> DATA   [label="access and download"];
+    USER -> SPARQL [label="query / explore", ltail="cluster_consumer"];
+    AGG -> DATA   [label="access and download", ltail="cluster_consumer"];
 }
 ```
