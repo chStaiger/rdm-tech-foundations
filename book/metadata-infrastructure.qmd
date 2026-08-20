@@ -575,3 +575,7 @@ digraph linkeddata_flow {
     AGG -> DATA   [label="access and download", ltail="cluster_consumer"];
 }
 ```
+
+Metadata flows across portals, harvesters, and indexers, while files move through storage systems, policy engines, and repositories.
+To keep these flows connected and to ensure that every file and its metadata remain tied together as they move, repositories and policy engines assign persistent identifiers.
+The next chapter explores the PID services that make this possible, including DOI, ePIC, ARK, and the Handle System.
