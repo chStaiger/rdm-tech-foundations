@@ -8,6 +8,8 @@ This chapter introduces the main components of that infrastructure: metadata por
 
 ## Why Local Metadata Alone Is Not Enough
 
+To understand why metadata infrastructure is necessary, we first need to look at the limitations of metadata that remains confined to a single repository.
+
 Creating a metadata record inside a repository is essential, but metadata that stays inside a single system remains effectively invisible to the wider research ecosystem. A dataset may be perfectly documented, but if its metadata is not exposed in standardised, machine‑readable ways, it cannot be:
 
 - discovered by search engines  
@@ -31,7 +33,8 @@ This is why FAIR emphasises that metadata must be findable and accessible, not m
 
 To achieve this, repositories must expose metadata through standard protocols (e.g., OAI‑PMH, ResourceSync, REST APIs) so that external services can collect and index it.
 
-The Figure below shows the architecture to make metadata actionable for researchers and machines. The nodes in light green denote the components that directly interact with users and machines and which you might have already used.
+The limitations above reveal a simple truth: metadata must move.
+@fig-metadata-flow shows the architecture to make metadata actionable for researchers and machines. The nodes in light green denote the components that directly interact with users and machines and which you might have already used.
 
 ```{dot}
 //| label: fig-metadata-flow
@@ -167,7 +170,7 @@ digraph metadata_flow {
 }
 ```
 
-We will now go through the single aspects of the metadata infrastructure.
+With the overall architecture in view, we can now examine each component in turn, beginning with the services that researchers encounter most directly: metadata portals.
 
 ## Metadata Portals
 
@@ -189,7 +192,7 @@ Portals typically:
 - Discipline‑specific portals (e.g., PANGAEA, GBIF, ICPSR)
 
 Portals are the *public face* of metadata: they make research outputs discoverable and provide the context needed for reuse.
-
+While metadata portals expose metadata for discovery, they depend on another class of service to supply them with records: metadata harvesters.
 
 ## Metadata Harvesters
 
@@ -221,6 +224,7 @@ Harvesters typically:
 - Europeana Harvester — aggregates cultural heritage metadata    
 
 Harvesters are the *connective tissue* of metadata infrastructure: they ensure that metadata does not remain siloed.
+Harvesters collect metadata, but collected metadata is not yet searchable or linked. Indexers perform this next step by structuring, enriching, and organising harvested metadata into searchable graphs and indexes.
 
 ## What Is a Metadata Indexer?
 
@@ -248,7 +252,6 @@ Harvesters collect metadata; indexers make it findable.
 Indexers turn metadata into actionable information, enabling discovery, analytics, and automated linking.
 
 
-
 ## Comparison of Metadata Portals, Harvesters, and Indexers
 
 | Component | Purpose | Operates On | Key Functions | Examples |
@@ -257,7 +260,8 @@ Indexers turn metadata into actionable information, enabling discovery, analytic
 | **Metadata Harvester** | Collect metadata from multiple sources | OAI‑PMH, APIs, ResourceSync | Harvest, normalise, deduplicate, enrich | OpenAIRE Harvester, Europeana Harvester |
 | **Metadata Indexer** | Make metadata searchable | Harvested metadata | Parse, extract fields, build index/graph | OpenAIRE Graph, DataCite Index |
 
-
+All of these services rely on one foundational element: how metadata is expressed.
+Serialisation formats determine whether metadata can be exchanged, validated, or interpreted across systems.
 
 
 ## Metadata Serialisation Formats
@@ -304,8 +308,7 @@ Serialisation determines:
 
 In practice, repositories often support multiple serialisations to serve different use cases.
 
-
-Below we give an example of the same metadata expressed in different formats.
+To illustrate how serialisation shapes interoperability, here is the same metadata expressed in three common formats.
 
 ### Example: The Same Metadata in JSON, XML, and Turtle
 
@@ -383,6 +386,8 @@ Characteristics:
 | **XML** | ✔ | ✔ | ◑ (with namespaces) | OAI‑PMH, schema‑driven metadata |
 | **Turtle (RDF)** | ◑ | ✔✔ | ✔✔ | Linked Data, knowledge graphs, FAIR metadata |
 
+These examples highlight the differences between formats.
+Choosing the right one depends on how the metadata will be used.
 
 ### When to Choose Which Serialisation Format?
 
@@ -447,6 +452,8 @@ Because of this, Linked Data reduces the need for traditional metadata harvester
 However, this convenience for infrastructures shifts responsibility upstream. For Linked Data to work well, researchers and data stewards must provide clean identifiers, consistent vocabularies, and well‑structured RDF. Instead of the infrastructure harmonising metadata after the fact, the quality and interoperability of the combined graph depend on the metadata producers themselves.
 
 In short: triple stores make integration easier for infrastructures, but require more discipline and modelling effort from researchers. When done well, the result is a metadata ecosystem that is inherently connected, machine‑interpretable, and ready for reuse across systems.
+
+@fig-linkeddata-flow shows how a Linked Data‑based metadata infrastructure works when repositories publish RDF directly and triple stores integrate it without traditional harvesting.
 
 ```{dot}
 //| label: fig-linkeddata-flow
