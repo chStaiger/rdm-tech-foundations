@@ -1,31 +1,32 @@
 # Glossary
 
 ::: {.hidden}
-{{< glossary RDM display="Research Data Management" add_to_table=true >}}
-{{< glossary data_governance display="Data Governance" add_to_table=true >}}
-{{< glossary data_stewardship display="Data Stewardship" add_to_table=true >}}
-{{< glossary RDM_Life_Cycle display="RDM Life Cycle" add_to_table=true >}}
-{{< glossary FAIR display="FAIR Principles" add_to_table=true >}}
-{{< glossary data_integrity display="Data Integrity" add_to_table=true >}}
-{{< glossary digital_object display="Digital Object" add_to_table=true >}}
-{{< glossary Files display="Files" add_to_table=true >}}
-{{< glossary Metadata display="Metadata" add_to_table=true >}}
-{{< glossary PID display="Persistent Identifier (PID)" add_to_table=true >}}
-{{< glossary Versioning display="Versioning" add_to_table=true >}}
-{{< glossary Fixity display="Fixity" add_to_table=true >}}
-{{< glossary Provenance display="Provenance" add_to_table=true >}}
-{{< glossary data_lineage display="Data Lineage" add_to_table=true >}}
-{{< glossary Interoperability display="Interoperability" add_to_table=true >}}
-{{< glossary Reusability display="Reusability" add_to_table=true >}}
-{{< glossary Preservation display="Preservation" add_to_table=true >}}
-{{< glossary Citation display="Citation" add_to_table=true >}}
-{{< glossary Replica display="Replica" add_to_table=true >}}
-{{< glossary Scratch display="HPC Scratch" add_to_table=true >}}
+{{< glossary "Citation" add_to_table=true >}}
+{{< glossary "Cold Storage" add_to_table=true >}}
+{{< glossary "Data Governance" add_to_table=true >}}
+{{< glossary "Data Integrity" add_to_table=true >}}
+{{< glossary "Data Lineage" add_to_table=true >}}
+{{< glossary "Data Stewardship" add_to_table=true >}}
+{{< glossary "Digital Object" add_to_table=true >}}
 {{< glossary ELN display="Electronic Lab Notebook (ELN)" add_to_table=true >}}
-{{< glossary tape display="Tape Library" add_to_table=true >}}
-{{< glossary cold display="Cold Storage" add_to_table=true >}}
-{{< glossary retention display="Retention Systems" add_to_table=true >}}
-{{< glossary workflow_engines display="Workflow Engines" add_to_table=true >}}
+{{< glossary FAIR add_to_table=true >}}
+{{< glossary Files display="Files" add_to_table=true >}}
+{{< glossary Fixity display="Fixity" add_to_table=true >}}
+{{< glossary Interoperability display="Interoperability" add_to_table=true >}}
+{{< glossary Metadata display="Metadata" add_to_table=true >}}
+{{< glossary PID add_to_table=true >}}
+{{< glossary Preservation display="Preservation" add_to_table=true >}}
+{{< glossary Provenance display="Provenance" add_to_table=true >}}
+{{< glossary RDM add_to_table=true >}}
+{{< glossary "RDM Life Cycle" add_to_table=true >}}
+{{< glossary Reusability display="Reusability" add_to_table=true >}}
+{{< glossary Replica display="Replica" add_to_table=true >}}
+{{< glossary Retention display="Retention Systems" add_to_table=true >}}
+{{< glossary Scratch add_to_table=true >}}
+{{< glossary "Tape Library" add_to_table=true >}}
+{{< glossary Versioning display="Versioning" add_to_table=true >}}
+{{< glossary "Workflow Engines" add_to_table=true >}}
+
 :::
 
 {{< glossary table=true >}}

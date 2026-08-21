@@ -41,7 +41,7 @@ The FAIR Principles — _Findable, Accessible, Interoperable, Reusable_ — prov
 
 ## Connecting FAIR and the RDM Life Cycle
 
-The {{< glossary RDM_Life_Cycle display="RDM Life Cycle"  >}} describes how data evolves, while the {{< glossary "FAIR"  >}} principles describe the qualities data must exhibit to remain usable by humans and machines. These two perspectives are complementary: one focuses on change, the other on usability.
+The {{< glossary "RDM Life Cycle" >}} describes how data evolves, while the {{< glossary "FAIR" >}} principles describe the qualities data must exhibit to remain usable by humans and machines. These two perspectives are complementary: one focuses on change, the other on usability.
 
 A key insight is that FAIR does not “switch on” only at publication. Its scope shifts as data matures. Initially, FAIR supports collaboration and internal organisation. Later, it supports stewardship, preservation, and ultimately global reuse.
 
@@ -311,7 +311,7 @@ During the Closed stage, data becomes sufficiently stable for structured organis
 
 The Locked state then acts as a buffer. Stabilised data is frozen in a read‑only condition, protected against accidental changes while retention and appraisal take place. FAIR remains minimal but essential, ensuring the data stays intelligible and manageable even in inactivity.
 
-- **Typical services**: {{< glossary tape display="tape library"  >}}, {{< glossary cold display="cold storage"  >}}, {{< glossary retention display="retention systems"  >}}, {{< glossary workflow_engines display="workflow engines"  >}}, metadata templates.
+- **Typical services**: {{< glossary "Tape Library" >}}, {{< glossary "Cold Storage" >}}, {{< glossary Retention display="Retention Systems"  >}}, {{< glossary "Workflow Engines" >}}, Metadata Templates.
 
 - **Audience**: research team + institutional stewards
 
