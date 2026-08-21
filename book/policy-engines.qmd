@@ -680,7 +680,7 @@ digraph metadata_query_flow {
 
 ```
 
-Users or workflows query the metadata catalog to identify files that require processing—for example, newly arrived data which still needs to be processed and analysed. The policy engine resolves the storage location, checks access and provides the necessary access handles to the workflow. The workflow then streams the content or stages a working copy through the policy engine, ensuring that storage remains abstracted and consistently governed.
+Users or workflows query the metadata catalog to identify files that require processing — for example, newly arrived data which still needs to be processed and analysed. The policy engine resolves the storage location, checks access and provides the necessary access handles to the workflow. The workflow then streams the content or stages a working copy through the policy engine, ensuring that storage remains abstracted and consistently governed.
 
 ## Comparison with Synchronisation Tools
 
@@ -716,4 +716,4 @@ Even with repositories and policy engines enriching and exposing metadata to som
 
 To avoid these silos, research ecosystems rely on metadata services that collect, normalise, and aggregate metadata from many sources. These services enable cross‑repository discovery and make metadata visible beyond the system where it was created.
 
-How they achieve that, we will doscover in the next chapter.
+How they achieve that, we will discover in the next chapter.

@@ -88,6 +88,7 @@ digraph data_repo_workflow {
 ```
 
 Figure @fig-repo-workflow shows a standard repository workflow from draft phase to final publication.
+
 This workflow is implemented slightly differently across repository platforms, but the underlying logic is the same: stabilised files are transformed into a governed dataset with metadata, an identifier, and access controls. The following platforms illustrate how these principles appear in real systems.
 
 ## Repository Platforms
