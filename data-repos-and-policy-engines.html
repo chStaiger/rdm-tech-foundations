@@ -92,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./rdm-infra-intro.html">COMPONENTS OF RDM INFRASTRUCTURE</a></li><li class="breadcrumb-item"><a href="./digital-object-infrastructure.html"><span class="chapter-title">Data Repositories and Policy Engines</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./rdm-infra-intro.html">COMPONENTS OF RDM INFRASTRUCTURE</a></li><li class="breadcrumb-item"><a href="./data-repos-and-policy-engines.html"><span class="chapter-title">Data Repositories and Policy Engines</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -206,7 +206,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./digital-object-infrastructure.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Data Repositories and Policy Engines</span></a>
+  <a href="./data-repos-and-policy-engines.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Data Repositories and Policy Engines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -269,7 +269,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./rdm-infra-intro.html">COMPONENTS OF RDM INFRASTRUCTURE</a></li><li class="breadcrumb-item"><a href="./digital-object-infrastructure.html"><span class="chapter-title">Data Repositories and Policy Engines</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./rdm-infra-intro.html">COMPONENTS OF RDM INFRASTRUCTURE</a></li><li class="breadcrumb-item"><a href="./data-repos-and-policy-engines.html"><span class="chapter-title">Data Repositories and Policy Engines</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-title">Data Repositories and Policy Engines</span></h1>
 </div>
@@ -288,16 +288,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In the previous chapter, we saw that modern RDM depends on a coordinated infrastructure in which storage, metadata, identifiers and compute systems each play a distinct role in creating and supporting digital objects across their lifecycle. Storage keeps files safe, but it does not coordinate:</p>
+<p>The previous chapter outlined the layers of RDM infrastructure and showed how storage, metadata, identifiers, and compute each contribute to forming and using digital objects. We now turn to the first systems that operate above storage — the systems responsible for coordinating files, metadata, identifiers, and policies as digital objects emerge and stabilise. These systems fall into two complementary categories: data repositories and policy engines.</p>
+<p>Storage keeps files safe, but it does not coordinate:</p>
 <ul>
-<li>the <strong>files</strong> themselves<br>
+<li>the <em>files</em> themselves<br>
 </li>
-<li>their <strong>replicas</strong> across different storage systems<br>
+<li>their <em>replicas</em> across different storage systems<br>
 </li>
-<li>their <strong>metadata</strong><br>
+<li>their <em>metadata</em><br>
 </li>
-<li>their <strong>persistent identifiers</strong></li>
-<li>their <strong>relationships</strong>, provenance, or lifecycle state</li>
+<li>their <em>persistent identifiers</em></li>
+<li>their <em>relationships</em> and provenance</li>
+<li>their <em>lifecycle state</em></li>
 </ul>
 <p>This coordination is needed throughout the entire data lifecycle, especially in the early, volatile stages where files are created, transformed, and stabilised. Yet these stages often lack infrastructure capable of treating files as emerging digital objects.</p>
 <p>To fill this gap, RDM depends on systems that operate above storage, i.e.&nbsp;systems whose role is to manage files, metadata, identifiers, and policies in a unified way. The next sections introduce two such systems that play complementary roles in the RDM ecosystem: data repositories and policy engines.</p>
@@ -324,10 +326,11 @@ In contemporary research infrastructures, <em>data repository</em> usually refer
 <p>To describe this class of platforms clearly and consistently, this book adopts the term <em>policy engines</em> for software and platforms which manage digital objects during active research. This distinction is central to understanding why repositories and policy engines play complementary roles in Research Data Management.</p>
 </div>
 </div>
+<p>The next chapters examine how data repositories and policy engines manage and govern digital objects once they begin to take shape.</p>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <ul>
-<li>https://book.the-turing-way.org/reproducible-research/rdm/rdm-repository/</li>
+<li><a href="https://book.the-turing-way.org/reproducible-research/rdm/rdm-repository/" class="uri">https://book.the-turing-way.org/reproducible-research/rdm/rdm-repository/</a></li>
 </ul>
 
 

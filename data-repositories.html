@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -37,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./policy-engines.html" rel="next">
-<link href="./digital-object-infrastructure.html" rel="prev">
+<link href="./data-repos-and-policy-engines.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -206,7 +241,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./digital-object-infrastructure.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Repositories and Policy Engines</span></a>
+  <a href="./data-repos-and-policy-engines.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Repositories and Policy Engines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -311,13 +346,15 @@ ul.task-list li input[type="checkbox"] {
 <li>restricted files, where access requires approval</li>
 </ul>
 <p>Even in these cases, the repository entry (landing page) and its basic metadata are usually publicly visible, while the underlying files may be delayed or restricted.</p>
-<p>Repositories operate primarily at the dataset level. They expect researchers to prepare a coherent data package consisting of:</p>
+<p>Repositories operate primarily at the dataset level, meaning the digital object here consists of several files. They expect researchers to prepare a coherent data package consisting of:</p>
 <ul>
 <li>one metadata record<br>
 </li>
 <li>one persistent identifier<br>
 </li>
-<li>one landing page</li>
+<li>one landing page<br>
+</li>
+<li>the files</li>
 </ul>
 <p>File‑level metadata may be supported, but it is typically secondary. Repositories are therefore optimised for curation, governance, and long‑term retention of stabilised datasets, not for managing the volatile, rapidly changing files produced during active research.</p>
 <p>Repositories typically provide:</p>
@@ -339,9 +376,9 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="the-repository-workflow">The Repository Workflow</h3>
 <div class="cell" data-fig-width="9" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-repo-workflow" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-repo-workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
 <svg width="864" height="480" viewbox="0.00 0.00 720.00 98.63" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(0.704503 0.704503) rotate(0) translate(4 136)">
@@ -424,14 +461,15 @@ ul.task-list li input[type="checkbox"] {
 </svg>
 </div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-repo-workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;12.1: Data repositories implement a structured publication workflow that transforms a bundle of stabilised files into a single governed digital object. The workflow focuses on dataset‑level metadata, packaging, and persistent identifiers rather than elevating individual files to independent objects.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>This workflow is implemented differently across repository platforms, but the underlying logic is the same: stabilised files are transformed into a governed dataset with metadata, identifiers, and access controls. The following platforms illustrate how these principles appear in real systems.</p>
+<p>Figure <a href="#fig-repo-workflow" class="quarto-xref">Figure&nbsp;<span>12.1</span></a> shows a standard repository workflow from draft phase to final publication.</p>
+<p>This workflow is implemented slightly differently across repository platforms, but the underlying logic is the same: stabilised files are transformed into a governed dataset with metadata, an identifier, and access controls. The following platforms illustrate how these principles appear in real systems.</p>
 </section>
 <section id="repository-platforms" class="level2">
 <h2 class="anchored" data-anchor-id="repository-platforms">Repository Platforms</h2>
@@ -480,8 +518,8 @@ Figure&nbsp;12.1: Data repositories implement a structured publication workflow 
 </li>
 <li>ORCID integration</li>
 </ul>
-<p>Figshare focusses on sharing of research output and <a href="https://info.figshare.com/user-guide/list-of-figshare-integrations/">provides integrations</a> and offers <a href="https://info.figshare.com/user-guide/how-to-use-figshares-oai-pmh-service/">OAI-PMH</a>.</p>
-<p>Figshare is ideal when the goal is to make research outputs easy to publish and easy to find.</p>
+<p>Figshare focusses on sharing of research output, <a href="https://info.figshare.com/user-guide/list-of-figshare-integrations/">provides integrations</a> and offers tools to expose metadata to metadata portals through <a href="https://info.figshare.com/user-guide/how-to-use-figshares-oai-pmh-service/">OAI-PMH</a>.</p>
+<p>The software and service is ideal when the goal is to make research outputs easy to publish and easy to find.</p>
 </section>
 <section id="invenio-zenodo" class="level3">
 <h3 class="anchored" data-anchor-id="invenio-zenodo">Invenio / Zenodo</h3>
@@ -510,7 +548,7 @@ Zenodo, built on Invenio, is a public repository offering free long‑term hosti
 </li>
 <li>concept DOIs and version DOIs<br>
 </li>
-<li>GitHub integration (archiving releases automatically)<br>
+<li>GitHub integration (archiving software releases automatically)<br>
 </li>
 <li>long‑term preservation</li>
 </ul>
@@ -541,25 +579,24 @@ Each addresses a different part of the preservation problem.</p>
 <li>optional <strong>tag files</strong> with descriptive or administrative metadata</li>
 </ul>
 <p>A minimal BagIt directory might look like this:</p>
-<pre><code>mydataset-bag/
-├── bagit.txt
-├── bag-info.txt
-├── manifest-sha256.txt
-└── data/
-    ├── results.csv
-    └── readme.txt
-</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mydataset-bag/</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> bagit.txt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> bag-info.txt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> manifest-sha256.txt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> data/</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> results.csv</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">└──</span> readme.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><p>bagit.txt declares the BagIt version and encoding:</p>
-<pre><code>BagIt-Version: 1.0
-Tag-File-Character-Encoding: UTF-8</code></pre></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">BagIt-Version:</span> 1.0</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Tag-File-Character-Encoding:</span> UTF-8</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>bag-info.txt conatins high-level metadata about the “bag”</p>
-<pre><code>Bag-Software-Agent: Example BagIt Creator 1.0
-Bagging-Date: 2024-05-01
-Contact-Name: Research Data Team</code></pre></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Bag-Software-Agent:</span> Example BagIt Creator 1.0</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Bagging-Date:</span> 2024-05-01</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Contact-Name:</span> Research Data Team</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>manifest-sha256.txt contains the checksums for all files in <code>/data</code>:</p>
-<pre><code>3a7bd3e2360a3d...  data/results.csv
-b1946ac92492d...  data/readme.txt</code></pre></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">3a7bd3e2360a3d...</span>  data/results.csv</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">b1946ac92492d...</span>  data/readme.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ul>
 <p>Repositories use BagIt because it:</p>
 <ul>
@@ -743,63 +780,78 @@ Figure&nbsp;12.2: How METS and PREMIS Fit into OAIS SIP / AIP / DIP.
 <li>optional workflow, provenance, or software metadata</li>
 </ul>
 <p>Below we illustrate an example:</p>
-<pre><code>my-crate/
-├── ro-crate-metadata.json
-├── ro-crate-preview.html
-├── results.csv
-├── readme.txt
-├── input-data.json
-└── workflow.cwl</code></pre>
-<p>The file <code>ro-crate-metadata.json</code> is a JSON-LD file, a file which uses linked data to describe the relationship between the files in the package:</p>
-<pre class="{xml}"><code>{
-  "@context": "https://w3id.org/ro/crate/1.1/context",
-  "@graph": [
-    {
-      "@id": "./",
-      "@type": "Dataset",
-      "name": "Example Dataset with Workflow",
-      "description": "A dataset demonstrating RO-Crate with workflow and input/output relationships.",
-      "hasPart": [
-        { "@id": "results.csv" },
-        { "@id": "readme.txt" },
-        { "@id": "input-data.json" },
-        { "@id": "workflow.cwl" }
-      ]
-    },
-
-    {
-      "@id": "results.csv",
-      "@type": "File",
-      "encodingFormat": "text/csv",
-      "name": "Analysis Results",
-      "wasGeneratedBy": { "@id": "workflow.cwl" }
-    },
-
-    {
-      "@id": "input-data.json",
-      "@type": "File",
-      "encodingFormat": "application/json",
-      "name": "Input Data for Workflow",
-      "usedByWorkflow": { "@id": "workflow.cwl" }
-    },
-
-    {
-      "@id": "workflow.cwl",
-      "@type": "SoftwareSourceCode",
-      "name": "Analysis Workflow",
-      "programmingLanguage": "CWL",
-      "url": "workflow.cwl",
-      "input": { "@id": "input-data.json" },
-      "output": { "@id": "results.csv" }
-    },
-
-    {
-      "@id": "readme.txt",
-      "@type": "File",
-      "encodingFormat": "text/plain"
-    }
-  ]
-}</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">my-crate/</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> ro-crate-metadata.json</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> ro-crate-preview.html</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> results.csv</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> readme.txt</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> input-data.json</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> workflow.cwl</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The file <code>ro-crate-metadata.json</code> is a JSON-LD file, a file which uses linked data to describe the relationship between the files in the package.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Inspect the JSON-LD RO-Crate file
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  "@context": "https://w3id.org/ro/crate/1.1/context",</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  "@graph": [</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>      "@id": "./",</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>      "@type": "Dataset",</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>      "name": "Example Dataset with Workflow",</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>      "description": "A dataset demonstrating RO-Crate with workflow and input/output relationships.",</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>      "hasPart": [</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        { "@id": "results.csv" },</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        { "@id": "readme.txt" },</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        { "@id": "input-data.json" },</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        { "@id": "workflow.cwl" }</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>      ]</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>      "@id": "results.csv",</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>      "@type": "File",</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>      "encodingFormat": "text/csv",</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>      "name": "Analysis Results",</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>      "wasGeneratedBy": { "@id": "workflow.cwl" }</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>      "@id": "input-data.json",</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>      "@type": "File",</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>      "encodingFormat": "application/json",</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>      "name": "Input Data for Workflow",</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>      "usedByWorkflow": { "@id": "workflow.cwl" }</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>      "@id": "workflow.cwl",</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>      "@type": "SoftwareSourceCode",</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>      "name": "Analysis Workflow",</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>      "programmingLanguage": "CWL",</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>      "url": "workflow.cwl",</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>      "input": { "@id": "input-data.json" },</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>      "output": { "@id": "results.csv" }</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>      "@id": "readme.txt",</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>      "@type": "File",</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>      "encodingFormat": "text/plain"</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 <p>RO‑Crate is designed for:</p>
 <ul>
 <li>FAIR workflows<br>
@@ -867,6 +919,7 @@ Figure&nbsp;12.2: How METS and PREMIS Fit into OAIS SIP / AIP / DIP.
 <li><strong>Workflow‑oriented systems</strong> increasingly adopt RO‑Crate for computational provenance.</li>
 </ul>
 <p>Together, these standards form the technical backbone that allows repositories to preserve digital objects reliably and integrate with institutional or national preservation infrastructures.</p>
+<p>Repositories govern data once it has stabilised, but most research data is created and transformed long before that point. To understand how digital objects are managed during this active phase, we now turn to policy engines, the systems that coordinate files, metadata, and storage while data is still evolving.</p>
 
 
 </section>
@@ -1276,7 +1329,7 @@ Figure&nbsp;12.2: How METS and PREMIS Fit into OAIS SIP / AIP / DIP.
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./digital-object-infrastructure.html" class="pagination-link" aria-label="Data Repositories and Policy Engines">
+      <a href="./data-repos-and-policy-engines.html" class="pagination-link" aria-label="Data Repositories and Policy Engines">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Data Repositories and Policy Engines</span></span>
       </a>          
   </div>
