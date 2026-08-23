@@ -7,7 +7,7 @@
 @wiki_data_steward
 @doi_data_governance_2008
 @gofair_principles
-@wilkinson_fair_2016
+@wilkinson_fair_lifecycle_2016
 @wiki_open_science
 @turingway_open_science
 @wiki_big_data
@@ -15,7 +15,6 @@
 @turingway_definitions
 @wiki_reproducibility
 @wiki_data_wrangling
-@wilkinson_fair_lifecycle_2016
 @lisedu_digital_object
 @dpconline_representation_info
 @kahn_digital_object_talk
@@ -40,14 +39,13 @@
 @rfc3650_handle_overview
 @rfc3651_handle_res
 @cnri_distributed_objects
-@schultes_fdoip_2020
-@arxiv_2411_18663
+@schwardmann_fdo_services_2020
 @theocharides_cooking_dois_2025
-@nature_fdo_2025
+@islam_fair_digital_twins_2025
 @fairdo_org
 @gofair_framework
 @dona_doipv2
-@schultes_fdoip_repeat_2020
+@blumenroehr_fdo_dataspaces_2024
 @seek_2025
 :::
 
